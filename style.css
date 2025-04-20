@@ -1,0 +1,102 @@
+/* Base Stylesheet for Marlitha's Portfolio */
+
+:root {
+  --navy: #0A3161;
+  --teal: #008080;
+  --gold: #FFB81C;
+  --light-gray: #F4F4F4;
+  --charcoal: #333333;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background-color: white;
+  color: var(--charcoal);
+}
+
+h1, h2, h3, h4, h5, h6, .nav-link {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Color Utilities */
+.text-navy { color: var(--navy); }
+.text-teal { color: var(--teal); }
+.text-gold { color: var(--gold); }
+.bg-navy { background-color: var(--navy); }
+.bg-teal { background-color: var(--teal); }
+.bg-gold { background-color: var(--gold); }
+.bg-light-gray { background-color: var(--light-gray); }
+.border-navy { border-color: var(--navy); }
+.border-teal { border-color: var(--teal); }
+.border-gold { border-color: var(--gold); }
+
+/* Navigation underline hover */
+.nav-link {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Buttons */
+.button-primary {
+  background-color: var(--navy);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.button-primary:hover {
+  background-color: var(--teal);
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: var(--navy);
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 3px;
+  background-color: var(--gold);
+  bottom: -10px;
+  left: 0;
+}
+
+/* Utility Classes */
+.skill-tag {
+  background-color: var(--light-gray);
+  color: var(--navy);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background-color: var(--navy);
+  color: white;
+}
