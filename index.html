@@ -1,185 +1,2190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Full head content preserved -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marlitha Williams | Educational Leader & Instructional Coach</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --navy: #0A3161;
-      --teal: #008080;
-      --gold: #FFB81C;
-      --light-gray: #F4F4F4;
-      --charcoal: #333333;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Georgia', serif;
-      color: var(--charcoal);
-      background-color: white;
-    }
-    h1, h2, h3, h4, h5, h6, .nav-link {
-      font-family: 'Montserrat', sans-serif;
-    }
-    .text-navy { color: var(--navy); }
-    .text-teal { color: var(--teal); }
-    .text-gold { color: var(--gold); }
-    .bg-navy { background-color: var(--navy); }
-    .bg-teal { background-color: var(--teal); }
-    .bg-gold { background-color: var(--gold); }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: var(--gold);
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    .animated-underline::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 3px;
-      bottom: -5px;
-      left: 0;
-      background-color: var(--gold);
-      transform: scaleX(0);
-      transform-origin: bottom right;
-      transition: transform 0.3s;
-    }
-    .animated-underline.visible::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marlitha Williams | Educational Leader & Instructional Coach</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A3161;
+            --teal: #008080;
+            --gold: #FFB81C;
+            --light-gray: #F4F4F4;
+            --charcoal: #333333;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--charcoal);
+            background-color: white;
+        }
+        
+        h1, h2, h3, h4, h5, h6, .nav-link {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .bg-navy {
+            background-color: var(--navy);
+        }
+        
+        .bg-teal {
+            background-color: var(--teal);
+        }
+        
+        .bg-gold {
+            background-color: var(--gold);
+        }
+        
+        .text-navy {
+            color: var(--navy);
+        }
+        
+        .text-teal {
+            color: var(--teal);
+        }
+        
+        .text-gold {
+            color: var(--gold);
+        }
+        
+        .border-navy {
+            border-color: var(--navy);
+        }
+        
+        .border-teal {
+            border-color: var(--teal);
+        }
+        
+        .border-gold {
+            border-color: var(--gold);
+        }
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(90deg, rgba(10,49,97,0.95) 0%, rgba(0,128,128,0.9) 100%);
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .timeline {
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--teal);
+        }
+        
+        .timeline-item {
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--gold);
+            z-index: 1;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+        }
+        
+        .progress-value {
+            height: 100%;
+            border-radius: 4px;
+            background-color: var(--teal);
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        .count-up {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 1rem;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            color: var(--light-gray);
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .case-study-image {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+            background-color: var(--light-gray);
+        }
+
+        .skill-tag {
+            background-color: var(--light-gray);
+            color: var(--navy);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--navy);
+            color: white;
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition-delay: calc(var(--item-index) * 0.1s);
+        }
+
+        .stagger-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        /* Bar chart styles */
+        .bar-chart {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            height: 250px;
+            width: 100%;
+            gap: 8px;
+        }
+
+        .bar-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            align-items: center;
+        }
+
+        .bar {
+            width: 100%;
+            background-color: var(--teal);
+            margin-bottom: 10px;
+            border-radius: 5px 5px 0 0;
+            height: 0;
+            transition: height 1.5s ease;
+        }
+
+        .bar-text {
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .bar-label {
+            transform: rotate(-45deg);
+            margin-top: 10px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        /* Circle chart styles */
+        .circle-chart {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .circle-bg {
+            fill: none;
+            stroke: #eee;
+            stroke-width: 3.8;
+        }
+        
+        .circle-progress {
+            fill: none;
+            stroke: var(--teal);
+            stroke-width: 3.8;
+            stroke-linecap: round;
+            stroke-dasharray: 0 100;
+            transition: stroke-dasharray 1.5s ease;
+        }
+        
+        .circle-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            fill: var(--navy);
+        }
+
+        .social-icon {
+            color: var(--navy);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* 3D Chart Container Styles */
+        .chart3d-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+
+        .chart3d-container canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .chart-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+
+        .chart-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .chart-control-btn {
+            background-color: var(--navy);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chart-control-btn:hover {
+            background-color: var(--teal);
+        }
+
+        .chart-tooltip {
+            position: absolute;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 10;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: var(--charcoal);
+            max-width: 200px;
+        }
+
+        /* For PDF export optimization */
+         {
+            .nav-container {
+                display: none;
+            }
+            
+            html, body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: visible;
+            }
+            
+            .fade-in, .stagger-item {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .progress-value {
+                width: var(--target-width) !important;
+            }
+            
+            .bar {
+                height: var(--target-height) !important;
+            }
+            
+            .circle-progress {
+                stroke-dasharray: var(--target-value) 100 !important;
+            }
+        }
+    </style>
 </head>
-<body class="bg-white">
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="font-semibold text-2xl text-navy">MW</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-navy font-medium">About</a>
+                <a href="#portfolio" class="nav-link text-navy font-medium">Portfolio</a>
+                <a href="#data-visualizations" class="nav-link text-navy font-medium">Data Insights</a>
+                <a href="#expertise" class="nav-link text-navy font-medium">Expertise</a>
+                <a href="#contact" class="nav-link text-navy font-medium">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-navy">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full py-4 shadow-md">
+            <div class="container mx-auto px-6 flex flex-col space-y-4">
+                <a href="#about" class="text-navy font-medium">About</a>
+                <a href="#portfolio" class="text-navy font-medium">Portfolio</a>
+                <a href="#data-visualizations" class="text-navy font-medium">Data Insights</a>
+                <a href="#expertise" class="text-navy font-medium">Expertise</a>
+                <a href="#contact" class="text-navy font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-<!-- Navigation -->
-<nav class="bg-white shadow-md py-4 sticky top-0 z-50">
-  <div class="container mx-auto px-4 flex justify-between items-center">
-    <div>
-      <a href="#" class="text-2xl font-bold text-navy">Marlitha Williams</a>
-    </div>
-    <div class="hidden md:flex space-x-6">
-      <a href="#about" class="nav-link text-navy hover:text-teal">About</a>
-      <a href="#literacy-impact" class="nav-link text-navy hover:text-teal">Literacy Impact</a>
-      <a href="#case-studies" class="nav-link text-navy hover:text-teal">Case Studies</a>
-      <a href="#contact" class="nav-link text-navy hover:text-teal">Contact</a>
-    </div>
-  </div>
-</nav>
+    <!-- Hero Section -->
+    <header class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 py-20 text-white">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="w-64 h-64 mx-auto bg-light-gray rounded-full overflow-hidden border-4 border-white">
+                        <!-- Placeholder for headshot -->
+                        <div class="w-full h-full flex items-center justify-center bg-light-gray text-navy">
+                            <i class="fas fa-user-alt text-6xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 class="hero-title mb-4">Marlitha Williams</h1>
+                    <h2 class="text-2xl mb-6 font-light text-gold">Educational Leader & Instructional Coach</h2>
+                    <p class="text-xl mb-8">Building sustainable systems that empower educators and elevate student achievement.</p>
+                    <div class="flex flex-col md:flex-row justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4">
+                        <a href="#portfolio" class="bg-gold text-navy px-6 py-3 rounded-md font-bold hover:bg-white hover:text-navy transition duration-300">View My Work</a>
+                        <a href="#contact" class="border-2 border-white text-white px-6 py-3 rounded-md font-bold hover:bg-white hover:text-navy transition duration-300">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<!-- Hero Section -->
-<section class="py-20 bg-navy text-white text-center">
-  <div class="container mx-auto px-6">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Marlitha Williams</h1>
-    <p class="text-xl md:text-2xl mb-6">Educational Leader & Instructional Coach</p>
-    <p class="max-w-2xl mx-auto text-lg">Designing systems that endure — even when staff doesn’t.</p>
-    <div class="mt-8">
-      <a href="#case-studies" class="bg-gold text-navy px-6 py-3 rounded-md font-bold hover:bg-white hover:text-navy transition">Explore My Work</a>
-    </div>
-  </div>
-</section>
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold text-navy">About Me</h2>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-2/3 mb-10 md:mb-0 md:pr-10">
+                    <p class="mb-6 fade-in">I am an experienced educational leader, instructional coach, and professional learning facilitator with expertise in literacy and math instruction, data-driven intervention, and curriculum implementation. My passion lies in designing and leading engaging professional development that improves teacher effectiveness and student outcomes.</p>
+                    
+                    <p class="mb-6 fade-in">With a background in both education and law, I bring a unique perspective to educational leadership, focusing on systems that drive equity and close learning gaps. My work has consistently yielded measurable improvements in teacher growth and retention, even amidst challenging conditions.</p>
+                    
+                    <p class="mb-10 fade-in">I believe that effective schools are built on robust systems, not just individual charisma. Throughout my career, I've championed the philosophy that teacher development should be layered, responsive, anchored in clear routines, and grounded in adult learning theory.</p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-10">
+                        <div class="skill-tag">Instructional Leadership</div>
+                        <div class="skill-tag">Data-Driven Instruction</div>
+                        <div class="skill-tag">Structured Literacy</div>
+                        <div class="skill-tag">Professional Development</div>
+                        <div class="skill-tag">Teacher Mentorship</div>
+                        <div class="skill-tag">Educational Equity</div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+                        <div class="text-center">
+                            <span class="count-up" data-target="82">0</span>
+                            <p class="text-teal font-medium">Teacher Retention %</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="count-up" data-target="17">0</span>
+                            <p class="text-teal font-medium">% of Teachers Promoted</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="count-up" data-target="20">0</span>
+                            <p class="text-teal font-medium">Schools Impacted</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/3">
+                    <div class="bg-light-gray p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-navy mb-4">Educational Background</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="mr-4 text-gold"><i class="fas fa-graduation-cap text-xl"></i></div>
+                                <div>
+                                    <p class="font-bold">Juris Doctor (JD)</p>
+                                    <p>University of Arkansas School of Law (2013)</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="mr-4 text-gold"><i class="fas fa-graduation-cap text-xl"></i></div>
+                                <div>
+                                    <p class="font-bold">Bachelor's Degree</p>
+                                    <p>Purdue University</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <h3 class="text-xl font-bold text-navy mb-4 mt-8">Certifications</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="mr-4 text-gold"><i class="fas fa-certificate text-xl"></i></div>
+                                <div>
+                                    <p class="font-bold">Texas Bar</p>
+                                    <p>2016</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="mr-4 text-gold"><i class="fas fa-certificate text-xl"></i></div>
+                                <div>
+                                    <p class="font-bold">Texas Reading Academies Certification</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="mr-4 text-gold"><i class="fas fa-certificate text-xl"></i></div>
+                                <div>
+                                    <p class="font-bold">Leadership Pathway</p>
+                                    <p>2024</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Professional Journey Timeline -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-navy mb-10">Professional Journey</h3>
+                <div class="space-y-12">
+                    <div class="stagger-item" style="--item-index: 0;">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <h4 class="text-xl font-bold text-navy">2019 - 2024</h4>
+                                <p class="text-teal font-medium">Principal</p>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h5 class="text-lg font-semibold">Idea Public Schools, San Antonio, TX</h5>
+                                <p class="mb-4">Integrated principles of structured literacy, cognitive engagement, and scaffolding to enhance reading comprehension and foster student perseverance through complex texts, resulting in 3 years of 80% of 5th grade students meeting/exceeding yearly reading growth targets.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stagger-item" style="--item-index: 1;">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <h4 class="text-xl font-bold text-navy">2017 - 2019</h4>
+                                <p class="text-teal font-medium">Assistant Principal</p>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h5 class="text-lg font-semibold">Idea Public Schools, San Antonio, TX</h5>
+                                <p class="mb-4">Led campus to win Best New Campus of the Year, exceeding the 70% learning target for on-track proficiency in Reading and Math, achieving over 90% teacher retention, and surpassing enrollment goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stagger-item" style="--item-index: 2;">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <h4 class="text-xl font-bold text-navy">2016 - 2017</h4>
+                                <p class="text-teal font-medium">Project Manager</p>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h5 class="text-lg font-semibold">San Antonio Independent School District</h5>
+                                <p class="mb-4">Managed the launch of the district's first Dual Language Academy, which served as a model for expansion, resulting in 45 additional campuses adopting the program within two years.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- About Section -->
-<section id="about" class="py-16 bg-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-navy mb-6">About Me</h2>
-    <p class="text-lg mb-4 max-w-3xl">With a background in law and education, I bring an analytical, equity-driven lens to literacy leadership. My work focuses on building durable, scalable systems that empower even novice or substitute teachers to deliver rigorous, meaningful instruction. I’ve led campus-wide gains in reading while navigating teacher shortages, trauma, and instructional instability.</p>
-  </div>
-</section>
+    <!-- Portfolio/Case Studies Section -->
+    <section id="portfolio" class="py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold text-navy">Case Studies</h2>
+            <p class="mb-12 max-w-3xl">These case studies highlight my data-driven approach to educational leadership, with a focus on building sustainable systems that improve teacher effectiveness and student outcomes.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+                <!-- Case Study 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover fade-in">
+                    <div class="case-study-image bg-navy flex items-center justify-center">
+                        <i class="fas fa-book-reader text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy mb-2">Literacy Leadership</h3>
+                        <p class="text-teal font-medium mb-3">Building Systems That Outlast Challenges</p>
+                        <p class="mb-4">Created layered routines, scaffolded instruction, and systems that sustained student growth across transitions, curriculum shifts, and staffing disruptions.</p>
+                        
+                        <!-- Interactive Data Chart -->
+                        <div class="chart-container mb-6">
+                            <h4 class="text-lg font-medium mb-2">Literacy Performance</h4>
+                            <div class="bar-chart">
+                                <div class="bar-container">
+                                    <div class="bar" style="--target-height: 55%;" data-height="55"></div>
+                                    <div class="bar-text">55%</div>
+                                    <div class="bar-label">2022 Meets</div>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="--target-height: 39%;" data-height="39"></div>
+                                    <div class="bar-text">39%</div>
+                                    <div class="bar-label">2023 Meets</div>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="--target-height: 59%;" data-height="59"></div>
+                                    <div class="bar-text">59%</div>
+                                    <div class="bar-label">2024 Meets</div>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar bg-gold" style="--target-height: 41%;" data-height="41"></div>
+                                    <div class="bar-text">41%</div>
+                                    <div class="bar-label">2022 Masters</div>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar bg-gold" style="--target-height: 19%;" data-height="19"></div>
+                                    <div class="bar-text">19%</div>
+                                    <div class="bar-label">2023 Masters</div>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar bg-gold" style="--target-height: 31%;" data-height="31"></div>
+                                    <div class="bar-text">31%</div>
+                                    <div class="bar-label">2024 Masters</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <p class="font-bold">Key Outcome:</p>
+                            <p>Outperformed district by 5-11 points</p>
+                        </div>
+                        
+                        <a href="#" class="block mt-6 text-center bg-navy text-white py-3 px-6 rounded-md hover:bg-teal transition duration-300">View Full Case Study</a>
+                    </div>
+                </div>
+                
+                <!-- Case Study 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover fade-in">
+                    <div class="case-study-image bg-teal flex items-center justify-center">
+                        <i class="fas fa-chalkboard-teacher text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy mb-2">Professional Development</h3>
+                        <p class="text-teal font-medium mb-3">Creating a Culture of Continuous Learning</p>
+                        <p class="mb-4">Implemented a tiered coaching model, streamlined communication channels, and goal-tracking systems that enhanced both teacher performance and professional satisfaction.</p>
+                        
+                        <!-- Interactive Circle Charts -->
+                        <div class="flex justify-around mb-6">
+                            <div class="text-center">
+                                <svg class="circle-chart" viewBox="0 0 36 36">
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="circle-progress" data-percentage="73" style="--target-value: 73;" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="0, 100"/>
+                                    <text class="circle-text" x="18" y="21" text-anchor="middle">73%</text>
+                                </svg>
+                                <p class="mt-2">2022-23 Retention</p>
+                            </div>
+                            <div class="text-center">
+                                <svg class="circle-chart" viewBox="0 0 36 36">
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="circle-progress" data-percentage="82" style="--target-value: 82;" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="0, 100"/>
+                                    <text class="circle-text" x="18" y="21" text-anchor="middle">82%</text>
+                                </svg>
+                                <p class="mt-2">2023-24 Retention</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial -->
+                        <div class="bg-light-gray p-4 rounded-md mb-6">
+                            <p class="italic">"I went from substitute to AP because Marlitha saw my potential to lead. Now I help teachers build trauma-informed classrooms—exactly what our students need."</p>
+                            <p class="font-bold mt-2">– Donte Chatman, Assistant Principal</p>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <p class="font-bold">Key Outcome:</p>
+                            <p>26% of staff promoted to leadership roles</p>
+                        </div>
+                        
+                        <a href="#" class="block mt-6 text-center bg-navy text-white py-3 px-6 rounded-md hover:bg-teal transition duration-300">View Full Case Study</a>
+                    </div>
+                </div>
+                
+                <!-- Case Study 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover fade-in">
+                    <div class="case-study-image bg-gold flex items-center justify-center">
+                        <i class="fas fa-chart-line text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy mb-2">Data-Driven Leadership</h3>
+                        <p class="text-teal font-medium mb-3">Utilizing Data to Drive Instructional Decisions</p>
+                        <p class="mb-4">Led comprehensive data analysis that informed instructional strategies, resulting in improved student outcomes across multiple cohorts and subgroups.</p>
+                        
+                        <!-- Data Highlights -->
+                        <div class="mb-6">
+                            <div class="mb-4">
+                                <p class="font-medium mb-1">SPED Students Meeting Grade Level</p>
+                                <div class="progress-bar">
+                                    <div class="progress-value bg-navy" style="--target-width: 67%;" data-width="67"></div>
+                                </div>
+                                <div class="flex justify-between text-sm mt-1">
+                                    <span>Campus: 67%</span>
+                                    <span>District: 52%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <p class="font-medium mb-1">English Learners Meeting Grade Level</p>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="--target-width: 52%;" data-width="52"></div>
+                                </div>
+                                <div class="flex justify-between text-sm mt-1">
+                                    <span>Campus: 52%</span>
+                                    <span>District: 50%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <p class="font-medium mb-1">Economically Disadvantaged Meeting Grade Level</p>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="--target-width: 59%;" data-width="59"></div>
+                                </div>
+                                <div class="flex justify-between text-sm mt-1">
+                                    <span>Campus: 59%</span>
+                                    <span>District: 51%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <p class="font-bold">Key Outcome:</p>
+                            <p>Outperformed district on key equity metrics</p>
+                        </div>
+                        
+                        <a href="#" class="block mt-6 text-center bg-navy text-white py-3 px-6 rounded-md hover:bg-teal transition duration-300">View Full Case Study</a>
+                    </div>
+                </div>
+                
+                <!-- Case Study 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover fade-in">
+                    <div class="case-study-image bg-navy flex items-center justify-center">
+                        <i class="fas fa-users text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy mb-2">Teacher Leadership Pipeline</h3>
+                        <p class="text-teal font-medium mb-3">Building Capacity From Within</p>
+                        <p class="mb-4">Developed a comprehensive leadership pathway that identified and cultivated talent, resulting in 17% of teachers being promoted to formal leadership roles.</p>
+                        
+                        <!-- Success Stories -->
+                        <div class="space-y-4 mb-6">
+                            <div class="p-3 bg-light-gray rounded-md">
+                                <p class="font-bold text-navy">Kindergarten Teacher → Math Coach</p>
+                                <p>Students outperformed district and state in 3rd grade</p>
+                            </div>
+                            
+                            <div class="p-3 bg-light-gray rounded-md">
+                                <p class="font-bold text-navy">Co-Teacher → Assistant Principal</p>
+                                <p>Led her 2nd grade class to over 90% reading mastery</p>
+                            </div>
+                            
+                            <div class="p-3 bg-light-gray rounded-md">
+                                <p class="font-bold text-navy">Interventionist → Grade-Level Lead</p>
+                                <p>Mentored four novice teachers while delivering 80%+ growth</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <p class="font-bold">Key Outcome:</p>
+                            <p>7 of 42 teachers promoted to leadership roles</p>
+                        </div>
+                        
+                        <a href="#" class="block mt-6 text-center bg-navy text-white py-3 px-6 rounded-md hover:bg-teal transition duration-300">View Full Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Literacy Impact Section -->
-<section id="literacy-impact" class="py-20 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-navy mb-4 text-center">Literacy Outcomes Over Time</h2>
-    <p class="text-center mb-8 max-w-3xl mx-auto text-gray-700">Even during years where 75% of classrooms were led by substitutes, our systems for writing, annotation, and AI-assisted planning helped students grow — and rebound stronger.</p>
-    <div class="grid grid-cols-3 gap-4 text-center">
-      <div>
-        <h3 class="text-xl font-bold text-teal">2022</h3>
-        <p>Meets: 55%<br>Masters: 41%</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-bold text-teal">2023</h3>
-        <p>Meets: 39%<br>Masters: 19%</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-bold text-teal">2024</h3>
-        <p><strong>Meets: 59%<br>Masters: 31%</strong></p>
-      </div>
-    </div>
-    <p class="text-sm text-gray-600 mt-4 italic text-center">+11 pts above district in Masters tier by 2024</p>
-  </div>
-</section>
+    <!-- 3D Data Visualizations Section -->
+    <section id="data-visualizations" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold text-navy">Educational Impact Data</h2>
+            <p class="mb-12 max-w-3xl">These interactive 3D visualizations illustrate the measurable impact of my instructional leadership on student outcomes and teacher development. Explore the data to see how sustainable systems can drive consistent improvement.</p>
 
-<!-- Case Studies Section -->
-<section id="case-studies" class="py-20 bg-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-navy mb-10 text-center">Case Studies</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-light-gray p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold text-navy mb-2">Sustainable Literacy Framework</h3>
-        <p class="text-sm text-gray-700 mb-4">Structured writing, annotation routines, and AI-supported planning led to gains across EL, SPED, and Economically Disadvantaged groups — even in years with extreme staffing shortages.</p>
-        <a href="Portfolio%20Section-Sustainable%20Instructional%20Leadership_%20Driving%20Excellence%20Without%20a%20Dedicated%20Teacher.html" class="text-teal underline font-semibold hover:text-gold">View Full Case Study →</a>
-      </div>
-      <div class="bg-light-gray p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold text-navy mb-2">Data-Driven Coaching & Development</h3>
-        <p class="text-sm text-gray-700 mb-4">Used tiered coaching and AI-generated feedback to grow novice teachers into leaders — boosting retention to 94.7% and increasing teacher-led PD sessions fivefold.</p>
-        <a href="#" class="text-teal underline font-semibold hover:text-gold">Coming Soon →</a>
-      </div>
-    </div>
-  </div>
-</section>
+            <!-- Cohort Performance Comparison Chart -->
+            <div class="mb-16 fade-in">
+                <h3 class="text-2xl font-bold text-navy mb-4">Cohort Performance Comparison</h3>
+                <p class="mb-6">This visualization shows the performance of students across the three STAAR achievement tiers (Approaches, Meets, Masters) from 2022-2024, comparing campus results to district and state benchmarks.</p>
+                
+                <div class="chart3d-container" id="cohort-comparison-chart">
+                    <!-- 3D chart will be rendered here -->
+                </div>
+                
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #0A3161;"></div>
+                        <span>Campus</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #008080;"></div>
+                        <span>District</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #FFB81C;"></div>
+                        <span>State</span>
+                    </div>
+                </div>
+                
+                <div class="chart-controls">
+                    <button class="chart-control-btn" data-chart="cohort" data-year="2022">2022</button>
+                    <button class="chart-control-btn" data-chart="cohort" data-year="2023">2023</button>
+                    <button class="chart-control-btn" data-chart="cohort" data-year="2024">2024</button>
+                </div>
+                
+                <div class="mt-4 p-4 bg-light-gray rounded-md">
+                    <p class="font-bold text-navy">Key Insight:</p>
+                    <p>Despite staffing challenges in 2023, our campus showed remarkable resilience, rebounding in 2024 to outperform both district and state benchmarks in all achievement levels.</p>
+                </div>
+            </div>
+            
+            <!-- Longitudinal Growth Trajectory Chart -->
+            <div class="mb-16 fade-in">
+                <h3 class="text-2xl font-bold text-navy mb-4">Longitudinal Growth Trajectory</h3>
+                <p class="mb-6">This chart tracks student cohort performance from Grade 3 through Grade 5, demonstrating the effectiveness of our vertically-aligned literacy framework and intervention systems.</p>
+                
+                <div class="chart3d-container" id="growth-trajectory-chart">
+                    <!-- 3D chart will be rendered here -->
+                </div>
+                
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #0A3161;"></div>
+                        <span>Cohort A (2022-2024)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #008080;"></div>
+                        <span>Cohort B (2021-2023)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #FFB81C;"></div>
+                        <span>Cohort C (2020-2022)</span>
+                    </div>
+                </div>
+                
+                <div class="chart-controls">
+                    <button class="chart-control-btn" data-chart="growth" data-level="Approaches">Approaches</button>
+                    <button class="chart-control-btn" data-chart="growth" data-level="Meets">Meets</button>
+                    <button class="chart-control-btn" data-chart="growth" data-level="Masters">Masters</button>
+                </div>
+                
+                <div class="mt-4 p-4 bg-light-gray rounded-md">
+                    <p class="font-bold text-navy">Key Insight:</p>
+                    <p>Our instructional framework showed consistent growth patterns across years, with each cohort demonstrating significant gains by Grade 5, particularly at the Meets level.</p>
+                </div>
+            </div>
+            
+            <!-- Subgroup Performance Visualization -->
+            <div class="mb-16 fade-in">
+                <h3 class="text-2xl font-bold text-navy mb-4">Subgroup Performance Analysis</h3>
+                <p class="mb-6">This visualization highlights our equity-focused approach, showing how specialized supports helped close achievement gaps for Special Education students, English Learners, and Economically Disadvantaged students.</p>
+                
+                <div class="chart3d-container" id="subgroup-chart">
+                    <!-- 3D chart will be rendered here -->
+                </div>
+                
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #0A3161;"></div>
+                        <span>SPED</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #008080;"></div>
+                        <span>English Learners</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #FFB81C;"></div>
+                        <span>Economically Disadvantaged</span>
+                    </div>
+                </div>
+                
+                <div class="chart-controls">
+                    <button class="chart-control-btn" data-chart="subgroup" data-comparison="campus">Campus</button>
+                    <button class="chart-control-btn" data-chart="subgroup" data-comparison="district">District Comparison</button>
+                    <button class="chart-control-btn" data-chart="subgroup" data-comparison="gap">Performance Gap</button>
+                </div>
+                
+                <div class="mt-4 p-4 bg-light-gray rounded-md">
+                    <p class="font-bold text-navy">Key Insight:</p>
+                    <p>Our campus consistently outperformed district averages for all subgroups, with the most significant gains seen in SPED students where we achieved 67% meeting grade level compared to the district's 52%.</p>
+                </div>
+            </div>
+            
+            <!-- Gap Closure Trend Visualization -->
+            <div class="mb-16 fade-in">
+                <h3 class="text-2xl font-bold text-navy mb-4">Gap Closure Trends</h3>
+                <p class="mb-6">This visualization tracks how performance gaps between our campus and district/state benchmarks changed from 2022 to 2024, demonstrating our progress in closing achievement disparities.</p>
+                
+                <div class="chart3d-container" id="gap-closure-chart">
+                    <!-- 3D chart will be rendered here -->
+                </div>
+                
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #0A3161;"></div>
+                        <span>Campus-District Gap</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #008080;"></div>
+                        <span>Campus-State Gap</span>
+                    </div>
+                </div>
+                
+                <div class="chart-controls">
+                    <button class="chart-control-btn" data-chart="gap" data-level="Approaches">Approaches</button>
+                    <button class="chart-control-btn" data-chart="gap" data-level="Meets">Meets</button>
+                    <button class="chart-control-btn" data-chart="gap" data-level="Masters">Masters</button>
+                </div>
+                
+                <div class="mt-4 p-4 bg-light-gray rounded-md">
+                    <p class="font-bold text-navy">Key Insight:</p>
+                    <p>By 2024, we had completely closed or reversed achievement gaps at all performance levels, most notably at the Meets level where we went from trailing the district by 4 points in 2022 to leading by 5 points in 2024.</p>
+                </div>
+            </div>
+            
+            <!-- Teacher Development & Retention Chart -->
+            <div class="mb-16 fade-in">
+                <h3 class="text-2xl font-bold text-navy mb-4">Teacher Development & Retention</h3>
+                <p class="mb-6">This visualization illustrates the effectiveness of our professional development framework and leadership pipeline in improving teacher retention and advancement.</p>
+                
+                <div class="chart3d-container" id="teacher-development-chart">
+                    <!-- 3D chart will be rendered here -->
+                </div>
+                
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #0A3161;"></div>
+                        <span>Teacher Retention</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #008080;"></div>
+                        <span>Leadership Advancement</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #FFB81C;"></div>
+                        <span>Professional Development Participation</span>
+                    </div>
+                </div>
+                
+                <div class="chart-controls">
+                    <button class="chart-control-btn" data-chart="teacher" data-year="2022">2022</button>
+                    <button class="chart-control-btn" data-chart="teacher" data-year="2023">2023</button>
+                    <button class="chart-control-btn" data-chart="teacher" data-year="2024">2024</button>
+                </div>
+                
+                <div class="mt-4 p-4 bg-light-gray rounded-md">
+                    <p class="font-bold text-navy">Key Insight:</p>
+                    <p>Our tiered coaching model and leadership development program resulted in a 9% increase in teacher retention (from 73% to 82%) and 26% of staff being promoted to leadership roles over a three-year period.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Contact CTA -->
-<section id="contact" class="py-16 bg-navy text-white text-center">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold mb-4">Let’s Build Something That Lasts</h2>
-    <p class="mb-6">Reach out for consulting, speaking, or partnership opportunities.</p>
-    <a href="mailto:marlitha.williams@example.com" class="bg-gold text-navy px-6 py-3 rounded-md font-bold hover:bg-white hover:text-navy transition">Email Me</a>
-  </div>
-</section>
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold text-navy">Areas of Expertise</h2>
+            <p class="mb-12 max-w-3xl">My approach combines deep instructional knowledge with systems thinking to create sustainable educational outcomes.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Expertise 1 -->
+                <div class="p-6 border-l-4 border-teal bg-white rounded-r-lg stagger-item" style="--item-index: 0;">
+                    <div class="text-teal mb-4"><i class="fas fa-book text-3xl"></i></div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Structured Literacy</h3>
+                    <p>Expert implementation of science-based reading instruction with a focus on phonics, vocabulary, and comprehension strategies.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Phonics-based early literacy</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Reading comprehension frameworks</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Writing across content areas</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Expertise 2 -->
+                <div class="p-6 border-l-4 border-navy bg-white rounded-r-lg stagger-item" style="--item-index: 1;">
+                    <div class="text-navy mb-4"><i class="fas fa-chart-bar text-3xl"></i></div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Data-Driven Instruction</h3>
+                    <p>Leveraging assessment data to inform targeted instruction and create responsive intervention systems.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Assessment design and analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Targeted intervention strategies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Progress monitoring systems</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Expertise 3 -->
+                <div class="p-6 border-l-4 border-gold bg-white rounded-r-lg stagger-item" style="--item-index: 2;">
+                    <div class="text-gold mb-4"><i class="fas fa-users-cog text-3xl"></i></div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Professional Development</h3>
+                    <p>Creating engaging, impactful professional learning experiences that transform teacher practice and improve student outcomes.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Tiered coaching models</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Adult learning principles</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Teacher leadership development</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Expertise 4 -->
+                <div class="p-6 border-l-4 border-teal bg-white rounded-r-lg stagger-item" style="--item-index: 3;">
+                    <div class="text-teal mb-4"><i class="fas fa-cogs text-3xl"></i></div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Systems Design</h3>
+                    <p>Building sustainable infrastructures that drive consistency in instructional quality and operational efficiency.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Instructional frameworks</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Process optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Sustainable implementation</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Expertise 5 -->
+                <div class="p-6 border-l-4 border-navy bg-white rounded-r-lg stagger-item" style="--item-index: 4;">
+                    <div class="text-navy mb-4"><i class="fas fa-balance-scale text-3xl"></i></div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Educational Equity</h3>
+                    <p>Designing instructional programs that close achievement gaps and provide access to high-quality education for all students.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Culturally responsive teaching</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>English Learner supports</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Special education inclusion</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Expertise 6 -->
+                <div class="p-6 border-l-4 border-gold bg-white rounded-r-lg stagger-item" style="--item-index: 5;">
+                    <div class="text-gold mb-4"><i class="fas fa-school text-3xl"></i></div>
+                    <h3 class="text-xl font-bold text-navy mb-2">School Leadership</h3>
+                    <p>Guiding campus-wide initiatives that align vision, culture, and operations to achieve exceptional outcomes.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Vision and culture building</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Teacher recruitment and retention</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="text-gold mr-2"><i class="fas fa-check"></i></div>
+                            <span>Community engagement</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Data Visualizations Section -->
-<section id="data-visualizations" class="py-20 bg-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-navy mb-4 text-center">Cohort Performance Insights</h2>
-    <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
-      Explore 3D charts showcasing longitudinal STAAR performance and subgroup comparisons across Approaches, Meets, and Masters tiers.
-    </p>
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-teal text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold text-white mb-12">What People Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card fade-in">
+                    <p class="italic text-charcoal mb-4">"Her coaching transformed me from a novice to a mentor. My students' growth gave me confidence to lead PD for my peers."</p>
+                    <div class="flex items-center mt-6">
+                        <div class="w-12 h-12 rounded-full bg-navy flex items-center justify-center text-white font-bold text-xl">RG</div>
+                        <div class="ml-4">
+                            <p class="font-bold text-navy">Raquel Gonzales</p>
+                            <p class="text-teal">2nd Grade Lead Teacher</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card fade-in">
+                    <p class="italic text-charcoal mb-4">"Marlitha's leadership during our most challenging year was exceptional. She created systems that helped us navigate crisis while maintaining a focus on student outcomes."</p>
+                    <div class="flex items-center mt-6">
+                        <div class="w-12 h-12 rounded-full bg-navy flex items-center justify-center text-white font-bold text-xl">AS</div>
+                        <div class="ml-4">
+                            <p class="font-bold text-navy">Amanda Sanchez</p>
+                            <p class="text-teal">Math Coach</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card fade-in">
+                    <p class="italic text-charcoal mb-4">"I stayed because of the support. Even in our hardest year, I knew I wasn't alone. The coaching systems Marlitha put in place gave me the tools to succeed."</p>
+                    <div class="flex items-center mt-6">
+                        <div class="w-12 h-12 rounded-full bg-navy flex items-center justify-center text-white font-bold text-xl">AC</div>
+                        <div class="ml-4">
+                            <p class="font-bold text-navy">Adele Cisneros</p>
+                            <p class="text-teal">1st Grade Literacy Teacher</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Placeholder for 3D chart -->
-    <div class="w-full h-[400px] bg-gray-100 rounded-lg shadow-inner flex items-center justify-center text-gray-500 text-lg mb-4">
-      [3D Chart Visualization Placeholder]
-    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold text-navy">Let's Connect</h2>
+            <p class="mb-12 max-w-3xl">I'm available for consulting, speaking engagements, and collaborative projects related to educational leadership and professional development.</p>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-navy font-medium mb-2">Name</label>
+                            <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-navy font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-navy font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-navy font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-navy text-white py-3 px-6 rounded-md font-bold hover:bg-teal transition duration-300">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-10">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-navy mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-gold mr-4"><i class="fas fa-envelope text-xl"></i></div>
+                                <div>
+                                    <p class="font-bold">Email</p>
+                                    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cda0acbfa1a4b9a5ace3baa4a1a1a4aca0be8daaa0aca4a1e3aea2a0">[email&#160;protected]</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold mr-4"><i class="fas fa-phone text-xl"></i></div>
+                                <div>
+                                    <p class="font-bold">Phone</p>
+                                    <p>(210) 803-7131</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold mr-4"><i class="fas fa-map-marker-alt text-xl"></i></div>
+                                <div>
+                                    <p class="font-bold">Location</p>
+                                    <p>Indianapolis, IN</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-navy mb-4 mt-10">Connect With Me</h3>
+                        <div class="flex space-x-6">
+                            <a href="#" class="social-icon text-2xl"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-icon text-2xl"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon text-2xl"><i class="fas fa-envelope"></i></a>
+                        </div>
+                        
+                        <div class="mt-10 p-6 bg-light-gray rounded-md">
+                            <h4 class="text-lg font-bold text-navy mb-2">Available For</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <div class="text-gold mr-2"><i class="fas fa-check-circle"></i></div>
+                                    <span>Educational Consulting</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="text-gold mr-2"><i class="fas fa-check-circle"></i></div>
+                                    <span>Professional Development</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="text-gold mr-2"><i class="fas fa-check-circle"></i></div>
+                                    <span>Speaking Engagements</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Chart Toggle Buttons -->
-    <div class="flex justify-center space-x-4 mb-6">
-      <button class="bg-navy text-white px-4 py-2 rounded hover:bg-teal transition">2022</button>
-      <button class="bg-navy text-white px-4 py-2 rounded hover:bg-teal transition">2023</button>
-      <button class="bg-navy text-white px-4 py-2 rounded hover:bg-teal transition">2024</button>
-    </div>
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold">Marlitha Williams</h2>
+                    <p class="text-gray-300">Educational Leader & Instructional Coach</p>
+                </div>
+                
+                <div class="flex space-x-8">
+                    <a href="#about" class="hover:text-gold transition duration-300">About</a>
+                    <a href="#portfolio" class="hover:text-gold transition duration-300">Portfolio</a>
+                    <a href="#data-visualizations" class="hover:text-gold transition duration-300">Data</a>
+                    <a href="#expertise" class="hover:text-gold transition duration-300">Expertise</a>
+                    <a href="#contact" class="hover:text-gold transition duration-300">Contact</a>
+                </div>
+            </div>
+            
+            <hr class="border-gray-700 my-8">
+            
+            <div class="text-center text-gray-400">
+                <p>&copy; 2024 Marlitha Williams. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Key Insight Box -->
-    <div class="max-w-2xl mx-auto bg-gray-100 p-6 rounded-lg text-center text-gray-800">
-      <p class="font-bold text-navy mb-2">Key Insight:</p>
-      <p>
-        Despite severe staffing shortages in 2023, our campus rebounded in 2024 — outperforming both district and state across all tiers of reading achievement.
-      </p>
-    </div>
-  </div>
-</section>
+    <!-- Three.js library -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.min.js"></script>
 
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a nav link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observeFadeElements = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.fade-in, .stagger-item').forEach(el => {
+                observer.observe(el);
+            });
+        };
+        
+        // Animate count-up numbers
+        const animateCountUp = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const countUp = entry.target;
+                        const target = parseInt(countUp.getAttribute('data-target'));
+                        const duration = 2000; // 2 seconds
+                        const stepTime = Math.abs(Math.floor(duration / target));
+                        
+                        let current = 0;
+                        const timer = setInterval(() => {
+                            current += 1;
+                            countUp.textContent = current;
+                            
+                            if (current === target) {
+                                clearInterval(timer);
+                            }
+                        }, stepTime);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            document.querySelectorAll('.count-up').forEach(el => {
+                observer.observe(el);
+            });
+        };
+        
+        // Animate progress bars
+        const animateProgressBars = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBar = entry.target;
+                        const width = progressBar.getAttribute('data-width');
+                        progressBar.style.width = `${width}%`;
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            document.querySelectorAll('.progress-value').forEach(el => {
+                observer.observe(el);
+            });
+        };
+        
+        // Animate bar charts
+        const animateBarCharts = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const barChart = entry.target.closest('.chart-container');
+                        const bars = barChart.querySelectorAll('.bar');
+                        
+                        bars.forEach(bar => {
+                            const height = bar.getAttribute('data-height');
+                            setTimeout(() => {
+                                bar.style.height = `${height}%`;
+                            }, 200);
+                        });
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            document.querySelectorAll('.bar-chart').forEach(el => {
+                observer.observe(el);
+            });
+        };
+        
+        // Animate circle charts
+        const animateCircleCharts = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const circle = entry.target;
+                        const percentage = circle.getAttribute('data-percentage');
+                        setTimeout(() => {
+                            circle.style.strokeDasharray = `${percentage}, 100`;
+                        }, 200);
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            document.querySelectorAll('.circle-progress').forEach(el => {
+                observer.observe(el);
+            });
+        };
+
+        // Data for 3D charts
+        const chartData = {
+            cohortComparison: {
+                labels: ['Approaches', 'Meets', 'Masters'],
+                datasets: {
+                    '2022': {
+                        campus: [79, 55, 41],
+                        district: [76, 51, 28],
+                        state: [76, 51, 30]
+                    },
+                    '2023': {
+                        campus: [70, 39, 19],
+                        district: [74, 48, 22],
+                        state: [74, 48, 22]
+                    },
+                    '2024': {
+                        campus: [77, 59, 31],
+                        district: [75, 54, 28],
+                        state: [76, 55, 29]
+                    }
+                }
+            },
+            growthTrajectory: {
+                labels: ['Grade 3', 'Grade 4', 'Grade 5'],
+                datasets: {
+                    'Approaches': {
+                        cohortA: [70, 75, 77],
+                        cohortB: [68, 79, 81],
+                        cohortC: [67, 72, 82]
+                    },
+                    'Meets': {
+                        cohortA: [45, 50, 59],
+                        cohortB: [48, 66, 63],
+                        cohortC: [50, 55, 59]
+                    },
+                    'Masters': {
+                        cohortA: [25, 30, 31],
+                        cohortB: [22, 30, 31],
+                        cohortC: [20, 26, 34]
+                    }
+                }
+            },
+            subgroupPerformance: {
+                labels: ['Meets', 'Masters'],
+                datasets: {
+                    'campus': {
+                        sped: [33, 17],
+                        el: [52, 28],
+                        econDis: [59, 29]
+                    },
+                    'district': {
+                        sped: [28, 10],
+                        el: [50, 25],
+                        econDis: [51, 25]
+                    },
+                    'gap': {
+                        sped: [5, 7],
+                        el: [2, 3],
+                        econDis: [8, 4]
+                    }
+                }
+            },
+            gapClosure: {
+                labels: ['2022', '2023', '2024'],
+                datasets: {
+                    'Approaches': {
+                        districtGap: [3, -4, 2],
+                        stateGap: [3, -4, 1]
+                    },
+                    'Meets': {
+                        districtGap: [4, -9, 5],
+                        stateGap: [4, -9, 4]
+                    },
+                    'Masters': {
+                        districtGap: [13, -3, 3],
+                        stateGap: [11, -3, 2]
+                    }
+                }
+            },
+            teacherDevelopment: {
+                labels: ['Retention', 'Leadership Promotion', 'PD Participation'],
+                datasets: {
+                    '2022': [70, 10, 85],
+                    '2023': [73, 15, 90],
+                    '2024': [82, 17, 95]
+                }
+            }
+        };
+
+        // 3D Chart Renderers
+        let charts = {};
+        let renderers = {};
+        let scenes = {};
+        let cameras = {};
+        let controls = {};
+        let tooltips = {};
+
+        // Create the 3D charts
+        const init3DCharts = () => {
+            // Initialize chart containers
+            initChartContainer('cohort-comparison-chart', 'cohort', '2022');
+            initChartContainer('growth-trajectory-chart', 'growth', 'Approaches');
+            initChartContainer('subgroup-chart', 'subgroup', 'campus');
+            initChartContainer('gap-closure-chart', 'gap', 'Approaches');
+            initChartContainer('teacher-development-chart', 'teacher', '2024');
+            
+            // Set event listeners for buttons
+            document.querySelectorAll('.chart-control-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const chartType = this.getAttribute('data-chart');
+                    const dataType = this.getAttribute('data-year') || this.getAttribute('data-level') || this.getAttribute('data-comparison');
+                    
+                    // Update the active button styling
+                    document.querySelectorAll(`[data-chart="${chartType}"]`).forEach(el => {
+                        el.classList.remove('bg-teal');
+                        el.classList.add('bg-navy');
+                    });
+                    this.classList.remove('bg-navy');
+                    this.classList.add('bg-teal');
+                    
+                    // Update the chart
+                    updateChart(chartType, dataType);
+                });
+            });
+
+            // Activate first button in each control group
+            document.querySelectorAll('.chart-controls').forEach(control => {
+                const firstBtn = control.querySelector('.chart-control-btn');
+                if (firstBtn) {
+                    firstBtn.classList.remove('bg-navy');
+                    firstBtn.classList.add('bg-teal');
+                }
+            });
+
+            // Handle resize
+            window.addEventListener('resize', () => {
+                for (const key in renderers) {
+                    if (renderers[key] && scenes[key] && cameras[key]) {
+                        const container = document.getElementById(key);
+                        if (container) {
+                            const width = container.clientWidth;
+                            const height = container.clientHeight;
+                            cameras[key].aspect = width / height;
+                            cameras[key].updateProjectionMatrix();
+                            renderers[key].setSize(width, height);
+                            renderers[key].render(scenes[key], cameras[key]);
+                        }
+                    }
+                }
+            });
+        };
+
+        // Initialize a chart container and setup scene
+        const initChartContainer = (containerId, chartType, initialData) => {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            // Setup tooltip
+            const tooltip = document.createElement('div');
+            tooltip.className = 'chart-tooltip';
+            tooltip.style.opacity = '0';
+            container.appendChild(tooltip);
+            tooltips[containerId] = tooltip;
+
+            // Create scene
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf9f9f9);
+            
+            // Create renderer
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+            
+            // Create camera
+            const camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.set(10, 8, 15);
+            
+            // Create controls
+            const orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
+            orbitControls.enableDamping = true;
+            orbitControls.dampingFactor = 0.25;
+            orbitControls.enableZoom = true;
+            orbitControls.maxPolarAngle = Math.PI / 2;
+            
+            // Add light
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
+            directionalLight.position.set(10, 10, 10);
+            scene.add(directionalLight);
+            
+            // Create chart
+            createChart(scene, chartType, initialData);
+            
+            // Store references
+            scenes[containerId] = scene;
+            renderers[containerId] = renderer;
+            cameras[containerId] = camera;
+            controls[containerId] = orbitControls;
+            charts[containerId] = { type: chartType, data: initialData };
+            
+            // Animation loop
+            const animate = () => {
+                requestAnimationFrame(animate);
+                orbitControls.update();
+                renderer.render(scene, camera);
+            };
+            
+            animate();
+
+            // Observe the chart for visibility
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Rerender the chart when it becomes visible
+                        updateChart(chartType, initialData);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(container);
+        };
+
+        // Create a chart in the scene
+        const createChart = (scene, chartType, dataKey) => {
+            // Clear existing chart
+            while(scene.children.length > 0) { 
+                scene.remove(scene.children[0]); 
+            }
+            
+            // Add lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
+            directionalLight.position.set(10, 10, 10);
+            scene.add(directionalLight);
+            
+            // Add coordinate system
+            const axesHelper = new THREE.AxesHelper(10);
+            scene.add(axesHelper);
+            
+            // Create grid
+            const gridHelper = new THREE.GridHelper(10, 10, 0x888888, 0xcccccc);
+            gridHelper.position.y = 0;
+            scene.add(gridHelper);
+            
+            // Create the chart based on type
+            switch (chartType) {
+                case 'cohort':
+                    createCohortComparisonChart(scene, dataKey);
+                    break;
+                case 'growth':
+                    createGrowthTrajectoryChart(scene, dataKey);
+                    break;
+                case 'subgroup':
+                    createSubgroupChart(scene, dataKey);
+                    break;
+                case 'gap':
+                    createGapClosureChart(scene, dataKey);
+                    break;
+                case 'teacher':
+                    createTeacherDevelopmentChart(scene, dataKey);
+                    break;
+            }
+        };
+
+        // Create the Cohort Performance Comparison Chart
+        const createCohortComparisonChart = (scene, year) => {
+            const data = chartData.cohortComparison.datasets[year];
+            const labels = chartData.cohortComparison.labels;
+            
+            const barWidth = 0.8;
+            const barDepth = 0.8;
+            const spacing = 1.5;
+            
+            const colors = {
+                campus: 0x0A3161,
+                district: 0x008080,
+                state: 0xFFB81C
+            };
+            
+            let barIndex = 0;
+            
+            // Create label plane at the bottom
+            const labelGeometry = new THREE.PlaneGeometry(10, 10);
+            const labelMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0xf5f5f5,
+                side: THREE.DoubleSide
+            });
+            const labelPlane = new THREE.Mesh(labelGeometry, labelMaterial);
+            labelPlane.rotation.x = -Math.PI / 2;
+            labelPlane.position.y = -0.01;
+            scene.add(labelPlane);
+            
+            // For each data category (Approaches, Meets, Masters)
+            for (let i = 0; i < labels.length; i++) {
+                // For each data source (Campus, District, State)
+                for (const source in data) {
+                    const value = data[source][i] / 20; // Scale down to make bars reasonable height
+                    
+                    // Create bar
+                    const barGeometry = new THREE.BoxGeometry(barWidth, value, barDepth);
+                    const barMaterial = new THREE.MeshLambertMaterial({ color: colors[source] });
+                    const bar = new THREE.Mesh(barGeometry, barMaterial);
+                    
+                    // Position the bar
+                    bar.position.x = (i - 1) * spacing;
+                    bar.position.y = value / 2;
+                    bar.position.z = (barIndex % 3 - 1) * spacing / 2;
+                    
+                    // Add metadata to the bar
+                    bar.userData = {
+                        label: labels[i],
+                        value: data[source][i],
+                        source: source
+                    };
+                    
+                    scene.add(bar);
+                    barIndex++;
+                }
+                
+                // Add label
+                const textMaterial = new THREE.MeshBasicMaterial({ color: 0x333333 });
+                const textShape = new THREE.Shape();
+                textShape.moveTo(0, 0);
+                textShape.lineTo(1, 0);
+                textShape.lineTo(1, 0.5);
+                textShape.lineTo(0, 0.5);
+                
+                const textGeometry = new THREE.ShapeGeometry(textShape);
+                const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+                textMesh.position.set((i - 1) * spacing - 0.5, 0.05, -2.5);
+                textMesh.rotation.x = -Math.PI / 2;
+                textMesh.visible = false; // Hide this dummy text (we can't actually render text in Three.js directly)
+                scene.add(textMesh);
+            }
+            
+            // Add main chart title
+            const titleMaterial = new THREE.MeshBasicMaterial({ color: 0x0A3161 });
+            const titleShape = new THREE.Shape();
+            titleShape.moveTo(0, 0);
+            titleShape.lineTo(5, 0);
+            titleShape.lineTo(5, 0.5);
+            titleShape.lineTo(0, 0.5);
+            
+            const titleGeometry = new THREE.ShapeGeometry(titleShape);
+            const titleMesh = new THREE.Mesh(titleGeometry, titleMaterial);
+            titleMesh.position.set(-2.5, 0.05, -3.5);
+            titleMesh.rotation.x = -Math.PI / 2;
+            titleMesh.visible = false; // Hide this dummy title
+            scene.add(titleMesh);
+        };
+
+        // Create the Growth Trajectory Chart
+        const createGrowthTrajectoryChart = (scene, level) => {
+            const data = chartData.growthTrajectory.datasets[level];
+            const labels = chartData.growthTrajectory.labels;
+            
+            const lineWidth = 0.2;
+            const pointSize = 0.3;
+            
+            const colors = {
+                cohortA: 0x0A3161,
+                cohortB: 0x008080,
+                cohortC: 0xFFB81C
+            };
+            
+            // Create a plane for the chart base
+            const planeGeometry = new THREE.PlaneGeometry(10, 10);
+            const planeMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0xf5f5f5,
+                side: THREE.DoubleSide
+            });
+            const chartPlane = new THREE.Mesh(planeGeometry, planeMaterial);
+            chartPlane.rotation.x = -Math.PI / 2;
+            chartPlane.position.y = 0;
+            scene.add(chartPlane);
+            
+            // For each cohort
+            for (const cohort in data) {
+                const values = data[cohort];
+                const color = colors[cohort];
+                const points = [];
+                
+                // Create points for each data point
+                for (let i = 0; i < labels.length; i++) {
+                    const value = values[i] / 20; // Scale down to make points at a reasonable height
+                    
+                    const pointGeometry = new THREE.SphereGeometry(pointSize, 16, 16);
+                    const pointMaterial = new THREE.MeshLambertMaterial({ color: color });
+                    const point = new THREE.Mesh(pointGeometry, pointMaterial);
+                    
+                    point.position.x = (i - 1) * 4;
+                    point.position.y = value;
+                    point.position.z = 0;
+                    
+                    // Add metadata to the point
+                    point.userData = {
+                        label: labels[i],
+                        value: values[i],
+                        cohort: cohort
+                    };
+                    
+                    scene.add(point);
+                    points.push(new THREE.Vector3(point.position.x, point.position.y, point.position.z));
+                }
+                
+                // Create line connecting the points
+                const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+                const lineMaterial = new THREE.LineBasicMaterial({ color: color, linewidth: 2 });
+                const line = new THREE.Line(lineGeometry, lineMaterial);
+                scene.add(line);
+                
+                // Create surface under the line
+                const surfacePoints = [...points];
+                surfacePoints.push(new THREE.Vector3(points[points.length-1].x, 0, points[points.length-1].z));
+                surfacePoints.push(new THREE.Vector3(points[0].x, 0, points[0].z));
+                
+                const surfaceGeometry = new THREE.BufferGeometry().setFromPoints(surfacePoints);
+                const surfaceMaterial = new THREE.MeshBasicMaterial({ 
+                    color: color,
+                    transparent: true,
+                    opacity: 0.2,
+                    side: THREE.DoubleSide
+                });
+                const surfaceMesh = new THREE.Mesh(surfaceGeometry, surfaceMaterial);
+                scene.add(surfaceMesh);
+            }
+            
+            // Add labels
+            for (let i = 0; i < labels.length; i++) {
+                const textMaterial = new THREE.MeshBasicMaterial({ color: 0x333333 });
+                const textShape = new THREE.Shape();
+                textShape.moveTo(0, 0);
+                textShape.lineTo(1, 0);
+                textShape.lineTo(1, 0.5);
+                textShape.lineTo(0, 0.5);
+                
+                const textGeometry = new THREE.ShapeGeometry(textShape);
+                const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+                textMesh.position.set((i - 1) * 4 - 0.5, 0.05, 0.5);
+                textMesh.rotation.x = -Math.PI / 2;
+                textMesh.visible = false; // Hide this dummy text
+                scene.add(textMesh);
+            }
+        };
+
+        // Create the Subgroup Chart
+        const createSubgroupChart = (scene, comparisonType) => {
+            const data = chartData.subgroupPerformance.datasets[comparisonType];
+            const labels = chartData.subgroupPerformance.labels;
+            
+            const barWidth = 0.8;
+            const barDepth = 0.8;
+            const spacing = 1.5;
+            
+            const colors = {
+                sped: 0x0A3161,
+                el: 0x008080,
+                econDis: 0xFFB81C
+            };
+            
+            let barIndex = 0;
+            
+            // Create a plane for the chart base
+            const planeGeometry = new THREE.PlaneGeometry(10, 10);
+            const planeMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0xf5f5f5,
+                side: THREE.DoubleSide
+            });
+            const chartPlane = new THREE.Mesh(planeGeometry, planeMaterial);
+            chartPlane.rotation.x = -Math.PI / 2;
+            chartPlane.position.y = 0;
+            scene.add(chartPlane);
+            
+            // For each performance level (Meets, Masters)
+            for (let i = 0; i < labels.length; i++) {
+                // For each subgroup
+                for (const subgroup in data) {
+                    let value = data[subgroup][i];
+                    
+                    // For 'gap' comparison, enhance the visibility of the gaps
+                    if (comparisonType === 'gap') {
+                        value = value * 2; // Scale up to make gaps more visible
+                    }
+                    
+                    value = value / 20; // Scale to make bars reasonable height
+                    
+                    // Create bar
+                    const barGeometry = new THREE.BoxGeometry(barWidth, value, barDepth);
+                    const barMaterial = new THREE.MeshLambertMaterial({ color: colors[subgroup] });
+                    const bar = new THREE.Mesh(barGeometry, barMaterial);
+                    
+                    // Position the bar
+                    bar.position.x = (i - 0.5) * spacing;
+                    bar.position.y = value / 2;
+                    bar.position.z = (barIndex % 3 - 1) * spacing / 2;
+                    
+                    // Add metadata to the bar
+                    bar.userData = {
+                        label: labels[i],
+                        value: data[subgroup][i],
+                        subgroup: subgroup,
+                        comparisonType: comparisonType
+                    };
+                    
+                    scene.add(bar);
+                    barIndex++;
+                }
+                
+                // Add label
+                const textMaterial = new THREE.MeshBasicMaterial({ color: 0x333333 });
+                const textShape = new THREE.Shape();
+                textShape.moveTo(0, 0);
+                textShape.lineTo(1, 0);
+                textShape.lineTo(1, 0.5);
+                textShape.lineTo(0, 0.5);
+                
+                const textGeometry = new THREE.ShapeGeometry(textShape);
+                const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+                textMesh.position.set((i - 0.5) * spacing - 0.5, 0.05, -2.5);
+                textMesh.rotation.x = -Math.PI / 2;
+                textMesh.visible = false; // Hide this dummy text
+                scene.add(textMesh);
+            }
+        };
+
+        // Create the Gap Closure Chart
+        const createGapClosureChart = (scene, level) => {
+            const data = chartData.gapClosure.datasets[level];
+            const labels = chartData.gapClosure.labels;
+            
+            const colors = {
+                districtGap: 0x0A3161,
+                stateGap: 0x008080
+            };
+            
+            // Create a plane for the chart base
+            const planeGeometry = new THREE.PlaneGeometry(10, 10);
+            const planeMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0xf5f5f5,
+                side: THREE.DoubleSide
+            });
+            const chartPlane = new THREE.Mesh(planeGeometry, planeMaterial);
+            chartPlane.rotation.x = -Math.PI / 2;
+            chartPlane.position.y = 0;
+            scene.add(chartPlane);
+            
+            // Add a horizontal line at y=0 to show where gaps flip from negative to positive
+            const lineGeometry = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(-5, 0, 0),
+                new THREE.Vector3(5, 0, 0)
+            ]);
+            const lineMaterial = new THREE.LineBasicMaterial({ color: 0x999999 });
+            const line = new THREE.Line(lineGeometry, lineMaterial);
+            scene.add(line);
+            
+            // For each gap type (district, state)
+            for (const gapType in data) {
+                const values = data[gapType];
+                const color = colors[gapType];
+                const points = [];
+                
+                // Create points for each data point
+                for (let i = 0; i < labels.length; i++) {
+                    const value = values[i] / 5; // Scale to make the gaps more visible
+                    
+                    const pointGeometry = new THREE.SphereGeometry(0.3, 16, 16);
+                    const pointMaterial = new THREE.MeshLambertMaterial({ color: color });
+                    const point = new THREE.Mesh(pointGeometry, pointMaterial);
+                    
+                    point.position.x = (i - 1) * 4;
+                    point.position.y = value;
+                    point.position.z = gapType === 'districtGap' ? 0 : 1;
+                    
+                    // Add metadata to the point
+                    point.userData = {
+                        label: labels[i],
+                        value: values[i],
+                        gapType: gapType
+                    };
+                    
+                    scene.add(point);
+                    points.push(new THREE.Vector3(point.position.x, point.position.y, point.position.z));
+                }
+                
+                // Create line connecting the points
+                const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+                const lineMaterial = new THREE.LineBasicMaterial({ color: color, linewidth: 2 });
+                const line = new THREE.Line(lineGeometry, lineMaterial);
+                scene.add(line);
+                
+                // Create surface under the line for area chart effect
+                const surfacePoints = [...points];
+                surfacePoints.push(new THREE.Vector3(points[points.length-1].x, 0, points[points.length-1].z));
+                surfacePoints.push(new THREE.Vector3(points[0].x, 0, points[0].z));
+                
+                const surfaceGeometry = new THREE.BufferGeometry().setFromPoints(surfacePoints);
+                const surfaceMaterial = new THREE.MeshBasicMaterial({ 
+                    color: color,
+                    transparent: true,
+                    opacity: 0.2,
+                    side: THREE.DoubleSide
+                });
+                const surfaceMesh = new THREE.Mesh(surfaceGeometry, surfaceMaterial);
+                scene.add(surfaceMesh);
+            }
+            
+            // Add labels
+            for (let i = 0; i < labels.length; i++) {
+                const textMaterial = new THREE.MeshBasicMaterial({ color: 0x333333 });
+                const textShape = new THREE.Shape();
+                textShape.moveTo(0, 0);
+                textShape.lineTo(1, 0);
+                textShape.lineTo(1, 0.5);
+                textShape.lineTo(0, 0.5);
+                
+                const textGeometry = new THREE.ShapeGeometry(textShape);
+                const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+                textMesh.position.set((i - 1) * 4 - 0.5, 0.05, 2);
+                textMesh.rotation.x = -Math.PI / 2;
+                textMesh.visible = false; // Hide this dummy text
+                scene.add(textMesh);
+            }
+        };
+
+        // Create the Teacher Development Chart
+        const createTeacherDevelopmentChart = (scene, year) => {
+            const data = chartData.teacherDevelopment.datasets[year];
+            const labels = chartData.teacherDevelopment.labels;
+            
+            const colors = [0x0A3161, 0x008080, 0xFFB81C];
+            const radius = 3;
+            const segments = 32;
+            const startAngle = 0;
+            
+            // Create a flat base for the pie chart
+            const baseGeometry = new THREE.CylinderGeometry(radius + 0.2, radius + 0.2, 0.1, segments);
+            const baseMaterial = new THREE.MeshBasicMaterial({ color: 0xf5f5f5 });
+            const base = new THREE.Mesh(baseGeometry, baseMaterial);
+            base.position.y = -0.05;
+            scene.add(base);
+            
+            let total = data.reduce((sum, val) => sum + val, 0);
+            let startPercent = 0;
+            
+            // Create each pie segment
+            for (let i = 0; i < data.length; i++) {
+                const value = data[i];
+                const normalizedValue = value / total;
+                const endPercent = startPercent + normalizedValue;
+                
+                const startAngleRad = startPercent * Math.PI * 2;
+                const endAngleRad = endPercent * Math.PI * 2;
+                const thickness = 0.5 + (normalizedValue * 2); // Thicker slices for larger values
+                
+                const pieGeometry = new THREE.CylinderGeometry(
+                    0, radius, thickness, 
+                    segments, 1, 
+                    false, 
+                    startAngleRad, endAngleRad - startAngleRad
+                );
+                
+                const pieMaterial = new THREE.MeshLambertMaterial({ color: colors[i] });
+                const pieSlice = new THREE.Mesh(pieGeometry, pieMaterial);
+                
+                // Rotate and position the slice
+                pieSlice.position.y = thickness / 2;
+                pieSlice.rotation.y = -Math.PI / 2;
+                
+                // Add metadata to the slice
+                pieSlice.userData = {
+                    label: labels[i],
+                    value: value,
+                    percent: (normalizedValue * 100).toFixed(1) + '%'
+                };
+                
+                scene.add(pieSlice);
+                startPercent = endPercent;
+            }
+        };
+
+        // Update a chart with new data
+        const updateChart = (chartType, dataKey) => {
+            // Find the container ID based on chart type
+            let containerId;
+            switch(chartType) {
+                case 'cohort':
+                    containerId = 'cohort-comparison-chart';
+                    break;
+                case 'growth':
+                    containerId = 'growth-trajectory-chart';
+                    break;
+                case 'subgroup':
+                    containerId = 'subgroup-chart';
+                    break;
+                case 'gap':
+                    containerId = 'gap-closure-chart';
+                    break;
+                case 'teacher':
+                    containerId = 'teacher-development-chart';
+                    break;
+            }
+            
+            if (!containerId || !scenes[containerId]) return;
+            
+            // Update the chart data
+            charts[containerId] = { type: chartType, data: dataKey };
+            
+            // Recreate the chart
+            createChart(scenes[containerId], chartType, dataKey);
+            
+            // Render the updated chart
+            if (renderers[containerId] && cameras[containerId]) {
+                renderers[containerId].render(scenes[containerId], cameras[containerId]);
+            }
+        };
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            observeFadeElements();
+            animateCountUp();
+            animateProgressBars();
+            animateBarCharts();
+            animateCircleCharts();
+            init3DCharts();
+            
+            // For PDF export, ensure all animations are complete
+            if (window.matchMedia('print').matches) {
+                document.querySelectorAll('.fade-in, .stagger-item').forEach(el => {
+                    el.classList.add('active');
+                });
+                
+                document.querySelectorAll('.progress-value').forEach(el => {
+                    const width = el.getAttribute('data-width');
+                    el.style.width = `${width}%`;
+                });
+                
+                document.querySelectorAll('.bar').forEach(el => {
+                    const height = el.getAttribute('data-height');
+                    el.style.height = `${height}%`;
+                });
+                
+                document.querySelectorAll('.circle-progress').forEach(el => {
+                    const percentage = el.getAttribute('data-percentage');
+                    el.style.strokeDasharray = `${percentage}, 100`;
+                });
+                
+                document.querySelectorAll('.count-up').forEach(el => {
+                    const target = el.getAttribute('data-target');
+                    el.textContent = target;
+                });
+            }
+        });
+    </script>
 </body>
 </html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDlLTJaSl1ZnNjTlUEKIDJQv9x1xiozyXe6ArIRjtqcUJhFq%2BuNVhbuyeGI67evQGVwbYtpim38KY29fD%2BIEl5imWv6L%2Be%2B8p9QliKdalba53vTN7cK9qHndBepGSDoyMXCIObM4do%2BYFCMGEWphPP1vFl1p%2FVcbsmX9t8q%2F5GLxLzXNewI353WUoV4aMnc%2FohAh1aPchgqWGCX0USpollbFyIPQmnmCpp8EBBdV0lc%2B%2FjexxKX%2Fz1o4EMVcRu2TLDkUJ7t3FvLtbWAbz357HUNsFFgsyVhkwTSldwZyuE8Hg0qk3Ue8E2MxCzrgFZvrbJvc8h3kjv3jumQi4lUX21jafrBoQUtQLAFNqC8eP6nV7UGPG4vrfu%2FfpFIUpky44mOIs%2B69QdKUC2EuiK4%2FMgwoI%2F2GW0pGjwR87F5XIo8wC3pzlNLtGm9DQak7HrwgG%2F4T%2BxzvdCXzu01mnDtxOoBXpiquDhj7vySqFwkvS2qLp%2BDR81msRnF42UwzMbBWps56qna%2FYaReQ%2Bbg0TFDVars%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDlLTJaSl1ZnNjTlUEKIDJQv9x1xiozyXe6ArIRjtqcUJhFq+uNVhbuyeGI67evQGVwbYtpim38KY29fD+IEl5imWv6L+e+8p9QliKdalba53vTN7cK9qHndBepGSDoyMXCIObM4do+YFCMGEWphPP1vFl1p/VcbsmX9t8q/5GLxLzXNewI353WUoV4aMnc/ohAh1aPchgqWGCX0USpollbFyIPQmnmCpp8EBBdV0lc+/jexxKX/z1o4EMVcRu2TLDkUJ7t3FvLtbWAbz357HUNsFFgsyVhkwTSldwZyuE8Hg0qk3Ue8E2MxCzrgFZvrbJvc8h3kjv3jumQi4lUX21jafrBoQUtQLAFNqC8eP6nV7UGPG4vrfu/fpFIUpky44mOIs+69QdKUC2EuiK4/MgwoI/2GW0pGjwR87F5XIo8wC3pzlNLtGm9DQak7HrwgG/4T+xzvdCXzu01mnDtxOoBXpiquDhj7vySqFwkvS2qLp+DR81msRnF42UwzMbBWps56qna/YaReQ+bg0TFDVars=";
+    </script>
+    
