@@ -1,529 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sustainable Instructional Leadership: Driving Excellence Without a Dedicated Teacher</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-    
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: #333;
-      line-height: 1.6;
-    }
-    
-    h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-    }
-    
-    .data-card {
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-    
-    .data-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .progress-bar {
-      height: 20px;
-      border-radius: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .progress-bar-idea {
-      background-color: #4F46E5;
-    }
-    
-    .progress-bar-state {
-      background-color: #9CA3AF;
-    }
-    
-    .quote-border {
-      border-left: 4px solid #4F46E5;
-      padding-left: 1rem;
-    }
-    
-    .highlight-text {
-      background: linear-gradient(to bottom, transparent 60%, rgba(79, 70, 229, 0.2) 40%);
-      display: inline;
-    }
-    
-    .hero-pattern {
-      background-color: #f9fafb;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234f46e5' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    
-    .chart-bar {
-      height: 30px;
-      border-radius: 6px;
-      transition: width 1s ease-in-out;
-    }
-    
-    .framework-item {
-      position: relative;
-      padding-left: 20px;
-    }
-    
-    .framework-item:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 8px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: #4F46E5;
-    }
-  </style>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marlitha Williams - Structured Literacy</title>
+    <!-- Use the same Google Fonts as your main page -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Link to your existing stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add any page-specific styles here */
+        
+        /* Gradient header - this should match your main page */
+        .hero-section {
+            background: linear-gradient(to right, #14395b, #1e5b8d);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        /* Content styling */
+        .content-section {
+            padding: 60px 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            color: #14395b;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #f0b429;
+        }
+        
+        /* Navigation styling - match your main page */
+        .main-nav {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .main-nav a {
+            color: #14395b;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: 600;
+        }
+        
+        .literacy-point {
+            background-color: #f8f8f8;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-  <div class="mx-auto max-w-4xl bg-white shadow-lg">
-    <!-- Header Section -->
-    <header class="hero-pattern py-12 px-8 text-center">
-      <div class="max-w-3xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Sustainable Instructional Leadership</h1>
-        <h2 class="text-2xl md:text-3xl font-semibold text-indigo-700 mb-6">Driving Excellence Without a Dedicated Teacher</h2>
-        <p class="text-xl text-gray-600">A case study of IDEA Brackenridge Academy's 5th Grade Reading/Writing Achievement</p>
-        <div class="mt-8 inline-block bg-white px-6 py-3 rounded-lg shadow-md">
-          <p class="text-lg font-medium text-gray-700">Marlitha Williams | Educational Leader & Instructional Coach</p>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">MW</a>
+            <a href="index.html">About</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="data-insights.html">Data Insights</a>
+            <a href="expertise.html">Expertise</a>
+            <a href="contact.html">Contact</a>
         </div>
-      </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <h1>Structured Literacy</h1>
+            <p>Expert implementation of science-based reading instruction</p>
+        </div>
     </header>
     
-    <!-- Challenge Overview Section -->
-    <section class="px-8 py-10 bg-indigo-50">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">The Challenge</h2>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <div class="flex flex-col md:flex-row items-center mb-6">
-            <div class="md:w-1/4 flex justify-center mb-4 md:mb-0">
-              <div class="bg-red-100 rounded-full p-4 w-20 h-20 flex items-center justify-center">
-                <i class="fas fa-exclamation-triangle text-red-500 text-3xl"></i>
-              </div>
-            </div>
-            <div class="md:w-3/4 md:pl-6">
-              <h3 class="text-xl font-semibold text-gray-800 mb-2">No Dedicated 5th Grade Reading Teacher</h3>
-              <p class="text-gray-600">During the 2023-2024 academic year, IDEA Brackenridge Academy faced a significant staffing challenge with no dedicated reading teacher for 5th grade students.</p>
-            </div>
-          </div>
-          
-          <div class="flex flex-col md:flex-row items-center">
-            <div class="md:w-1/4 flex justify-center mb-4 md:mb-0">
-              <div class="bg-indigo-100 rounded-full p-4 w-20 h-20 flex items-center justify-center">
-                <i class="fas fa-chart-line text-indigo-500 text-3xl"></i>
-              </div>
-            </div>
-            <div class="md:w-3/4 md:pl-6">
-              <h3 class="text-xl font-semibold text-gray-800 mb-2">High-Stakes Expectations</h3>
-              <p class="text-gray-600">Despite this challenge, the campus was still expected to maintain high academic performance on the state assessments that incorporated both reading and writing skills.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Results Overview Section -->
-    <section class="px-8 py-10">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-800 mb-2">The Results</h2>
-        <p class="text-gray-600 mb-8">Despite having no dedicated 5th grade reading teacher, IDEA Brackenridge Academy achieved outstanding results, outperforming state averages for two consecutive years.</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          <!-- 2023 Results Card -->
-          <div class="data-card bg-white p-6">
-            <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-              <span class="bg-indigo-100 text-indigo-700 rounded-full w-8 h-8 inline-flex items-center justify-center mr-2">
-                <i class="fas fa-calendar-alt"></i>
-              </span>
-              2023 Results
-            </h3>
-            <div class="space-y-4">
-              <div>
-                <p class="text-gray-600 mb-1">Average Scale Score</p>
-                <div class="flex justify-between text-sm font-medium mb-1">
-                  <span>IDEA: 1617</span>
-                  <span>State: 1602</span>
-                </div>
-                <div class="flex h-2 overflow-hidden rounded bg-gray-200">
-                  <div class="bg-indigo-600" style="width: 51%"></div>
-                  <div class="bg-gray-400" style="width: 49%"></div>
-                </div>
-                <p class="text-sm text-indigo-600 font-medium mt-1">+15 points higher than state average</p>
-              </div>
-              
-              <div>
-                <p class="text-gray-600 mb-1">Meets or Above Standard</p>
-                <div class="flex justify-between text-sm font-medium mb-1">
-                  <span>IDEA: 62%</span>
-                  <span>State: 56%</span>
-                </div>
-                <div class="flex h-2 overflow-hidden rounded bg-gray-200">
-                  <div class="bg-indigo-600" style="width: 62%"></div>
-                  <div class="bg-gray-400" style="width: 56%"></div>
-                </div>
-                <p class="text-sm text-indigo-600 font-medium mt-1">+6% higher than state average</p>
-              </div>
-              
-              <div>
-                <p class="text-gray-600 mb-1">Masters Level</p>
-                <div class="flex justify-between text-sm font-medium mb-1">
-                  <span>IDEA: 30%</span>
-                  <span>State: 28%</span>
-                </div>
-                <div class="flex h-2 overflow-hidden rounded bg-gray-200">
-                  <div class="bg-indigo-600" style="width: 30%"></div>
-                  <div class="bg-gray-400" style="width: 28%"></div>
-                </div>
-                <p class="text-sm text-indigo-600 font-medium mt-1">+2% higher than state average</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- 2024 Results Card -->
-          <div class="data-card bg-white p-6">
-            <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-              <span class="bg-indigo-100 text-indigo-700 rounded-full w-8 h-8 inline-flex items-center justify-center mr-2">
-                <i class="fas fa-calendar-alt"></i>
-              </span>
-              2024 Results
-            </h3>
-            <div class="space-y-4">
-              <div>
-                <p class="text-gray-600 mb-1">Writing Process Skills</p>
-                <div class="flex justify-between text-sm font-medium mb-1">
-                  <span>IDEA: 59%</span>
-                  <span>State: 43%</span>
-                </div>
-                <div class="flex h-2 overflow-hidden rounded bg-gray-200">
-                  <div class="bg-indigo-600" style="width: 59%"></div>
-                  <div class="bg-gray-400" style="width: 43%"></div>
-                </div>
-                <p class="text-sm text-indigo-600 font-medium mt-1">+16% higher than state average</p>
-              </div>
-              
-              <div>
-                <p class="text-gray-600 mb-1">Editing & Punctuation</p>
-                <div class="flex justify-between text-sm font-medium mb-1">
-                  <span>IDEA: 50%</span>
-                  <span>State: 39%</span>
-                </div>
-                <div class="flex h-2 overflow-hidden rounded bg-gray-200">
-                  <div class="bg-indigo-600" style="width: 50%"></div>
-                  <div class="bg-gray-400" style="width: 39%"></div>
-                </div>
-                <p class="text-sm text-indigo-600 font-medium mt-1">+11% higher than state average</p>
-              </div>
-              
-              <div>
-                <p class="text-gray-600 mb-1">Reading Comprehension</p>
-                <div class="flex justify-between text-sm font-medium mb-1">
-                  <span>IDEA: 72%</span>
-                  <span>State: 68%</span>
-                </div>
-                <div class="flex h-2 overflow-hidden rounded bg-gray-200">
-                  <div class="bg-indigo-600" style="width: 72%"></div>
-                  <div class="bg-gray-400" style="width: 68%"></div>
-                </div>
-                <p class="text-sm text-indigo-600 font-medium mt-1">+4% higher than state average</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Performance Highlights -->
-        <div class="bg-white p-6 rounded-lg shadow-md mb-10">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">Key Performance Highlights</h3>
-          
-          <div class="space-y-6">
-            <div>
-              <h4 class="text-lg font-medium text-indigo-700 mb-2">Writing Excellence</h4>
-              <p class="mb-3">Most notable is the exceptional performance in writing-related skills in 2024, with a <span class="highlight-text">16% advantage over the state average in writing process</span> skills.</p>
-              <div class="bg-gray-100 p-4 rounded-md">
-                <div class="mb-3">
-                  <p class="font-medium mb-2">Writing Process (TEKS 11.C)</p>
-                  <div class="flex items-center">
-                    <span class="w-16 text-sm">IDEA:</span>
-                    <div class="flex-1 bg-gray-200 rounded-full h-4 mx-2">
-                      <div class="chart-bar bg-indigo-600" style="width: 59%"></div>
-                    </div>
-                    <span class="text-sm">59%</span>
-                  </div>
-                  <div class="flex items-center mt-2">
-                    <span class="w-16 text-sm">State:</span>
-                    <div class="flex-1 bg-gray-200 rounded-full h-4 mx-2">
-                      <div class="chart-bar bg-gray-400" style="width: 43%"></div>
-                    </div>
-                    <span class="text-sm">43%</span>
-                  </div>
-                </div>
-              </div>
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Science of Reading Approach</h2>
+            <p>Structured literacy is an approach to reading instruction that is systematic, explicit, and cumulative. It focuses on teaching the fundamental components of reading in a way that is backed by scientific research on how the brain learns to read.</p>
+            
+            <div class="literacy-point">
+                <h3>Phonics-based early literacy</h3>
+                <p>My approach emphasizes systematic phonics instruction that teaches students the relationship between letters and sounds, enabling them to decode unfamiliar words independently. This foundation is crucial for reading fluency and comprehension in later grades.</p>
+                <ul>
+                    <li>Systematic and explicit phonics instruction</li>
+                    <li>Sequential introduction of sound-spelling relationships</li>
+                    <li>Regular practice with decodable texts</li>
+                </ul>
             </div>
             
-            <div>
-              <h4 class="text-lg font-medium text-indigo-700 mb-2">Consistent Excellence</h4>
-              <p class="mb-3">The data shows consistent outperformance across two years, demonstrating that the instructional systems established were robust enough to maintain excellence even without a dedicated teacher.</p>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="bg-gray-100 p-3 rounded-md">
-                  <p class="font-medium text-sm mb-1">2023 Meets+</p>
-                  <div class="flex items-center text-sm">
-                    <span class="font-bold text-indigo-600 text-lg">62%</span>
-                    <span class="ml-2 text-gray-500">vs State 56%</span>
-                  </div>
-                </div>
-                <div class="bg-gray-100 p-3 rounded-md">
-                  <p class="font-medium text-sm mb-1">2024 Writing</p>
-                  <div class="flex items-center text-sm">
-                    <span class="font-bold text-indigo-600 text-lg">+16%</span>
-                    <span class="ml-2 text-gray-500">vs State</span>
-                  </div>
-                </div>
-              </div>
+            <div class="literacy-point">
+                <h3>Reading comprehension frameworks</h3>
+                <p>Beyond decoding, I implement structured approaches to develop deep reading comprehension, teaching students to actively engage with texts through questioning, summarizing, and analyzing.</p>
+                <ul>
+                    <li>Text-dependent questioning techniques</li>
+                    <li>Close reading protocols</li>
+                    <li>Comprehension strategy instruction</li>
+                </ul>
             </div>
             
-            <div>
-              <h4 class="text-lg font-medium text-indigo-700 mb-2">Higher-Order Skills</h4>
-              <p>The most significant advantages were in complex skills that require deep understanding, particularly in writing process, editing, and author's craft - demonstrating that students received high-quality instruction despite the staffing challenge.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- The How Section -->
-    <section class="px-8 py-10 bg-gray-50">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">How Was This Achieved?</h2>
-        
-        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">The Instructional Framework</h3>
-          
-          <div class="mb-6">
-            <div class="quote-border mb-4">
-              <p class="italic text-gray-700">"The instructional framework established was so robust and systematic that it enabled consistent, high-quality instruction even when delivered by substitute teachers under my guidance."</p>
-            </div>
-            <p class="text-gray-600">The success was driven by a comprehensive instructional framework that created consistency and coherence across all literacy instruction.</p>
-          </div>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h4 class="text-lg font-medium text-indigo-700 mb-3">Vertically Aligned Instruction</h4>
-              <ul class="space-y-2">
-                <li class="framework-item">Consistent terminology across grade levels</li>
-                <li class="framework-item">Clear skill progression documented for teachers</li>
-                <li class="framework-item">Common visual supports and instructional routines</li>
-                <li class="framework-item">Research-based literacy approaches</li>
-              </ul>
+            <div class="literacy-point">
+                <h3>Writing across content areas</h3>
+                <p>Writing reinforces reading skills and deepens content knowledge. My framework integrates writing instruction across all subject areas, providing students with tools to organize their thoughts and express ideas clearly.</p>
+                <ul>
+                    <li>Explicit instruction in writing structures</li>
+                    <li>Evidence-based writing in response to reading</li>
+                    <li>Grammar and mechanics taught in context</li>
+                </ul>
             </div>
             
-            <div>
-              <h4 class="text-lg font-medium text-indigo-700 mb-3">Science of Reading & Writing</h4>
-              <ul class="space-y-2">
-                <li class="framework-item">Integration of reading and writing instruction</li>
-                <li class="framework-item">Explicit teaching of language structures</li>
-                <li class="framework-item">Focus on both foundational and higher-order skills</li>
-                <li class="framework-item">Systematic application of literacy principles</li>
-              </ul>
-            </div>
-          </div>
+            <h2 class="section-title">Impact & Results</h2>
+            <p>Implementation of these structured literacy approaches resulted in 80% of 5th grade students meeting or exceeding yearly reading growth targets for three consecutive years, even during challenging instructional conditions.</p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div class="bg-white p-5 rounded-lg shadow-md">
-            <div class="bg-indigo-100 rounded-full p-3 w-14 h-14 flex items-center justify-center mb-4">
-              <i class="fas fa-book text-indigo-600 text-2xl"></i>
-            </div>
-            <h4 class="text-lg font-medium text-gray-800 mb-2">Comprehensive Curriculum</h4>
-            <p class="text-gray-600">Detailed lesson materials that could be effectively delivered by any teacher with minimal preparation.</p>
-          </div>
-          
-          <div class="bg-white p-5 rounded-lg shadow-md">
-            <div class="bg-indigo-100 rounded-full p-3 w-14 h-14 flex items-center justify-center mb-4">
-              <i class="fas fa-users text-indigo-600 text-2xl"></i>
-            </div>
-            <h4 class="text-lg font-medium text-gray-800 mb-2">Strategic Intervention</h4>
-            <p class="text-gray-600">Data-driven small group interventions that targeted specific skills based on ongoing assessment.</p>
-          </div>
-          
-          <div class="bg-white p-5 rounded-lg shadow-md">
-            <div class="bg-indigo-100 rounded-full p-3 w-14 h-14 flex items-center justify-center mb-4">
-              <i class="fas fa-clipboard-check text-indigo-600 text-2xl"></i>
-            </div>
-            <h4 class="text-lg font-medium text-gray-800 mb-2">Consistent Monitoring</h4>
-            <p class="text-gray-600">Regular progress monitoring and instructional adjustments based on student performance data.</p>
-          </div>
-        </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">Implementation Strategies</h3>
-          
-          <div class="space-y-5">
-            <div class="flex">
-              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                <span class="text-indigo-600 font-semibold">1</span>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-lg font-medium text-gray-800">Substitute Teacher Support System</h4>
-                <p class="text-gray-600">Created detailed lesson plans with explicit guidance, exemplars, and anticipated student challenges to support substitute teachers.</p>
-              </div>
-            </div>
-            
-            <div class="flex">
-              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                <span class="text-indigo-600 font-semibold">2</span>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-lg font-medium text-gray-800">Strategic Intervention Blocks</h4>
-                <p class="text-gray-600">Implemented targeted small-group instruction during intervention blocks to address skill gaps and accelerate growth, particularly in writing.</p>
-              </div>
-            </div>
-            
-            <div class="flex">
-              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                <span class="text-indigo-600 font-semibold">3</span>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-lg font-medium text-gray-800">Gradual Release Instructional Model</h4>
-                <p class="text-gray-600">Applied a consistent "I Do, We Do, You Do" approach that made instruction predictable and effective, regardless of the teacher.</p>
-              </div>
-            </div>
-            
-            <div class="flex">
-              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                <span class="text-indigo-600 font-semibold">4</span>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-lg font-medium text-gray-800">Vertically Aligned Skill Instruction</h4>
-                <p class="text-gray-600">Created consistent terminology and instructional routines that built upon skills learned in previous grades, particularly focused on the integration of reading and writing.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Key Insights Section -->
-    <section class="px-8 py-10">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Key Insights & Leadership Implications</h2>
-        
-        <div class="bg-indigo-50 p-6 rounded-lg mb-8">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">The Power of Systems Over Personalities</h3>
-          <p class="text-gray-700 mb-4">The most significant insight from this case study is that well-designed instructional systems can maintain excellence even without a dedicated content teacher. This demonstrates that <span class="highlight-text">sustainable educational leadership is about building systems that transcend individual personalities</span>.</p>
-          <div class="mt-4 flex items-start">
-            <i class="fas fa-lightbulb text-yellow-500 text-xl mt-1 mr-3"></i>
-            <p class="text-gray-700">When instructional leaders focus on creating robust frameworks, detailed resources, and clear implementation guidelines, they create lasting impact that extends beyond their direct presence.</p>
-          </div>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div class="bg-white p-5 rounded-lg shadow-md">
-            <h4 class="text-lg font-medium text-indigo-700 mb-3">Evidence of System Strength</h4>
-            <ul class="space-y-2">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                <span>Consistent performance across two years</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                <span>Excellence in complex skills that require strong instruction</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                <span>Substitute teachers able to implement effectively</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                <span>Strongest performance in writing, which is typically most vulnerable to teacher quality</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div class="bg-white p-5 rounded-lg shadow-md">
-            <h4 class="text-lg font-medium text-indigo-700 mb-3">Leadership Takeaways</h4>
-            <ul class="space-y-2">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                <span>Invest in comprehensive curriculum and support materials</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                <span>Create clear instructional routines that any teacher can follow</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                <span>Develop monitoring systems that identify and address gaps quickly</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                <span>Build vertical alignment that creates coherence across grade levels</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        
-        <!-- Impact Statement -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">Lasting Impact</h3>
-          
-          <div class="quote-border mb-6 py-2">
-            <p class="italic text-gray-700 text-lg">"The true measure of instructional leadership isn't just what happens when you're present, but what continues to happen in your absence. Building systems that sustain excellence regardless of staffing challenges represents the highest form of educational leadership."</p>
-          </div>
-          
-          <p class="text-gray-700 mb-4">This case study demonstrates that instructional leadership is fundamentally about creating structures and systems that empower any educator to deliver high-quality instruction. By focusing on:</p>
-          
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div class="bg-indigo-50 p-4 rounded-md text-center">
-              <i class="fas fa-sitemap text-indigo-600 text-2xl mb-2"></i>
-              <p class="font-medium">Systems</p>
-            </div>
-            <div class="bg-indigo-50 p-4 rounded-md text-center">
-              <i class="fas fa-tools text-indigo-600 text-2xl mb-2"></i>
-              <p class="font-medium">Resources</p>
-            </div>
-            <div class="bg-indigo-50 p-4 rounded-md text-center">
-              <i class="fas fa-chart-line text-indigo-600 text-2xl mb-2"></i>
-              <p class="font-medium">Monitoring</p>
-            </div>
-          </div>
-          
-          <p class="text-gray-700">IDEA Brackenridge Academy was able to maintain and even accelerate student achievement despite significant staffing challenges. The robust instructional framework created a foundation for success that transcended traditional staffing models.</p>
-        </div>
-      </div>
     </section>
     
     <!-- Footer -->
-    <footer class="px-8 py-10 bg-gray-900 text-white">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-2xl font-bold mb-4">Marlitha Williams</h2>
-        <p class="text-gray-400 mb-6">Educational Leader & Instructional Coach</p>
-        <p class="text-gray-400 mb-2">Building sustainable systems that empower educators and elevate student achievement</p>
-        <div class="mt-8 flex justify-center space-x-4">
-          <a href="#" class="text-gray-400 hover:text-white transition">
-            <i class="fab fa-linkedin text-2xl"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white transition">
-            <i class="fas fa-envelope text-2xl"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white transition">
-            <i class="fas fa-globe text-2xl"></i>
-          </a>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Marlitha Williams</p>
         </div>
-      </div>
     </footer>
-  </div>
 </body>
 </html>
-    <script id="html_badge_script1">
-        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrNTE5Y5RDlRcT0sxQjZM4nNbJ6w6CJFGbLAAf5lDhMsV4JePOHw5v0Xw3yc7dDdbCFDyDPBM8%2FfSwH4ePse8JUitw6ow0cWDEwDaNnnOCGuzhqifYGcihGNGFI18%2FcnlRq4NRbMyDcRpvSYCC99GylpCjCuMlu1sMgYv0%2BL%2FU80FPsX5IeCTtvcNczsw5SNCJxP4kOGCoTCNB66OvhM8UNzmiTNGnRP04ZDVctBJKQVPMc2GE4y0%2FkEBRsdsICi6TdYzH5f4fXiCGeOjDGDCw7ngAZDunBeZzUiyNOwTHHRpb2YDHyxxpcfY8XLk93QPWyWOoaBYL%2BKFNg54eQepGrj3lUgP1Ht8Mqr%2FRkFP%2FBEEagYn9SMgRJk6SVXc30LWjch4xvmdnquDnsudgITI8mgb80PZmxPkfcOCvwoUOtV0QlRzFUSeDahEo5wbrXumbGoS9GeZQz9EFsADEn0saJlSt6qnSYTeJNpwAlOv85Zw7zWjE9p9YErItREjjZsSNKAm%2FfYgRBARlhbfZzgTbQ%3D";
-        window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrNTE5Y5RDlRcT0sxQjZM4nNbJ6w6CJFGbLAAf5lDhMsV4JePOHw5v0Xw3yc7dDdbCFDyDPBM8/fSwH4ePse8JUitw6ow0cWDEwDaNnnOCGuzhqifYGcihGNGFI18/cnlRq4NRbMyDcRpvSYCC99GylpCjCuMlu1sMgYv0+L/U80FPsX5IeCTtvcNczsw5SNCJxP4kOGCoTCNB66OvhM8UNzmiTNGnRP04ZDVctBJKQVPMc2GE4y0/kEBRsdsICi6TdYzH5f4fXiCGeOjDGDCw7ngAZDunBeZzUiyNOwTHHRpb2YDHyxxpcfY8XLk93QPWyWOoaBYL+KFNg54eQepGrj3lUgP1Ht8Mqr/RkFP/BEEagYn9SMgRJk6SVXc30LWjch4xvmdnquDnsudgITI8mgb80PZmxPkfcOCvwoUOtV0QlRzFUSeDahEo5wbrXumbGoS9GeZQz9EFsADEn0saJlSt6qnSYTeJNpwAlOv85Zw7zWjE9p9YErItREjjZsSNKAm/fYgRBARlhbfZzgTbQ=";
-    </script>
-    
