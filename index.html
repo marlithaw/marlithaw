@@ -1,185 +1,1661 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Full head content preserved -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marlitha Williams | Educational Leader & Instructional Coach</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --navy: #0A3161;
-      --teal: #008080;
-      --gold: #FFB81C;
-      --light-gray: #F4F4F4;
-      --charcoal: #333333;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Georgia', serif;
-      color: var(--charcoal);
-      background-color: white;
-    }
-    h1, h2, h3, h4, h5, h6, .nav-link {
-      font-family: 'Montserrat', sans-serif;
-    }
-    .text-navy { color: var(--navy); }
-    .text-teal { color: var(--teal); }
-    .text-gold { color: var(--gold); }
-    .bg-navy { background-color: var(--navy); }
-    .bg-teal { background-color: var(--teal); }
-    .bg-gold { background-color: var(--gold); }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: var(--gold);
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    .animated-underline::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 3px;
-      bottom: -5px;
-      left: 0;
-      background-color: var(--gold);
-      transform: scaleX(0);
-      transform-origin: bottom right;
-      transition: transform 0.3s;
-    }
-    .animated-underline.visible::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marlitha Williams | Educational Leader & Systems Designer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A3161;
+            --teal: #008080;
+            --gold: #FFB81C;
+            --light-gray: #F4F4F4;
+            --charcoal: #333333;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--charcoal);
+            background-color: white;
+        }
+        
+        h1, h2, h3, h4, h5, h6, .nav-link {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .bg-navy {
+            background-color: var(--navy);
+        }
+        
+        .bg-teal {
+            background-color: var(--teal);
+        }
+        
+        .bg-gold {
+            background-color: var(--gold);
+        }
+        
+        .text-navy {
+            color: var(--navy);
+        }
+        
+        .text-teal {
+            color: var(--teal);
+        }
+        
+        .text-gold {
+            color: var(--gold);
+        }
+        
+        .border-navy {
+            border-color: var(--navy);
+        }
+        
+        .border-teal {
+            border-color: var(--teal);
+        }
+        
+        .border-gold {
+            border-color: var(--gold);
+        }
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(90deg, rgba(10,49,97,0.95) 0%, rgba(0,128,128,0.9) 100%);
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .timeline {
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--teal);
+        }
+        
+        .timeline-item {
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--gold);
+            z-index: 1;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+        }
+        
+        .progress-value {
+            height: 100%;
+            border-radius: 4px;
+            background-color: var(--teal);
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        .count-up {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 1rem;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            color: var(--light-gray);
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .case-study-image {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+            background-color: var(--light-gray);
+        }
+
+        .skill-tag {
+            background-color: var(--light-gray);
+            color: var(--navy);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--navy);
+            color: white;
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition-delay: calc(var(--item-index) * 0.1s);
+        }
+
+        .stagger-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        /* Bar chart styles */
+        .bar-chart {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            height: 250px;
+            width: 100%;
+            gap: 8px;
+        }
+
+        .bar-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            align-items: center;
+        }
+
+        .bar {
+            width: 100%;
+            background-color: var(--teal);
+            margin-bottom: 10px;
+            border-radius: 5px 5px 0 0;
+            height: 0;
+            transition: height 1.5s ease;
+        }
+
+        .bar-text {
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .bar-label {
+            transform: rotate(-45deg);
+            margin-top: 10px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        /* Circle chart styles */
+        .circle-chart {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .circle-bg {
+            fill: none;
+            stroke: #eee;
+            stroke-width: 3.8;
+        }
+        
+        .circle-progress {
+            fill: none;
+            stroke: var(--teal);
+            stroke-width: 3.8;
+            stroke-linecap: round;
+            stroke-dasharray: 0 100;
+            transition: stroke-dasharray 1.5s ease;
+        }
+        
+        .circle-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            fill: var(--navy);
+        }
+
+        .social-icon {
+            color: var(--navy);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* 3D Chart Container Styles */
+        .chart3d-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+
+        .chart3d-container canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .chart-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+
+        .chart-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .chart-control-btn {
+            background-color: var(--navy);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chart-control-btn:hover {
+            background-color: var(--teal);
+        }
+
+        .chart-tooltip {
+            position: absolute;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 10;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: var(--charcoal);
+            max-width: 200px;
+        }
+        
+        /* Storytelling styles */
+        .story-section {
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 0;
+        }
+        
+        .story-section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 1;
+        }
+        
+        .story-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .journey-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: var(--teal);
+        }
+        
+        .journey-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .journey-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--gold);
+            border: 2px solid var(--teal);
+        }
+        
+        .approach-card {
+            border-left: 3px solid var(--teal);
+            transition: all 0.3s ease;
+        }
+        
+        .approach-card:hover {
+            border-left-color: var(--gold);
+            transform: translateX(5px);
+        }
+        
+        .impact-statistic {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .impact-statistic::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .video-placeholder {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: var(--navy);
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .video-placeholder:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,49,97,0.8) 0%, rgba(0,128,128,0.7) 100%);
+            z-index: 1;
+        }
+        
+        .video-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .data-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .data-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .data-card-header {
+            border-bottom: 3px solid var(--gold);
+        }
+        
+        .value-line {
+            height: 3px;
+            background-color: var(--light-gray);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .value-fill {
+            height: 100%;
+            background-color: var(--teal);
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        .action-button {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .action-button:hover::before {
+            left: 0;
+        }
+        
+        .story-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Quick navigation buttons */
+        .quick-nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .quick-nav-button {
+            background-color: white;
+            color: var(--navy);
+            border: 2px solid var(--teal);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .quick-nav-button:hover {
+            background-color: var(--teal);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .quick-nav-button i {
+            margin-right: 0.5rem;
+        }
+
+        /* Custom styled STAAR graph container */
+        .staar-graph-container {
+            background-color: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .staar-graph-container:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .staar-graph-header {
+            background-color: var(--navy);
+            color: white;
+            padding: 16px 20px;
+            border-bottom: 3px solid var(--gold);
+        }
+        
+        .staar-graph-content {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .staar-graph-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #edf2f7;
+        }
+        
+        .staar-graph-footer {
+            padding: 0 20px 20px;
+            background-color: white;
+        }
+        
+        .staar-graph-legend {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .legend-color-campus {
+            width: 16px;
+            height: 16px;
+            background-color: var(--teal);
+            border-radius: 3px;
+            margin-right: 6px;
+        }
+        
+        .legend-color-district {
+            width: 16px;
+            height: 16px;
+            background-color: var(--navy);
+            border-radius: 3px;
+            margin-right: 6px;
+        }
+        
+        .legend-color-state {
+            width: 16px;
+            height: 16px;
+            background-color: var(--light-gray);
+            border-radius: 3px;
+            margin-right: 6px;
+        }
+
+        /* Resource button styles */
+        .resource-category {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-category:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        
+        .resource-category-title {
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .resource-button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--navy);
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: left;
+            border-left: 3px solid transparent;
+        }
+        
+        .resource-button:hover {
+            background-color: var(--navy);
+            color: white;
+            border-left-color: var(--gold);
+            padding-left: 1.25rem;
+        }
+        
+        .resource-button i {
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* For PDF export optimization */
+         {
+            .nav-container {
+                display: none;
+            }
+            
+            html, body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: visible;
+            }
+            
+            .fade-in, .stagger-item {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .progress-value {
+                width: var(--target-width) !important;
+            }
+            
+            .bar {
+                height: var(--target-height) !important;
+            }
+            
+            .circle-progress {
+                stroke-dasharray: var(--target-value) 100 !important;
+            }
+            
+            .value-fill {
+                width: var(--target-width) !important;
+            }
+        }
+    </style>
 </head>
-<body class="bg-white">
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="font-semibold text-2xl text-navy">MW</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#philosophy" class="nav-link text-navy font-medium">Philosophy & Approach</a>
+                <a href="#impact" class="nav-link text-navy font-medium">Proven Impact</a>
+                <a href="#beyond" class="nav-link text-navy font-medium">Beyond the Classroom</a>
+                <a href="#portfolio" class="nav-link text-navy font-medium">Case Studies</a>
+                <a href="#contact" class="nav-link text-navy font-medium">Connect</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-navy">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full py-4 shadow-md">
+            <div class="container mx-auto px-6 flex flex-col space-y-4">
+                <a href="#philosophy" class="text-navy font-medium">Philosophy & Approach</a>
+                <a href="#impact" class="text-navy font-medium">Proven Impact</a>
+                <a href="#beyond" class="text-navy font-medium">Beyond the Classroom</a>
+                <a href="#portfolio" class="text-navy font-medium">Case Studies</a>
+                <a href="#contact" class="text-navy font-medium">Connect</a>
+            </div>
+        </div>
+    </nav>
 
-<!-- Navigation -->
-<nav class="bg-white shadow-md py-4 sticky top-0 z-50">
-  <div class="container mx-auto px-4 flex justify-between items-center">
-    <div>
-      <a href="#" class="text-2xl font-bold text-navy">Marlitha Williams</a>
-    </div>
-    <div class="hidden md:flex space-x-6">
-      <a href="#about" class="nav-link text-navy hover:text-teal">About</a>
-      <a href="#literacy-impact" class="nav-link text-navy hover:text-teal">Literacy Impact</a>
-      <a href="#case-studies" class="nav-link text-navy hover:text-teal">Case Studies</a>
-      <a href="#contact" class="nav-link text-navy hover:text-teal">Contact</a>
-    </div>
-  </div>
-</nav>
+    <!-- Hero Section with Video Placeholder -->
+    <header class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 order-2 lg:order-1">
+                    <h1 class="hero-title text-white mb-4 animate__animated animate__fadeInUp">Building Capacity, Transforming Experience, Leading with Purpose</h1>
+                    <h2 class="text-xl md:text-2xl text-gold mb-8 animate__animated animate__fadeInUp animate__delay-1s">Educational Leadership & Systems Design</h2>
+                    
+                    <p class="text-white text-lg mb-8 animate__animated animate__fadeInUp animate__delay-2s">I create sustainable educational systems that deliver exceptional results through data-driven leadership and personalized coaching approaches.</p>
+                    
+                    <!-- Quick navigation buttons -->
+                    <div class="quick-nav-container animate__animated animate__fadeInUp animate__delay-2s">
+                        <a href="#philosophy" class="quick-nav-button">
+                            <i class="fas fa-lightbulb"></i>Philosophy
+                        </a>
+                        <a href="#impact" class="quick-nav-button">
+                            <i class="fas fa-chart-line"></i>Impact
+                        </a>
+                        <a href="#portfolio" class="quick-nav-button">
+                            <i class="fas fa-briefcase"></i>Case Studies
+                        </a>
+                        <a href="#contact" class="quick-nav-button">
+                            <i class="fas fa-envelope"></i>Connect
+                        </a>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-8 animate__animated animate__fadeInUp animate__delay-3s">
+                        <a href="#portfolio" class="action-button bg-gold text-navy px-6 py-3 rounded-lg font-bold hover:bg-white hover:text-navy transition duration-300 text-center">Explore My Work</a>
+                        <a href="#contact" class="action-button border-2 border-white text-white px-6 py-3 rounded-lg font-bold hover:bg-white hover:text-navy transition duration-300 text-center">Connect With Me</a>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 order-1 lg:order-2">
+                    <div class="video-placeholder animate__animated animate__fadeIn animate__delay-4s mx-auto lg:ml-auto lg:mr-0 max-w-md">
+                        <div class="video-content text-white">
+                            <div class="play-button">
+                                <i class="fas fa-play text-navy text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">My Leadership Story</h3>
+                            <p class="opacity-80">Coming soon: Learn about my journey and approach</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<!-- Hero Section -->
-<section class="py-20 bg-navy text-white text-center">
-  <div class="container mx-auto px-6">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Marlitha Williams</h1>
-    <p class="text-xl md:text-2xl mb-6">Educational Leader & Instructional Coach</p>
-    <p class="max-w-2xl mx-auto text-lg">Designing systems that endure — even when staff doesn’t.</p>
-    <div class="mt-8">
-      <a href="#case-studies" class="bg-gold text-navy px-6 py-3 rounded-md font-bold hover:bg-white hover:text-navy transition">Explore My Work</a>
-    </div>
-  </div>
-</section>
+    <!-- 2024 Literacy Highlights Section - Moved closer to the top -->
+    <section class="py-16 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="data-card bg-white p-6 rounded-lg shadow-md fade-in">
+                    <div class="data-card-header pb-4 mb-4">
+                        <h4 class="text-2xl font-bold text-navy">2024 Literacy Leadership Highlights</h4>
+                    </div>
+                    <p class="mb-4">Despite having no dedicated 5th grade reading teacher, our campus achieved outstanding results, outperforming state averages across key metrics:</p>
+                    
+                    <div class="mb-6">
+                        <div class="impact-statistic">
+                            <div class="flex justify-between items-center mb-2">
+                                <p class="font-bold">Writing Process Skills</p>
+                                <p class="text-teal font-bold">+16% vs State</p>
+                            </div>
+                            <div class="value-line">
+                                <div class="value-fill" style="--target-width: 75%;" data-width="75"></div>
+                            </div>
+                            <div class="flex justify-between text-sm mt-1">
+                                <span>Campus: 59%</span>
+                                <span>State: 43%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="impact-statistic">
+                            <div class="flex justify-between items-center mb-2">
+                                <p class="font-bold">Reading Comprehension</p>
+                                <p class="text-teal font-bold">+4% vs State</p>
+                            </div>
+                            <div class="value-line">
+                                <div class="value-fill" style="--target-width: 65%;" data-width="65"></div>
+                            </div>
+                            <div class="flex justify-between text-sm mt-1">
+                                <span>Campus: 72%</span>
+                                <span>State: 68%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="impact-statistic">
+                            <div class="flex justify-between items-center mb-2">
+                                <p class="font-bold">Editing & Mechanics</p>
+                                <p class="text-teal font-bold">+11% vs State</p>
+                            </div>
+                            <div class="value-line">
+                                <div class="value-fill" style="--target-width: 70%;" data-width="70"></div>
+                            </div>
+                            <div class="flex justify-between text-sm mt-1">
+                                <span>Campus: 50%</span>
+                                <span>State: 39%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="italic bg-light-gray p-4 rounded-lg">These results demonstrate the power of sustainable systems—instructional frameworks so robust they deliver excellence even without dedicated subject teachers.</p>
+                </div>
+                
+                <!-- Enhanced STAAR Outcomes Graph with Proper Formatting -->
+                <div class="staar-graph-container fade-in">
+                    <div class="staar-graph-header">
+                        <h4 class="text-2xl font-bold">My 5th Grade 3-Year STAAR Outcomes</h4>
+                    </div>
+                    <div class="staar-graph-content">
+                        <div class="relative">
+                            <!-- The image is displayed but styled with our custom formatting -->
+                            <img src="https://page.genspark.site/v1/base64_upload/d04e720ba78192ec5be0eb4ac2f9cc03" alt="Grade 5 STAAR Reading Performance by Cohort (2022-2024)" class="staar-graph-image">
+                            
+                            <!-- Legend for the graph -->
+                            <div class="staar-graph-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color-campus"></div>
+                                    <span>Campus</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color-district"></div>
+                                    <span>District</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color-state"></div>
+                                    <span>State</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="staar-graph-footer">
+                        <div class="mt-4">
+                            <h5 class="font-bold text-navy text-center text-xl mb-3">Consistent Excellence:</h5>
+                            <p class="text-center">For three consecutive years (2022-2024), my 5th grade students consistently outperformed both district and state benchmarks across all performance levels. Even in 2024, without a dedicated reading teacher, students maintained this exceptional performance—a testament to the durability of our literacy systems and instructional frameworks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- About Section -->
-<section id="about" class="py-16 bg-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-navy mb-6">About Me</h2>
-    <p class="text-lg mb-4 max-w-3xl">With a background in law and education, I bring an analytical, equity-driven lens to literacy leadership. My work focuses on building durable, scalable systems that empower even novice or substitute teachers to deliver rigorous, meaningful instruction. I’ve led campus-wide gains in reading while navigating teacher shortages, trauma, and instructional instability.</p>
-  </div>
-</section>
+    <!-- Philosophy & Approach Section -->
+    <section id="philosophy" class="story-section py-20">
+        <div class="container mx-auto px-6 story-content">
+            <h2 class="section-title text-3xl font-bold text-navy mb-12">Philosophy & Approach</h2>
+            
+            <div class="bg-white bg-opacity-80 p-6 rounded-lg mb-8 border-l-4 border-gold fade-in">
+                <p class="mb-4">I lead with a systems-focused approach—creating learning ecosystems that cultivate growth, strengthen capacity, and transform lived experiences into sustainable leadership. Since beginning my journey as a Teach For America corps member in 2013, I've evolved my practice into a lasting commitment to fostering growth and impact that extend far beyond the classroom.</p>
+                
+                <p>Over the past year, I stepped away from campus leadership to step into caregiving for my grandmother—a role that reinforced my commitment to sustainable systems, deepened my understanding of intergenerational healing, and strengthened my resolve to lead with integrity, even in uncertain terrain.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-start">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
+                    <h3 class="text-2xl font-bold text-teal mb-6 fade-in">Systems Over Personalities</h3>
+                    <p class="mb-6 fade-in">Throughout my career, I've championed the philosophy that effective educational leadership isn't about individual charisma or heroic efforts—it's about building robust systems that sustain excellence regardless of who's in the classroom.</p>
+                    
+                    <p class="mb-8 fade-in">My approach centers on creating instructional frameworks, professional development structures, and data systems that work together to support consistent growth—even during periods of transition, staffing challenges, or leadership changes.</p>
+                    
+                    <div class="journey-timeline fade-in">
+                        <div class="journey-item">
+                            <h4 class="font-bold text-navy">Layered Professional Development</h4>
+                            <p>Teacher growth requires differentiated support that responds to individual needs while maintaining clear, consistent expectations.</p>
+                        </div>
+                        
+                        <div class="journey-item">
+                            <h4 class="font-bold text-navy">Responsive Intervention Systems</h4>
+                            <p>Student growth depends on targeted, data-informed supports that adapt to changing needs while maintaining instructional coherence.</p>
+                        </div>
+                        
+                        <div class="journey-item">
+                            <h4 class="font-bold text-navy">Integrated Literacy Framework</h4>
+                            <p>Reading and writing instruction should be deeply connected, with skills taught explicitly and applied across content areas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 lg:pl-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 shadow-md rounded-lg approach-card fade-in">
+                            <div class="text-gold mb-4"><i class="fas fa-users-cog text-3xl"></i></div>
+                            <h4 class="text-lg font-bold text-navy mb-2">The Triangle Leadership System</h4>
+                            <p>My leadership framework balances individual strengths, system coherence, and collective intelligence—creating a structure that honors differences while maintaining high expectations.</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 shadow-md rounded-lg approach-card fade-in">
+                            <div class="text-gold mb-4"><i class="fas fa-brain text-3xl"></i></div>
+                            <h4 class="text-lg font-bold text-navy mb-2">Personality-Informed Coaching</h4>
+                            <p>I adapt professional support based on how educators process information and make decisions, creating growth pathways that respect individual learning preferences.</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 shadow-md rounded-lg approach-card fade-in">
+                            <div class="text-gold mb-4"><i class="fas fa-chart-line text-3xl"></i></div>
+                            <h4 class="text-lg font-bold text-navy mb-2">Data-Informed Decision Making</h4>
+                            <p>Every instructional decision is grounded in systematic analysis of multiple data points, ensuring resources are directed to areas of greatest impact.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light-gray p-6 rounded-lg mt-6 fade-in">
+                        <div class="flex items-start">
+                            <div class="text-gold mr-4 mt-1"><i class="fas fa-quote-left text-2xl"></i></div>
+                            <div>
+                                <p class="italic mb-4">The true measure of instructional leadership isn't just what happens when you're present, but what continues to happen in your absence. Building systems that sustain excellence regardless of staffing challenges represents the highest form of educational leadership.</p>
+                                <p class="font-bold text-navy">— My Leadership Philosophy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Literacy Impact Section -->
-<section id="literacy-impact" class="py-20 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-navy mb-4 text-center">Literacy Outcomes Over Time</h2>
-    <p class="text-center mb-8 max-w-3xl mx-auto text-gray-700">Even during years where 75% of classrooms were led by substitutes, our systems for writing, annotation, and AI-assisted planning helped students grow — and rebound stronger.</p>
-    <div class="grid grid-cols-3 gap-4 text-center">
-      <div>
-        <h3 class="text-xl font-bold text-teal">2022</h3>
-        <p>Meets: 55%<br>Masters: 41%</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-bold text-teal">2023</h3>
-        <p>Meets: 39%<br>Masters: 19%</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-bold text-teal">2024</h3>
-        <p><strong>Meets: 59%<br>Masters: 31%</strong></p>
-      </div>
-    </div>
-    <p class="text-sm text-gray-600 mt-4 italic text-center">+11 pts above district in Masters tier by 2024</p>
-  </div>
-</section>
+    <!-- Proven Impact Section -->
+    <section id="impact" class="story-section bg-light-gray py-20">
+        <div class="container mx-auto px-6 story-content">
+            <h2 class="section-title text-3xl font-bold text-navy mb-12">Proven Impact</h2>
+            
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-teal mb-6 fade-in">Professional Development Impact</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+                    <div class="data-card bg-white p-6 rounded-lg shadow-md fade-in">
+                        <div class="data-card-header pb-4 mb-4">
+                            <h4 class="text-xl font-bold text-navy">Personalized Leadership Framework</h4>
+                        </div>
+                        <p class="mb-6">My approach to professional development centers on understanding individual learning preferences, creating differentiated growth pathways that respect how teachers process information and make decisions.</p>
+                        
+                        <div class="mb-8">
+                            <h5 class="font-bold text-teal mb-4">Staff Climate Assessment</h5>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="p-4 bg-light-gray rounded-md text-center">
+                                    <p class="text-3xl font-bold text-navy">4.5/5</p>
+                                    <p class="text-sm">Coaching Effectiveness</p>
+                                </div>
+                                <div class="p-4 bg-light-gray rounded-md text-center">
+                                    <p class="text-3xl font-bold text-navy">4.4/5</p>
+                                    <p class="text-sm">Professional Growth Support</p>
+                                </div>
+                                <div class="p-4 bg-light-gray rounded-md text-center">
+                                    <p class="text-3xl font-bold text-navy">4.7/5</p>
+                                    <p class="text-sm">Quality of Feedback</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Enhanced Testimonial Section with More Quotes -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div class="border-l-4 border-gold pl-4 italic">
+                                <p>"Ms. Williams takes the time to understand how each teacher learns best. Her feedback is always clear and actionable. She helped me develop strategies that work with my teaching style instead of forcing a one-size-fits-all approach."</p>
+                                <p class="font-bold mt-2">— 2nd Grade Teacher, 1st Year</p>
+                            </div>
+                            
+                            <div class="border-l-4 border-gold pl-4 italic">
+                                <p>"The coaching systems Ms. Williams built made it possible for me to succeed despite having no formal teaching background. Her leadership transformed our team from hesitant beginners to confident educators."</p>
+                                <p class="font-bold mt-2">— 4th Grade Teacher, Promoted to Team Lead</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border-l-4 border-teal pl-4 italic">
+                            <p>"Ms. Williams didn't just make me a better teacher—she helped me discover my potential as a leader. The way she gradually increased my leadership responsibilities while providing ongoing support gave me the confidence to eventually become an instructional coach myself."</p>
+                            <p class="font-bold mt-2">— Former Teacher, Current Assistant Principal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-bold text-teal mb-6 fade-in">Equity Impact</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="data-card bg-white p-6 rounded-lg shadow-md fade-in">
+                        <div class="data-card-header pb-4 mb-4">
+                            <h4 class="text-lg font-bold text-navy">Special Education</h4>
+                        </div>
+                        <p class="text-4xl font-bold text-navy mb-2">17%</p>
+                        <p class="text-teal font-medium mb-4">Masters Level Performance</p>
+                        <p class="mb-3">7 points above district average</p>
+                        <div class="value-line mb-4">
+                            <div class="value-fill bg-navy" style="--target-width: 70%;" data-width="70"></div>
+                        </div>
+                        <p class="italic text-sm">Through targeted supports and high expectations, our SPED students outperformed district averages by significant margins.</p>
+                    </div>
+                    
+                    <div class="data-card bg-white p-6 rounded-lg shadow-md fade-in">
+                        <div class="data-card-header pb-4 mb-4">
+                            <h4 class="text-lg font-bold text-navy">English Learners</h4>
+                        </div>
+                        <p class="text-4xl font-bold text-navy mb-2">52%</p>
+                        <p class="text-teal font-medium mb-4">Meets Grade Level</p>
+                        <p class="mb-3">2 points above district average</p>
+                        <div class="value-line mb-4">
+                            <div class="value-fill bg-navy" style="--target-width: 60%;" data-width="60"></div>
+                        </div>
+                        <p class="italic text-sm">Despite having few bilingual staff, our SIOP-aligned instruction and scaffolding strategies helped ELs exceed district outcomes.</p>
+                    </div>
+                    
+                    <div class="data-card bg-white p-6 rounded-lg shadow-md fade-in">
+                        <div class="data-card-header pb-4 mb-4">
+                            <h4 class="text-lg font-bold text-navy">Economically Disadvantaged</h4>
+                        </div>
+                        <p class="text-4xl font-bold text-navy mb-2">59%</p>
+                        <p class="text-teal font-medium mb-4">Meets Grade Level</p>
+                        <p class="mb-3">8 points above district average</p>
+                        <div class="value-line mb-4">
+                            <div class="value-fill bg-navy" style="--target-width: 80%;" data-width="80"></div>
+                        </div>
+                        <p class="italic text-sm">Our commitment to equity and high expectations resulted in economically disadvantaged students performing well above district averages.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Case Studies Section -->
-<section id="case-studies" class="py-20 bg-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-navy mb-10 text-center">Case Studies</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-light-gray p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold text-navy mb-2">Sustainable Literacy Framework</h3>
-        <p class="text-sm text-gray-700 mb-4">Structured writing, annotation routines, and AI-supported planning led to gains across EL, SPED, and Economically Disadvantaged groups — even in years with extreme staffing shortages.</p>
-        <a href="Portfolio%20Section-Sustainable%20Instructional%20Leadership_%20Driving%20Excellence%20Without%20a%20Dedicated%20Teacher.html" class="text-teal underline font-semibold hover:text-gold">View Full Case Study →</a>
-      </div>
-      <div class="bg-light-gray p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold text-navy mb-2">Data-Driven Coaching & Development</h3>
-        <p class="text-sm text-gray-700 mb-4">Used tiered coaching and AI-generated feedback to grow novice teachers into leaders — boosting retention to 94.7% and increasing teacher-led PD sessions fivefold.</p>
-        <a href="#" class="text-teal underline font-semibold hover:text-gold">Coming Soon →</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Beyond the Classroom Section -->
+    <section id="beyond" class="story-section py-20">
+        <div class="container mx-auto px-6 story-content">
+            <h2 class="section-title text-3xl font-bold text-navy mb-12">Beyond the Classroom</h2>
+            
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
+                    <h3 class="text-2xl font-bold text-teal mb-6 fade-in">Caregiving & Leadership</h3>
+                    <p class="mb-6 fade-in">My recent experience as a caregiver for my grandmother has deepened my understanding of sustainable leadership in profound ways:</p>
+                    
+                    <div class="space-y-4 fade-in">
+                        <div class="flex items-start">
+                            <div class="text-gold mr-4 text-xl"><i class="fas fa-heart"></i></div>
+                            <div>
+                                <h5 class="font-bold">Intergenerational Healing</h5>
+                                <p>Witnessing how care creates resilience across generations has reinforced my commitment to trauma-informed leadership practices.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-gold mr-4 text-xl"><i class="fas fa-balance-scale"></i></div>
+                            <div>
+                                <h5 class="font-bold">Systems Perspective</h5>
+                                <p>Navigating healthcare systems has sharpened my ability to identify structural barriers and create accessible supports.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-gold mr-4 text-xl"><i class="fas fa-hands-helping"></i></div>
+                            <div>
+                                <h5 class="font-bold">Authentic Leadership</h5>
+                                <p>Embracing vulnerability while providing care has deepened my capacity to lead with empathy and authenticity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="journey-timeline fade-in mt-8">
+                        <div class="journey-item">
+                            <h4 class="font-bold text-navy">Professional Journey</h4>
+                            <p>My unique path through education, law, and leadership has provided diverse perspectives on systems change and equity.</p>
+                        </div>
+                        
+                        <div class="journey-item">
+                            <h4 class="font-bold text-navy">Community Engagement</h4>
+                            <p>Extending leadership beyond school walls strengthens connections and builds sustainable support networks.</p>
+                        </div>
+                        
+                        <div class="journey-item">
+                            <h4 class="font-bold text-navy">Ongoing Learning</h4>
+                            <p>Continuous growth through research, practice, and reflection ensures my leadership remains responsive to emerging needs.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 lg:pl-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-8 fade-in">
+                        <h4 class="text-xl font-bold text-navy mb-4">Data-Informed Decision Making</h4>
+                        <p class="mb-6">My approach to educational leadership is fundamentally driven by systematic data analysis that informs targeted action:</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-gold mr-4 text-xl"><i class="fas fa-chart-pie"></i></div>
+                                <div>
+                                    <h5 class="font-bold">Multi-Dimensional Analysis</h5>
+                                    <p>Looking beyond surface-level data to examine patterns across metrics, subgroups, and time periods.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold mr-4 text-xl"><i class="fas fa-bullseye"></i></div>
+                                <div>
+                                    <h5 class="font-bold">Strategic Resource Allocation</h5>
+                                    <p>Using data to direct limited resources where they will have the greatest impact on student learning.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold mr-4 text-xl"><i class="fas fa-users"></i></div>
+                                <div>
+                                    <h5 class="font-bold">Collaborative Interpretation</h5>
+                                    <p>Engaging teachers in data analysis to build shared understanding and collective ownership of improvement strategies.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light-gray p-6 rounded-lg fade-in">
+                        <h4 class="text-xl font-bold text-navy mb-4">Connect the Dots</h4>
+                        <p class="mb-6">This portfolio showcases the systems I've built, the teams I've developed, and the lasting impact of my leadership—whether supporting students, empowering educators, or designing for enduring growth.</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <a href="#portfolio" class="bg-navy text-white p-4 rounded-lg text-center hover:bg-teal transition duration-300">
+                                <i class="fas fa-briefcase mb-2 text-2xl"></i>
+                                <p class="font-bold">View Case Studies</p>
+                            </a>
+                            
+                            <a href="#contact" class="bg-gold text-navy p-4 rounded-lg text-center hover:bg-white transition duration-300">
+                                <i class="fas fa-envelope mb-2 text-2xl"></i>
+                                <p class="font-bold">Start a Conversation</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Contact CTA -->
-<section id="contact" class="py-16 bg-navy text-white text-center">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold mb-4">Let’s Build Something That Lasts</h2>
-    <p class="mb-6">Reach out for consulting, speaking, or partnership opportunities.</p>
-    <a href="mailto:marlitha.williams@example.com" class="bg-gold text-navy px-6 py-3 rounded-md font-bold hover:bg-white hover:text-navy transition">Email Me</a>
-  </div>
-</section>
+    <!-- Portfolio/Case Studies Section -->
+    <section id="portfolio" class="py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold text-navy">Case Studies</h2>
+            <p class="mb-12 max-w-3xl">Explore detailed analyses of my work in educational leadership, system design, and instructional coaching.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Case Study 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover fade-in">
+                    <div class="case-study-image bg-navy flex items-center justify-center">
+                        <i class="fas fa-book-reader text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy mb-2">Sustainable Literacy Leadership</h3>
+                        <p class="text-teal font-medium mb-3">Driving Excellence Without a Dedicated Teacher</p>
+                        <p class="mb-6">How robust instructional systems maintained high performance despite having no dedicated 5th grade reading teacher.</p>
+                        
+                        <div class="flex justify-between items-center mb-6">
+                            <p class="font-bold">Key Outcome:</p>
+                            <p>+16% above state in writing</p>
+                        </div>
+                        
+                        <a href="literacy-case-study.html" class="block text-center bg-navy text-white py-3 px-6 rounded-md hover:bg-teal transition duration-300">View Full Case Study</a>
+                    </div>
+                </div>
+                
+                <!-- Case Study 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover fade-in">
+                    <div class="case-study-image bg-teal flex items-center justify-center">
+                        <i class="fas fa-chalkboard-teacher text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy mb-2">Professional Development</h3>
+                        <p class="text-teal font-medium mb-3">Coaching Excellence Through Personalized Leadership</p>
+                        <p class="mb-6">A comprehensive framework for developing inexperienced teachers into effective educators through personality-informed coaching.</p>
+                        
+                        <div class="flex justify-between items-center mb-6">
+                            <p class="font-bold">Key Outcome:</p>
+                            <p>82% teacher retention</p>
+                        </div>
+                        
+                        <a href="professional-development.html" class="block text-center bg-navy text-white py-3 px-6 rounded-md hover:bg-teal transition duration-300">View Full Case Study</a>
+                    </div>
+                </div>
+                
+                <!-- Case Study 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover fade-in">
+                    <div class="case-study-image bg-gold flex items-center justify-center">
+                        <i class="fas fa-project-diagram text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy mb-2">AI-Ready Literacy</h3>
+                        <p class="text-teal font-medium mb-3">Implementation Plan and Next Steps</p>
+                        <p class="mb-6">A comprehensive framework for integrating AI-ready literacy concepts into existing curriculum, professional development, and assessment practices.</p>
+                        
+                        <div class="flex justify-between items-center mb-6">
+                            <p class="font-bold">Key Outcome:</p>
+                            <p>12-month implementation plan</p>
+                        </div>
+                        
+                        <a href="ai-ready-literacy.html" class="block text-center bg-navy text-white py-3 px-6 rounded-md hover:bg-teal transition duration-300">View Implementation Sample</a>
+                    </div>
+                </div>
+                
+                <!-- Instructional & Coaching Resources -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover fade-in lg:col-span-3">
+                    <div class="case-study-image bg-navy flex items-center justify-center" style="height: 150px;">
+                        <i class="fas fa-tools text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-navy mb-4">Instructional & Coaching Resources</h3>
+                        <p class="mb-6">Access practical frameworks, lesson plans, and implementation guides developed through my educational leadership experience.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Prepositional Phrase Instruction Resources -->
+                            <div class="resource-category">
+                                <h4 class="resource-category-title text-xl">Prepositional Phrase Instruction Resources</h4>
+                                <a href="prepositional-phrases-instructional-framework.html" class="resource-button">
+                                    <i class="fas fa-file-alt"></i> View Instructional Framework
+                                </a>
+                                <a href="scripted-substitute-lesson-plan-example.html" class="resource-button">
+                                    <i class="fas fa-chalkboard"></i> View Substitute Lesson Plans
+                                </a>
+                                <a href="preposition-practice-planning-framework.html" class="resource-button">
+                                    <i class="fas fa-pen"></i> View Practice Planning Framework
+                                </a>
+                            </div>
+                            
+                            <!-- AI-Ready Literacy Resources -->
+                            <div class="resource-category">
+                                <h4 class="resource-category-title text-xl">AI-Ready Literacy Resources</h4>
+                                <a href="ai-ready-literacy.html" class="resource-button">
+                                    <i class="fas fa-file-code"></i> View Implementation Plan
+                                </a>
+                                <a href="literacy-ai-connection-visual-framework.html" class="resource-button">
+                                    <i class="fas fa-project-diagram"></i> View Literacy-AI Connection Framework
+                                </a>
+                                <a href="Sample-Material-Resource-Include-in-AI-Reading-Literacy-Link-Reading-Writing-Connection.html" class="resource-button">
+                                    <i class="fas fa-laptop-code"></i> View Future-Ready Literacy
+                                </a>
+                            </div>
+                            
+                            <!-- Comprehensive Literacy Frameworks -->
+                            <div class="resource-category">
+                                <h4 class="resource-category-title text-xl">Comprehensive Literacy Frameworks</h4>
+                                <a href="Instructional-Literacy-Framework_-Implementation-Practice.html" class="resource-button">
+                                    <i class="fas fa-book"></i> View Developmental Literacy Framework
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#contact" class="action-button inline-block bg-navy text-white px-8 py-4 rounded-lg font-bold hover:bg-teal transition duration-300">
+                    Discuss These Case Studies
+                </a>
+            </div>
+        </div>
+    </section>
 
-<!-- Data Visualizations Section -->
-<section id="data-visualizations" class="py-20 bg-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-navy mb-4 text-center">Cohort Performance Insights</h2>
-    <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
-      Explore 3D charts showcasing longitudinal STAAR performance and subgroup comparisons across Approaches, Meets, and Masters tiers.
-    </p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold text-navy">Connect With Me</h2>
+            <p class="mb-12 max-w-3xl">I'm available for consulting, speaking engagements, and collaborative projects focused on educational leadership, literacy instruction, and professional development.</p>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-2/3 mb-10 lg:mb-0 lg:pr-10">
+                    <div class="bg-light-gray p-8 rounded-lg">
+                        <h3 class="text-xl font-bold text-navy mb-6">Available For</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                            <div class="bg-white p-5 rounded-lg text-center">
+                                <div class="text-gold mb-4"><i class="fas fa-chalkboard-teacher text-3xl"></i></div>
+                                <h4 class="font-bold text-navy mb-2">Professional Development</h4>
+                                <p class="text-sm">Workshops and training for educational leaders and teachers</p>
+                            </div>
+                            
+                            <div class="bg-white p-5 rounded-lg text-center">
+                                <div class="text-gold mb-4"><i class="fas fa-comments text-3xl"></i></div>
+                                <h4 class="font-bold text-navy mb-2">Speaking Engagements</h4>
+                                <p class="text-sm">Presentations on literacy, educational leadership, and system design</p>
+                            </div>
+                            
+                            <div class="bg-white p-5 rounded-lg text-center">
+                                <div class="text-gold mb-4"><i class="fas fa-file-alt text-3xl"></i></div>
+                                <h4 class="font-bold text-navy mb-2">Curriculum Development</h4>
+                                <p class="text-sm">Research-based literacy frameworks and implementation plans</p>
+                            </div>
+                        </div>
+                        
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-navy font-medium mb-2">Name</label>
+                                    <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-navy font-medium mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-navy font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-navy font-medium mb-2">Message</label>
+                                <textarea id="message" rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="action-button bg-navy text-white py-3 px-8 rounded-lg font-bold hover:bg-teal transition duration-300">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/3 lg:pl-10">
+                    <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                        <h3 class="text-xl font-bold text-navy mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-gold mr-4 text-xl"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <p class="font-bold">Email</p>
+                                    <p><a href="/cdn-cgi/l/email-protection#b7fad6c5dbdec3dfd699c0dedbdbded6dac4f7d0dad6dedb99d4d8da"><span class="__cf_email__" data-cfemail="74391506181d001c155a031d18181d151907341319151d185a171b19">[email&#160;protected]</span></a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold mr-4 text-xl"><i class="fas fa-phone"></i></div>
+                                <div>
+                                    <p class="font-bold">Phone</p>
+                                    <p>(210) 803-7131</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold mr-4 text-xl"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <p class="font-bold">Location</p>
+                                    <p>Indianapolis, IN</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-navy mb-4">Connect With Me</h4>
+                            <div class="flex space-x-6">
+                                <a href="#" class="social-icon text-2xl"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="social-icon text-2xl"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon text-2xl"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-navy text-white p-8 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4">Resources</h3>
+                        <p class="mb-6">Download key materials from my educational leadership framework:</p>
+                        
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <div class="text-gold mr-3"><i class="fas fa-file-pdf"></i></div>
+                                <a href="#" class="hover:text-gold transition duration-300">Triangle Leadership Framework</a>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="text-gold mr-3"><i class="fas fa-file-pdf"></i></div>
+                                <a href="#" class="hover:text-gold transition duration-300">Future-Ready Literacy Guide</a>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="text-gold mr-3"><i class="fas fa-file-pdf"></i></div>
+                                <a href="#" class="hover:text-gold transition duration-300">Personality-Informed Coaching</a>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="text-gold mr-3"><i class="fas fa-file-pdf"></i></div>
+                                <a href="#" class="hover:text-gold transition duration-300">Data-Driven Leadership Guide</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Placeholder for 3D chart -->
-    <div class="w-full h-[400px] bg-gray-100 rounded-lg shadow-inner flex items-center justify-center text-gray-500 text-lg mb-4">
-      [3D Chart Visualization Placeholder]
-    </div>
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold">Marlitha Williams</h2>
+                    <p class="text-gray-300">Educational Leader & Systems Designer</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#philosophy" class="hover:text-gold transition duration-300">Philosophy</a>
+                    <a href="#impact" class="hover:text-gold transition duration-300">Impact</a>
+                    <a href="#beyond" class="hover:text-gold transition duration-300">Beyond</a>
+                    <a href="#portfolio" class="hover:text-gold transition duration-300">Case Studies</a>
+                    <a href="#contact" class="hover:text-gold transition duration-300">Connect</a>
+                </div>
+            </div>
+            
+            <hr class="border-gray-700 my-8">
+            
+            <div class="text-center text-gray-400">
+                <p>&copy; 2024 Marlitha Williams. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Chart Toggle Buttons -->
-    <div class="flex justify-center space-x-4 mb-6">
-      <button class="bg-navy text-white px-4 py-2 rounded hover:bg-teal transition">2022</button>
-      <button class="bg-navy text-white px-4 py-2 rounded hover:bg-teal transition">2023</button>
-      <button class="bg-navy text-white px-4 py-2 rounded hover:bg-teal transition">2024</button>
-    </div>
-
-    <!-- Key Insight Box -->
-    <div class="max-w-2xl mx-auto bg-gray-100 p-6 rounded-lg text-center text-gray-800">
-      <p class="font-bold text-navy mb-2">Key Insight:</p>
-      <p>
-        Despite severe staffing shortages in 2023, our campus rebounded in 2024 — outperforming both district and state across all tiers of reading achievement.
-      </p>
-    </div>
-  </div>
-</section>
-
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a nav link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observeFadeElements = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.fade-in, .stagger-item').forEach(el => {
+                observer.observe(el);
+            });
+        };
+        
+        // Animate count-up numbers
+        const animateCountUp = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const countUp = entry.target;
+                        const target = parseInt(countUp.getAttribute('data-target'));
+                        const duration = 2000; // 2 seconds
+                        const stepTime = Math.abs(Math.floor(duration / target));
+                        
+                        let current = 0;
+                        const timer = setInterval(() => {
+                            current += 1;
+                            countUp.textContent = current;
+                            
+                            if (current === target) {
+                                clearInterval(timer);
+                            }
+                        }, stepTime);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            document.querySelectorAll('.count-up').forEach(el => {
+                observer.observe(el);
+            });
+        };
+        
+        // Animate progress bars
+        const animateProgressBars = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBar = entry.target;
+                        const width = progressBar.getAttribute('data-width');
+                        progressBar.style.width = `${width}%`;
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            document.querySelectorAll('.progress-value, .value-fill').forEach(el => {
+                observer.observe(el);
+            });
+        };
+        
+        // Animate bar charts
+        const animateBarCharts = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const barChart = entry.target.closest('.chart-container');
+                        const bars = barChart.querySelectorAll('.bar');
+                        
+                        bars.forEach(bar => {
+                            const height = bar.getAttribute('data-height');
+                            setTimeout(() => {
+                                bar.style.height = `${height}%`;
+                            }, 200);
+                        });
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            document.querySelectorAll('.bar-chart').forEach(el => {
+                observer.observe(el);
+            });
+        };
+        
+        // Animate circle charts
+        const animateCircleCharts = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const circle = entry.target;
+                        const percentage = circle.getAttribute('data-percentage');
+                        setTimeout(() => {
+                            circle.style.strokeDasharray = `${percentage}, 100`;
+                        }, 200);
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            document.querySelectorAll('.circle-progress').forEach(el => {
+                observer.observe(el);
+            });
+        };
+        
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            observeFadeElements();
+            animateCountUp();
+            animateProgressBars();
+            animateBarCharts();
+            animateCircleCharts();
+            
+            // For PDF export, ensure all animations are complete
+            if (window.matchMedia('print').matches) {
+                document.querySelectorAll('.fade-in, .stagger-item').forEach(el => {
+                    el.classList.add('active');
+                });
+                
+                document.querySelectorAll('.progress-value, .value-fill').forEach(el => {
+                    const width = el.getAttribute('data-width');
+                    el.style.width = `${width}%`;
+                });
+                
+                document.querySelectorAll('.bar').forEach(el => {
+                    const height = el.getAttribute('data-height');
+                    el.style.height = `${height}%`;
+                });
+                
+                document.querySelectorAll('.circle-progress').forEach(el => {
+                    const percentage = el.getAttribute('data-percentage');
+                    el.style.strokeDasharray = `${percentage}, 100`;
+                });
+                
+                document.querySelectorAll('.count-up').forEach(el => {
+                    const target = el.getAttribute('data-target');
+                    el.textContent = target;
+                });
+            }
+        });
+    </script>
 </body>
 </html>
