@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Literacy-Technology Connection: A Visual Framework</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .gradient-header {
+            background: linear-gradient(135deg, #4a6fa5 0%, #2c4676 100%);
+        }
+        .quote {
+            border-left: 4px solid #4a6fa5;
+        }
+        .skill-card {
+            border-left: 4px solid #4a6fa5;
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+        .connection-line {
+            position: relative;
+        }
+        .connection-line::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 40px;
+            height: 2px;
+            background-color: #4a6fa5;
+        }
+        .framework-box {
+            border: 2px solid #4a6fa5;
+        }
+        .implementation-step {
+            counter-increment: step-counter;
+            position: relative;
+        }
+        .implementation-step::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -40px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #4a6fa5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+         {
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="gradient-header text-white py-12 px-8">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold mb-4">The Literacy-Technology Connection</h1>
+            <h2 class="text-2xl font-light">A Visual Framework for Bridging Traditional Skills and AI Applications</h2>
+            <p class="mt-4 text-gray-100 max-w-3xl">
+                A comprehensive guide for educational leaders to connect established literacy practices with emerging AI-ready competencies.
+            </p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-8 py-12">
+        <!-- Introduction Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">Introduction</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-2/3">
+                    <p class="mb-4">
+                        As artificial intelligence reshapes how we interact with information and technology, educators face a critical question: How do traditional literacy skills connect to this emerging digital landscape? This framework provides a structured approach to understanding and implementing these connections.
+                    </p>
+                    <p class="mb-4">
+                        The skills that make students effective writers and readers are the same foundational skills that will enable them to effectively harness AI tools. This is not coincidental—both domains require precise communication, metacognitive awareness, and clear structuring of information.
+                    </p>
+                    <div class="quote pl-4 py-2 bg-blue-50 italic my-6">
+                        <p>"The ability to write with precision and clarity isn't just an academic skill—it's becoming the primary interface between human thinking and artificial intelligence."</p>
+                    </div>
+                    <p>
+                        This framework helps educators see how their existing literacy instruction already builds AI-ready skills, and how they can intentionally enhance these connections to prepare students for a technology-integrated future.
+                    </p>
+                </div>
+                <div class="md:w-1/3 bg-white p-6 shadow-md rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-700">Key Framework Principles</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Traditional literacy skills form the foundation for effective AI interaction</li>
+                        <li>Writing precision determines AI response quality</li>
+                        <li>Metacognitive awareness is essential for both domains</li>
+                        <li>Grammar concepts take on new technological relevance</li>
+                        <li>Students must learn to be both consumers and directors of AI</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Framework Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-10 text-gray-800">The Literacy-Technology Connection Framework</h2>
+            
+            <div class="bg-white p-8 shadow-lg rounded-lg mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="framework-box p-6 rounded-lg bg-blue-50">
+                        <h3 class="text-2xl font-bold mb-4 text-center text-blue-800">Traditional Literacy Skills</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-pencil-alt text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Syntactic Precision</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-users text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Audience Awareness</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-sync-alt text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Revision Process</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-sitemap text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Organizational Structure</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-search text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Critical Evaluation</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-brain text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Metacognitive Awareness</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="framework-box p-6 rounded-lg bg-gray-50">
+                        <h3 class="text-2xl font-bold mb-4 text-center text-blue-800">AI-Ready Applications</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-robot text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Effective Prompt Engineering</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-microchip text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Understanding AI Limitations</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-redo-alt text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Iterative Prompt Refinement</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-project-diagram text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Logical Information Structuring</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-double text-blue-700 mr-3"></i>
+                                <span class="font-semibold">AI Output Verification</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-cogs text-blue-700 mr-3"></i>
+                                <span class="font-semibold">System Thinking</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Connection arrows -->
+                <div class="flex justify-center my-8">
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="text-right text-blue-800">Syntactic Precision</div>
+                        <div class="flex justify-center">
+                            <svg width="100" height="20">
+                                <line x1="0" y1="10" x2="100" y2="10" stroke="#4a6fa5" stroke-width="2" stroke-dasharray="5,5" />
+                                <polygon points="100,10 90,5 90,15" fill="#4a6fa5" />
+                            </svg>
+                        </div>
+                        <div class="text-left text-blue-800">Effective Prompt Engineering</div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center">
+                    <div class="bg-blue-100 p-4 rounded-lg max-w-3xl">
+                        <p class="text-center text-blue-800 font-bold mb-2">Core Connection Principle:</p>
+                        <p class="text-center">The same precision, structure, and metacognitive awareness that produces effective writing also enables effective AI interaction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Mappings Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">Detailed Skill Mappings</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Mapping 1 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                            <i class="fas fa-pencil-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold ml-4 text-blue-800">Syntactic Precision</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">Traditional Literacy Context:</h4>
+                        <p>The ability to craft grammatically correct sentences with precise word choice and structural clarity.</p>
+                        
+                        <div class="bg-blue-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Teaching students to use prepositional phrases to add specific location, time, or manner information.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">AI-Ready Application:</h4>
+                        <p>Crafting effective prompts that clearly communicate parameters, constraints, and desired outcomes to AI systems.</p>
+                        
+                        <div class="bg-gray-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Using prepositional phrases in AI prompts to specify context boundaries: "Generate ideas for science projects <em>about renewable energy for middle school students</em>."
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <h4 class="font-semibold mb-2 text-gray-700">Classroom Integration:</h4>
+                        <p>Have students compare AI responses to prompts with and without precise prepositional phrases, analyzing the difference in output quality.</p>
+                    </div>
+                </div>
+                
+                <!-- Mapping 2 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold ml-4 text-blue-800">Audience Awareness</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">Traditional Literacy Context:</h4>
+                        <p>Understanding reader needs, background knowledge, and expectations when crafting a text.</p>
+                        
+                        <div class="bg-blue-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Adjusting vocabulary complexity and explanation depth based on the intended audience.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">AI-Ready Application:</h4>
+                        <p>Understanding AI system capabilities, limitations, and "knowledge" boundaries when crafting prompts.</p>
+                        
+                        <div class="bg-gray-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Recognizing when to provide additional context for AI systems: "Summarize this article assuming the reader is a 4th grader."
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <h4 class="font-semibold mb-2 text-gray-700">Classroom Integration:</h4>
+                        <p>Have students adapt the same writing prompt for different audiences (both human and AI), discussing how expectations and background knowledge shape communication.</p>
+                    </div>
+                </div>
+                
+                <!-- Mapping 3 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                            <i class="fas fa-sync-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold ml-4 text-blue-800">Revision Process</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">Traditional Literacy Context:</h4>
+                        <p>The process of reviewing and improving written work through multiple iterations based on reflection and feedback.</p>
+                        
+                        <div class="bg-blue-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Using a writing workshop model where students draft, receive feedback, and revise their work.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">AI-Ready Application:</h4>
+                        <p>Iteratively refining prompts based on AI responses to achieve more accurate, relevant, or useful outputs.</p>
+                        
+                        <div class="bg-gray-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Adjusting specificity, adding constraints, or reformulating questions after analyzing initial AI responses.
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <h4 class="font-semibold mb-2 text-gray-700">Classroom Integration:</h4>
+                        <p>Guide students through a "prompt revision workshop" where they analyze AI outputs, identify issues, and refine their prompts—mirroring traditional writing workshop structures.</p>
+                    </div>
+                </div>
+                
+                <!-- Mapping 4 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                            <i class="fas fa-sitemap text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold ml-4 text-blue-800">Organizational Structure</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">Traditional Literacy Context:</h4>
+                        <p>Creating logical paragraph and document structures that enhance comprehension and flow.</p>
+                        
+                        <div class="bg-blue-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Teaching essay organization with clear thesis, supporting evidence, and conclusion.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">AI-Ready Application:</h4>
+                        <p>Structuring prompts to include logical parameters, sequence, and organizational preferences.</p>
+                        
+                        <div class="bg-gray-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Creating multi-part prompts with clearly delineated sections: "First, explain..., then analyze..., finally, recommend..."
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <h4 class="font-semibold mb-2 text-gray-700">Classroom Integration:</h4>
+                        <p>Have students create "instruction templates" for both human readers and AI systems, analyzing how structure affects comprehension in both contexts.</p>
+                    </div>
+                </div>
+                
+                <!-- Mapping 5 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                            <i class="fas fa-search text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold ml-4 text-blue-800">Critical Evaluation</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">Traditional Literacy Context:</h4>
+                        <p>Evaluating sources for credibility, identifying bias, and assessing the quality of arguments in texts.</p>
+                        
+                        <div class="bg-blue-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Teaching students to verify information using multiple sources and check author credentials.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">AI-Ready Application:</h4>
+                        <p>Critically examining AI-generated content for accuracy, bias, and appropriateness before accepting or using it.</p>
+                        
+                        <div class="bg-gray-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Verifying AI-generated information against reliable sources and identifying limitations in AI responses.
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <h4 class="font-semibold mb-2 text-gray-700">Classroom Integration:</h4>
+                        <p>Create "fact-checking workshops" where students apply traditional source evaluation criteria to both human-written and AI-generated content.</p>
+                    </div>
+                </div>
+                
+                <!-- Mapping 6 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                            <i class="fas fa-brain text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold ml-4 text-blue-800">Metacognitive Awareness</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">Traditional Literacy Context:</h4>
+                        <p>Thinking about one's own thinking during reading and writing processes; monitoring comprehension and strategy effectiveness.</p>
+                        
+                        <div class="bg-blue-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Teaching students to use think-alouds and comprehension monitoring strategies while reading.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2 text-gray-700">AI-Ready Application:</h4>
+                        <p>Awareness of how one's thinking and communication patterns affect AI interactions; strategically adapting approaches based on outcomes.</p>
+                        
+                        <div class="bg-gray-50 p-3 rounded mt-2">
+                            <span class="font-medium text-blue-700">Example:</span> Recognizing when to be more explicit with AI systems versus when to use open-ended prompting.
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <h4 class="font-semibold mb-2 text-gray-700">Classroom Integration:</h4>
+                        <p>Have students maintain "AI interaction journals" where they document their thinking processes when crafting prompts and analyzing responses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prepositional Phrases Spotlight Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">Spotlight: Prepositional Phrases in AI Interaction</h2>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="mb-6">
+                    Prepositional phrases, which traditionally enhance precision in writing by indicating relationships of space, time, and manner, take on new importance in AI interaction. They serve as critical parameters that define the boundaries and context of AI prompts.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-blue-800">Traditional Writing Context</h3>
+                        <p class="mb-4">In traditional writing instruction, prepositional phrases help students:</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Add location specificity: <em>"The book <strong>on the top shelf</strong> is mine."</em></li>
+                            <li>Indicate time relationships: <em>"We'll meet <strong>after the concert</strong>."</em></li>
+                            <li>Express manner: <em>"She spoke <strong>with confidence</strong>."</em></li>
+                            <li>Create more vivid, precise descriptions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-blue-800">AI Interaction Context</h3>
+                        <p class="mb-4">In AI prompting, prepositional phrases serve as:</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Parameter boundaries: <em>"Generate ideas <strong>within a $50 budget</strong>."</em></li>
+                            <li>Audience indicators: <em>"Explain quantum computing <strong>for high school students</strong>."</em></li>
+                            <li>Format specifications: <em>"Present this information <strong>in bullet points</strong>."</em></li>
+                            <li>Critical constraints that improve AI output quality</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-100 p-6 rounded-lg mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-center text-blue-800">Comparative Example Analysis</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-2">Basic Prompt Without Prepositional Phrases:</h4>
+                            <div class="bg-white p-3 rounded border border-gray-300">
+                                "Write a paragraph about renewable energy."
+                            </div>
+                            <p class="mt-2 text-sm text-gray-700">
+                                Result: Generic, broad information without focus or tailoring
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-2">Enhanced Prompt With Prepositional Phrases:</h4>
+                            <div class="bg-white p-3 rounded border border-gray-300">
+                                "Write a paragraph about renewable energy <strong>for elementary students</strong> <strong>with a focus on solar power</strong> <strong>in everyday applications</strong>."
+                            </div>
+                            <p class="mt-2 text-sm text-gray-700">
+                                Result: Targeted, age-appropriate content with specific focus and applications
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-6 text-center">
+                        The same precision that makes writing effective for human readers makes prompts effective for AI systems.
+                    </p>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-6">
+                    <h3 class="text-xl font-bold mb-4 text-blue-800">Implementation in Grades 3-5</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 border border-blue-200 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Grade 3</h4>
+                            <p class="mb-2">Focus: Recognition and basic application</p>
+                            <div class="bg-blue-50 p-3 rounded">
+                                <strong>Activity:</strong> "Spot the Difference" comparison between basic instructions and instructions with prepositional phrases, discussing which is clearer.
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 border border-blue-200 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Grade 4</h4>
+                            <p class="mb-2">Focus: Creation and function analysis</p>
+                            <div class="bg-blue-50 p-3 rounded">
+                                <strong>Activity:</strong> "Precision Partners" where students add prepositional phrases to improve vague instructions, testing clarity with partners.
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 border border-blue-200 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Grade 5</h4>
+                            <p class="mb-2">Focus: Strategic application for specific purposes</p>
+                            <div class="bg-blue-50 p-3 rounded">
+                                <strong>Activity:</strong> "AI Direction Designers" where students craft and test instructions with specific prepositional constraints.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Guide Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">Implementation Guide for Educators</h2>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="mb-6">
+                    Implementing the Literacy-Technology Connection Framework doesn't require overhauling existing literacy instruction. Instead, it involves making strategic connections and extensions to practices already in place. Here's a structured approach:
+                </p>
+                
+                <div class="relative pl-12 space-y-8 counter-reset: step-counter;">
+                    <!-- Step 1 -->
+                    <div class="implementation-step">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">Audit Current Literacy Instruction</h3>
+                        <p class="mb-3">
+                            Identify existing literacy practices that naturally connect to AI-ready skills.
+                        </p>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Implementation Actions:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Review your writing curriculum to identify where precision, structure, and audience awareness are taught</li>
+                                <li>Note where grammar instruction (like prepositional phrases) already occurs</li>
+                                <li>Identify existing metacognitive strategies in your reading and writing instruction</li>
+                            </ul>
+                            
+                            <div class="mt-3 border-t border-gray-200 pt-3">
+                                <h4 class="font-semibold mb-1">Resource:</h4>
+                                <p class="text-sm">Literacy-Technology Audit Template (spreadsheet for mapping existing practices to AI-ready applications)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="implementation-step">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">Make Explicit Connections</h3>
+                        <p class="mb-3">
+                            Begin introducing technology connections during traditional literacy instruction.
+                        </p>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Implementation Actions:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Add brief discussion points in existing lessons: "This precision in writing also helps when interacting with technology"</li>
+                                <li>Create visual anchors showing traditional literacy skills and their technology applications</li>
+                                <li>Incorporate real-world examples of digital/AI communication in writing lessons</li>
+                            </ul>
+                            
+                            <div class="mt-3 border-t border-gray-200 pt-3">
+                                <h4 class="font-semibold mb-1">Resource:</h4>
+                                <p class="text-sm">Connection Points Mini-Lesson Series (5-minute additions to existing literacy lessons)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="implementation-step">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">Develop Extension Activities</h3>
+                        <p class="mb-3">
+                            Create specific activities that apply literacy skills to technological contexts.
+                        </p>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Implementation Actions:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Design comparison activities showing how the same skills apply in both contexts</li>
+                                <li>Create "literacy transfer" centers where students apply writing skills to technology interactions</li>
+                                <li>Develop reflection prompts that help students connect traditional and technological literacy</li>
+                            </ul>
+                            
+                            <div class="mt-3 border-t border-gray-200 pt-3">
+                                <h4 class="font-semibold mb-1">Resource:</h4>
+                                <p class="text-sm">Literacy-Technology Extension Activities (grade-specific applications for each skill mapping)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="implementation-step">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">Integrate Authentic Applications</h3>
+                        <p class="mb-3">
+                            Provide opportunities for students to apply literacy skills in technological contexts.
+                        </p>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Implementation Actions:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Create "digital direction" writing projects where precise instructions matter</li>
+                                <li>Develop "audience comparison" activities (writing for humans vs. technology)</li>
+                                <li>Implement "precision matters" demonstrations showing how detail affects outcomes</li>
+                            </ul>
+                            
+                            <div class="mt-3 border-t border-gray-200 pt-3">
+                                <h4 class="font-semibold mb-1">Resource:</h4>
+                                <p class="text-sm">Authentic Application Project Guide (scaffolded projects for each grade level)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="implementation-step">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">Assess Both Domains</h3>
+                        <p class="mb-3">
+                            Develop assessment approaches that capture both traditional literacy and technological application.
+                        </p>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Implementation Actions:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Create dual-purpose rubrics that assess both traditional writing quality and effective application to technology contexts</li>
+                                <li>Implement reflection questions that prompt students to connect domains</li>
+                                <li>Develop portfolio approaches that showcase skills across contexts</li>
+                            </ul>
+                            
+                            <div class="mt-3 border-t border-gray-200 pt-3">
+                                <h4 class="font-semibold mb-1">Resource:</h4>
+                                <p class="text-sm">Dual-Domain Assessment Tools (rubrics and evaluation guides)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-center text-blue-800">Implementation Timeline</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                        <div class="p-3 border border-blue-200 rounded-lg text-center">
+                            <div class="font-bold mb-2">Month 1</div>
+                            <div class="text-sm">Audit & Planning</div>
+                        </div>
+                        <div class="p-3 border border-blue-200 rounded-lg text-center">
+                            <div class="font-bold mb-2">Month 2</div>
+                            <div class="text-sm">Explicit Connections</div>
+                        </div>
+                        <div class="p-3 border border-blue-200 rounded-lg text-center">
+                            <div class="font-bold mb-2">Month 3</div>
+                            <div class="text-sm">Extension Activities</div>
+                        </div>
+                        <div class="p-3 border border-blue-200 rounded-lg text-center">
+                            <div class="font-bold mb-2">Month 4</div>
+                            <div class="text-sm">Authentic Applications</div>
+                        </div>
+                        <div class="p-3 border border-blue-200 rounded-lg text-center">
+                            <div class="font-bold mb-2">Month 5</div>
+                            <div class="text-sm">Assessment & Refinement</div>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-4 text-center text-sm">
+                        This flexible timeline can be adjusted based on your school's implementation capacity and existing literacy program.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">Case Study: Prepositional Precision in Action</h2>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="quote pl-4 py-2 bg-blue-50 italic my-6">
+                    <p>"When we explicitly connected our prepositional phrase instruction to technological contexts, students not only improved their writing precision but also began to understand how clarity in communication transfers across domains."</p>
+                    <p class="text-right font-semibold mt-2">— 5th Grade Teacher</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-blue-800">Implementation Context</h3>
+                        <p class="mb-3">
+                            A 5th grade classroom implemented the Literacy-Technology Connection Framework with a focus on prepositional phrases. The teacher maintained traditional instruction while adding explicit connections to digital communication contexts.
+                        </p>
+                        <p>
+                            Students had previously learned about prepositional phrases in traditional writing contexts but struggled with applying this knowledge to new situations.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-blue-800">Key Observations</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Students became more intentional with prepositional phrase usage when they understood its dual application</li>
+                            <li>The concrete nature of directive writing (instructions, guidelines) made abstract grammar concepts more accessible</li>
+                            <li>Technology context provided authentic motivation for precision</li>
+                            <li>Transfer of skills between domains was not automatic—it required explicit instruction</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-blue-800">Implementation Steps</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-4 border border-blue-200 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Phase 1: Connection</h4>
+                            <p class="text-sm">
+                                Teacher introduced the concept that "the same prepositional phrases that make our writing clear for humans also make our instructions clear for technology." Students analyzed examples of both contexts.
+                            </p>
+                        </div>
+                        
+                        <div class="p-4 border border-blue-200 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Phase 2: Comparison</h4>
+                            <p class="text-sm">
+                                Students compared sets of instructions with and without prepositional phrases, noting differences in clarity, specificity, and executable precision in both human and technological contexts.
+                            </p>
+                        </div>
+                        
+                        <div class="p-4 border border-blue-200 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Phase 3: Creation</h4>
+                            <p class="text-sm">
+                                Students created their own sets of instructions using intentional prepositional phrases, testing them with classmates and evaluating clarity and executable precision.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-blue-800">Results & Impact</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-blue-50 p-5 rounded-lg">
+                            <h4 class="font-semibold mb-3">Student Learning Outcomes</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>94% of students could correctly identify prepositional phrases (up from 76%)</li>
+                                <li>88% could explain how prepositional phrases add precision to communication</li>
+                                <li>79% successfully applied prepositional phrases in new contexts</li>
+                                <li>Students demonstrated greater motivation for grammar instruction when connected to technology</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <h4 class="font-semibold mb-3">Teacher Observations</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Concrete technology applications made abstract grammar concepts more accessible</li>
+                                <li>Students became more precise in their writing across content areas</li>
+                                <li>The framework provided authentic contexts for grammar application</li>
+                                <li>Students began spontaneously discussing precision in communication during other activities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 border-t border-gray-200 pt-6">
+                    <h3 class="text-xl font-bold mb-4 text-blue-800">Key Takeaways</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-semibold mb-2">Explicit Connections Matter</h4>
+                            <p class="text-sm">
+                                Students don't automatically transfer skills between domains—teachers must make connections explicit and provide guided practice.
+                            </p>
+                        </div>
+                        
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-semibold mb-2">Relevance Drives Engagement</h4>
+                            <p class="text-sm">
+                                Connecting traditional grammar to technological contexts provided authenticity and motivation that enhanced learning.
+                            </p>
+                        </div>
+                        
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-semibold mb-2">Multiple Contexts Deepen Understanding</h4>
+                            <p class="text-sm">
+                                Seeing the same concept applied across domains strengthened conceptual understanding and flexibility.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conclusion Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">Conclusion: Building Future-Ready Writers and Thinkers</h2>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="mb-6">
+                    The Literacy-Technology Connection Framework isn't about replacing traditional literacy instruction—it's about extending and contextualizing it for an increasingly digital world. This approach recognizes that the foundational skills of effective writing and communication remain constant even as the mediums and applications evolve.
+                </p>
+                
+                <div class="bg-blue-50 p-6 rounded-lg mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-center text-blue-800">Core Principles to Remember</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-2">Traditional Literacy Remains Foundational</h4>
+                            <p class="text-sm">
+                                Precise, structured, audience-aware writing is becoming more—not less—important in a technology-mediated world. The frameworks and skills of traditional literacy instruction provide the essential foundation for technological communication.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-2">Explicit Connections Drive Transfer</h4>
+                            <p class="text-sm">
+                                Students need guidance to see how skills transfer between domains. Making these connections explicit helps students develop flexible application of their literacy skills across contexts.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-2">Metacognition Is the Bridge</h4>
+                            <p class="text-sm">
+                                The awareness of one's own thinking processes—metacognition—serves as the critical bridge between traditional literacy and technological applications. Developing metacognitive skills helps students navigate both domains effectively.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-2">The Future Is Both Human and Digital</h4>
+                            <p class="text-sm">
+                                Effective communication in the future will require seamless movement between human and technological contexts. Students who develop this dual literacy will have significant advantages in education, work, and civic participation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-blue-800">Next Steps for Educational Leaders</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 border border-blue-200 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 mr-2">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4 class="font-semibold">Develop Teacher Capacity</h4>
+                            </div>
+                            <p class="text-sm">
+                                Provide professional development that helps teachers see and articulate connections between traditional literacy instruction and technological applications.
+                            </p>
+                        </div>
+                        
+                        <div class="p-4 border border-blue-200 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 mr-2">
+                                    <i class="fas fa-sync-alt"></i>
+                                </div>
+                                <h4 class="font-semibold">Audit Curriculum</h4>
+                            </div>
+                            <p class="text-sm">
+                                Review literacy curriculum to identify natural connection points between traditional instruction and technological applications, creating explicit bridges where needed.
+                            </p>
+                        </div>
+                        
+                        <div class="p-4 border border-blue-200 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 mr-2">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4 class="font-semibold">Measure Dual Outcomes</h4>
+                            </div>
+                            <p class="text-sm">
+                                Develop assessment approaches that capture both traditional literacy proficiency and application to technological contexts to ensure comprehensive skill development.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quote pl-4 py-4 bg-blue-50 my-8">
+                    <p class="font-semibold text-lg mb-2">The Final Word</p>
+                    <p class="italic">
+                        "The students who will thrive in an AI-integrated future are those who master the foundational skills of clear, precise communication—the very skills we've always taught in traditional literacy instruction. Our task is not to abandon these approaches, but to help students see how powerfully they transfer to new contexts."
+                    </p>
+                </div>
+                
+                <p class="text-center">
+                    By implementing the Literacy-Technology Connection Framework, educators prepare students not just for traditional academic success, but for effective navigation of an increasingly digital and AI-integrated world.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="gradient-header text-white py-8 px-8">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold mb-4">The Literacy-Technology Connection</h2>
+                    <p class="text-sm">A Visual Framework for Educational Leaders</p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <p class="text-sm">© 2025 Educational Leadership & Innovation</p>
+                    <p class="text-sm mt-1">Designed for educational use and professional development</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDjXniSzr8%2FHiqaXyDaKN50lDT%2FRIwqbbRQSFzruYMdp%2BmJ8nBnnedDU%2BIlmHTi2gQ%2BBMita3at5AyJ%2BIQzgXe%2BXHvIG38VVPYnwKt7X0ywqZ1JdmUJGOis61U94yvxycTMdRelnTk2d%2BT42VhAnFfARV8XDRz%2B3lR%2BRbO5qGuO5tug28Dl27Q8pLZKcUqzh6FKNBLArvm6cpfGDZ0AkVaoxnt3JDsVT7%2Fpo6oWjKWYKEcA%2BqLJhsyeq6%2BUIcfPaRTJfHNsBHztKoLVNpJsH7d69XnuJR7Xg8jp7QOQ%2FqMhyJRK6TyHVVr%2F7H5RN9idqKKty%2FR1LxdlrS0uD2PCVPc6RaRbcxCqMUKEJHeyNTWcfcZbzjyUj5VPHSV2xOnIsWD3f0k6sw5Yk9kaLkC7JW%2FRRlZhQRtSWjQXaNvRiZ1ksfyJZGrzhULgJmxkHFUXSCO%2FmquQFis9QC4SnkX7lgrxN4ERTBhVtWsmJU89XRDM3CPG%2FdUUxr3u5c5fZ4LQHiaTudK94pPshtGjI6xZ15ExA%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDjXniSzr8/HiqaXyDaKN50lDT/RIwqbbRQSFzruYMdp+mJ8nBnnedDU+IlmHTi2gQ+BMita3at5AyJ+IQzgXe+XHvIG38VVPYnwKt7X0ywqZ1JdmUJGOis61U94yvxycTMdRelnTk2d+T42VhAnFfARV8XDRz+3lR+RbO5qGuO5tug28Dl27Q8pLZKcUqzh6FKNBLArvm6cpfGDZ0AkVaoxnt3JDsVT7/po6oWjKWYKEcA+qLJhsyeq6+UIcfPaRTJfHNsBHztKoLVNpJsH7d69XnuJR7Xg8jp7QOQ/qMhyJRK6TyHVVr/7H5RN9idqKKty/R1LxdlrS0uD2PCVPc6RaRbcxCqMUKEJHeyNTWcfcZbzjyUj5VPHSV2xOnIsWD3f0k6sw5Yk9kaLkC7JW/RRlZhQRtSWjQXaNvRiZ1ksfyJZGrzhULgJmxkHFUXSCO/mquQFis9QC4SnkX7lgrxN4ERTBhVtWsmJU89XRDM3CPG/dUUxr3u5c5fZ4LQHiaTudK94pPshtGjI6xZ15ExA=";
+    </script>
+    
