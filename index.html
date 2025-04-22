@@ -93,6 +93,27 @@
             transform: translateY(-2px);
         }
         
+        .home-btn {
+            background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 6px rgba(99, 102, 241, 0.2);
+        }
+        
+        .home-btn:hover {
+            background: linear-gradient(135deg, #4338CA 0%, #4F46E5 100%);
+            box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
+            transform: translateY(-2px);
+        }
+        
         .tech-heading {
             position: relative;
             display: inline-block;
@@ -293,6 +314,35 @@
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(66, 153, 225, 0.1) 100%);
             z-index: -1;
         }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            color: var(--secondary);
+        }
+        
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--accent-light);
+        }
+        
+        .breadcrumb-separator {
+            margin: 0 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .navigation-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
     </style>
 </head>
 <body class="tech-bg">
@@ -416,6 +466,13 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Return Home Button for About Section -->
+            <div class="navigation-section">
+                <a href="#" class="home-btn" onclick="scrollToTop()">
+                    <i class="fas fa-home"></i> Return to Top
+                </a>
+            </div>
         </div>
     </section>
     
@@ -510,10 +567,19 @@
                 </div>
             </div>
             
-            <div class="text-center mt-8">
-                <a href="literacy-case-study.html" class="tech-btn inline-block">
-                    <i class="fas fa-arrow-right mr-2"></i> View Full Case Study
-                </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="text-center">
+                    <a href="literacy-case-study.html" class="tech-btn inline-block">
+                        <i class="fas fa-arrow-right mr-2"></i> View Full Case Study
+                    </a>
+                </div>
+                
+                <!-- Return Home Button for Literacy Section -->
+                <div class="text-center">
+                    <a href="#" class="home-btn" onclick="scrollToTop()">
+                        <i class="fas fa-home"></i> Return to Top
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -636,10 +702,19 @@
                 </div>
             </div>
             
-            <div class="text-center mt-8">
-                <a href="professional-development.html" class="tech-btn inline-block">
-                    <i class="fas fa-arrow-right mr-2"></i> Explore Leadership
-                </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="text-center">
+                    <a href="professional-development.html" class="tech-btn inline-block">
+                        <i class="fas fa-arrow-right mr-2"></i> Explore Leadership
+                    </a>
+                </div>
+                
+                <!-- Return Home Button for Leadership Section -->
+                <div class="text-center">
+                    <a href="#" class="home-btn" onclick="scrollToTop()">
+                        <i class="fas fa-home"></i> Return to Top
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -662,9 +737,10 @@
                         A comprehensive set of vertically aligned resources for teaching prepositional phrases across grades 3-5, integrating the science of reading and writing.
                     </p>
                     <div class="space-y-3">
-    <a href="resources/prepositional-phrases.html" class="block tech-btn text-center">View Resources</a>
-</div>
-
+                        <a href="prepositional-phrases.html" class="block tech-btn text-center">View Resources</a>
+                        <a href="prepositional-phrases-instructional-framework.html" class="block tech-btn text-center">View Instructional Framework</a>
+                        <a href="prepositional-phrases-lesson-details.html" class="block tech-btn text-center">View Lesson Details</a>
+                    </div>
                 </div>
                 
                 <div class="tech-card p-6">
@@ -721,16 +797,31 @@
                         </ul>
                     </div>
                 </div>
-                <div class="text-center mt-6">
-                    <a href="ai-ready-literacy.html" class="tech-btn inline-block">
-                        <i class="fas fa-arrow-right mr-2"></i> View Implementation Sample
+            </div>
+            
+            <!-- Teaching Resources Section (Recently Added Files) -->
+            <div class="tech-card p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-center">Teaching Resources</h3>
+                <p class="text-gray-600 mb-6 text-center">
+                    Access practical teaching resources and templates designed to support effective instruction and data-driven decision making.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="cross-curricular-instruction-sample.html" class="tech-btn text-center">
+                        Cross-Curricular Instruction Sample
+                    </a>
+                    <a href="data-dashboard.html" class="tech-btn text-center">
+                        Data Dashboard Template
+                    </a>
+                    <a href="scripted-substitute-lesson-plan-example.html" class="tech-btn text-center">
+                        Substitute Lesson Plan Example
                     </a>
                 </div>
             </div>
             
-            <div class="text-center mt-8">
-                <a href="#resources" class="tech-btn inline-block">
-                    <i class="fas fa-arrow-right mr-2"></i> Browse Resources
+            <!-- Return Home Button for Resources Section -->
+            <div class="navigation-section">
+                <a href="#" class="home-btn" onclick="scrollToTop()">
+                    <i class="fas fa-home"></i> Return to Top
                 </a>
             </div>
         </div>
@@ -747,7 +838,7 @@
                         <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
                         <p class="flex items-center mb-3">
                             <i class="fas fa-envelope text-indigo-600 mr-3"></i>
-                            <a href="/cdn-cgi/l/email-protection#b9d4d8cbd5d0cdd1d897ced0d5d5d0d8d4caf9ded4d8d0d597dad6d4" class="text-gray-700 hover:text-indigo-600"><span class="__cf_email__" data-cfemail="b5d8d4c7d9dcc1ddd49bc2dcd9d9dcd4d8c6f5d2d8d4dcd99bd6dad8">[email&#160;protected]</span></a>
+                            <a href="/cdn-cgi/l/email-protection#5f323e2d33362b373e7128363333363e322c1f3a273e322f333a713c3032" class="text-gray-700 hover:text-indigo-600"><span class="__cf_email__" data-cfemail="93fef2e1fffae7fbf2bde4fafffffaf2fee0d3f6ebf2fee3fff6bdf0fcfe">[email&#160;protected]</span></a>
                         </p>
                         <p class="flex items-center mb-3">
                             <i class="fas fa-phone text-indigo-600 mr-3"></i>
@@ -785,6 +876,13 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Return Home Button for Contact Section -->
+            <div class="navigation-section">
+                <a href="#" class="home-btn" onclick="scrollToTop()">
+                    <i class="fas fa-home"></i> Return to Top
+                </a>
+            </div>
         </div>
     </section>
     
@@ -794,6 +892,24 @@
             <p>© 2024 Marlitha Williams. All rights reserved.</p>
         </div>
     </footer>
+    
+    <!-- Breadcrumb Template for Secondary Pages (Will be used in linked pages) -->
+    <template id="breadcrumb-template">
+        <div class="breadcrumb container mx-auto px-4">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="current-page">Page Title</span>
+        </div>
+    </template>
+    
+    <!-- Return Home Button Template for Secondary Pages -->
+    <template id="return-home-template">
+        <div class="navigation-section mt-8 mb-4">
+            <a href="index.html" class="home-btn">
+                <i class="fas fa-home"></i> Return to Home
+            </a>
+        </div>
+    </template>
     
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Carousel functionality
@@ -844,6 +960,14 @@
                 setTimeout(() => {
                     bar.style.width = width;
                 }, 300);
+            });
+        }
+        
+        // Scroll to top function for Return Home buttons
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         }
         
@@ -943,8 +1067,8 @@
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDmdcQDGbqzAgObOif%2Bg0qTP%2BcuJQXy1EHulCp32ZCCxnUmuidR0hKzcpUjwBaBIN04Tkowh%2FiQSlwp%2FFnmCzVcENHvxodMI0mEOTEBKvjKD983jfIWU4Yx3%2BYlbz0gVzXDTIARJeZ6aCXlL2wpZnppawajhA30%2BteZCzXlVZDX0p25CDbOV%2FvKZKxFNIyRKq2Fp3VXv2t8GvZJpKzEuZJcZXFMfc0QFngkiAa1sCE8PKPpKmJNtEPRLhFL8GE8r4rVRH6hmfhnf2Zjh7qE6HKOdDIPOfOQxb%2FI7rNnL2NbowY0EbQKjRNqKDX14r4scGEO5dyGcVFwAZAZBmnXlIl9orrdxoAaoeGdsWk2E3923mJ%2BVsrCM2s50h73K6NbJ6LH9lHqck%2BZEZVXcy8yITn%2BTC1515UYIKiJdOeZD%2B5qVY8JTP%2BnRypplcZMdkWhLBCIt%2FRZ9CQSFKF5NdK3feH8GEpsyjiBa1eRozhD2O6ndsO5R56biC8i8ABAOHHz3PxqWv%2BAbDcbtqfvPTaAsqIL0%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDo1xeNg6g3eD0MrVMoKmjP1o0xgRSPOvPvogwNfnCmEkM%2BIyUk%2B%2BQz%2FfaLO6TXfBBpnVsZpg8TgYhJDaFqV0nbU6enwaJyg0ZHvnE3B3HSrIu49ji5%2FJLohz20KAnr7Ti569q3t2IVIljUB3gDn6o2rqxzhqDGyGTG1S%2Fd2slyKWsh49%2BhzN2DVKycY0aTCoDcgfbFDcApYcVJqvV%2F1oira1LZYRP8IThkVfMD3AvXwft4V7foB7o6FyNzRhoGBAdgLgZsGjeIOZeAqozmpCHl6EBWjcyT6YT3Xm71DKvA8%2F3hNLneY%2FJWHj2smqhrykeNGaUuZnsGkObmhJtiCL8YD5zpv1PQQ8QPhWZFwBLjQq6jP%2BJC%2FmWMeYDLLVpLHQ%2Bb7VfiIN%2FChniZUIcDry%2Bv%2FZBB9pLyK6ueProCc7KF%2FyTrzL9C5KLMFf0pRm6O%2FiInEOtghLacKSdt3y9SpfRN50d09oTbxhxUHKqc7jghczi1QVgW%2Fnnnrt8DIfmoKIevpkM8Xs37fhxVoYjHJkXQBwlox2L6ck6s1r50EJdZE%2B";
         window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDmdcQDGbqzAgObOif+g0qTP+cuJQXy1EHulCp32ZCCxnUmuidR0hKzcpUjwBaBIN04Tkowh/iQSlwp/FnmCzVcENHvxodMI0mEOTEBKvjKD983jfIWU4Yx3+Ylbz0gVzXDTIARJeZ6aCXlL2wpZnppawajhA30+teZCzXlVZDX0p25CDbOV/vKZKxFNIyRKq2Fp3VXv2t8GvZJpKzEuZJcZXFMfc0QFngkiAa1sCE8PKPpKmJNtEPRLhFL8GE8r4rVRH6hmfhnf2Zjh7qE6HKOdDIPOfOQxb/I7rNnL2NbowY0EbQKjRNqKDX14r4scGEO5dyGcVFwAZAZBmnXlIl9orrdxoAaoeGdsWk2E3923mJ+VsrCM2s50h73K6NbJ6LH9lHqck+ZEZVXcy8yITn+TC1515UYIKiJdOeZD+5qVY8JTP+nRypplcZMdkWhLBCIt/RZ9CQSFKF5NdK3feH8GEpsyjiBa1eRozhD2O6ndsO5R56biC8i8ABAOHHz3PxqWv+AbDcbtqfvPTaAsqIL0=";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDo1xeNg6g3eD0MrVMoKmjP1o0xgRSPOvPvogwNfnCmEkM+IyUk++Qz/faLO6TXfBBpnVsZpg8TgYhJDaFqV0nbU6enwaJyg0ZHvnE3B3HSrIu49ji5/JLohz20KAnr7Ti569q3t2IVIljUB3gDn6o2rqxzhqDGyGTG1S/d2slyKWsh49+hzN2DVKycY0aTCoDcgfbFDcApYcVJqvV/1oira1LZYRP8IThkVfMD3AvXwft4V7foB7o6FyNzRhoGBAdgLgZsGjeIOZeAqozmpCHl6EBWjcyT6YT3Xm71DKvA8/3hNLneY/JWHj2smqhrykeNGaUuZnsGkObmhJtiCL8YD5zpv1PQQ8QPhWZFwBLjQq6jP+JC/mWMeYDLLVpLHQ+b7VfiIN/ChniZUIcDry+v/ZBB9pLyK6ueProCc7KF/yTrzL9C5KLMFf0pRm6O/iInEOtghLacKSdt3y9SpfRN50d09oTbxhxUHKqc7jghczi1QVgW/nnnrt8DIfmoKIevpkM8Xs37fhxVoYjHJkXQBwlox2L6ck6s1r50EJdZE+";
     </script>
     
