@@ -1,445 +1,509 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Marlitha Williams: Strategy, Literacy, and Systems Leadership.">
   <title>Marlitha Williams - Educational Leadership</title>
-  <meta name="description" content="Professional portfolio showcasing Marlitha Williams' expertise in educational leadership. Clean, accessible design, consistent teal accents, seamless navigation.">
   <!-- Tailwind CSS via jsDelivr -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <!-- Font Awesome via jsDelivr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
   <!-- Google Fonts: Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Chart.js via jsDelivr -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     html, body {
+      background: linear-gradient(120deg, #f7fafc 60%, #e6f2f6 100%);
       font-family: 'Poppins', sans-serif;
-      background: #F7FAFC;
-      color: #23292f;
-      scroll-behavior: smooth;
+      color: #253036;
+      box-sizing: border-box;
     }
-    /* Teal Gradient Button */
+    .container {
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .soft-bg {
+      background: linear-gradient(120deg, #f7fafc 85%, #e6f2f6 100%);
+    }
+    .faint-dot {
+      width: 140px;
+      height: 140px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, rgba(45,183,176,0.08) 10%, rgba(86,204,242,0.07) 100%);
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* CTA Button Styles */
     .cta-btn {
-      background: linear-gradient(135deg, #0f766e 0%, #2dd4bf 100%);
-      color: #fff;
+      background: linear-gradient(135deg, #0f766e 60%, #2dd4bf 100%);
+      color: white;
+      padding: 0.6rem 1.5rem;
       border-radius: 9999px;
       font-weight: 500;
-      padding: 0.75rem 2rem;
-      font-size: 1.1rem;
-      transition: background 0.2s, filter 0.2s;
-      box-shadow: none;
-      display: inline-block;
-      text-align: center;
-      border: none;
+      font-size: 1.05rem;
+      margin: 0.2rem 0.3rem;
       outline: none;
+      transition: background 0.2s;
+      display: inline-block;
+      box-shadow: none;
+      border: none;
+      letter-spacing: 0.01em;
+      line-height: 1.45rem;
     }
     .cta-btn:hover, .cta-btn:focus {
-      background: linear-gradient(135deg, #115e59 0%, #14b8a6 100%);
-      filter: brightness(0.96);
-      color: #fff;
+      background: linear-gradient(135deg, #115e59 60%, #14b8a6 100%);
+    }
+    .carousel-dot {
+      width: .85rem;
+      height: .85rem;
+      border-radius: 50%;
+      background: #b2ebe6;
+      margin: 0 0.33rem;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.22s;
+      border: 2px solid #18b3a0;
+      display: inline-block;
+    }
+    .carousel-dot.active {
+      background: #14b8a6;
+      transform: scale(1.22);
+    }
+    .card {
+      background: white;
+      border-radius: 1.25rem;
+      box-shadow: 0 4px 16px 0 rgba(22,59,81,0.04),0 0.5px 2px 0 rgba(22,59,81,0.07);
+      padding: 2rem;
+      margin: 1rem 0;
+      position: relative;
+      z-index: 2;
+      min-height: 220px; /* optimize for PDF layout */
+    }
+    .card h3 {
+      color: #287e97;
+      font-size: 1.32rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .card .card-description {
+      margin-bottom: 1.1rem;
+    }
+    .icon-round {
+      width: 48px;
+      height: 48px;
+      border-radius: 9999px;
+      background: #e6f2f6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:1.3rem;
+      color:#53b6d1;
+      font-size:1.45rem;
     }
     /* Hero Image */
     .hero-img {
+      display: block;
+      margin: 0.7rem auto 0 auto;
       width: 180px;
       height: 180px;
+      max-width: 100vw;
       object-fit: cover;
-      object-position: center;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto;
+      border-radius: 9999px;
       box-shadow: none;
-      background: #e6f5f8;
-      /* No border */
+      background: #e6f2f6;
     }
-    @media (max-width: 640px) {
+    @media (max-width: 640px){
       .hero-img {
         width: 130px;
         height: 130px;
       }
-      .hero-tagline {
-        font-size: 1.1rem;
-        line-height: 1.4;
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.15rem;
+      }
+      .container {
+        padding: 0 0.5rem;
+      }
+      .card {
+        padding: 1.2rem;
       }
     }
-    .section {
-      max-width: 940px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
-      padding-top: 2.25rem;
-      padding-bottom: 2.25rem;
+    /* Carousel */
+    .carousel-section {
+      position: relative;
+      z-index: 2;
     }
-    /* Carousel Styles */
-    .carousel-container {
-      width: 100%;
-      max-width: 960px;
-      margin: 0 auto;
-      margin-top: 0; /* Remove large gap from hero */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .carousel-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.7rem;
+      margin-top: 1.6rem;
+      margin-bottom: 0.75rem;
     }
-    .carousel-items {
+    @media (max-width: 900px){
+      .carousel-cards-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media (max-width:600px){
+      .carousel-cards-grid{grid-template-columns:1fr;}
+    }
+    .carousel-nav {
       display: flex;
-      gap: 1.5rem;
       justify-content: center;
-      width: 100%;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
-    @media(max-width: 900px) {
-      .carousel-items {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-      }
-    }
-    .carousel-card {
-      width: 220px;
-      min-height: 180px;
-      background: #fff;
-      border-radius: 1.2rem;
-      box-shadow: 0 6px 24px 0 rgba(31, 122, 140, 0.08);
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      padding: 2rem 1rem 1.75rem 1rem;
-      cursor: pointer;
-      transition: box-shadow 0.2s, transform 0.2s;
-      border: 1.5px solid #e0f7f5;
-      text-align: center;
+      margin-bottom: 0.4rem;
+      margin-top: 1.2rem;
+      z-index: 2;
+      position: relative;
     }
-    .carousel-card.active, .carousel-card:hover {
-      box-shadow: 0 8px 32px 0 rgba(31, 122, 140, 0.12);
-      border-color: #2dd4bf;
-      transform: translateY(-3px) scale(1.025);
+    /* Section spacing */
+    section {
+      padding-top: 2.4rem;
+      padding-bottom: 2.4rem;
+      position: relative;
+      z-index: 2;
     }
-    .carousel-icon {
-      color: #53b6d1;
-      font-size: 2rem;
-      margin-bottom: 0.65rem;
-    }
-    .carousel-title {
-      color: #287e97;
-      font-size: 1.12rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-      line-height: 1.2;
-    }
-    .carousel-desc {
-      font-size: 0.97rem;
-      line-height: 1.45;
-      color: #62767c;
-      margin-bottom: 0.2rem;
-    }
-    /* Dot Navigation */
-    .carousel-dots {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-      margin-bottom: 0.2rem;
-    }
-    .carousel-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #e0f7f5;
-      border: 2px solid transparent;
-      transition: background 0.22s, border 0.22s;
-      cursor: pointer;
-      display: inline-block;
-    }
-    .carousel-dot.active {
-      background: linear-gradient(135deg,#0f766e,#2dd4bf);
-      border: 2px solid #0f766e;
-    }
-    /* Fade-in for Section Activation */
-    .fade-section {
+    /* Remove scrollbar for PDF optimization */
+    ::-webkit-scrollbar {
       display: none;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(12px);
-      transition: opacity 0.45s, transform 0.38s;
     }
-    .fade-section.active {
-      display: block;
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-    /* PDF Export: Remove scrollbars, always expand section content */
-    .fade-section {
-      max-height: none !important;
+    /* PDF Optimization */
+    .section-content {
       overflow: visible !important;
-    }
-    .section-heading {
-      color: #287e97;
-      font-size: 1.7rem;
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-      text-align: center;
-      letter-spacing: -0.5px;
-    }
-    /* Utilities */
-    .icon {
-      color: #53b6d1;
-      margin-right: 0.5em;
-    }
-    /* Prevents section jumps from being hidden under fixed-area content on mobile browsers */
-    [id] {
-      scroll-margin-top: 90px;
+      height: auto !important;
+      opacity: 1 !important;
     }
   </style>
 </head>
-<body>
+<body class="soft-bg">
+
   <!-- HERO SECTION -->
-  <section class="section pt-10 pb-8 text-center bg-white rounded-b-lg shadow-none" style="background: #f7fafc;">
-    <h1 class="text-4xl sm:text-5xl font-bold mb-3 tracking-tight" style="letter-spacing:-1.2px;">Marlitha Williams</h1>
-    <img src="hero-image.webp" alt="Heart-shaped collage of academic icons representing integrated knowledge" class="hero-img mb-4" width="180" height="180" loading="lazy">
-    <div class="hero-tagline text-xl sm:text-2xl font-medium text-gray-700 mt-1 mb-2">
+  <section class="container flex flex-col items-center justify-center text-center" style="padding-top:32px;padding-bottom:32px;position:relative;z-index:2;">
+    <h1 class="font-bold text-3xl md:text-4xl" style="margin-bottom:0.7rem">Marlitha Williams</h1>
+    <img src="images/hero-image.webp" alt="Heart-shaped collage of academic icons" class="hero-img" />
+    <h2 class="font-medium text-xl md:text-2xl mt-5" style="margin-bottom: 8px;">
       Strategic thinking. Systems insight. Real-world results.
+    </h2>
+    <!-- (Breadcrumb on secondary pages will include Return Home, as shown below) -->
+  </section>
+
+  <!-- CAROUSEL & MAIN NAVIGATION GRID -->
+  <section class="carousel-section container">
+    <div class="carousel-nav mb-4" id="carousel-nav">
+      <span class="carousel-dot active" data-index="0" aria-label="About"></span>
+      <span class="carousel-dot" data-index="1" aria-label="Literacy Impact"></span>
+      <span class="carousel-dot" data-index="2" aria-label="Data Highlights"></span>
+      <span class="carousel-dot" data-index="3" aria-label="Downloadable Instructional Tools"></span>
+    </div>
+    <div id="carousel-grid" class="carousel-cards-grid">
+      <!-- About Card -->
+      <div class="card" tabindex="0" role="button" data-section="about">
+        <div class="icon-round"><i class="fas fa-user"></i></div>
+        <h3 class="mb-3">About</h3>
+        <div class="card-description">
+          Who I am, what I believe, and the foundation of my work in educational leadership, law, and literacy.
+        </div>
+        <a href="#about" class="cta-btn" aria-label="View About Me">View About</a>
+        <a href="april.resume.html" class="cta-btn" aria-label="Resume">Resume</a>
+      </div>
+      <!-- Literacy Impact: 3-Year 5th Grade Outcomes -->
+      <div class="card" tabindex="0" role="button" data-section="literacy">
+        <div class="icon-round"><i class="fas fa-book-reader"></i></div>
+        <h3 class="mb-3">3-year 5th Grade Outcomes Overview</h3>
+        <div class="card-description">
+          See how sustained, systems-focused leadership drove remarkable student gains across three years. Explore cohort-level reading and writing data and my strategic approach.
+        </div>
+        <a href="#literacy" class="cta-btn" aria-label="See Literacy Impact">See Outcomes</a>
+        <a href="literacy-case-study.html" class="cta-btn" aria-label="Literacy Case Study">View Full Case Study</a>
+      </div>
+      <!-- Data Dashboard/Highlights Card -->
+      <div class="card" tabindex="0" role="button" data-section="data-highlights">
+        <div class="icon-round"><i class="fas fa-chart-bar"></i></div>
+        <h3 class="mb-3">Data Highlights</h3>
+        <div class="card-description">
+          Browse my live data dashboard templates, campus staff climate insights, teacher growth statistics, and more. See student and educator impact at a glance.
+        </div>
+        <a href="#data-highlights" class="cta-btn" aria-label="Data Highlights">Spotlight Data</a>
+        <a href="data-dashboard.html" class="cta-btn" aria-label="Data Dashboard">Data Dashboard</a>
+      </div>
+      <!-- Downloadable Resources Card -->
+      <div class="card" tabindex="0" role="button" data-section="resources">
+        <div class="icon-round"><i class="fas fa-download"></i></div>
+        <h3 class="mb-3">Downloadable Instructional Tools</h3>
+        <div class="card-description">
+          Access standards-aligned lesson frameworks, AI-ready literacy plans, substitute lesson plans, and implementation templates for educators.
+        </div>
+        <a href="#resources" class="cta-btn" aria-label="Explore Instructional Tools">Explore Tools</a>
+      </div>
     </div>
   </section>
 
-  <!-- CAROUSEL (Like Product Selector, Not Swiper) -->
-  <nav class="carousel-container mt-1 mb-3">
-    <div id="carousel-items" class="carousel-items">
-      <!-- About -->
-      <div class="carousel-card active" data-index="0" tabindex="0" aria-label="About">
-        <span class="carousel-icon"><i class="fas fa-user-circle"></i></span>
-        <div class="carousel-title">About</div>
-        <div class="carousel-desc">Professional background, core values, and guiding principles.</div>
-      </div>
-      <!-- Literacy -->
-      <div class="carousel-card" data-index="1" tabindex="0" aria-label="Literacy Impact">
-        <span class="carousel-icon"><i class="fas fa-book-open"></i></span>
-        <div class="carousel-title">Literacy Impact</div>
-        <div class="carousel-desc">Student & staff achievement and instructional growth data.</div>
-      </div>
-      <!-- Leadership -->
-      <div class="carousel-card" data-index="2" tabindex="0" aria-label="Leadership Impact">
-        <span class="carousel-icon"><i class="fas fa-chalkboard-teacher"></i></span>
-        <div class="carousel-title">Leadership Impact</div>
-        <div class="carousel-desc">Building systems, coaching teams, fostering equity-based learning.</div>
-      </div>
-      <!-- Resources -->
-      <div class="carousel-card" data-index="3" tabindex="0" aria-label="Resources">
-        <span class="carousel-icon"><i class="fas fa-toolbox"></i></span>
-        <div class="carousel-title">Resources</div>
-        <div class="carousel-desc">Downloadable instructional tools and frameworks.</div>
-      </div>
-      <!-- Data Dashboard -->
-      <div class="carousel-card" data-index="4" tabindex="0" aria-label="Data Highlights">
-        <span class="carousel-icon"><i class="fas fa-chart-bar"></i></span>
-        <div class="carousel-title">Data Highlights</div>
-        <div class="carousel-desc">View summary dashboard and visualize impact.</div>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="container section-content relative">
+    <div class="faint-dot" style="top:-60px;right:-90px;"></div>
+    <div class="faint-dot" style="bottom:-60px;left:-80px;"></div>
+    <div class="card" style="margin-bottom: 0;">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-center" style="color: #287e97;">About Me</h2>
+      <p class="text-gray-700 mb-6 text-lg">
+        I lead with a systems-focused approach—creating learning ecosystems that cultivate growth, strengthen capacity, and transform lived experiences into sustainable leadership. My journey began as a Teach For America corps member and evolved through campus leadership, law, and literacy advocacy. Stepping into a caregiving role this year further deepened my belief that supportive systems and community are the real foundations of transformative leadership and equity.
+      </p>
+      <div class="flex flex-col md:flex-row gap-6 justify-between">
+        <div class="flex-1">
+          <h4 class="font-semibold mb-2 text-lg" style="color: #287e97;">Philosophy</h4>
+          <ul class="list-disc ml-6 text-gray-700 mb-4">
+            <li>Systemic change beats “superstar” solutions every time.</li>
+            <li>Growing teachers and leaders is sustainable only with personalized support.</li>
+            <li>Equity, healing, and data-driven progress can (and must) co-exist in education.</li>
+          </ul>
+        </div>
+        <div class="flex-1">
+          <h4 class="font-semibold mb-2 text-lg" style="color: #287e97;">Credentials</h4>
+          <ul class="mb-4 ml-3">
+            <li><b>Juris Doctor</b> — University of Arkansas School of Law</li>
+            <li><b>Bachelor’s</b> — Purdue University</li>
+            <li>Texas Bar, Licensed since 2016</li>
+            <li>Reading Academies Leadership Pathway Certified, 2024</li>
+          </ul>
+          <a href="april.resume.html" class="cta-btn" aria-label="Full Resume">Full Resume</a>
+        </div>
       </div>
     </div>
-    <!-- Dot Navigation -->
-    <div class="carousel-dots mt-2 mb-1">
-      <span class="carousel-dot active" data-index="0"></span>
-      <span class="carousel-dot" data-index="1"></span>
-      <span class="carousel-dot" data-index="2"></span>
-      <span class="carousel-dot" data-index="3"></span>
-      <span class="carousel-dot" data-index="4"></span>
+  </section>
+
+  <!-- LITERACY IMPACT SECTION -->
+  <section id="literacy" class="container section-content relative">
+    <div class="faint-dot" style="top:-40px;right:-80px;"></div>
+    <div class="faint-dot" style="bottom:-48px;left:-85px;"></div>
+    <div class="card">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-center" style="color: #287e97;">3-year 5th Grade Outcomes Overview</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 mb-5">
+            Over three years (2022–2024), my 5th graders consistently outperformed district and state benchmarks in STAAR Reading and Writing—even when staff turnover and pandemic disruptions posed major challenges. My campus approach combined research-based literacy frameworks, targeted coaching, and focused professional learning to create powerful, real-world results.
+          </p>
+          <ul class="mb-5 text-gray-700 pl-4">
+            <li><b>Writing Process Skills:</b> +16% above state</li>
+            <li><b>Editing & Punctuation:</b> +11% above state</li>
+            <li><b>Reading Comprehension:</b> +4% above state</li>
+          </ul>
+          <a href="literacy-case-study.html" class="cta-btn">Read Full Case Study</a>
+        </div>
+        <div>
+          <canvas id="staarChart" height="200"></canvas>
+          <script>
+            window.addEventListener("DOMContentLoaded",function(){
+              const ctx = document.getElementById('staarChart').getContext('2d');
+              // Example values for 3 years (these are demo values)
+              new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: [
+                    "2022 Approaches", "2022 Meets", "2022 Masters",
+                    "2023 Approaches", "2023 Meets", "2023 Masters",
+                    "2024 Approaches", "2024 Meets", "2024 Masters"
+                  ],
+                  datasets: [
+                    {
+                      label: "Campus",
+                      backgroundColor: "#14b8a6",
+                      data: [82, 59, 34, 81, 63, 31, 77, 59, 30]
+                    },
+                    {
+                      label: "District",
+                      backgroundColor: "#67e8f9",
+                      data: [85, 63, 40, 84, 60, 32, 78, 54, 28]
+                    },
+                    {
+                      label: "State",
+                      backgroundColor: "#b2ebe6",
+                      data: [81, 58, 36, 80, 57, 28, 79, 55, 29]
+                    }
+                  ]
+                },
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: { position: 'bottom' },
+                    title: { display: true, text: 'STAAR Grade 5 Performance (2022–2024)',
+                      font:{size:16,weight:'bold'}}
+                  },
+                  scales: {
+                    x: { ticks: { font: { family: 'Poppins' } }, grid: { display: false } },
+                    y: {
+                      ticks: { font: { family: 'Poppins' }, stepSize: 10, beginAtZero:true },
+                      max:100,
+                      title: {display:true,text:'Percentage'}
+                    }
+                  }
+                }
+              });
+            });
+          </script>
+        </div>
+      </div>
     </div>
-  </nav>
+  </section>
 
-  <!-- MAIN SECTIONS (Each one activates on carousel click) -->
-
-  <!-- About -->
-  <section id="about" class="section fade-section active" aria-labelledby="about-heading">
-    <h2 id="about-heading" class="section-heading">About</h2>
-    <p class="text-lg mb-6 max-w-2xl mx-auto text-center">Marlitha Williams is a systems-driven leader focused on transformative educational outcomes. Her work fuses legal, instructional, and leadership expertise to build capacity, foster equity, and deliver measurable results for students and institutions.</p>
-    <div class="flex justify-center mb-4">
-      <a href="april.resume.html" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt icon"></i>View Resume</a>
+  <!-- DATA HIGHLIGHTS SECTION -->
+  <section id="data-highlights" class="container section-content relative">
+    <div class="faint-dot" style="top:-52px;right:-70px;"></div>
+    <div class="faint-dot" style="bottom:-35px;left:-75px;"></div>
+    <div class="card">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-center" style="color: #287e97;">Data Highlights</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <p class="mb-3 text-gray-700">
+            Dive into my campus data dashboards to see how teacher climate, staff retention, and professional growth were measured—and improved—over successive school years.
+          </p>
+          <ul class="mb-6 pl-3 text-gray-700">
+            <li><b>Staff Climate Assessment:</b> Coaching effectiveness 4.5/5, Professional growth support 4.4/5</li>
+            <li><b>Teacher Growth:</b> 87% grew an effectiveness level; 82% retention (was 73%)</li>
+          </ul>
+          <a class="cta-btn" href="data-dashboard.html">Data Dashboard</a>
+        </div>
+        <div>
+          <div class="icon-round" style="margin-top:1.5rem;margin-bottom: 1.6rem;"><i class="fas fa-users"></i></div>
+          <div>
+            <a href="professional-development.html" class="cta-btn mb-2" style="display:inline-block;">Professional Development</a>
+            <a href="literacy-case-study.html" class="cta-btn mb-2" style="display:inline-block;">Literacy Analysis</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Literacy Impact -->
-  <section id="literacy-impact" class="section fade-section" aria-labelledby="literacy-impact-heading">
-    <h2 id="literacy-impact-heading" class="section-heading">Literacy Impact</h2>
-    <p class="mb-6 max-w-2xl mx-auto text-center text-lg">Marlitha's literacy leadership consistently drove academic gains for diverse student populations through evidence-based instructional systems and cross-grade collaboration. Her data-proven approach ensured equitable access to foundational reading and writing skills.</p>
-    <ul class="grid md:grid-cols-2 gap-4 mb-5 max-w-3xl mx-auto">
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-award icon"></i>
-          <span class="font-semibold text-gray-800">3 Straight Years of Growth</span>
+  <!-- RESOURCES SECTION -->
+  <section id="resources" class="container section-content relative">
+    <div class="faint-dot" style="top:-62px;right:-82px;"></div>
+    <div class="faint-dot" style="bottom:-48px;left:-74px;"></div>
+    <div class="card">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-center" style="color: #287e97;">Downloadable Instructional Tools</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
+        <div>
+          <h4 class="font-semibold mb-2" style="color:#287e97;">Prepositional Phrases</h4>
+          <ul class="pl-4 list-disc text-gray-700 mb-2">
+            <li><a href="prepositional-phrases.html" class="cta-btn mb-1">Resource Set</a></li>
+            <li><a href="prepositional-phrases-instructional-framework.html" class="cta-btn mb-1">Instructional Framework</a></li>
+            <li><a href="prepositional-phrases-lesson-details.html" class="cta-btn mb-1">Lesson Details</a></li>
+          </ul>
         </div>
-        <span class="text-gray-500 text-sm">Students exceeded state writing process benchmarks by 16% (2024 cohort).</span>
-      </li>
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-users icon"></i>
-          <span class="font-semibold text-gray-800">Inclusive Instruction</span>
+        <div>
+          <h4 class="font-semibold mb-2" style="color:#287e97;">AI-Ready Literacy</h4>
+          <ul class="pl-4 list-disc text-gray-700 mb-2">
+            <li><a href="ai-ready-literacy.html" class="cta-btn mb-1">Implementation Plan</a></li>
+            <li><a href="literacy-ai-connection-visual-framework.html" class="cta-btn mb-1">AI Connection Framework</a></li>
+            <li><a href="future-ready.html" class="cta-btn mb-1">Future-Ready Literacy</a></li>
+          </ul>
         </div>
-        <span class="text-gray-500 text-sm">Integrated inclusive reading, editing, and comprehension, closing critical skill gaps.</span>
-      </li>
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-sync-alt icon"></i>
-          <span class="font-semibold text-gray-800">Sustainable Systems</span>
+        <div>
+          <h4 class="font-semibold mb-2" style="color:#287e97;">Classroom & PD Templates</h4>
+          <ul class="pl-4 list-disc text-gray-700 mb-2">
+            <li><a href="Instructional-Literacy-Framework-Implementation-Practice.html" class="cta-btn mb-1">Developmental Literacy Framework</a></li>
+            <li><a href="cross-curricular-instruction-sample.html" class="cta-btn mb-1">Cross-Curricular Sample</a></li>
+            <li><a href="scripted-substitute-lesson-plan-example.html" class="cta-btn mb-1">Substitute Lesson Plan</a></li>
+          </ul>
         </div>
-        <span class="text-gray-500 text-sm">Vertical alignment across K-5 sustained outcomes even during leadership transitions.</span>
-      </li>
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-chart-line icon"></i>
-          <span class="font-semibold text-gray-800">Data-Driven Results</span>
-        </div>
-        <span class="text-gray-500 text-sm">Meaningful increases in reading comprehension (+4%) and editing skills (+11%).</span>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Leadership Impact -->
-  <section id="leadership-impact" class="section fade-section" aria-labelledby="leadership-impact-heading">
-    <h2 id="leadership-impact-heading" class="section-heading">Leadership Impact</h2>
-    <p class="mb-6 max-w-2xl mx-auto text-center text-lg">Combining systems thinking with personalized coaching, Marlitha builds teaching teams that thrive. Her leadership develops resilient, equity-focused educators who drive improvement even in high-challenge settings.</p>
-    <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5 max-w-3xl mx-auto">
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-graduation-cap icon"></i>
-          <span class="font-semibold text-gray-800">Mentorship for Growth</span>
-        </div>
-        <span class="text-gray-500 text-sm">Accelerated novice teacher effectiveness with differentiated, asset-based coaching.</span>
-      </li>
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-layer-group icon"></i>
-          <span class="font-semibold text-gray-800">Systemic Change, Human Focus</span>
-        </div>
-        <span class="text-gray-500 text-sm">Instituted instructional routines robust to staffing changes and demographic shifts.</span>
-      </li>
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-heartbeat icon"></i>
-          <span class="font-semibold text-gray-800">High Retention, High Morale</span>
-        </div>
-        <span class="text-gray-500 text-sm">Improved staff retention from 73% to 82% and boosted instructional confidence.</span>
-      </li>
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-lightbulb icon"></i>
-          <span class="font-semibold text-gray-800">Culture of Collective Efficacy</span>
-        </div>
-        <span class="text-gray-500 text-sm">Built shared leadership systems and led professional learning communities (PLCs).</span>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Resources -->
-  <section id="resources" class="section fade-section" aria-labelledby="resources-heading">
-    <h2 id="resources-heading" class="section-heading">Resources</h2>
-    <p class="mb-6 max-w-2xl mx-auto text-center text-lg">Explore practical, classroom-tested resources for curriculum planning, instructional improvement, and literacy coaching. All frameworks and templates are available for download and adaptation.</p>
-    <ul class="max-w-3xl mx-auto grid md:grid-cols-2 gap-5 mb-4">
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-pencil-ruler icon"></i>
-          <span class="font-semibold text-gray-800">Instructional Literacy Framework</span>
-        </div>
-        <a href="Instructional-Literacy-Framework-Implementation-Practice.html" class="underline text-teal-700 hover:text-teal-900 transition">View Framework</a>
-      </li>
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-shapes icon"></i>
-          <span class="font-semibold text-gray-800">Prepositional Phrase Toolkit</span>
-        </div>
-        <a href="prepositional-phrases.html" class="underline text-teal-700 hover:text-teal-900 transition">View Resources</a>
-      </li>
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-robot icon"></i>
-          <span class="font-semibold text-gray-800">AI & Literacy Planning</span>
-        </div>
-        <a href="ai-ready-literacy.html" class="underline text-teal-700 hover:text-teal-900 transition">AI-Ready Implementation Plan</a>
-      </li>
-      <li class="bg-white rounded-xl shadow p-5 border border-teal-50">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-database icon"></i>
-          <span class="font-semibold text-gray-800">Teaching Data Templates</span>
-        </div>
-        <a href="data-dashboard.html" class="underline text-teal-700 hover:text-teal-900 transition">Data Dashboard</a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Data Highlights (links to external dashboard for demonstration) -->
-  <section id="data-highlights" class="section fade-section" aria-labelledby="data-highlights-heading">
-    <h2 id="data-highlights-heading" class="section-heading">Data Highlights</h2>
-    <p class="mb-6 max-w-2xl mx-auto text-center text-lg">
-      See at-a-glance dashboards and year-over-year gains stemming from Marlitha's systems-based leadership across instruction and coaching.
-    </p>
-    <div class="flex justify-center mb-5">
-      <a href="data-dashboard.html" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-chart-pie icon"></i>Open Data Dashboard</a>
+      </div>
     </div>
-    <div class="text-center text-sm text-gray-500">For full impact data, select cohort, year, or subject within the dashboard.</div>
   </section>
 
-  <!-- JS: Carousel Section Activation/Navigation (NO horizontal slide/swipe) -->
-  <script>
-    // Section IDs in order
-    const sectionIds = [
-      "about",
-      "literacy-impact",
-      "leadership-impact",
-      "resources",
-      "data-highlights"
-    ];
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="container section-content relative">
+    <div class="faint-dot" style="top:-60px;right:-90px;"></div>
+    <div class="faint-dot" style="bottom:-60px;left:-80px;"></div>
+    <div class="card">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-center" style="color: #287e97;">Contact & Opportunities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h4 class="font-semibold mb-2" style="color:#287e97;">Contact Information</h4>
+          <p class="mb-2 text-gray-700"><i class="fas fa-envelope text-teal-500 mr-2"></i>
+            <a href="/cdn-cgi/l/email-protection#721f13001e1b061a1332171f131b1e5c111d1f" class="text-blue-900 hover:text-teal-600"><span class="__cf_email__" data-cfemail="1c717d6e707568747d5c79717d7570327f7371">[email&#160;protected]</span></a>
+          </p>
+          <p class="mb-2 text-gray-700"><i class="fas fa-phone text-teal-500 mr-2"></i>
+            <span>(210) 803-7131</span>
+          </p>
+          <p class="mb-2 text-gray-700"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>
+            <span>Indianapolis, IN</span>
+          </p>
+          <p class="mb-2 text-gray-700"><i class="fab fa-linkedin text-teal-500 mr-2"></i>
+            <a href="https://www.linkedin.com/in/marlitha-williams-j-d-25295049" target="_blank" class="text-blue-900 hover:text-teal-600">LinkedIn Profile</a>
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2" style="color:#287e97;">Open to Opportunities</h4>
+          <ul class=" ml-1 text-gray-700" style="line-height:1.75;">
+            <li>Strategic instructional design</li>
+            <li>Literacy assessment and content development</li>
+            <li>AI-integrated education innovation</li>
+            <li>Professional learning facilitation</li>
+            <li>Equity-centered curriculum consulting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    function activateCarousel(index) {
-      // Highlight active carousel card
-      document.querySelectorAll('.carousel-card').forEach((card, i) => {
-        card.classList.toggle('active', i === index);
-      });
-      // Highlight the correct dot
-      document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-      // Fade in the correct section
-      sectionIds.forEach((sid, i) => {
-        const el = document.getElementById(sid);
-        if (el) {
-          if (i === index) {
-            el.classList.add('active');
-            el.setAttribute('tabindex', '0');
-            el.focus({preventScroll:true});
-          } else {
-            el.classList.remove('active');
-            el.blur && el.blur();
-          }
-        }
-      });
-      // Smooth-scroll to correct section after brief delay
-      setTimeout(() => {
-        const target = document.getElementById(sectionIds[index]);
-        if (target) {
-          target.scrollIntoView({behavior:"smooth", block:"start"});
-        }
-      }, 50);
+  <!-- FOOTER -->
+  <footer class="pt-6 pb-4 text-center text-gray-600 text-sm bg-transparent">
+    <div class="container">© 2024 Marlitha Williams. All rights reserved.</div>
+  </footer>
+
+  <!-- BREADCRUMB TEMPLATE FOR SECONDARY PAGES -->
+  <template id="breadcrumb-template">
+    <div class="container flex flex-row items-center mt-3 mb-4 space-x-2">
+      <a href="index.html" class="cta-btn" aria-label="Return to Home"><i class="fas fa-home mr-1"></i>Return Home</a>
+      <span class="text-gray-400">&rsaquo;</span>
+      <span class="font-semibold text-teal-700" id="breadcrumb-current"></span>
+    </div>
+  </template>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Carousel logic for card highlighting and dot nav (not slideshow, just section highlighting)
+    const dots = document.querySelectorAll('.carousel-dot');
+    const cards = document.querySelectorAll('.carousel-cards-grid .card');
+    const sectionIDs = ['about', 'literacy', 'data-highlights', 'resources'];
+
+    function setCarouselActive(idx) {
+      dots.forEach((dot,i)=>{ dot.classList.toggle('active', i===idx); });
+      // Scroll to corresponding section smoothly
+      const el = document.getElementById(sectionIDs[idx]);
+      if(el) el.scrollIntoView({behavior: 'smooth', block:'start', inline:'nearest'});
+      // Optionally, highlight card (accessibility: focus)
+      cards[idx].focus();
     }
-
-    // Carousel item clicks
-    document.querySelectorAll('.carousel-card').forEach((card, idx) => {
-      card.addEventListener('click', () => activateCarousel(idx));
-      card.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' || e.key === ' '){ activateCarousel(idx);}
+    dots.forEach((dot,idx)=>{
+      dot.addEventListener('click',()=>setCarouselActive(idx));
+      dot.addEventListener('keydown',e=>{
+        if(e.key==='Enter'||e.key===' '){ setCarouselActive(idx); }
       });
     });
-    // Dot navigation clicks
-    document.querySelectorAll('.carousel-dot').forEach((dot, idx) => {
-      dot.addEventListener('click', () => activateCarousel(idx));
+    cards.forEach((card,idx)=>{
+      card.addEventListener('click',()=>setCarouselActive(idx));
+      card.addEventListener('keydown',e=>{
+        if(e.key==='Enter'||e.key===' '){ setCarouselActive(idx); }
+      });
     });
+
+    // Accessibility: enable Enter/Space on cards/dots
+    // Disable all scrollbars for PDF (see CSS)
+
+    // (Breadcrumb population for secondary pages: for scripting later)
+    // PDF Export: handled by browser (do not add export button)
+
   </script>
 </body>
 </html>
 
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDiX0ZuZVDcJK7rwqkqC3YFIuZTJomrp%2FWL%2BPI6CRk87ElgTyptW0uzxX%2F2gNrKmNMm8jpiEPlrGgYMYyjVeuQ6z9DNguxsJaRck2Py6v9oXSEXNMJ1CS0f5UGf%2FLD2p3m0GdiGWZQMAu%2Bju%2FEY6lqvQjuWU%2FVC%2BJye%2BRE9WHEgtDA%2BKZrsF21ouELgkjpNqRQcvVjsXjRCy%2FrI8NVh73OBNV3SxJW5UWNDPiQXrjMnPXKv3euv9mXkWuz8q%2BD5tENqwA5UMLJ9U7c6M9vCbqhJWF8NwxRkpdWCst40cHA6Td037nj5q7evcnanHarQJhpat%2FcFYbeI5bJAK1RxSugksymdzFlig6JZyN8xj4Ls8ywuqCiAiZ6vB90DGszZUj5fO5ov8tQw9eAtrsN9nBi7DAMaiRKhybiuT0Xg3ukyu9PVGnS5JV4wgErNLdKALDaVXOVF0xuZLMNDpw1QI4ZcBJuCt28%2BdkFMZOB%2BZA5x21PmE2PyPICJnlhjCjy%2Fslw7bWzxLJF3VlTLGB4gfv9kI%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDq8h%2BSvJWBHRXch0SOTGFZO0aEscjcrtrwEtEGEodmde%2F6F9nY%2FfLQEUxo%2FoRZmKpySYdsjdeJQx8cgiylDokZJe0pYoV5x9iBdQnRMwSTNFoVrdSRjZRkhJk2FDSLaEV7Hr5wbk6wwyiYjK5q1SwNiqeorm4eBXUGmXTGAtpr59M0VYzlfHdGFKIyJvhk4j3IJGacnnsq4nUElG209iTZxc2W2De%2BYin856ig9xIAzXrB7d1igPRBus8rB1nfUeanq%2BnN6qaIp6dJtMXMUwdqZqRfVD2d6rp9%2FZWY044e5hyWiJXZxb2Q35vt0obbMUA4ju9VLf%2FSewG6ZOW%2Bg7D3Sv6g9xGXBUYOIqwhwLTL3VTbBQIhD98TNUqK4TwZcTtikgGesyld3dRIV7CRVEJ%2Bee1YpELag9m6EVuGhvgWY4xKUva2%2Bbm7%2BtqfRKZE5Z%2B6uakbIWvGFtyzJPWlfteI9KHyjz3BBlt8OOwBFL5GDwAgpaLuDurlM8Bc5TXcNCsDrTOL4QmbtkU7Ppr%2Fuzjvs%3D";
         window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDiX0ZuZVDcJK7rwqkqC3YFIuZTJomrp/WL+PI6CRk87ElgTyptW0uzxX/2gNrKmNMm8jpiEPlrGgYMYyjVeuQ6z9DNguxsJaRck2Py6v9oXSEXNMJ1CS0f5UGf/LD2p3m0GdiGWZQMAu+ju/EY6lqvQjuWU/VC+Jye+RE9WHEgtDA+KZrsF21ouELgkjpNqRQcvVjsXjRCy/rI8NVh73OBNV3SxJW5UWNDPiQXrjMnPXKv3euv9mXkWuz8q+D5tENqwA5UMLJ9U7c6M9vCbqhJWF8NwxRkpdWCst40cHA6Td037nj5q7evcnanHarQJhpat/cFYbeI5bJAK1RxSugksymdzFlig6JZyN8xj4Ls8ywuqCiAiZ6vB90DGszZUj5fO5ov8tQw9eAtrsN9nBi7DAMaiRKhybiuT0Xg3ukyu9PVGnS5JV4wgErNLdKALDaVXOVF0xuZLMNDpw1QI4ZcBJuCt28+dkFMZOB+ZA5x21PmE2PyPICJnlhjCjy/slw7bWzxLJF3VlTLGB4gfv9kI=";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDq8h+SvJWBHRXch0SOTGFZO0aEscjcrtrwEtEGEodmde/6F9nY/fLQEUxo/oRZmKpySYdsjdeJQx8cgiylDokZJe0pYoV5x9iBdQnRMwSTNFoVrdSRjZRkhJk2FDSLaEV7Hr5wbk6wwyiYjK5q1SwNiqeorm4eBXUGmXTGAtpr59M0VYzlfHdGFKIyJvhk4j3IJGacnnsq4nUElG209iTZxc2W2De+Yin856ig9xIAzXrB7d1igPRBus8rB1nfUeanq+nN6qaIp6dJtMXMUwdqZqRfVD2d6rp9/ZWY044e5hyWiJXZxb2Q35vt0obbMUA4ju9VLf/SewG6ZOW+g7D3Sv6g9xGXBUYOIqwhwLTL3VTbBQIhD98TNUqK4TwZcTtikgGesyld3dRIV7CRVEJ+ee1YpELag9m6EVuGhvgWY4xKUva2+bm7+tqfRKZE5Z+6uakbIWvGFtyzJPWlfteI9KHyjz3BBlt8OOwBFL5GDwAgpaLuDurlM8Bc5TXcNCsDrTOL4QmbtkU7Ppr/uzjvs=";
     </script>
     
