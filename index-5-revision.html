@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marlitha Williams - Educational Leadership</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Tailwind CSS v2.2.19 -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Lexend Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Chart.js v4.4.3 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" />
+  <style>
+    html, body {
+      font-family: 'Lexend', 'Poppins', 'Arial', sans-serif;
+      background: #f7fafc;
+      scroll-behavior: smooth;
+    }
+    .lexend { font-family: 'Lexend', 'Poppins', sans-serif; }
+    .section-bg {
+      background: #fff;
+      border-radius: 1.25rem;
+      box-shadow: 0 2px 16px rgba(22, 84, 84, 0.05);
+    }
+    .cta-btn {
+      background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+      color: #fff;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: background 0.2s;
+      text-align: center;
+      display:inline-block;
+      margin-top:1.5rem;
+      margin-bottom:0.5rem;
+      outline: none;
+      border:none;
+      box-shadow:none;
+      font-family: inherit;
+    }
+    .cta-btn:hover, .cta-btn:focus {
+      background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);
+      color: #fff;
+    }
+    .chart-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 1.5rem auto;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @media(max-width: 768px){
+      .chart-container {
+        max-width: 100vw;
+      }
+    }
+    /* Remove scrollbars for PDF export */
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+     {
+      .section-bg { background: #fff !important; }
+      .cta-btn { color: #fff !important; background: #0f766e !important; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 lexend">
+  <!-- Hero Section -->
+  <header class="w-full flex flex-col items-center py-10 bg-gray-50">
+    <img src="hero-image.webp" alt="Heart-shaped collage of academic icons" 
+      class="rounded-full shadow-md" style="width:180px;height:180px;object-fit:cover;">
+    <h1 class="font-bold text-3xl md:text-4xl mt-6 tracking-tight text-center">Marlitha Williams</h1>
+    <p class="mt-2 text-xl text-gray-700 text-center">Strategic thinking. Systems insight. Real-world results.</p>
+  </header>
+  <main class="w-full max-w-3xl mx-auto space-y-12 pb-16">
+    <!-- ABOUT ME -->
+    <section id="about" class="section-bg py-12 md:py-20 px-6 mb-5">
+      <h2 class="font-bold text-3xl md:text-4xl mb-2 text-teal-700 flex items-center"><i class="fa fa-user-circle mr-4 text-teal-400"></i>About Me</h2>
+      <p class="text-lg mt-2 text-gray-800">
+        I lead with clarity, care, and strategy—bringing structure to ideas and purpose to systems. With roots in education, counseling, and law, I build learning ecosystems that center people and drive sustainable impact.
+      </p>
+      <div class="mt-7 flex flex-col sm:flex-row gap-4">
+        <a href="april.resume.html" class="cta-btn w-full sm:w-auto" target="_blank" rel="noopener">
+          <i class="fa fa-file-alt mr-2"></i>View Resume
+        </a>
+      </div>
+      <a href="#" class="cta-btn" style="margin-top:2.5rem" title="Return to Top">
+        <i class="fa fa-home mr-2"></i>Return Home
+      </a>
+    </section>
+    <!-- LITERACY IMPACT -->
+    <section id="literacy" class="section-bg py-12 md:py-20 px-6 mb-5">
+      <h2 class="font-bold text-3xl md:text-4xl mb-2 text-teal-700 flex items-center"><i class="fa fa-book-reader mr-4 text-teal-400"></i>Literacy Impact</h2>
+      <p class="text-lg mt-2 text-gray-800">
+        Literacy isn’t just a subject—it’s the foundation of opportunity. I’ve designed systems, frameworks, and instructional plans that helped students exceed expectations, even in the most under-resourced conditions.
+      </p>
+      <!-- Chart: 3-Year 5th Grade STAAR Outcomes -->
+      <div class="chart-container mt-8">
+        <canvas id="staarChart" width="600" height="320"></canvas>
+      </div>
+      <ul class="list-disc list-inside text-gray-700 text-base space-y-2 mt-5">
+        <li><b>3 Straight Years of Growth</b> — Students exceeded state writing process benchmarks by 16% (2024 cohort).</li>
+        <li><b>Inclusive Instruction</b> — Integrated inclusive reading, editing, and comprehension, closing critical skill gaps.</li>
+        <li><b>Sustainable Systems</b> — Vertical alignment across K-5 sustained outcomes even during leadership transitions.</li>
+        <li><b>Data-Driven Results</b> — Meaningful increases in reading comprehension (+4%) and editing skills (+11%).</li>
+      </ul>
+      <div class="mt-7 flex flex-col sm:flex-row gap-4">
+        <a href="literacy-case-study.html" class="cta-btn w-full sm:w-auto" target="_blank" rel="noopener"><i class="fa fa-chart-bar mr-2"></i>View Literacy Case Study</a>
+        <a href="literacy-ai-connection-visual-framework.html" class="cta-btn w-full sm:w-auto" target="_blank" rel="noopener"><i class="fa fa-diagram-project mr-2"></i>AI-Literacy Visual Framework</a>
+      </div>
+      <a href="#" class="cta-btn" style="margin-top:2.5rem" title="Return to Top">
+        <i class="fa fa-home mr-2"></i>Return Home
+      </a>
+    </section>
+    <!-- LEADERSHIP IMPACT -->
+    <section id="leadership" class="section-bg py-12 md:py-20 px-6 mb-5">
+      <h2 class="font-bold text-3xl md:text-4xl mb-2 text-teal-700 flex items-center"><i class="fa fa-chalkboard-teacher mr-4 text-teal-400"></i>Leadership Impact</h2>
+      <p class="text-lg mt-2 text-gray-800">
+        My leadership approach is grounded in coaching, coherence, and capacity-building. I support teams to grow, thrive, and deliver results—without burning out or burning bridges.
+      </p>
+      <ul class="list-disc list-inside text-gray-700 text-base space-y-2 mt-5">
+        <li><b>Mentorship for Growth</b> — Accelerated novice teacher effectiveness with differentiated, asset-based coaching.</li>
+        <li><b>Systemic Change, Human Focus</b> — Instituted instructional routines robust to staffing changes and demographic shifts.</li>
+        <li><b>High Retention, High Morale</b> — Improved staff retention from 73% to 82% and boosted instructional confidence.</li>
+        <li><b>Culture of Collective Efficacy</b> — Built shared leadership systems and led professional learning communities (PLCs).</li>
+      </ul>
+      <div class="mt-7 flex flex-col sm:flex-row gap-4">
+        <a href="professional-development.html" class="cta-btn w-full sm:w-auto" target="_blank" rel="noopener"><i class="fa fa-users mr-2"></i>View Professional Development</a>
+        <a href="future-ready.html" class="cta-btn w-full sm:w-auto" target="_blank" rel="noopener"><i class="fa fa-robot mr-2"></i>Future Ready Literacy</a>
+      </div>
+      <a href="#" class="cta-btn" style="margin-top:2.5rem" title="Return to Top">
+        <i class="fa fa-home mr-2"></i>Return Home
+      </a>
+    </section>
+    <!-- DATA DASHBOARD -->
+    <section id="dashboard" class="section-bg py-12 md:py-20 px-6 mb-5">
+      <h2 class="font-bold text-3xl md:text-4xl mb-2 text-teal-700 flex items-center"><i class="fa fa-chart-area mr-4 text-teal-400"></i>Data Dashboard</h2>
+      <p class="text-lg mt-2 text-gray-800">
+        This data reflects a three-year longitudinal assessment of 5th grade reading outcomes—translating performance trends into insight, and insight into action. It captures the learning outcomes of a vertically and horizontally aligned instructional system grounded in the Science of Reading and Writing, with targeted interventions that were tracked, analyzed, and refined to drive measurable student growth.
+      </p>
+      <div class="chart-container mt-8">
+        <canvas id="dashboardChart" width="600" height="320"></canvas>
+      </div>
+      <div class="mt-7 flex flex-col sm:flex-row gap-4">
+        <a href="data-dashboard.html" class="cta-btn w-full sm:w-auto" target="_blank" rel="noopener"><i class="fa fa-table mr-2"></i>Full Data Dashboard</a>
+        <a href="cross-curricular-instruction-sample.html" class="cta-btn w-full sm:w-auto" target="_blank" rel="noopener"><i class="fa fa-layer-group mr-2"></i>Cross-Curricular Sample</a>
+      </div>
+      <a href="#" class="cta-btn" style="margin-top:2.5rem" title="Return to Top">
+        <i class="fa fa-home mr-2"></i>Return Home
+      </a>
+    </section>
+    <!-- RESOURCES -->
+    <section id="resources" class="section-bg py-12 md:py-20 px-6">
+      <h2 class="font-bold text-3xl md:text-4xl mb-2 text-teal-700 flex items-center"><i class="fa fa-toolbox mr-4 text-teal-400"></i>Resources</h2>
+      <p class="text-lg mt-2 text-gray-800">
+        Every template, tool, and framework here was built with real classrooms and real challenges in mind. Designed for depth, clarity, and continuity, these resources helped sustain meaningful instruction—even through two years of ELA staffing instability—ensuring student growth regardless of who was in the room.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-7">
+        <a href="Instructional-Literacy-Framework-Implementation-Practice.html" class="cta-btn text-center" target="_blank" rel="noopener">
+          <i class="fa fa-columns mr-2"></i>Instructional Literacy Framework
+        </a>
+        <a href="prepositional-phrases.html" class="cta-btn text-center" target="_blank" rel="noopener">
+          <i class="fa fa-sitemap mr-2"></i>Prepositional Phrase Toolkit
+        </a>
+        <a href="prepositional-phrases-instructional-strategies.html" class="cta-btn text-center" target="_blank" rel="noopener">
+          <i class="fa fa-book-open mr-2"></i>Prepositional Strategies
+        </a>
+        <a href="preposition-practice-planning-framework.html" class="cta-btn text-center" target="_blank" rel="noopener">
+          <i class="fa fa-tasks mr-2"></i>Practice Planning Framework
+        </a>
+        <a href="prepositional-phrases-lesson-detail.html" class="cta-btn text-center" target="_blank" rel="noopener">
+          <i class="fa fa-list-ol mr-2"></i>Lesson Detail Sample
+        </a>
+        <a href="ai-ready-literacy.html" class="cta-btn text-center" target="_blank" rel="noopener">
+          <i class="fa fa-brain mr-2"></i>AI-Ready Literacy Plan
+        </a>
+        <a href="scripted-substitute-lesson-plan-framework.html" class="cta-btn text-center" target="_blank" rel="noopener">
+          <i class="fa fa-file-signature mr-2"></i>Sub Lesson Framework
+        </a>
+        <a href="future-ready.html" class="cta-btn text-center" target="_blank" rel="noopener">
+          <i class="fa fa-robot mr-2"></i>Future-Ready Guide
+        </a>
+      </div>
+      <a href="#" class="cta-btn" style="margin-top:2.5rem" title="Return to Top">
+        <i class="fa fa-home mr-2"></i>Return Home
+      </a>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="w-full text-center py-7 text-gray-700 bg-gray-100 mt-8 shadow-inner">
+    <span class="text-sm">
+      &copy; 2024 Marlitha Williams. All rights reserved.
+    </span>
+  </footer>
+  <script>
+    // Smooth scroll for Return Home buttons:
+    document.querySelectorAll('.cta-btn[href="#"]').forEach(btn => {
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    });
+
+    // Chart: 3-year 5th grade STAAR outcomes, color-matched per requirements
+    if(document.getElementById('staarChart')) {
+      const ctx1 = document.getElementById('staarChart').getContext('2d');
+      new Chart(ctx1, {
+        type: 'bar',
+        data: {
+          labels: ['2022', '2023', '2024'],
+          datasets: [
+            {
+              label: 'Campus',
+              data: [82, 81, 77],
+              backgroundColor: '#14b8a6',
+              borderRadius: 8
+            },
+            {
+              label: 'District',
+              data: [63, 60, 54],
+              backgroundColor: '#6366F1',
+              borderRadius: 8
+            },
+            {
+              label: 'State',
+              data: [58, 57, 55],
+              backgroundColor: '#f97316',
+              borderRadius: 8
+            }
+          ]
+        },
+        options: {
+          plugins: {
+            legend: {position: 'top'},
+            title: { display: true, text: '5th Grade STAAR Reading Performance (Approaches %)', font:{size:18, weight:'bold'} }
+          },
+          responsive:true,
+          maintainAspectRatio:false,
+          scales: {
+            y: {beginAtZero:true, max:100, grid:{color:'#d1faf5'}, title:{display:true, text:'% Approaching'}},
+            x: {grid:{color:'#f3f4f6'}}
+          },
+          layout: { padding: { left: 16, right: 16, top: 8, bottom: 8 } }
+        },
+        plugins:[{
+          beforeInit: chart => { chart.canvas.parentNode.style.height = '320px'; chart.canvas.parentNode.style.width = '100%';}
+        }]
+      });
+    }
+
+    // Chart: Data dashboard summary (example with different metrics)
+    if(document.getElementById('dashboardChart')) {
+      const ctx2 = document.getElementById('dashboardChart').getContext('2d');
+      new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: [
+            'Writing Process', 'Editing & Punctuation', 'Reading Comprehension'
+          ],
+          datasets: [
+            {
+              label: 'Campus',
+              data: [16, 11, 4],// relative growth above state as example
+              backgroundColor: '#14b8a6',
+              borderRadius: 8
+            },
+            {
+              label: 'District',
+              data: [12, 9, 2],
+              backgroundColor: '#6366F1',
+              borderRadius: 8
+            },
+            {
+              label: 'State',
+              data: [0, 0, 0],
+              backgroundColor: '#f97316',
+              borderRadius: 8
+            }
+          ]
+        },
+        options: {
+          plugins: {
+            legend: {position: 'top'},
+            title: { display: true, text: 'Gains vs State Avg by Domain (%)', font:{size:18, weight:'bold'} }
+          },
+          responsive:true,
+          maintainAspectRatio:false,
+          scales: {
+            y: {beginAtZero:true, max:20, grid:{color:'#d1faf5'}, title:{display:true, text:'% Above State'}},
+            x: {grid:{color:'#f3f4f6'}}
+          },
+          layout: { padding: { left: 16, right: 16, top: 8, bottom: 8 } }
+        },
+        plugins:[{
+          beforeInit: chart => { chart.canvas.parentNode.style.height = '320px'; chart.canvas.parentNode.style.width = '100%';}
+        }]
+      });
+    }
+  </script>
+</body>
+</html>
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDvRcn3iG5V0BpFo2vQQGnelwspDCIEa880n1nJsKeTsiV5g8HDs1Mt66Y77xjPiNZbRyuNeToDmtKDvg9muHi1h4RS%2BcPlYshD8DdxzwwL2L9XWFgIE4TMb2oBJr1aMLUQUdp03wWSJ7bYj7bPN2e9NFPlnoqBf6ubJ8B7K5d3sblGtcyqYzdrzhbjryCC62Bw6IROxcqwLEY4Jcf2492nSXVgCR%2FxQMAPBvpIMFqQkC%2Bm2RovVNKcqmUHsRbDJFRh%2Bm6KBYDcnUSVBmsG9E6uStIiHttcVUWUr8ws1hmS2s%2FCd1ldZGlt4SHsLa46nqCOaq%2BjwQY1OgtkMfTtjH3qKkh0CoI2GwrZOhYWqbKBJ5Xa5K4ExGn4Hr3ZHBuEVTVSkoKufX1FhC3RLac3XZEnFtXSOX72vaCAunRZUDF29z4T2OPn8WggyFrkdGdWqGTc79z7E3VqwsZuotsnmZ6tmnRhYUrsC%2Fcfwvs1OEsk4YVJsAHHTXLoSAYG1e8T9lWsrgrH6icFq%2FNQl%2BPM1CbNI%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDvRcn3iG5V0BpFo2vQQGnelwspDCIEa880n1nJsKeTsiV5g8HDs1Mt66Y77xjPiNZbRyuNeToDmtKDvg9muHi1h4RS+cPlYshD8DdxzwwL2L9XWFgIE4TMb2oBJr1aMLUQUdp03wWSJ7bYj7bPN2e9NFPlnoqBf6ubJ8B7K5d3sblGtcyqYzdrzhbjryCC62Bw6IROxcqwLEY4Jcf2492nSXVgCR/xQMAPBvpIMFqQkC+m2RovVNKcqmUHsRbDJFRh+m6KBYDcnUSVBmsG9E6uStIiHttcVUWUr8ws1hmS2s/Cd1ldZGlt4SHsLa46nqCOaq+jwQY1OgtkMfTtjH3qKkh0CoI2GwrZOhYWqbKBJ5Xa5K4ExGn4Hr3ZHBuEVTVSkoKufX1FhC3RLac3XZEnFtXSOX72vaCAunRZUDF29z4T2OPn8WggyFrkdGdWqGTc79z7E3VqwsZuotsnmZ6tmnRhYUrsC/cfwvs1OEsk4YVJsAHHTXLoSAYG1e8T9lWsrgrH6icFq/NQl+PM1CbNI=";
+    </script>
+    
