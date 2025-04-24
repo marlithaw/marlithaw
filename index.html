@@ -500,62 +500,75 @@
   </footer>
 
   <!-- JS: Mobile Nav & Anim, Scroll-aware header, Res Filter -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Mobile menu
-    const navBtn = document.getElementById('toggle-nav');
-    const nav = document.getElementById('main-nav');
-    navBtn.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
-// Auto-close mobile menu when a link is clicked
-document.querySelectorAll('.main-nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('active');
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+  // Mobile menu toggle
+  const navBtn = document.getElementById('toggle-nav');
+  const nav = document.getElementById('main-nav');
+  navBtn.addEventListener('click', () => {
+    nav.classList.toggle('active');
   });
-});
-    // Auto-trigger 'All' filter on page load
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.category-btn[data-category="all"]').click();
-});
-    // Scroll-aware compact header
-    window.addEventListener('scroll', () => {
-      const sh = document.getElementById('hdr');
-      if(window.scrollY > 60) { sh.classList.add('scrolled'); }
-      else { sh.classList.remove('scrolled'); }
-    });
 
-    // Fade-ins for sections
-    document.addEventListener('DOMContentLoaded', function() {
-      const observerOptions = { threshold: 0.18, rootMargin: "0px 0px -100px 0px" };
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  // Auto-close mobile menu when a link is clicked
+  document.querySelectorAll('.main-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
     });
+  });
 
-    // Category filter for resources
-    const catBtns = document.querySelectorAll('.category-btn');
-    const resCards = document.querySelectorAll('.resource-card');
-    catBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        catBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const cat = btn.dataset.category;
-        resCards.forEach(card => {
-          if (cat === 'all' || card.dataset.category === cat) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+  // Scroll-aware compact header
+  window.addEventListener('scroll', () => {
+    const sh = document.getElementById('hdr');
+    if (window.scrollY > 60) {
+      sh.classList.add('scrolled');
+    } else {
+      sh.classList.remove('scrolled');
+    }
+  });
+
+  // Fade-ins for sections
+  document.addEventListener('DOMContentLoaded', function () {
+    const observerOptions = {
+      threshold: 0.18,
+      rootMargin: "0px 0px -100px 0px"
+    };
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  });
+
+  // Category filter for resources
+  const catBtns = document.querySelectorAll('.category-btn');
+  const resCards = document.querySelectorAll('.resource-card');
+  catBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      catBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.category;
+      resCards.forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
       });
     });
-  </script>
+  });
+
+  // Ensure 'All' filter button is triggered after full load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const allBtn = document.querySelector('.category-btn[data-category="all"]');
+      if (allBtn) allBtn.click();
+    }, 200);
+  });
+</script>
 </body>
 </html>
 
