@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Complete portfolio website with mobile compatibility fixes">
+  <title>Professional Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Montserrat:700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Open Sans', Arial, sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Montserrat', 'Open Sans', Arial, sans-serif; }
+    .gradient-bg { background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%); }
+    .shadow-card { box-shadow: 0 2px 12px 0 rgba(0,0,0,0.06); }
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 1024px) {
+      .resources-grid { grid-template-columns: repeat(2, 1fr);}
+    }
+    @media (max-width: 768px) {
+      .resources-grid { grid-template-columns: 1fr; }
+      .container { padding-left: 0.75rem; padding-right: 0.75rem;}
+      nav ul { flex-direction: column; gap: .5rem;}
+    }
+  </style>
+</head>
+<body class="antialiased bg-gray-50">
+  <!-- Navbar -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <nav class="container mx-auto flex items-center justify-between py-3 px-4">
+      <div class="flex items-center text-indigo-700 font-extrabold text-xl">
+        <i class="fa-solid fa-rocket mr-2"></i>Your Name
+      </div>
+      <ul class="flex items-center space-x-6 text-gray-700 font-semibold">
+        <li><a href="#about" class="hover:text-indigo-600">About</a></li>
+        <li><a href="#projects" class="hover:text-indigo-600">Projects</a></li>
+        <li><a href="#skills" class="hover:text-indigo-600">Skills</a></li>
+        <li><a href="#resources" class="hover:text-indigo-600">Resources</a></li>
+        <li><a href="#contact" class="hover:text-indigo-600">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero/About Section -->
+  <section id="about" class="gradient-bg py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-indigo-700 mb-4">About Me</h1>
+      <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-800 font-medium leading-relaxed">
+        I lead with clarity, care, and strategy—bringing structure to ideas and purpose to systems.<br>
+        With roots in education, counseling, and law, I build learning ecosystems that center people and drive sustainable impact.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-10">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">Projects</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="shadow-card rounded-lg bg-white p-6 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
+               alt="Literacy Case Study" class="rounded-lg mb-4 object-cover w-full h-48">
+          <h3 class="font-bold text-lg mb-1 text-gray-800">Literacy Case Study</h3>
+          <ul class="text-gray-700 list-disc list-inside text-base mb-2">
+            <li>Evidence-based approaches to K-5 reading improvement</li>
+            <li>Instructional Design Data Analysis</li>
+          </ul>
+          <a href="#" class="text-indigo-600 hover:underline font-semibold mt-auto"><i class="fa-solid fa-arrow-right"></i> View Project</a>
+        </div>
+        <div class="shadow-card rounded-lg bg-white p-6 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+               alt="Professional Development" class="rounded-lg mb-4 object-cover w-full h-48">
+          <h3 class="font-bold text-lg mb-1 text-gray-800">Professional Development</h3>
+          <ul class="text-gray-700 list-disc list-inside text-base mb-2">
+            <li>Leadership systems for sustainable teacher growth</li>
+            <li>Leadership Coaching</li>
+          </ul>
+          <a href="#" class="text-indigo-600 hover:underline font-semibold mt-auto"><i class="fa-solid fa-arrow-right"></i> View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-10 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8">Skills</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center justify-center mb-2 text-xl text-indigo-700">
+            <i class="fa-solid fa-book-open mr-1"></i> Instructional Strategy
+          </div>
+          <ul class="text-base text-gray-700">
+            <li>Literacy Systems (K-8)</li>
+            <li>Curriculum Development</li>
+            <li>Equity-Centered Design</li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex items-center justify-center mb-2 text-xl text-indigo-700">
+            <i class="fa-solid fa-users-cog mr-1"></i> Leadership & Coaching
+          </div>
+          <ul class="text-base text-gray-700">
+            <li>Team Capacity Building</li>
+            <li>Feedback & Observation</li>
+            <li>HR & Change Management</li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex items-center justify-center mb-2 text-xl text-indigo-700">
+            <i class="fa-solid fa-chart-line mr-1"></i> Technical & Data
+          </div>
+          <ul class="text-base text-gray-700">
+            <li>Instructional Dashboards</li>
+            <li>Data Visualization</li>
+            <li>AI-Integrated Education</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section id="resources" class="py-10 gradient-bg">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">Educational Resources</h2>
+      <div class="resources-grid">
+        <div class="shadow-card rounded-lg bg-white p-4 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=400&q=80"
+               alt="Prepositional Phrase Toolkit" class="rounded mb-2 object-cover w-full h-40">
+          <h4 class="font-semibold text-gray-800 mb-1">Prepositional Phrase Toolkit</h4>
+          <p class="text-gray-600 mb-1 text-sm">Vertically aligned strategies for K-5 reading and writing.</p>
+          <a href="https://page.genspark.site/get_upload_url/7a40ca34c5e1575c50a684da515e7ff0c2e0651520ac6a3c37f032411af28bd6/default/prepositional-phrases.html" target="_blank" class="mt-auto text-indigo-600 hover:underline text-sm"><i class="fa-solid fa-link"></i> View Template</a>
+        </div>
+        <div class="shadow-card rounded-lg bg-white p-4 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+               alt="Data Dashboard" class="rounded mb-2 object-cover w-full h-40">
+          <h4 class="font-semibold text-gray-800 mb-1">Data Dashboard</h4>
+          <p class="text-gray-600 mb-1 text-sm">Explore student outcomes, trends, and gap analysis tools for leadership decisions.</p>
+          <a href="https://page.genspark.site/get_upload_url/7a40ca34c5e1575c50a684da515e7ff0c2e0651520ac6a3c37f032411af28bd6/default/data-dashboard.html" target="_blank" class="mt-auto text-indigo-600 hover:underline text-sm"><i class="fa-solid fa-link"></i> Go to Dashboard</a>
+        </div>
+        <div class="shadow-card rounded-lg bg-white p-4 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=400&q=80"
+               alt="Scripted Substitute Lesson Plan" class="rounded mb-2 object-cover w-full h-40">
+          <h4 class="font-semibold text-gray-800 mb-1">Scripted Substitute Lesson Plan</h4>
+          <p class="text-gray-600 mb-1 text-sm">Ready-to-use lesson plan formats for instructional continuity.</p>
+          <a href="https://page.genspark.site/get_upload_url/7a40ca34c5e1575c50a684da515e7ff0c2e0651520ac6a3c37f032411af28bd6/default/scripted-substitute-lesson-plan-example.html" target="_blank" class="mt-auto text-indigo-600 hover:underline text-sm"><i class="fa-solid fa-link"></i> View Template</a>
+        </div>
+        <div class="shadow-card rounded-lg bg-white p-4 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+               alt="AI-Ready Literacy Guide" class="rounded mb-2 object-cover w-full h-40">
+          <h4 class="font-semibold text-gray-800 mb-1">AI-Ready Literacy Guide</h4>
+          <p class="text-gray-600 mb-1 text-sm">Connecting literacy with AI skills and tools in modern classrooms.</p>
+          <a href="https://page.genspark.site/get_upload_url/7a40ca34c5e1575c50a684da515e7ff0c2e0651520ac6a3c37f032411af28bd6/default/ai-ready-literacy.html" target="_blank" class="mt-auto text-indigo-600 hover:underline text-sm"><i class="fa-solid fa-link"></i> Read Guide</a>
+        </div>
+        <div class="shadow-card rounded-lg bg-white p-4 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1515169273894-06ed31200b27?auto=format&fit=crop&w=400&q=80"
+               alt="Literacy+AI Visual Framework" class="rounded mb-2 object-cover w-full h-40">
+          <h4 class="font-semibold text-gray-800 mb-1">Literacy+AI Visual Framework</h4>
+          <p class="text-gray-600 mb-1 text-sm">Visual mapping of how literacy development supports AI readiness.</p>
+          <a href="https://page.genspark.site/get_upload_url/7a40ca34c5e1575c50a684da515e7ff0c2e0651520ac6a3c37f032411af28bd6/default/literacy-ai-connection-visual-framework.html" target="_blank" class="mt-auto text-indigo-600 hover:underline text-sm"><i class="fa-solid fa-link"></i> Open Framework</a>
+        </div>
+        <div class="shadow-card rounded-lg bg-white p-4 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1514975545974-b1c8f8e0d71c?auto=format&fit=crop&w=400&q=80"
+               alt="Cross-Curricular Instruction Sample" class="rounded mb-2 object-cover w-full h-40">
+          <h4 class="font-semibold text-gray-800 mb-1">Cross-Curricular Sample</h4>
+          <p class="text-gray-600 mb-1 text-sm">Integrated lessons merging reading, writing, and STEM concepts.</p>
+          <a href="https://page.genspark.site/get_upload_url/7a40ca34c5e1575c50a684da515e7ff0c2e0651520ac6a3c37f032411af28bd6/default/cross-curricular-instruction-sample.html" target="_blank" class="mt-auto text-indigo-600 hover:underline text-sm"><i class="fa-solid fa-link"></i> View Resource</a>
+        </div>
+        <div class="shadow-card rounded-lg bg-white p-4 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=400&q=80"
+               alt="Future-Ready Literacy Template" class="rounded mb-2 object-cover w-full h-40">
+          <h4 class="font-semibold text-gray-800 mb-1">Future-Ready Literacy Template</h4>
+          <p class="text-gray-600 mb-1 text-sm">Planning framework for next-generation literacy skill development.</p>
+          <a href="https://page.genspark.site/get_upload_url/7a40ca34c5e1575c50a684da515e7ff0c2e0651520ac6a3c37f032411af28bd6/default/future-ready.html" target="_blank" class="mt-auto text-indigo-600 hover:underline text-sm"><i class="fa-solid fa-link"></i> Open Template</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example: How to Embed a Video -->
+  <!-- <section class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-xl font-bold mb-4 text-indigo-700">Sample Video Demo</h2>
+      <video controls playsinline webkit-playsinline class="mx-auto rounded shadow max-w-full w-80">
+        <source src="your_video_url.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section> -->
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-12 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-4">Contact</h2>
+      <p class="mb-6 text-gray-700 font-medium">Whether you want to collaborate, discuss professional development, or just say hello—I'm always open to meaningful dialogue.</p>
+      <a href="/cdn-cgi/l/email-protection#eb92849eab8e868a8287c5888486" class="inline-flex items-center bg-indigo-600 text-white px-6 py-2 rounded-lg shadow hover:bg-indigo-700 transition text-lg font-semibold">
+        <i class="fa-solid fa-envelope mr-2"></i> Email Me
+      </a>
+    </div>
+  </section>
+
+  <footer class="py-3 text-center text-gray-500 text-sm bg-gray-100">
+    &copy; 2024 Your Name. All rights reserved.
+  </footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDg0ALH7pCpB3wPkX7tonQdNWpsUATWd5i95X0vDtbTlSwJ78I47AMMcOpd6lBDCB%2BeJyzDiVE%2FEqUH6%2BfyYiP3kYI7Ruy9t5laWsL6eRbQMTP0QQIZpP0QTkyjZJ4io0rb%2Fl4pdvYKYE8RFmKTK2EnPyAYEASwQDkMyyoTH%2BU6yVNJJ78H7qVkk%2Fkvvm12tPnZ2wq8hjf%2FcyS1l5S8KVXWox6ZTjByyRtobptNOpaNGmcmuf1O%2BjuqmbQHguyZb5GXSk5qMKJZxmqP3cIF%2BbPFRYVhWBX%2B%2BNbfcwK1c13Sivyr9dvRRBvytyS9kI5TB6XuPqm1ZsQFVy33T9vFEX9qO%2BXORiW%2FPYzfuMJwReFSnGGyvv4BGG%2FT7Mi1mq0iuxOs5odG376JiSDd8noKLG8QShK1LtqhgINZSXBJclJw34rtAwPyA0IwcGlyXPe3OfGsMoFeoQdM%2BcGbhO8gRhAqWbMfvW4h1imilgdmpaALq8iGzYPo%2Fc5PhKRsHXVqChuQ%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDg0ALH7pCpB3wPkX7tonQdNWpsUATWd5i95X0vDtbTlSwJ78I47AMMcOpd6lBDCB+eJyzDiVE/EqUH6+fyYiP3kYI7Ruy9t5laWsL6eRbQMTP0QQIZpP0QTkyjZJ4io0rb/l4pdvYKYE8RFmKTK2EnPyAYEASwQDkMyyoTH+U6yVNJJ78H7qVkk/kvvm12tPnZ2wq8hjf/cyS1l5S8KVXWox6ZTjByyRtobptNOpaNGmcmuf1O+juqmbQHguyZb5GXSk5qMKJZxmqP3cIF+bPFRYVhWBX++NbfcwK1c13Sivyr9dvRRBvytyS9kI5TB6XuPqm1ZsQFVy33T9vFEX9qO+XORiW/PYzfuMJwReFSnGGyvv4BGG/T7Mi1mq0iuxOs5odG376JiSDd8noKLG8QShK1LtqhgINZSXBJclJw34rtAwPyA0IwcGlyXPe3OfGsMoFeoQdM+cGbhO8gRhAqWbMfvW4h1imilgdmpaALq8iGzYPo/c5PhKRsHXVqChuQ==";
+    </script>
+    
