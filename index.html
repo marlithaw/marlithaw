@@ -160,8 +160,8 @@
       background: var(--accent-color-1);
       color: #fff;
     }
-    /* Project/Educational Card Styles */
-    .card, .resource-card, .project-card {
+    /* Impact/Educational Card Styles */
+    .card, .resource-card, .Impact-card {
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 4px 24px -6px rgba(14,89,109,0.05);
@@ -170,10 +170,10 @@
       transition: box-shadow 0.2s;
       position: relative;
     }
-    .card:hover, .resource-card:hover, .project-card:hover {
+    .card:hover, .resource-card:hover, .Impact-card:hover {
       box-shadow: 0 8px 40px -2px rgba(14,89,109,0.15);
     }
-    .project-card .project-image, .resource-card .resource-image {
+    .Impact-card .Impact-image, .resource-card .resource-image {
       position: relative;
       width: 100%;
       padding-top: 56.25%; /* 16:9 aspect */
@@ -182,13 +182,13 @@
       background: #e2eef2;
       margin-bottom: 1rem;
     }
-    .project-card .project-image img, .resource-card .resource-image img {
+    .Impact-card .Impact-image img, .resource-card .resource-image img {
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%;
       object-fit: cover;
       transition: transform 0.25s;
     }
-    .project-card:hover .project-image img,
+    .Impact-card:hover .Impact-image img,
     .resource-card:hover .resource-image img { transform: scale(1.04);}
     /* Responsive Improvements */
     @media (max-width: 1024px) {
@@ -305,7 +305,7 @@
       <nav class="main-nav" id="main-nav">
         <ul>
           <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#Impact">Impact Focus</a></li>
           <li><a href="index.html#skills">Skills</a></li>
           <li><a href="index.html#resources">Resources</a></li>
           <li><a href="index.html#contact">Contact</a></li>
@@ -330,14 +330,14 @@
       <p class="section-description">I lead with clarity, care, and strategy—bringing structure to ideas and purpose to systems. With roots in education, counseling, and law, I build learning ecosystems that center people and drive sustainable impact.</p>
     </section>
     
-    <!-- Projects Section -->
-    <section id="projects" class="section fade-in">
-      <h2 class="section-title">Projects</h2>
+    <!-- Impact Section -->
+    <section id="Impact" class="section fade-in">
+      <h2 class="section-title">Impact</h2>
       <p class="section-description">Highlights of my recent work—bridging instruction, leadership, and actionable outcomes through innovative design.</p>
-      <!-- Example Project Cards -->
+      <!-- Example Impact Cards -->
       <div class="resources-grid">
-        <div class="project-card">
-          <div class="project-image">
+        <div class="Impact-card">
+          <div class="Impact-image">
             <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Literacy Case Study">
           </div>
           <h3 class="font-bold text-lg mb-1">Literacy Case Study</h3>
@@ -347,11 +347,11 @@
             <span class="bg-gray-200 text-xs px-2 rounded">Data Analysis</span>
           </div>
           <div>
-            <a href="literacy-case-study.html" class="btn primary-btn">View Project</a>
+            <a href="literacy-case-study.html" class="btn primary-btn">View Impact</a>
           </div>
         </div>
-        <div class="project-card">
-          <div class="project-image">
+        <div class="Impact-card">
+          <div class="Impact-image">
             <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Professional Development">
           </div>
           <h3 class="font-bold text-lg mb-1">Professional Development</h3>
@@ -361,7 +361,7 @@
             <span class="bg-gray-200 text-xs px-2 rounded">Coaching</span>
           </div>
           <div>
-            <a href="professional-development.html" class="btn primary-btn">View Project</a>
+            <a href="professional-development.html" class="btn primary-btn">View Impact</a>
           </div>
         </div>
       </div>
@@ -370,7 +370,7 @@
     <!-- Skills Section -->
     <section id="skills" class="section fade-in">
       <h2 class="section-title">Skills</h2>
-      <p class="section-description">A progressive toolkit cultivated across law, education, research, and technical domains. </p>
+     
       <div class="resources-grid">
         <div class="card">
           <h3 class="font-bold mb-2 text-lg text-primary">Instructional Strategy</h3>
