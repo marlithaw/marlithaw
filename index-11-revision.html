@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marlitha Williams - Educational Leadership</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS 2.2.19 via jsDelivr -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <!-- Google Fonts: Lexend -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Chart.js 4.4.3 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --theme-teal: #0e596d;
+      --theme-teal-dark: #073a46;
+      --accent-color-1: #0e596d;
+      --text-color: #1a202c;
+      --bg-header: rgba(10,25,47,.95);
+      --bg-header-mobile: #0e596d;
+    }
+
+    body {
+      font-family: 'Lexend', Arial, sans-serif;
+      font-size: 18px;
+      color: var(--text-color);
+      background: #f5f9fa;
+      line-height: 1.7;
+      padding-top: 80px;
+      min-width: 0;
+      min-height: 0;
+    }
+    h1, h2, h3, h4, h5, h6, .font-bold {
+      font-family: 'Lexend', Arial, sans-serif;
+      font-weight: 700;
+      color: var(--theme-teal);
+    }
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.2rem; margin-bottom: 1.5rem;}
+    h3 { font-size: 1.5rem; margin-bottom: 1rem;}
+    p { margin-bottom: 1.2rem; }
+    a { color: var(--theme-teal); transition: color 0.15s;}
+    a:hover { color: #17536b; text-decoration: underline;}
+    /* HEADER */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: var(--bg-header);
+      backdrop-filter: blur(5px);
+      z-index: 100;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    .site-header .logo a {
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+    .main-nav ul {
+      display: flex; list-style: none; margin: 0; padding: 0;
+    }
+    .main-nav li { margin-left: 2rem;}
+    .main-nav a {
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      font-weight: 500;
+      padding-bottom: 5px;
+      transition: all 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .main-nav a::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent-color-1);
+      transition: width 0.3s;
+    }
+    .main-nav a:hover::after,
+    .main-nav a.active::after {
+      width: 100%;
+    }
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+    .mobile-menu-toggle span {
+      display: block;
+      width: 25px; height: 3px;
+      margin-bottom: 5px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    @media (max-width: 1024px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.3rem; }
+    }
+    @media (max-width: 768px) {
+      .site-header {padding:0.5rem 0;}
+      .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-header-mobile);}
+      .main-nav.active { display: block;}
+      .main-nav ul { flex-direction: column;}
+      .main-nav li { margin: 0; padding: .8rem 2rem;}
+      .mobile-menu-toggle { display: block; margin-left: 1rem;}
+      .breadcrumbs { font-size: .9rem;}
+    }
+    /* Breadcrumbs */
+    .breadcrumbs {
+      padding: 1rem 0;
+      margin-top: 70px;
+      background: rgba(15,30,52,0.07);
+    }
+    .breadcrumbs ul { display: flex; list-style: none; margin:0; padding:0;}
+    .breadcrumbs li {margin-right: 0.5rem; font-size:.9rem;}
+    .breadcrumbs li:not(:last-child)::after {
+      content: '/';
+      margin-left: 0.5rem;
+      color: #747f8d;
+    }
+    .breadcrumbs .current { color: var(--accent-color-1);}
+    /* Sections */
+    section {
+      width: 100%;
+      overflow-x: hidden;
+      position: relative;
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+      background: #fff;
+      box-sizing: border-box;
+    }
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    /* Resource Section Responsive Fixes */
+    #educational-resources,
+    #resources {
+      display: block !important;
+      width: 100%;
+      overflow-x: hidden !important;
+      min-height: auto !important;
+      height: auto !important;
+      position: relative !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      z-index: 1 !important;
+      background: #f7f9fa;
+    }
+    .resources-grid, .resource-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      width: 100%;
+    }
+    .resource-card {
+      background: #fff;
+      border-radius: .8rem;
+      box-shadow: 0 4px 12px rgba(14, 89, 109, 0.09);
+      padding: 1.3rem;
+      width: calc(33.333% - 1rem);
+      min-width: 240px;
+      min-height: 170px;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      transition: box-shadow 0.2s;
+    }
+    .resource-card:hover { box-shadow: 0 8px 30px rgba(14,89,109,0.13);}
+    
+    @media (max-width: 990px) {
+      .resources-grid .resource-card { width: calc(50% - 1rem);}
+    }
+    @media (max-width: 720px) {
+      .resources-grid { flex-direction: column;}
+      .resource-card { width: 100% !important; min-width: 0;}
+    }
+
+    /* Category Navigation */
+    .category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      padding: 0.5rem;
+      gap: .6rem;
+    }
+    .category-btn {
+      padding: .5rem 1.2rem;
+      border-radius: 6px;
+      background: #e5f5fa;
+      border: 2px solid var(--theme-teal);
+      color: var(--theme-teal);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      margin-bottom: 4px;
+    }
+    .category-btn.active, .category-btn:hover {
+      background: var(--theme-teal);
+      color: #fff;
+      border-color: var(--theme-teal-dark);
+    }
+
+    /* Button styling */
+    .btn, .primary-btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      font-family: 'Lexend', Arial, sans-serif;
+      font-weight: 600;
+      background-color: var(--theme-teal);
+      color: #fff;
+      text-decoration: none;
+      transition: background .2s, color .2s, box-shadow .2s;
+      border: none;
+      margin: 0.2rem 0;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 5px rgba(14,89,109,0.08);
+    }
+    .btn:hover, .primary-btn:hover {
+      background-color: var(--theme-teal-dark);
+      color: #fff;
+    }
+
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--theme-teal);
+      margin-bottom: 1.1rem;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .section-description {
+      color: #1a202c;
+      opacity: 0.92;
+      font-size: 1.13rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    /* Standardized images */
+    .resource-card .resource-image {
+      width: 100%;
+      padding-top: 56.25%;
+      background: #dee3e6;
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 1.1rem;
+    }
+    .resource-card .resource-image img {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .3s;
+    }
+    .resource-card:hover .resource-image img {
+      transform: scale(1.05);
+    }
+    /* Dashboard button centering on mobile */
+    .dashboard-btn-wrap {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 1.2rem 0 0.5rem 0;
+    }
+    /* Remove horizontal scrollbar completely for export-friendly PDF */
+    html, body {overflow-x: hidden;}
+  </style>
+</head>
+<body>
+  <!-- Persistent header -->
+  <header class="site-header" id="header">
+    <div class="container flex items-center justify-between">
+      <div class="logo">
+        <a href="index.html"><span class="name">Marlitha Williams</span></a>
+      </div>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#literacy">Literacy Impact</a></li>
+          <li><a href="#leadership">Leadership Impact</a></li>
+          <li><a href="#dashboard">Data Dashboard</a></li>
+          <li><a href="#educational-resources">Resources</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <!-- Simple breadcrumbs for demonstration on a resource subpage (Hide on main index) -->
+  <div class="breadcrumbs" id="breadcrumbs" style="display:none;">
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#educational-resources">Resources</a></li>
+        <li class="current">Sample Resource</li>
+      </ul>
+    </div>
+  </div>
+  <!-- Main content starts here -->
+  <main class="bg-gray-50">
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <div class="flex flex-col items-center mb-10">
+          <div class="w-44 h-44 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden mb-5 shadow-md border border-gray-300">
+            <!-- Image holder in header only -->
+            <i class="fas fa-user-graduate text-6xl text-gray-400"></i>
+          </div>
+          <h1 class="section-title mb-2">About Me</h1>
+          <a class="btn mb-6" href="april.resume.html" target="_blank"><i class="fas fa-file-alt mr-2"></i>Resume</a>
+          <p class="section-description max-w-2xl mx-auto text-gray-800">
+            I lead with clarity, care, and strategy—bringing structure to ideas and purpose to systems. With roots in education, counseling, and law, I build learning ecosystems that center people and drive sustainable impact.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Literacy Section with Chart -->
+    <section id="literacy" class="bg-white">
+      <div class="container">
+        <h2 class="section-title">Literacy Impact</h2>
+        <p class="section-description max-w-3xl mx-auto">
+          Literacy isn't just a subject—it's the foundation of opportunity. I've designed systems, frameworks, and instructional plans that helped students exceed expectations, even in the most under-resourced conditions.
+        </p>
+        <div class="w-full flex flex-col items-center">
+          <div class="w-full max-w-2xl bg-white rounded-lg py-4 px-2 shadow-sm">
+            <canvas id="litChart" style="max-width:100%;height:300px"></canvas>
+          </div>
+          <div class="dashboard-btn-wrap">
+            <a class="btn mt-3" href="literacy-case-study.html" target="_blank"><i class="fas fa-microscope mr-2"></i> Full Case Study</a>
+          </div>
+        </div>
+        <div class="flex flex-col items-center mt-6">
+          <a class="btn mb-0 mx-auto" href="#header">Return Home</a>
+        </div>
+      </div>
+    </section>
+    <!-- Leadership Section -->
+    <section id="leadership">
+      <div class="container">
+        <h2 class="section-title">Leadership Impact</h2>
+        <p class="section-description max-w-3xl mx-auto">
+          My leadership approach is grounded in coaching, coherence, and capacity-building. I support teams to grow, thrive, and deliver results—without burning out or burning bridges.
+        </p>
+        <div class="flex flex-col md:flex-row gap-6 mx-auto mb-6">
+          <div class="resource-card flex-1">
+            <div class="resource-image"><i class="fas fa-chalkboard-teacher text-4xl text-theme-teal absolute inset-0 flex items-center justify-center w-full h-full"></i></div>
+            <h3 class="font-bold">Mentorship for Growth</h3>
+            <p>Accelerated novice teacher effectiveness with differentiated, asset-based coaching.</p>
+          </div>
+          <div class="resource-card flex-1">
+            <div class="resource-image"><i class="fas fa-cogs text-4xl text-theme-teal absolute inset-0 flex items-center justify-center w-full h-full"></i></div>
+            <h3 class="font-bold">Systemic Change, Human Focus</h3>
+            <p>Instituted instructional routines robust to staffing changes and demographic shifts.</p>
+          </div>
+          <div class="resource-card flex-1">
+            <div class="resource-image"><i class="fas fa-users text-4xl text-theme-teal absolute inset-0 flex items-center justify-center w-full h-full"></i></div>
+            <h3 class="font-bold">Culture of Collective Efficacy</h3>
+            <p>Built shared leadership systems and led professional learning communities (PLCs).</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center">
+          <a class="btn" href="professional-development.html" target="_blank"><i class="fas fa-user-tie mr-2"></i>Explore Leadership</a>
+          <a class="btn mt-4" href="#header">Return Home</a>
+        </div>
+      </div>
+    </section>
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="bg-white">
+      <div class="container">
+        <h2 class="section-title">Data Dashboard</h2>
+        <p class="section-description max-w-3xl mx-auto">
+          This data reflects a three-year longitudinal assessment of 5th grade reading outcomes—translating performance trends into insight, and insight into action. It captures the learning outcomes of a vertically and horizontally aligned instructional system I built, grounded in the Science of Reading and Writing, with targeted interventions that were tracked, analyzed, and refined to drive measurable student growth.
+        </p>
+        <div class="w-full flex flex-col items-center">
+          <div class="w-full max-w-2xl rounded-lg py-4 px-1 shadow-sm bg-gray-50">
+            <canvas id="dashboardChart" style="max-width:100%;height:300px"></canvas>
+          </div>
+          <div class="dashboard-btn-wrap">
+            <a class="btn mt-3" href="data-dashboard.html" target="_blank"><i class="fas fa-chart-pie mr-2"></i>Go to Dashboard</a>
+          </div>
+        </div>
+        <div class="flex flex-col items-center mt-6">
+          <a class="btn mb-0 mx-auto" href="#header">Return Home</a>
+        </div>
+      </div>
+    </section>
+    <!-- Educational Resources -->
+    <section id="educational-resources">
+      <div class="container">
+        <h2 class="section-title">Educational Resources</h2>
+        <p class="section-description">
+          Every template, tool, and framework here was built with real classrooms and real challenges in mind. I designed them for depth, clarity, and continuity, and these resources helped sustain meaningful instruction—even through two years of ELA staffing instability—ensuring student growth regardless of who was in the room.
+        </p>
+        <!-- Category Filtering -->
+        <div class="category-nav">
+          <button class="category-btn active" data-category="all">All</button>
+          <button class="category-btn" data-category="templates">Templates</button>
+          <button class="category-btn" data-category="guides">Guides</button>
+          <button class="category-btn" data-category="tools">Tools</button>
+        </div>
+        <!-- Resource Cards Grid -->
+        <div class="resources-grid">
+          <!-- Template resources -->
+          <div class="resource-card" data-category="templates">
+            <div class="resource-image"><i class="fas fa-file-lines text-3xl text-theme-teal absolute inset-0 flex items-center justify-center w-full h-full"></i></div>
+            <h3>Instructional Literacy Framework</h3>
+            <p>Vertically aligned framework for whole-class and small-group reading &amp; writing instruction. <a class="text-blue-700 underline" href="Instructional-Literacy-Framework-Implementation-Practice.html" target="_blank">View Framework</a></p>
+          </div>
+          <div class="resource-card" data-category="templates">
+            <div class="resource-image"><i class="fas fa-folder-open text-3xl text-theme-teal absolute inset-0 flex items-center justify-center w-full h-full"></i></div>
+            <h3>Prepositional Phrase Toolkit</h3>
+            <p>Aligned lesson set and instructional visual for teaching prepositional phrases. <a class="text-blue-700 underline" href="prepositional-phrases.html" target="_blank">View Resources</a></p>
+          </div>
+          <div class="resource-card" data-category="guides">
+            <div class="resource-image"><i class="fas fa-lightbulb text-3xl text-theme-teal absolute inset-0 flex items-center justify-center w-full h-full"></i></div>
+            <h3>AI & Literacy Planning</h3>
+            <p>Bridge traditional literacy and AI readiness. <a class="text-blue-700 underline" href="ai-ready-literacy.html" target="_blank">AI-Ready Plan</a> • <a class="text-blue-700 underline" href="literacy-ai-connection-visual-framework.html" target="_blank">Visual Framework</a></p>
+          </div>
+          <div class="resource-card" data-category="guides">
+            <div class="resource-image"><i class="fas fa-network-wired text-3xl text-theme-teal absolute inset-0 flex items-center justify-center w-full h-full"></i></div>
+            <h3>Future-Ready Literacy</h3>
+            <p>Strategic guidance for future skills & cross-curricular planning. <a class="text-blue-700 underline" href="future-ready.html" target="_blank">Guide</a> • <a class="text-blue-700 underline" href="cross-curricular-instruction-sample.html" target="_blank">Sample</a></p>
+          </div>
+          <div class="resource-card" data-category="tools">
+            <div class="resource-image"><i class="fas fa-clipboard-check text-3xl text-theme-teal absolute inset-0 flex items-center justify-center w-full h-full"></i></div>
+            <h3>Data Dashboard</h3>
+            <p>Interactive dashboard for analysis and progress monitoring. <a class="text-blue-700 underline" href="data-dashboard.html" target="_blank">Open Dashboard</a></p>
+          </div>
+          <div class="resource-card" data-category="templates">
+            <div class="resource-image"><i class="fas fa-book text-3xl text-theme-teal absolute inset-0 flex items-center justify-center w-full h-full"></i></div>
+            <h3>Scripted Substitute Lesson Plan</h3>
+            <p>Plug-and-play lesson plan for sub coverage. <a class="text-blue-700 underline" href="scripted-substitute-lesson-plan-example.html" target="_blank">Download Example</a></p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center mt-8">
+            <a class="btn mb-0 mx-auto" href="#header">Return Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- JS for responsive navigation, category filtering, scroll-aware header, charts -->
+  <script>
+    // Mobile Navigation Toggle
+    document.getElementById("mobileMenuToggle").addEventListener("click", function() {
+      var nav = document.getElementById("mainNav");
+      nav.classList.toggle("active");
+    });
+    // Category Filtering
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const resourceCards = document.querySelectorAll('.resource-card');
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.category;
+        resourceCards.forEach(card => {
+          if(cat === 'all' || card.dataset.category === cat){
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+    // Scroll-aware header
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 80){
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      lastScroll = window.scrollY;
+    });
+    // Chart.js Literacy Impact Example
+    window.addEventListener('DOMContentLoaded', () => {
+      // Literacy chart (3-year Grade 5 Reading Outcomes EXAMPLE DATA)
+      var litCtx = document.getElementById("litChart").getContext("2d");
+      new Chart(litCtx, {
+        type: 'bar',
+        data: {
+          labels: ['2022', '2023', '2024'],
+          datasets: [
+            { label: 'Campus', data: [81, 84, 78], backgroundColor: '#0e596d', borderRadius: 4 },
+            { label: 'District', data: [85, 86, 82], backgroundColor: '#6366F1', borderRadius: 4 },
+            { label: 'State', data: [81, 82, 80], backgroundColor: '#f97316', borderRadius: 4 }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {position: 'bottom'},
+            title: {display: false}
+          },
+          scales: {
+            y: { beginAtZero: true, max: 100, title: {display: true, text: 'Percent Approaches or Above'} },
+            x: { title: { display: false}}
+          }
+        }
+      });
+      // Dashboard chart (EXAMPLE)
+      var dashCtx = document.getElementById("dashboardChart").getContext("2d");
+      new Chart(dashCtx, {
+        type: 'line',
+        data: {
+          labels: ['2022', '2023', '2024'],
+          datasets: [
+            { label: 'Campus', data: [0.81, 0.84, 0.78], borderColor: '#0e596d', backgroundColor: 'rgba(14,89,109,0.12)', fill:true, borderWidth: 3, pointRadius: 5 },
+            { label: 'District', data: [0.85, 0.86, 0.82], borderColor: '#6366F1', backgroundColor: 'rgba(99,102,241,0.10)', fill: true, borderWidth: 2, pointRadius: 4 },
+            { label: 'State', data: [0.81, 0.82, 0.80], borderColor: '#f97316', backgroundColor: 'rgba(249,115,22,0.11)', fill: true, borderWidth: 2, pointRadius: 4 }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {position: 'bottom'},
+            title: {display: false}
+          },
+          scales: {
+            y: { beginAtZero: true, max: 1, title: {display: true, text: 'Proportion Met'} },
+            x: { title: { display: false}}
+          }
+        }
+      });
+    });
+    // Hide breadcrumbs on main index, show only on detail/resource pages
+    if(window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === ''){
+      document.getElementById('breadcrumbs').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDo0hNKPyn2sa7hGEIeCgAV%2BN3o%2BbBXZgcszC13gjS9KWEhD340Re27%2BNQd0d8JG6Uus664J7WVZ5JRl4LgMI7YDQB9dCALglp9Wa8I2Z%2B38Q7S0vw%2Fb237Sjt6%2BJA1gsr8lkBJ%2BZ1cRgiYzU8F1BhQQxEKyDPHwWEBqHJ%2FJE9Ru0fqSYUAqcfyUkdkiR%2FU5yPBa0RE8CBTVWFYf5O9W%2BSY51naWkVeGyd0DzIkU%2BX%2FLlMLTd5sZiRd2gPvWHbdFJ%2FYbulx6QlU36zZCLfDNgXgNYmHgLzSLPc%2Fd1AADa8skp05WpIe5q9IWOc7SPr9uycMcQp6at%2FhJVSE%2Bo%2FZbHFAGZPqTHooPv0Z2Te2YdzJqS4ycQ91CuICAB9yLpnwhXqjnqFgNuqs00bKuyeNmr7JfHJDbkZDw0ZDErHaBpvwfs3C3O6O5HxHOuhbdviLmHxxDkkKhwfFliNZgVJ6WjyC4hDGr4i3EJumhov%2FvoSliHfXEGnAgdgEk5PH9vVhDibWxR9NM50PRyxcixG0JYkqM%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDo0hNKPyn2sa7hGEIeCgAV+N3o+bBXZgcszC13gjS9KWEhD340Re27+NQd0d8JG6Uus664J7WVZ5JRl4LgMI7YDQB9dCALglp9Wa8I2Z+38Q7S0vw/b237Sjt6+JA1gsr8lkBJ+Z1cRgiYzU8F1BhQQxEKyDPHwWEBqHJ/JE9Ru0fqSYUAqcfyUkdkiR/U5yPBa0RE8CBTVWFYf5O9W+SY51naWkVeGyd0DzIkU+X/LlMLTd5sZiRd2gPvWHbdFJ/Ybulx6QlU36zZCLfDNgXgNYmHgLzSLPc/d1AADa8skp05WpIe5q9IWOc7SPr9uycMcQp6at/hJVSE+o/ZbHFAGZPqTHooPv0Z2Te2YdzJqS4ycQ91CuICAB9yLpnwhXqjnqFgNuqs00bKuyeNmr7JfHJDbkZDw0ZDErHaBpvwfs3C3O6O5HxHOuhbdviLmHxxDkkKhwfFliNZgVJ6WjyC4hDGr4i3EJumhov/voSliHfXEGnAgdgEk5PH9vVhDibWxR9NM50PRyxcixG0JYkqM=";
+    </script>
+    
