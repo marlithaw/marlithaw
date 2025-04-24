@@ -507,7 +507,16 @@
     navBtn.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
-
+// Auto-close mobile menu when a link is clicked
+document.querySelectorAll('.main-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
+});
+    // Auto-trigger 'All' filter on page load
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.category-btn[data-category="all"]').click();
+});
     // Scroll-aware compact header
     window.addEventListener('scroll', () => {
       const sh = document.getElementById('hdr');
