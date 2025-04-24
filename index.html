@@ -561,13 +561,12 @@
     });
   });
 
-  // Ensure 'All' filter button is triggered after full load
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const allBtn = document.querySelector('.category-btn[data-category="all"]');
-      if (allBtn) allBtn.click();
-    }, 200);
+  // Ensure all resource cards are visible on load
+window.addEventListener('load', () => {
+  document.querySelectorAll('.resource-card').forEach(card => {
+    card.style.display = 'block';
   });
+});
 </script>
 </body>
 </html>
