@@ -1,582 +1,1090 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Marlitha Williams - Educational Leadership</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Lexend font from Google Fonts via jsDelivr -->
-  <link href="https://cdn.jsdelivr.net/npm/@fontsource/lexend@4.5.11/index.min.css" rel="stylesheet">
-  <!-- Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Chart.js for future data visualizations -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
-  <style>
-    :root {
-      --accent-color-1: #0e596d;
-      --accent-color-1-hover: #083547;
-      --primary-color: #0e596d;
-      --text-color: #14222d;
-      --text-color-muted: #7ca6b6;
-      --bg-color: #f9fafb;
-    }
-    html, body {
-      font-family: 'Lexend', Arial, Helvetica, sans-serif;
-      font-size: 18px;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.7;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-    .site-header {
-      position: fixed;
-      top: 0; left: 0; width: 100%;
-      background: rgba(14, 89, 109, 0.96);
-      backdrop-filter: blur(6px);
-      z-index: 100;
-      padding: 1rem 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-    }
-    .site-header.scrolled { padding: 0.5rem 0; }
-    .logo a {
-      font-size: 2rem;
-      font-weight: 700;
-      text-decoration: none;
-      color: #fff;
-      letter-spacing: 1.5px;
-      transition: all 0.2s;
-    }
-    .main-nav ul {
-      display: flex;
-      list-style: none;
-      margin: 0; padding: 0;
-    }
-    .main-nav li { margin-left: 2rem; }
-    .main-nav a {
-      color: #f1f6f8;
-      text-decoration: none;
-      position: relative;
-      padding-bottom: 5px;
-      font-weight: 500;
-      transition: all 0.3s;
-      font-size: 1.1rem;
-    }
-    .main-nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 2px;
-      background-color: var(--accent-color-1);
-      transition: width 0.25s;
-    }
-    .main-nav a:hover::after,
-    .main-nav a.active::after { width: 100%; }
-    .mobile-menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 2.5rem;
-      width: 2.5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: none;
-    }
-    .mobile-menu-toggle span {
-      display: block;
-      height: 3px;
-      width: 1.5rem;
-      background: #fff;
-      margin: 4px 0;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-    /* Breadcrumbs */
-    .breadcrumbs {
-      padding: 1rem 0;
-      background-color: rgba(14, 89, 109, 0.10);
-      margin-top: 75px;
-      font-size: 1rem;
-      color: var(--text-color-muted);
-    }
-    .breadcrumbs ul {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-    }
-    .breadcrumbs li {
-      margin-right: 0.5rem;
-    }
-    .breadcrumbs li:not(:last-child)::after {
-      content: '/';
-      margin-left: 0.5rem;
-      color: var(--accent-color-1);
-    }
-    .breadcrumbs a {
-      color: var(--accent-color-1);
-      text-decoration: underline;
-      font-weight: 500;
-    }
-    .breadcrumbs a:hover { text-decoration: none; }
-    .breadcrumbs .current {
-      color: var(--primary-color);
-      font-weight: 800;
-      letter-spacing: 0.5px;
-    }
-    /* Button Styles */
-    .btn {
-      display: inline-block;
-      padding: 0.7rem 1.4rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s, border 0.2s;
-      border: 2px solid transparent;
-      background: var(--accent-color-1);
-      color: #fff;
-      font-size: 1.08rem;
-      letter-spacing: .03em;
-    }
-    .btn:focus { outline: 2px solid var(--accent-color-1);}
-    .btn:hover, .btn:active {
-      background: var(--accent-color-1-hover);
-      color: #fff;
-      border-color: var(--accent-color-1);
-    }
-    .secondary-btn {
-      background: transparent;
-      border: 2px solid var(--accent-color-1);
-      color: var(--accent-color-1);
-    }
-    .secondary-btn:hover,
-    .secondary-btn:active {
-      background: var(--accent-color-1);
-      color: #fff;
-    }
-    /* Impact/Educational Card Styles */
-    .card, .resource-card, .Impact-card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 24px -6px rgba(14,89,109,0.05);
-      padding: 2rem;
-      margin: 0 0 1.5rem 0;
-      transition: box-shadow 0.2s;
-      position: relative;
-    }
-    .card:hover, .resource-card:hover, .Impact-card:hover {
-      box-shadow: 0 8px 40px -2px rgba(14,89,109,0.15);
-    }
-    .Impact-card .Impact-image, .resource-card .resource-image {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 aspect */
-      border-radius: 8px;
-      overflow: hidden;
-      background: #e2eef2;
-      margin-bottom: 1rem;
-    }
-    .Impact-card .Impact-image img, .resource-card .resource-image img {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.25s;
-    }
-    .Impact-card:hover .Impact-image img,
-    .resource-card:hover .resource-image img { transform: scale(1.04);}
-    /* Responsive Improvements */
-    @media (max-width: 1024px) {
-      .main-nav li { margin-left: 1.2rem; }
-      .logo a { font-size: 1.3rem; }
-    }
-    @media (max-width: 768px) {
-      .site-header { padding: 0.5rem 0; }
-      .container { padding-left: 1rem; padding-right: 1rem; }
-      .main-nav {
-        display: none;
-        position: absolute;
-        top: 100%; left: 0; width: 100vw;
-        background: #0e596d; /* fallback for proper BG */
-        flex-direction: column;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.18);
-        padding: 1rem 0;
-      }
-      .main-nav.active {
-        display: flex;
-        z-index: 200;
-      }
-      .main-nav ul {
-        flex-direction: column;
-        width: 100%;
-      }
-      .main-nav li {
-        margin: 0;
-        padding: 0.7rem 2rem;
-        border-bottom: 1px solid #176c8323;
-      }
-      .mobile-menu-toggle { display: flex; }
-    }
-    /* Section Structure */
-    section.section {
-      margin-bottom: 3.5rem;
-      padding: 4rem 0 2.5rem 0;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 36px -8px rgba(14,89,109,0.03);
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-      min-width: 0;
-      overflow: visible;
-    }
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 1.2rem;
-      font-weight: 700;
-      color: var(--accent-color-1);
-    }
-    .section-description {
-      font-size: 1.15rem;
-      margin-bottom: 2.2rem;
-      color: #28647a;
-      font-weight: 500;
-    }
-    /* Educational Resources Filter */
-    .resource-categories {
-      margin-bottom: 2rem;
-    }
-    .category-nav {
-      margin-bottom: 1.2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .category-btn {
-      background: var(--accent-color-1);
-      color: #fff;
-      border-radius: 6px;
-      padding: 0.55rem 1.2rem;
-      font-weight: 600;
-      border: none;
-      transition: background 0.18s;
-      cursor: pointer;
-    }
-    .category-btn.active, .category-btn:focus {
-      background: var(--accent-color-1-hover);
-      outline: 2px solid var(--accent-color-1);
-    }
-    .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.85rem;
-    }
-    /* Animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.6s, transform 0.6s;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    /* Hide scrollbars for PDF */
-    ::-webkit-scrollbar { display: none; }
-    /* Container Utility */
-    .container {
-      max-width: 1150px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-  </style>
-</head>
-<body>
-  <!-- Persistent Header -->
-  <header class="site-header" id="hdr">
-    <div class="container flex items-center justify-between relative">
-      <div class="logo">
-        <a href="index.html"><span class="name">Marlitha Williams</span></a>
-      </div>
-      <nav class="main-nav" id="main-nav">
-        <ul>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#Impact">Impact</a></li>
-          <li><a href="index.html#skills">Skills</a></li>
-          <li><a href="index.html#resources">Resources</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="toggle-nav">
-        <span></span><span></span><span></span>
-      </button>
+# Technical Implementation Guide for Website Revision
+
+## Overview
+This document provides detailed technical specifications to transform the current website (marlithaw.github.io) into a design that mirrors the functionality and aesthetic of shantellmartin.art, while preserving the original content.
+
+## Core Technical Requirements
+
+### 1. Design Framework
+
+#### Color Scheme & Typography
+- **Primary palette**: Black (#000000) and white (#FFFFFF) as dominant colors
+- **Typography**: 
+  - Primary font: Sans-serif typeface (Consider Helvetica Neue or Inter)
+  - Header font-weight: 700 (bold)
+  - Body font-weight: 400 (regular)
+  - Font sizes:
+    - Navigation: 14-16px
+    - Headers: 24-32px
+    - Subheaders: 18-22px
+    - Body: 16px
+
+#### Layout Structure
+- Full-width design with minimal margins on desktop (40-60px margins)
+- Content containers with max-width of 1440px, centered
+- Consistent padding between sections (40-60px)
+
+### 2. Navigation Implementation
+
+```html
+<nav class="site-nav">
+  <div class="logo">
+    <a href="index.html">MARLI THAW</a>
+  </div>
+  <div class="nav-links">
+    <ul>
+      <li class="dropdown">
+        <a href="work.html">WORK</a>
+        <div class="dropdown-content">
+          <a href="category1.html">Category 1</a>
+          <a href="category2.html">Category 2</a>
+          <!-- Additional categories -->
+        </div>
+      </li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </div>
+  <div class="mobile-menu-toggle">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+```
+
+#### CSS for Navigation
+```css
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: fixed;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 1000;
+}
+
+.logo a {
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 30px;
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 12px 16px;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Mobile menu styles */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background-color: #000;
+  margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  /* Mobile menu open state styles */
+  .nav-links.active {
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 20px;
+  }
+  
+  .nav-links.active ul {
+    flex-direction: column;
+  }
+  
+  .nav-links.active li {
+    margin: 10px 0;
+  }
+  
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    padding-left: 20px;
+  }
+}
+```
+
+### 3. Homepage Implementation
+
+#### Hero Section
+```html
+<section class="hero">
+  <div class="hero-content">
+    <h1>MARLI THAW</h1>
+    <p>Artist | Designer | Creator</p>
+  </div>
+</section>
+```
+
+```css
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.hero-content h1 {
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.hero-content p {
+  font-size: 24px;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 42px;
+  }
+  
+  .hero-content p {
+    font-size: 18px;
+  }
+}
+```
+
+#### Horizontal Scrolling Project Showcase
+```html
+<section class="project-scroll">
+  <div class="scroll-container">
+    <div class="project-item">
+      <a href="project1.html">
+        <img src="path/to/project1.jpg" alt="Project 1">
+        <div class="project-info">
+          <h3>Project Title</h3>
+          <p>Short description</p>
+        </div>
+      </a>
+    </div>
+    <!-- More project items -->
+  </div>
+  <div class="scroll-navigation">
+    <button class="scroll-left">←</button>
+    <button class="scroll-right">→</button>
+  </div>
+</section>
+```
+
+```css
+.project-scroll {
+  position: relative;
+  width: 100%;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 40px;
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.project-item {
+  flex: 0 0 auto;
+  width: 450px;
+  margin-right: 30px;
+  transition: transform 0.3s;
+}
+
+.project-item:hover {
+  transform: scale(1.03);
+}
+
+.project-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 15px 0;
+}
+
+.project-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.project-info p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.scroll-navigation {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  display: flex;
+}
+
+.scroll-navigation button {
+  background: #000;
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: opacity 0.3s;
+}
+
+.scroll-navigation button:hover {
+  opacity: 0.8;
+}
+```
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.scroll-container');
+  const leftButton = document.querySelector('.scroll-left');
+  const rightButton = document.querySelector('.scroll-right');
+  
+  leftButton.addEventListener('click', () => {
+    container.scrollBy({ left: -500, behavior: 'smooth' });
+  });
+  
+  rightButton.addEventListener('click', () => {
+    container.scrollBy({ left: 500, behavior: 'smooth' });
+  });
+});
+```
+
+### 4. Project Gallery Implementation
+
+```html
+<section class="project-gallery">
+  <div class="gallery-filters">
+    <button class="filter active" data-filter="all">All</button>
+    <button class="filter" data-filter="category1">Category 1</button>
+    <button class="filter" data-filter="category2">Category 2</button>
+    <!-- More filters -->
+  </div>
+  
+  <div class="gallery-grid">
+    <div class="gallery-item" data-category="category1">
+      <a href="project-detail.html">
+        <img src="path/to/image.jpg" alt="Project Title">
+        <div class="item-overlay">
+          <h3>Project Title</h3>
+          <p>Year</p>
+        </div>
+      </a>
+    </div>
+    <!-- More gallery items -->
+  </div>
+</section>
+```
+
+```css
+.project-gallery {
+  padding: 80px 40px;
+}
+
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.filter {
+  background: none;
+  border: none;
+  margin: 0 15px;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.filter.active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.filter:hover {
+  opacity: 1;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item:hover .item-overlay {
+  transform: translateY(0);
+}
+
+.item-overlay h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.item-overlay p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .gallery-filters {
+    flex-wrap: wrap;
+  }
+  
+  .filter {
+    margin: 5px 10px;
+  }
+}
+```
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+  const filters = document.querySelectorAll('.filter');
+  const items = document.querySelectorAll('.gallery-item');
+  
+  filters.forEach(filter => {
+    filter.addEventListener('click', function() {
+      // Remove active class from all filters
+      filters.forEach(f => f.classList.remove('active'));
+      // Add active class to current filter
+      this.classList.add('active');
+      
+      const category = this.getAttribute('data-filter');
+      
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+```
+
+### 5. Project Detail Page Implementation
+
+```html
+<article class="project-detail">
+  <header class="project-header">
+    <h1>Project Title</h1>
+    <div class="project-meta">
+      <span>Year: 2023</span>
+      <span>Medium: Digital</span>
+      <span>Category: Art</span>
     </div>
   </header>
   
-  <!-- Main Content Container with Padding for Fixed Header -->
-  <main class="container" style="margin-top:90px;">
+  <div class="project-content">
+    <div class="project-images">
+      <figure>
+        <img src="path/to/full-image.jpg" alt="Project Title">
+        <figcaption>Caption for the image</figcaption>
+      </figure>
+      <!-- More images -->
+    </div>
+    
+    <div class="project-description">
+      <p>Detailed description of the project...</p>
+      <!-- More content -->
+    </div>
+  </div>
   
-    <!-- Breadcrumb Navigation Example (for detail pages, dynamic in multi-page sites) -->
-    <!-- For the index/main page, breadcrumbs not shown -->
+  <div class="project-navigation">
+    <a href="previous-project.html" class="prev-project">← Previous Project</a>
+    <a href="work.html" class="all-projects">All Projects</a>
+    <a href="next-project.html" class="next-project">Next Project →</a>
+  </div>
+</article>
+```
+
+```css
+.project-detail {
+  padding: 120px 40px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.project-header h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.project-meta {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.project-meta span {
+  margin: 0 10px;
+}
+
+.project-images {
+  margin-bottom: 40px;
+}
+
+.project-images figure {
+  margin: 0 0 30px;
+}
+
+.project-images img {
+  width: 100%;
+  height: auto;
+}
+
+.project-images figcaption {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.project-description {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  line-height: 1.6;
+}
+
+.project-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  border-top: 1px solid #eee;
+}
+
+.project-navigation a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  transition: opacity 0.3s;
+}
+
+.project-navigation a:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .project-detail {
+    padding: 100px 20px 40px;
+  }
+  
+  .project-header {
+    margin-bottom: 40px;
+  }
+  
+  .project-header h1 {
+    font-size: 28px;
+  }
+  
+  .project-navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
+```
+
+### 6. About Page Implementation
+
+```html
+<section class="about-page">
+  <div class="about-container">
+    <div class="about-image">
+      <img src="path/to/profile.jpg" alt="Marli Thaw">
+    </div>
     
-    <!-- About Section -->
-    <section id="about" class="section fade-in">
-      <h2 class="section-title">About Me</h2>
-      <button class="btn mb-6" onclick="window.location.href='april.resume.html'"><i class="fa fa-file-alt mr-2"></i>View Resume</button>
-      <p class="section-description">I lead with clarity, care, and strategy—bringing structure to ideas and purpose to systems. With roots in education, counseling, and law, I build learning ecosystems that center people and drive sustainable impact.</p>
-    </section>
-    
-    <!-- Impact Section -->
-    <section id="Impact" class="section fade-in">
-      <h2 class="section-title">Impact</h2>
-      <p class="section-description">Highlights of my recent work—bridging instruction, leadership, and actionable outcomes through innovative design.</p>
-      <!-- Example Impact Cards -->
-      <div class="resources-grid">
-        <div class="Impact-card">
-          <div class="Impact-image">
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Literacy Case Study">
-          </div>
-          <h3 class="font-bold text-lg mb-1">Literacy Case Study</h3>
-          <div class="mb-2 text-sm text-gray-700">Evidence-Based Approaches to Fifth Grade Reading Growth: A 3-Yearsnapshot</div>
-          <div class="flex gap-2 mb-2">
-            <span class="bg-gray-200 text-xs px-2 rounded">Instructional Alignment</span>
-            <span class="bg-gray-200 text-xs px-2 rounded">Strategic Design</span>
-            <span class="bg-gray-200 text-xs px-2 rounded">Data Analysis</span>
-          </div>
-          <div>
-            <a href="literacy-case-study.html" class="btn primary-btn">View Impact</a>
-          </div>
-        </div>
-        <div class="Impact-card">
-          <div class="Impact-image">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Teacher Development Case Study">
-          </div>
-          <h3 class="font-bold text-lg mb-1">Teacher Development</h3>
-          <div class="mb-2 text-sm text-gray-700">Human-Centered Coaching for Teacher Capcity Building </div>
-          <div class="flex gap-2 mb-2">
-            <span class="bg-gray-200 text-xs px-2 rounded">Leadership</span>
-            <span class="bg-gray-200 text-xs px-2 rounded">Insight</span>
-            <span class="bg-gray-200 text-xs px-2 rounded">Empowerment</span>
-          </div>
-          <div>
-            <a href="professional-development.html" class="btn primary-btn">View Impact</a>
-          </div>
-        </div>
+    <div class="about-content">
+      <h1>About</h1>
+      <div class="bio">
+        <p>Your artist statement and biography here...</p>
+        <!-- More paragraphs -->
       </div>
-    </section>
-    
-    <!-- Skills Section -->
-    <section id="skills" class="section fade-in">
-      <h2 class="section-title">Skills</h2>
-     
-      <div class="resources-grid">
-        <div class="card">
-          <h3 class="font-bold mb-2 text-lg text-primary">Instructional Strategy</h3>
-          <ul class="text-gray-700 mb-0">
-            <li>Literacy Systems (K-8)</li>
-            <li>Curriculum Development</li>
-            <li>Equity-Centered Design</li>
+      
+      <div class="cv">
+        <h2>Education</h2>
+        <ul>
+          <li>
+            <span class="year">2020</span>
+            <span class="detail">Degree, Institution</span>
+          </li>
+          <!-- More items -->
+        </ul>
+        
+        <h2>Exhibitions</h2>
+        <ul>
+          <li>
+            <span class="year">2023</span>
+            <span class="detail">Exhibition Name, Location</span>
+          </li>
+          <!-- More items -->
+        </ul>
+        
+        <!-- More CV sections -->
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+```css
+.about-page {
+  padding: 120px 40px 60px;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+}
+
+.about-content h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.bio {
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+.cv h2 {
+  font-size: 24px;
+  margin: 30px 0 15px;
+}
+
+.cv ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cv li {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.cv .year {
+  flex: 0 0 80px;
+  font-weight: 600;
+}
+
+.cv .detail {
+  flex: 1;
+}
+
+@media (max-width: 992px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about-image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 100px 20px 40px;
+  }
+  
+  .cv li {
+    flex-direction: column;
+  }
+  
+  .cv .year {
+    margin-bottom: 5px;
+  }
+}
+```
+
+### 7. Contact Page Implementation
+
+```html
+<section class="contact-page">
+  <div class="contact-container">
+    <div class="contact-info">
+      <h1>Contact</h1>
+      <p>Get in touch for collaborations, inquiries, or just to say hello.</p>
+      
+      <div class="contact-methods">
+        <div class="contact-method">
+          <h3>Email</h3>
+          <p><a href="mailto:your@email.com">your@email.com</a></p>
+        </div>
+        
+        <div class="contact-method">
+          <h3>Social</h3>
+          <ul class="social-links">
+            <li><a href="#" target="_blank">Instagram</a></li>
+            <li><a href="#" target="_blank">LinkedIn</a></li>
+            <!-- More social links -->
           </ul>
         </div>
-        <div class="card">
-          <h3 class="font-bold mb-2 text-lg text-primary">Leadership & Coaching</h3>
-          <ul class="text-gray-700 mb-0">
-            <li>Team Capacity Building</li>
-            <li>Feedback & Observation</li>
-            <li>HR & Change Management</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 class="font-bold mb-2 text-lg text-primary">Technical & Data</h3>
-          <ul class="text-gray-700 mb-0">
-            <li>Instructional Dashboards</li>
-            <li>Data Visualization</li>
-            <li>AI-Integrated Education</li>
-          </ul>
-        </div>
       </div>
-    </section>
+    </div>
     
-    <!-- Educational Resources Section -->
-    <section id="resources" class="section fade-in">
-      <h2 class="section-title">Educational Resources</h2>
-      <p class="section-description">Tools and templates I've developed for educational purposes.</p>
-      <!-- Resource Category Filtering -->
-      <div class="resource-categories">
-        <div class="category-nav">
-          <button class="category-btn active" data-category="all">All</button>
-          <button class="category-btn" data-category="templates">Templates</button>
-          <button class="category-btn" data-category="guides">Guides</button>
-          <button class="category-btn" data-category="tools">Tools</button>
+    <div class="contact-form">
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
         </div>
-        <div class="resources-grid" id="resources-grid">
-          <!-- Example resources -->
-          <div class="resource-card" data-category="templates">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=600&q=80" alt="Prepositional Phrase Toolkit">
-            </div>
-            <h3 class="font-bold mb-2">Prepositional Phrase Toolkit</h3>
-            <div class="mb-2 text-xs text-gray-700">Vertically aligned strategies for K-5 reading and writing.</div>
-            <a href="prepositional-phrases.html" class="btn secondary-btn">View Template</a>
-          </div>
-          <div class="resource-card" data-category="tools">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Data Dashboard">
-            </div>
-            <h3 class="font-bold mb-2">Data Dashboard</h3>
-            <div class="mb-2 text-xs text-gray-700">Explore student outcomes, trends, and gaps analysis tools for leadership decisions.</div>
-            <a href="data-dashboard.html" class="btn secondary-btn">Go to Dashboard</a>
-          </div>
-          <div class="resource-card" data-category="templates">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=600&q=80" alt="Scripted Substitute Lesson Plan">
-            </div>
-            <h3 class="font-bold mb-2">Scripted Substitute Lesson Plan</h3>
-            <div class="mb-2 text-xs text-gray-700">Ready-to-use lesson plan formats for instructional continuity.</div>
-            <a href="scripted-substitute-lesson-plan-example.html" class="btn secondary-btn">View Template</a>
-          </div>
-          <div class="resource-card" data-category="guides">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="AI-Ready Literacy Implementation Guide">
-            </div>
-            <h3 class="font-bold mb-2">AI-Ready Literacy Guide</h3>
-            <div class="mb-2 text-xs text-gray-700">Connecting literacy with AI skills and tools in modern classrooms.</div>
-            <a href="ai-ready-literacy.html" class="btn secondary-btn">Read Guide</a>
-          </div>
-          <div class="resource-card" data-category="guides">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1515169273894-06ed31200b27?auto=format&fit=crop&w=600&q=80" alt="Literacy + AI Connection Visual">
-            </div>
-            <h3 class="font-bold mb-2">Literacy+AI Visual Framework</h3>
-            <div class="mb-2 text-xs text-gray-700">Visual mapping of how literacy development supports AI readiness.</div>
-            <a href="literacy-ai-connection-visual-framework.html" class="btn secondary-btn">Open Framework</a>
-          </div>
-          <div class="resource-card" data-category="tools">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1514975545974-b1c8f8e0d71c?auto=format&fit=crop&w=600&q=80" alt="Cross-Curricular Instruction Sample">
-            </div>
-            <h3 class="font-bold mb-2">Cross-Curricular Sample</h3>
-            <div class="mb-2 text-xs text-gray-700">Integrated lessons merging reading, writing, and STEM concepts.</div>
-            <a href="cross-curricular-instruction-sample.html" class="btn secondary-btn">View Resource</a>
-          </div>
-          <div class="resource-card" data-category="templates">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80" alt="Future-Ready Literacy Template">
-            </div>
-            <h3 class="font-bold mb-2">Future-Ready Literacy Template</h3>
-            <div class="mb-2 text-xs text-gray-700">Planning framework for next-generation literacy skill development.</div>
-            <a href="future-ready.html" class="btn secondary-btn">Open Template</a>
-          </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
         </div>
-      </div>
-    </section>
+        
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+```
+
+```css
+.contact-page {
+  padding: 120px 40px 60px;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.contact-info h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.contact-info > p {
+  margin-bottom: 40px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.contact-methods {
+  margin-top: 40px;
+}
+
+.contact-method {
+  margin-bottom: 30px;
+}
+
+.contact-method h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #000;
+  transition: opacity 0.3s;
+}
+
+.social-links a:hover {
+  opacity: 0.7;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.submit-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  align-self: flex-start;
+}
+
+.submit-btn:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 992px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 100px 20px 40px;
+  }
+}
+```
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contact-form');
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
     
-    <!-- Contact Section -->
-    <section id="contact" class="section fade-in">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-description">Whether you want to collaborate, discuss professional development, or just say hello—I'm always open to meaningful dialogue.</p>
-      <div class="flex flex-col md:flex-row gap-8">
-        <div class="flex-1 flex flex-col gap-3">
-          <div><i class="fa fa-envelope mr-2 text-lg text-primary"></i> <a href="/cdn-cgi/l/email-protection#1875796a74716c7079367b77766c797b6c587d75797174367b7775"><span class="__cf_email__" data-cfemail="761b17041a1f021e17581519180217150236131b171f1a5815191b">[email&#160;protected]</span></a></div>
-          <div><i class="fa fa-linkedin mr-2 text-lg text-primary"></i> <a href="https://linkedin.com/in/marlitha-williams-j-d-25295049" target="_blank" rel="noopener">LinkedIn Profile</a></div>
-          <div><i class="fa fa-map-marker-alt mr-2 text-lg text-primary"></i> Indianapolis, IN</div>
-        </div>
-        <div class="flex-1">
-          <form class="flex flex-col gap-4" action="#" method="POST" autocomplete="off">
-            <input type="text" class="rounded border px-3 py-2" placeholder="Your Name" required>
-            <input type="email" class="rounded border px-3 py-2" placeholder="Your Email" required>
-            <textarea class="rounded border px-3 py-2" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn w-full md:w-auto">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-  <!-- Footer -->
-  <footer class="container py-6 text-center text-gray-500 text-sm" style="margin-bottom:0;">
-    &copy; 2024 Marlitha Williams. All rights reserved.
-  </footer>
-
-  <!-- JS: Mobile Nav & Anim, Scroll-aware header, Res Filter -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script>
-  // Mobile menu toggle
-  const navBtn = document.getElementById('toggle-nav');
-  const nav = document.getElementById('main-nav');
-  navBtn.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
-
-  // Auto-close mobile menu when a link is clicked
-  document.querySelectorAll('.main-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-    });
-  });
-
-  // Scroll-aware compact header
-  window.addEventListener('scroll', () => {
-    const sh = document.getElementById('hdr');
-    if (window.scrollY > 60) {
-      sh.classList.add('scrolled');
-    } else {
-      sh.classList.remove('scrolled');
+    // Form validation
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    
+    if (!name || !email || !message) {
+      alert('Please fill in all fields');
+      return;
     }
-  });
-
-  // Fade-ins for sections
-  document.addEventListener('DOMContentLoaded', function () {
-    const observerOptions = {
-      threshold: 0.18,
-      rootMargin: "0px 0px -100px 0px"
-    };
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  });
-
-  // Category filter for resources
-  const catBtns = document.querySelectorAll('.category-btn');
-  const resCards = document.querySelectorAll('.resource-card');
-  catBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      catBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const cat = btn.dataset.category;
-      resCards.forEach(card => {
-        if (cat === 'all' || card.dataset.category === cat) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  // Ensure all resource cards are visible on load
-window.addEventListener('load', () => {
-  document.querySelectorAll('.resource-card').forEach(card => {
-    card.style.display = 'block';
+    
+    // Here you would typically send the form data to a server
+    // For this example, we'll just show a success message
+    alert('Message sent! (This is a placeholder - actual form submission needs to be implemented)');
+    form.reset();
   });
 });
-</script>
-</body>
-</html>
+```
 
-    <script id="html_badge_script1">
-        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrn1s7xskohRyeNSWdcHXIBSsktx6k8SjY0rLpAb9SYdHdhhZo6vafC0pwBQnF7I9my9sJ4JcSJzRZc6Wjl6irkSZShyQt7YDCcBE0b7COWJK9kDiQgFK6Et2smMGQW%2F0CDfcSS0tMFSAO%2FrRORfd7EQSzWELGNbMXiRcynKNecHilW2o1oGymvnu1ImjQmXOKlLdAOIAEdrE053p8ZlqfSPg7ig%2BiUTt8wKKyqgPNes%2BE5G7k6xKzMOYFDck7H3CEw2HUSmcIliI0KLHd2QFg5eoF7CiLDSAnzKZSJB3rFPJswIdBCk4UcXtwtwsoPzeOePhhs6%2BneIRE3Hhd7WBibHGL27Of7IMTyXysaqXa7upmHN8bdkok8OK9K%2BMb%2FZgw8QigXseoaEzpXSg5I2jKMWzPYdbUZLboq5pWMABEje17J1zXvAgfWpv4N8G08Vb4XHA08x6Bi2bWtkW2ptDnurR2gkmydHRyem0g8Od46Ggfhq7uxU%2BQG34kRhsbUSop0ke8BDrYpj7D7r%2FQQR9%2BU%3D";
-        window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrn1s7xskohRyeNSWdcHXIBSsktx6k8SjY0rLpAb9SYdHdhhZo6vafC0pwBQnF7I9my9sJ4JcSJzRZc6Wjl6irkSZShyQt7YDCcBE0b7COWJK9kDiQgFK6Et2smMGQW/0CDfcSS0tMFSAO/rRORfd7EQSzWELGNbMXiRcynKNecHilW2o1oGymvnu1ImjQmXOKlLdAOIAEdrE053p8ZlqfSPg7ig+iUTt8wKKyqgPNes+E5G7k6xKzMOYFDck7H3CEw2HUSmcIliI0KLHd2QFg5eoF7CiLDSAnzKZSJB3rFPJswIdBCk4UcXtwtwsoPzeOePhhs6+neIRE3Hhd7WBibHGL27Of7IMTyXysaqXa7upmHN8bdkok8OK9K+Mb/Zgw8QigXseoaEzpXSg5I2jKMWzPYdbUZLboq5pWMABEje17J1zXvAgfWpv4N8G08Vb4XHA08x6Bi2bWtkW2ptDnurR2gkmydHRyem0g8Od46Ggfhq7uxU+QG34kRhsbUSop0ke8BDrYpj7D7r/QQR9+U=";
-    </script>
-    
+### 8. Global JavaScript for Site-wide Features
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  menuToggle?.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+  });
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 60,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Fade-in animations for page elements
+  const fadeElements = document.querySelectorAll('.fade-in');
+  
+  const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeInObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  fadeElements.forEach(element => {
+    fadeInObserver.observe(element);
+  });
+});
+```
+
+### 9. Global CSS Styles
+
+```css
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #000;
+  background-color: #fff;
+  line-height: 1.4;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Structure & Layout */
+.page-container {
+  padding-top: 60px; /* Account for fixed navigation */
+}
+
+section {
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Animation Classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 40px 0;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+}
+```
+
+## Additional Implementation Notes
+
+### 1. File Structure
+```
+/ (root)
+│
+├── index.html (Homepage)
+├── work.html (Portfolio overview)
+├── about.html
+├── contact.html
+├── projects/ (directory)
+│   ├── project1.html
+│   ├── project2.html
+│   └── ...
+│
+├── assets/
+│   ├── css/
+│   │   ├── style.css (main stylesheet)
+│   │   ├── responsive.css
+│   │   └── fonts.css
+│   │
+│   ├── js/
+│   │   ├── main.js (site-wide functions)
+│   │   ├── gallery.js
+│   │   └── ...
+│   │
+│   ├── images/
+│   │   ├── projects/
+│   │   ├── ui/ (interface elements)
+│   │   └── ...
+│   │
+│   └── fonts/
+```
+
+### 2. Performance Optimization
+- Optimize all images using WebP format with fallbacks
+- Implement lazy loading for images
+- Minify CSS and JavaScript files
+- Use appropriate image sizes for different devices
+- Consider implementing a Content Delivery Network (CDN)
+
+### 3. SEO Implementation
+- Create a sitemap.xml file
+- Implement proper meta tags on all pages
+- Use semantic HTML structure
+- Ensure all images have alt text
+- Implement structured data where appropriate
+- Create a robots.txt file
+
+### 4. Browser Compatibility
+- Ensure compatibility with modern browsers (Chrome, Firefox, Safari, Edge)
+- Add necessary polyfills for older browsers
+- Test on both desktop and mobile devices
+
+### 5. Accessibility Considerations
+- Maintain proper contrast ratios (black text on white background)
+- Implement proper ARIA attributes
+- Ensure keyboard navigation works properly
+- Add focus states for interactive elements
+- Test with screen readers
+
+### 6. Content Migration Strategy
+- Inventory all existing content from the current site
+- Map content to new site structure
+- Revise content to match the new aesthetic if needed
+- Ensure all links are updated
