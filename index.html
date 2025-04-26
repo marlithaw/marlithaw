@@ -1,429 +1,583 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Marlitha Williams - Curriculum Developer & Instructional Leader</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Marlitha Williams - Educational Leadership</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Lexend font from Google Fonts via jsDelivr -->
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/lexend@4.5.11/index.min.css" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Chart.js for future data visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --accent-color-1: #0e596d;
+      --accent-color-1-hover: #083547;
+      --primary-color: #0e596d;
+      --text-color: #14222d;
+      --text-color-muted: #7ca6b6;
+      --bg-color: #f9fafb;
+    }
+    html, body {
+      font-family: 'Lexend', Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: rgba(14, 89, 109, 0.96);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    .site-header.scrolled { padding: 0.5rem 0; }
+    .logo a {
+      font-size: 2rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #fff;
+      letter-spacing: 1.5px;
+      transition: all 0.2s;
+    }
+    .main-nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+    .main-nav li { margin-left: 2rem; }
+    .main-nav a {
+      color: #f1f6f8;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 5px;
+      font-weight: 500;
+      transition: all 0.3s;
+      font-size: 1.1rem;
+    }
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background-color: var(--accent-color-1);
+      transition: width 0.25s;
+    }
+    .main-nav a:hover::after,
+    .main-nav a.active::after { width: 100%; }
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 2.5rem;
+      width: 2.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+    .mobile-menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 1.5rem;
+      background: #fff;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    /* Breadcrumbs */
+    .breadcrumbs {
+      padding: 1rem 0;
+      background-color: rgba(14, 89, 109, 0.10);
+      margin-top: 75px;
+      font-size: 1rem;
+      color: var(--text-color-muted);
+    }
+    .breadcrumbs ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+    .breadcrumbs li {
+      margin-right: 0.5rem;
+    }
+    .breadcrumbs li:not(:last-child)::after {
+      content: '/';
+      margin-left: 0.5rem;
+      color: var(--accent-color-1);
+    }
+    .breadcrumbs a {
+      color: var(--accent-color-1);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .breadcrumbs a:hover { text-decoration: none; }
+    .breadcrumbs .current {
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      border: 2px solid transparent;
+      background: var(--accent-color-1);
+      color: #fff;
+      font-size: 1.08rem;
+      letter-spacing: .03em;
+    }
+    .btn:focus { outline: 2px solid var(--accent-color-1);}
+    .btn:hover, .btn:active {
+      background: var(--accent-color-1-hover);
+      color: #fff;
+      border-color: var(--accent-color-1);
+    }
+    .secondary-btn {
+      background: transparent;
+      border: 2px solid var(--accent-color-1);
+      color: var(--accent-color-1);
+    }
+    .secondary-btn:hover,
+    .secondary-btn:active {
+      background: var(--accent-color-1);
+      color: #fff;
+    }
+    /* Impact/Educational Card Styles */
+    .card, .resource-card, .Impact-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 24px -6px rgba(14,89,109,0.05);
+      padding: 2rem;
+      margin: 0 0 1.5rem 0;
+      transition: box-shadow 0.2s;
+      position: relative;
+    }
+    .card:hover, .resource-card:hover, .Impact-card:hover {
+      box-shadow: 0 8px 40px -2px rgba(14,89,109,0.15);
+    }
+    .Impact-card .Impact-image, .resource-card .resource-image {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 aspect */
+      border-radius: 8px;
+      overflow: hidden;
+      background: #e2eef2;
+      margin-bottom: 1rem;
+    }
+    .Impact-card .Impact-image img, .resource-card .resource-image img {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.25s;
+    }
+    .Impact-card:hover .Impact-image img,
+    .resource-card:hover .resource-image img { transform: scale(1.04);}
+    /* Responsive Improvements */
+    @media (max-width: 1024px) {
+      .main-nav li { margin-left: 1.2rem; }
+      .logo a { font-size: 1.3rem; }
+    }
+    @media (max-width: 768px) {
+      .site-header { padding: 0.5rem 0; }
+      .container { padding-left: 1rem; padding-right: 1rem; }
+      .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; width: 100vw;
+        background: #0e596d; /* fallback for proper BG */
+        flex-direction: column;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.18);
+        padding: 1rem 0;
+      }
+      .main-nav.active {
+        display: flex;
+        z-index: 200;
+      }
+      .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+      }
+      .main-nav li {
+        margin: 0;
+        padding: 0.7rem 2rem;
+        border-bottom: 1px solid #176c8323;
+      }
+      .mobile-menu-toggle { display: flex; }
+    }
+    /* Section Structure */
+    section.section {
+      margin-bottom: 3.5rem;
+      padding: 4rem 0 2.5rem 0;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 36px -8px rgba(14,89,109,0.03);
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      min-width: 0;
+      overflow: visible;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-color-1);
+    }
+    .section-description {
+      font-size: 1.15rem;
+      margin-bottom: 2.2rem;
+      color: #28647a;
+      font-weight: 500;
+    }
+    /* Educational Resources Filter */
+    .resource-categories {
+      margin-bottom: 2rem;
+    }
+    .category-nav {
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .category-btn {
+      background: var(--accent-color-1);
+      color: #fff;
+      border-radius: 6px;
+      padding: 0.55rem 1.2rem;
+      font-weight: 600;
+      border: none;
+      transition: background 0.18s;
+      cursor: pointer;
+    }
+    .category-btn.active, .category-btn:focus {
+      background: var(--accent-color-1-hover);
+      outline: 2px solid var(--accent-color-1);
+    }
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.85rem;
+    }
+    /* Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    /* Hide scrollbars for PDF */
+    ::-webkit-scrollbar { display: none; }
+    /* Container Utility */
+    .container {
+      max-width: 1150px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header / Navigation -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#expertise">Expertise</a></li>
-        <li><a href="#media">Media</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Home Section -->
-  <section id="home" class="reveal">
-    <div class="hero">
-      <h1>Empowering Educators, Inspiring Learners</h1>
-      <p>Welcome! I’m <strong>Marlitha Williams</strong>, an instructional leader and curriculum developer dedicated to helping every student thrive. I bring a data-driven, compassionate approach to education, fostering environments where both teachers and students feel inspired.</p>
-      <!-- Welcome Video with captions -->
-      <div class="video-container">
-        <video controls>
-          <source src="welcome.mp4" type="video/mp4">
-          <track src="welcome.vtt" kind="captions" srclang="en" label="English">
-          Your browser does not support the video tag.
-        </video>
+  <!-- Persistent Header -->
+  <header class="site-header" id="hdr">
+    <div class="container flex items-center justify-between relative">
+      <div class="logo">
+        <a href="index.html"><span class="name">Marlitha Williams</span></a>
       </div>
-      <p><em>Video: Marlitha’s welcome message (captions available).</em></p>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#Impact">Impact</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#resources">Resources</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="toggle-nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </section>
+  </header>
+  
+  <!-- Main Content Container with Padding for Fixed Header -->
+  <main class="container" style="margin-top:90px;">
+  
+    <!-- Breadcrumb Navigation Example (for detail pages, dynamic in multi-page sites) -->
+    <!-- For the index/main page, breadcrumbs not shown -->
+    
+    <!-- About Section -->
+    <section id="about" class="section fade-in">
+      <h2 class="section-title">About Me</h2>
+      <button class="btn mb-6" onclick="window.location.href='april.resume.html'"><i class="fa fa-file-alt mr-2"></i>View Resume</button>
+      <p class="section-description">I lead with clarity, care, and strategy—bringing structure to ideas and purpose to systems. With roots in education, counseling, and law, I build learning ecosystems that center people and drive sustainable impact.</p>
+    </section>
+    
+    <!-- Impact Section -->
+    <section id="Impact" class="section fade-in">
+      <h2 class="section-title">Impact</h2>
+      <p class="section-description">Highlights of my recent work—bridging instruction, leadership, and actionable outcomes through innovative design.</p>
+      <!-- Example Impact Cards -->
+      <div class="resources-grid">
+        <div class="Impact-card">
+          <div class="Impact-image">
+            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Literacy Case Study">
+          </div>
+          <h3 class="font-bold text-lg mb-1">Literacy Case Study</h3>
+          <div class="mb-2 text-sm text-gray-700">Evidence-Based Approaches to Fifth Grade Reading Growth: A 3-Yearsnapshot</div>
+          <div class="flex gap-2 mb-2">
+            <span class="bg-gray-200 text-xs px-2 rounded">Instructional Alignment</span>
+            <span class="bg-gray-200 text-xs px-2 rounded">Strategic Design</span>
+            <span class="bg-gray-200 text-xs px-2 rounded">Data Analysis</span>
+          </div>
+          <div>
+            <a href="literacy-case-study.html" class="btn primary-btn">View Impact</a>
+          </div>
+        </div>
+        <div class="Impact-card">
+          <div class="Impact-image">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Teacher Development Case Study">
+          </div>
+          <h3 class="font-bold text-lg mb-1">Teacher Development</h3>
+          <div class="mb-2 text-sm text-gray-700">Human-Centered Coaching for Teacher Capcity Building </div>
+          <div class="flex gap-2 mb-2">
+            <span class="bg-gray-200 text-xs px-2 rounded">Leadership</span>
+            <span class="bg-gray-200 text-xs px-2 rounded">Insight</span>
+            <span class="bg-gray-200 text-xs px-2 rounded">Empowerment</span>
+          </div>
+          <div>
+            <a href="professional-development.html" class="btn primary-btn">View Impact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="section fade-in">
+      <h2 class="section-title">Skills</h2>
+     
+      <div class="resources-grid">
+        <div class="card">
+          <h3 class="font-bold mb-2 text-lg text-primary">Instructional Strategy</h3>
+          <ul class="text-gray-700 mb-0">
+            <li>Literacy Systems (K-8)</li>
+            <li>Curriculum Development</li>
+            <li>Equity-Centered Design</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="font-bold mb-2 text-lg text-primary">Leadership & Coaching</h3>
+          <ul class="text-gray-700 mb-0">
+            <li>Team Capacity Building</li>
+            <li>Feedback & Observation</li>
+            <li>HR & Change Management</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="font-bold mb-2 text-lg text-primary">Technical & Data</h3>
+          <ul class="text-gray-700 mb-0">
+            <li>Instructional Dashboards</li>
+            <li>Data Visualization</li>
+            <li>AI-Integrated Education</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Educational Resources Section -->
+    <section id="resources" class="section fade-in">
+      <h2 class="section-title">Educational Resources</h2>
+      <p class="section-description">Tools and templates I've developed for educational purposes.</p>
+      <!-- Resource Category Filtering -->
+      <div class="resource-categories">
+        <div class="category-nav">
+          <button class="category-btn active" data-category="all">All</button>
+          <button class="category-btn" data-category="templates">Templates</button>
+          <button class="category-btn" data-category="guides">Guides</button>
+          <button class="category-btn" data-category="tools">Tools</button>
+        </div>
+        <div class="resources-grid" id="resources-grid">
+          <!-- Example resources -->
+          <div class="resource-card" data-category="templates">
+            <div class="resource-image">
+              <img src="https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=600&q=80" alt="Prepositional Phrase Toolkit">
+            </div>
+            <h3 class="font-bold mb-2">Prepositional Phrase Toolkit</h3>
+            <div class="mb-2 text-xs text-gray-700">Vertically aligned strategies for K-5 reading and writing.</div>
+            <a href="prepositional-phrases.html" class="btn secondary-btn">View Template</a>
+          </div>
+          <div class="resource-card" data-category="tools">
+            <div class="resource-image">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Data Dashboard">
+            </div>
+            <h3 class="font-bold mb-2">Data Dashboard</h3>
+            <div class="mb-2 text-xs text-gray-700">Explore student outcomes, trends, and gaps analysis tools for leadership decisions.</div>
+            <a href="data-dashboard.html" class="btn secondary-btn">Go to Dashboard</a>
+          </div>
+          <div class="resource-card" data-category="templates">
+            <div class="resource-image">
+              <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=600&q=80" alt="Scripted Substitute Lesson Plan">
+            </div>
+            <h3 class="font-bold mb-2">Scripted Substitute Lesson Plan</h3>
+            <div class="mb-2 text-xs text-gray-700">Ready-to-use lesson plan formats for instructional continuity.</div>
+            <a href="scripted-substitute-lesson-plan-example.html" class="btn secondary-btn">View Template</a>
+          </div>
+          <div class="resource-card" data-category="guides">
+            <div class="resource-image">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="AI-Ready Literacy Implementation Guide">
+            </div>
+            <h3 class="font-bold mb-2">AI-Ready Literacy Guide</h3>
+            <div class="mb-2 text-xs text-gray-700">Connecting literacy with AI skills and tools in modern classrooms.</div>
+            <a href="ai-ready-literacy.html" class="btn secondary-btn">Read Guide</a>
+          </div>
+          <div class="resource-card" data-category="guides">
+            <div class="resource-image">
+              <img src="https://images.unsplash.com/photo-1515169273894-06ed31200b27?auto=format&fit=crop&w=600&q=80" alt="Literacy + AI Connection Visual">
+            </div>
+            <h3 class="font-bold mb-2">Literacy+AI Visual Framework</h3>
+            <div class="mb-2 text-xs text-gray-700">Visual mapping of how literacy development supports AI readiness.</div>
+            <a href="literacy-ai-connection-visual-framework.html" class="btn secondary-btn">Open Framework</a>
+          </div>
+          <div class="resource-card" data-category="tools">
+            <div class="resource-image">
+              <img src="https://images.unsplash.com/photo-1514975545974-b1c8f8e0d71c?auto=format&fit=crop&w=600&q=80" alt="Cross-Curricular Instruction Sample">
+            </div>
+            <h3 class="font-bold mb-2">Cross-Curricular Sample</h3>
+            <div class="mb-2 text-xs text-gray-700">Integrated lessons merging reading, writing, and STEM concepts.</div>
+            <a href="cross-curricular-instruction-sample.html" class="btn secondary-btn">View Resource</a>
+          </div>
+          <div class="resource-card" data-category="templates">
+            <div class="resource-image">
+              <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80" alt="Future-Ready Literacy Template">
+            </div>
+            <h3 class="font-bold mb-2">Future-Ready Literacy Template</h3>
+            <div class="mb-2 text-xs text-gray-700">Planning framework for next-generation literacy skill development.</div>
+            <a href="future-ready.html" class="btn secondary-btn">Open Template</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section fade-in">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-description">Whether you want to collaborate, discuss professional development, or just say hello—I'm always open to meaningful dialogue.</p>
+      <div class="flex flex-col md:flex-row gap-8">
+        <div class="flex-1 flex flex-col gap-3">
+          <div><i class="fa fa-envelope mr-2 text-lg text-primary"></i> <a href="/cdn-cgi/l/email-protection#1875796a74716c7079367b77766c797b6c587d75797174367b7775"><span class="__cf_email__" data-cfemail="761b17041a1f021e17581519180217150236131b171f1a5815191b">[email&#160;protected]</span></a></div>
+          <div><i class="fa fa-linkedin mr-2 text-lg text-primary"></i> <a href="https://linkedin.com/in/marlitha-williams-j-d-25295049" target="_blank" rel="noopener">LinkedIn Profile</a></div>
+          <div><i class="fa fa-map-marker-alt mr-2 text-lg text-primary"></i> Indianapolis, IN</div>
+        </div>
+        <div class="flex-1">
+          <form class="flex flex-col gap-4" action="#" method="POST" autocomplete="off">
+            <input type="text" class="rounded border px-3 py-2" placeholder="Your Name" required>
+            <input type="email" class="rounded border px-3 py-2" placeholder="Your Email" required>
+            <textarea class="rounded border px-3 py-2" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn w-full md:w-auto">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="container py-6 text-center text-gray-500 text-sm" style="margin-bottom:0;">
+    &copy; 2024 Marlitha Williams. All rights reserved.
+  </footer>
 
-  <!-- About Section -->
-  <section id="about" class="reveal">
-    <h2>About Me</h2>
-    <h3>My Why</h3>
-    <p>Growing up in a multilingual community, I saw firsthand how tailored instruction can transform student confidence. My passion is to build bridges for learners by designing inclusive, joyful learning experiences. As an educator and leader, I strive to empower teachers with the tools and strategies they need, rooted in empathy and equity.</p>
-    <h3>Professional Journey</h3>
-    <ul class="timeline">
-      <li><strong>2010</strong> – B.A. in Education from State University.</li>
-      <li><strong>2012</strong> – Classroom Teacher at Riverdale Elementary School.</li>
-      <li><strong>2016</strong> – M.Ed. in Curriculum and Instruction.</li>
-      <li><strong>2018</strong> – Instructional Coach, Greene County Schools.</li>
-      <li><strong>2021</strong> – Director of Academic Intervention, District 27.</li>
-    </ul>
-    <h3>Core Values</h3>
-    <ul class="values-grid">
-      <li><strong>Equity</strong><br/>Every student deserves tailored support to succeed.</li>
-      <li><strong>Empathy</strong><br/>Teaching with understanding and compassion.</li>
-      <li><strong>Collaboration</strong><br/>Partnering with teachers, families, and communities.</li>
-      <li><strong>Innovation</strong><br/>Embracing creative, research-driven strategies.</li>
-    </ul>
-  </section>
+  <!-- JS: Mobile Nav & Anim, Scroll-aware header, Res Filter -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+  // Mobile menu toggle
+  const navBtn = document.getElementById('toggle-nav');
+  const nav = document.getElementById('main-nav');
+  navBtn.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
 
-  <!-- Expertise & Portfolio Section -->
-  <section id="expertise" class="reveal">
-    <h2>Expertise & Portfolio</h2>
-    <div class="expertise-item">
-      <h3>Curriculum Development</h3>
-      <p>I design rigorous, culturally responsive curricula that meet diverse learners’ needs. For example, a literacy unit I developed led to a <strong>12.3% increase in 5th grade reading scores</strong>.</p>
-    </div>
-    <div class="expertise-item">
-      <h3>Instructional Leadership</h3>
-      <p>As a coach and leader, I mentor educators to implement best practices. I have led professional workshops for over 200 teachers, focusing on academic language and engagement strategies.</p>
-    </div>
-    <div class="expertise-item">
-      <h3>Data-Driven Intervention</h3>
-      <p>I specialize in using assessment data to drive targeted support. By analyzing classroom and benchmark data, I've helped reduce achievement gaps; one intervention plan for struggling readers achieved a <strong>+15% performance gain</strong> over one academic year.</p>
-    </div>
-  </section>
+  // Auto-close mobile menu when a link is clicked
+  document.querySelectorAll('.main-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+    });
+  });
 
-  <!-- Media Section -->
-  <section id="media" class="reveal">
-    <h2>Media</h2>
-    <p>Watch my presentation on Academic Language Instruction:</p>
-    <div class="video-container">
-      <video controls>
-        <source src="eaa1d166-5f6f-4f99-ac0c-a6ae6a02efe9.mp4" type="video/mp4">
-        <track src="academic_language_captions.vtt" kind="captions" srclang="en" label="English">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <p><em>Video: Marlitha presenting on structured academic language instruction (captions available).</em></p>
-    <div class="downloads">
-      <a href="academic_language_instruction_slides.pdf" download>Download Slides (PDF)</a>
-      <a href="academic_language_instruction_transcript.txt" download>Download Transcript</a>
-    </div>
-  </section>
+  // Scroll-aware compact header
+  window.addEventListener('scroll', () => {
+    const sh = document.getElementById('hdr');
+    if (window.scrollY > 60) {
+      sh.classList.add('scrolled');
+    } else {
+      sh.classList.remove('scrolled');
+    }
+  });
 
-  <!-- Contact Section -->
-  <section id="contact" class="reveal">
-    <h2>Contact</h2>
-    <p>I'm always happy to connect. Send a message below, or reach out via email or LinkedIn. You can also download my resume.</p>
-    <form id="contact-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <ul class="social-links">
-      <li><a href="mailto:marlitha.williams@example.com">Email</a></li>
-      <li><a href="https://linkedin.com/in/marlitha-williams" target="_blank">LinkedIn</a></li>
-      <li><a href="Marlitha_Williams_Resume.pdf" download>Resume</a></li>
-    </ul>
-  </section>
+  // Fade-ins for sections
+  document.addEventListener('DOMContentLoaded', function () {
+    const observerOptions = {
+      threshold: 0.18,
+      rootMargin: "0px 0px -100px 0px"
+    };
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  });
 
-  <!-- JavaScript -->
-  <script src="script.js"></script>
+  // Category filter for resources
+  const catBtns = document.querySelectorAll('.category-btn');
+  const resCards = document.querySelectorAll('.resource-card');
+  catBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      catBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.category;
+      resCards.forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Ensure all resource cards are visible on load
+window.addEventListener('load', () => {
+  document.querySelectorAll('.resource-card').forEach(card => {
+    card.style.display = 'block';
+  });
+});
+</script>
 </body>
 </html>
-/* styles.css */
-/* CSS Variables and Global Styles */
-:root {
-  --color-sage: #596D64;
-  --color-indigo: #5E54C3;
-  --color-neutral: #F6F3EE;
-  --color-bg: #FFFFFF;
-  --color-text: #333333;
-}
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: 'Montserrat', sans-serif;
-  color: var(--color-text);
-  line-height: 1.6;
-  background-color: var(--color-bg);
-}
 
-/* Header / Navigation */
-header {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-nav ul {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  padding: 0.5rem 0;
-}
-nav ul li {
-  margin: 0 1.5rem;
-}
-nav a {
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--color-text);
-  transition: color 0.3s;
-}
-nav a:hover, nav a:focus {
-  color: var(--color-indigo);
-}
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrn1s7xskohRyeNSWdcHXIBSsktx6k8SjY0rLpAb9SYdHdhhZo6vafC0pwBQnF7I9my9sJ4JcSJzRZc6Wjl6irkSZShyQt7YDCcBE0b7COWJK9kDiQgFK6Et2smMGQW%2F0CDfcSS0tMFSAO%2FrRORfd7EQSzWELGNbMXiRcynKNecHilW2o1oGymvnu1ImjQmXOKlLdAOIAEdrE053p8ZlqfSPg7ig%2BiUTt8wKKyqgPNes%2BE5G7k6xKzMOYFDck7H3CEw2HUSmcIliI0KLHd2QFg5eoF7CiLDSAnzKZSJB3rFPJswIdBCk4UcXtwtwsoPzeOePhhs6%2BneIRE3Hhd7WBibHGL27Of7IMTyXysaqXa7upmHN8bdkok8OK9K%2BMb%2FZgw8QigXseoaEzpXSg5I2jKMWzPYdbUZLboq5pWMABEje17J1zXvAgfWpv4N8G08Vb4XHA08x6Bi2bWtkW2ptDnurR2gkmydHRyem0g8Od46Ggfhq7uxU%2BQG34kRhsbUSop0ke8BDrYpj7D7r%2FQQR9%2BU%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrn1s7xskohRyeNSWdcHXIBSsktx6k8SjY0rLpAb9SYdHdhhZo6vafC0pwBQnF7I9my9sJ4JcSJzRZc6Wjl6irkSZShyQt7YDCcBE0b7COWJK9kDiQgFK6Et2smMGQW/0CDfcSS0tMFSAO/rRORfd7EQSzWELGNbMXiRcynKNecHilW2o1oGymvnu1ImjQmXOKlLdAOIAEdrE053p8ZlqfSPg7ig+iUTt8wKKyqgPNes+E5G7k6xKzMOYFDck7H3CEw2HUSmcIliI0KLHd2QFg5eoF7CiLDSAnzKZSJB3rFPJswIdBCk4UcXtwtwsoPzeOePhhs6+neIRE3Hhd7WBibHGL27Of7IMTyXysaqXa7upmHN8bdkok8OK9K+Mb/Zgw8QigXseoaEzpXSg5I2jKMWzPYdbUZLboq5pWMABEje17J1zXvAgfWpv4N8G08Vb4XHA08x6Bi2bWtkW2ptDnurR2gkmydHRyem0g8Od46Ggfhq7uxU+QG34kRhsbUSop0ke8BDrYpj7D7r/QQR9+U=";
+    </script>
 
-/* Home Section */
-#home {
-  padding: 4rem 1rem;
-  text-align: center;
-  background-color: var(--color-neutral);
-}
-#home .hero h1 {
-  font-family: 'Playfair Display', serif;
-  color: var(--color-indigo);
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-#home .hero p {
-  max-width: 600px;
-  margin: 0.5rem auto 2rem;
-}
-.video-container {
-  max-width: 600px;
-  margin: 1rem auto;
-}
-.video-container video {
-  width: 100%;
-  height: auto;
-  border: 2px solid var(--color-sage);
-  border-radius: 8px;
-}
-
-/* About Section */
-#about {
-  padding: 3rem 1rem;
-  background-color: var(--color-bg);
-}
-#about h2, #about h3 {
-  font-family: 'Playfair Display', serif;
-  color: var(--color-indigo);
-}
-#about h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-#about h3 {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-}
-#about p {
-  margin: 0.5rem 0 1rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.timeline {
-  list-style: none;
-  border-left: 3px solid var(--color-sage);
-  padding-left: 1rem;
-  margin: 1rem auto;
-  max-width: 600px;
-}
-.timeline li {
-  margin-bottom: 0.75rem;
-}
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.values-grid li {
-  background-color: var(--color-neutral);
-  padding: 1rem;
-  border-radius: 6px;
-  text-align: center;
-  font-weight: 500;
-}
-
-/* Expertise & Portfolio Section */
-#expertise {
-  padding: 3rem 1rem;
-  background-color: var(--color-bg);
-}
-#expertise h2 {
-  font-family: 'Playfair Display', serif;
-  color: var(--color-indigo);
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-.expertise-item {
-  margin-bottom: 2rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.expertise-item h3 {
-  font-family: 'Playfair Display', serif;
-  color: var(--color-sage);
-  font-size: 1.5rem;
-}
-.expertise-item p {
-  margin-top: 0.5rem;
-}
-
-/* Media Section */
-#media {
-  padding: 3rem 1rem;
-  background-color: var(--color-neutral);
-}
-#media h2 {
-  font-family: 'Playfair Display', serif;
-  color: var(--color-indigo);
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-.downloads {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-.downloads a {
-  background-color: var(--color-sage);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s;
-}
-.downloads a:hover, .downloads a:focus {
-  background-color: var(--color-indigo);
-}
-
-/* Contact Section */
-#contact {
-  padding: 3rem 1rem;
-  background-color: var(--color-bg);
-}
-#contact h2 {
-  font-family: 'Playfair Display', serif;
-  color: var(--color-indigo);
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-#contact p {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-#contact form {
-  max-width: 400px;
-  margin: 0 auto 2rem;
-  display: flex;
-  flex-direction: column;
-}
-#contact label {
-  margin-top: 1rem;
-  font-weight: 600;
-}
-#contact input, #contact textarea {
-  padding: 0.5rem;
-  margin-top: 0.25rem;
-  border: 1px solid var(--color-sage);
-  border-radius: 4px;
-  font-size: 1rem;
-}
-#contact button {
-  margin-top: 1rem;
-  padding: 0.75rem;
-  background-color: var(--color-indigo);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-#contact button:hover, #contact button:focus {
-  background-color: var(--color-sage);
-}
-.social-links {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 1rem;
-}
-.social-links li a {
-  text-decoration: none;
-  color: var(--color-indigo);
-  font-weight: 600;
-  transition: color 0.3s;
-}
-.social-links li a:hover, .social-links li a:focus {
-  color: var(--color-sage);
-}
-
-/* Scroll reveal animation */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-}
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  nav ul {
-    flex-direction: column;
-    background: white;
-  }
-  nav ul li {
-    margin: 0.5rem 0;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-}
-// script.js
-
-// Smooth scroll for navigation links
-document.querySelectorAll('nav a').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    target.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-
-// Reveal on scroll
-window.addEventListener('scroll', function() {
-  const reveals = document.querySelectorAll('.reveal');
-  for (let i = 0; i < reveals.length; i++) {
-    const windowHeight = window.innerHeight;
-    const elementTop = reveals[i].getBoundingClientRect().top;
-    const elementVisible = 100;
-    if (elementTop < windowHeight - elementVisible) {
-      reveals[i].classList.add('active');
-    }
-  }
-});
-
-// Simple form submission handler
-const form = document.getElementById('contact-form');
-if (form) {
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    // In a real site, you'd send the form data here.
-    alert('Thank you for your message! I will be in touch soon.');
-    form.reset();
-  });
-}
+  
