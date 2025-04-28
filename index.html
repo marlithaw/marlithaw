@@ -75,18 +75,20 @@
     }
     
     .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: linear-gradient(to bottom, rgba(246,246,246,0.7), rgba(246,246,246,1)),url('hero-image-optimized (2).jpg');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.2; /* Nearly transparent */
-      z-index: -1;
-    }
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('hero-image-optimized (2).jpg') no-repeat center center/cover;
+  background-size: cover;
+  background-position: center;
+  opacity: .3;
+  z-index: -1;
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+}
   </style>
 </head>
 <body class="relative min-h-screen">
@@ -113,11 +115,13 @@
     <section class="hero grid md:grid-cols-2 gap-8 items-center min-h-[80vh] pt-2 relative z-10">
       <!-- Added backdrop image in CSS above with ::before pseudo-element -->
       
-      <div class="hero-content flex flex-col justify-center">
-      <h1 class="name-title text-5xl md:text-6xl font-black font-playfair text-gray-800 leading-tight mb-2 tracking-tight text-center md:text-left select-none">
-  <span>MARLITHA</span><br>
-  <span>WILLIAMS</span>
-</h1>
+      <div class="hero-content flex flex-col items-center md:items-start justify-center text-center md:text-left w-full">
+  <h1 class="name-title text-5xl md:text-6xl font-black font-playfair text-gray-800 leading-tight mb-6 tracking-tight select-none">
+    <span>MARLITHA</span><br>
+    <span>WILLIAMS</span>
+  </h1>
+  <div id="typewriter" class="text-2xl md:text-3xl font-semibold text-purple-700 h-10 md:h-12 overflow-hidden whitespace-nowrap"></div>
+</div>
         <div class="typewriter" id="typewriter"></div>
         <div class="flex space-x-4 mt-6">
           <a href="april.resume.html" class="btn btn-primary px-7 py-3 rounded-lg bg-purple-700 text-white font-bold shadow hover:bg-purple-800 transition duration-150">
