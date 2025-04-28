@@ -2,582 +2,370 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Marlitha Williams - Educational Leadership</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Lexend font from Google Fonts via jsDelivr -->
-  <link href="https://cdn.jsdelivr.net/npm/@fontsource/lexend@4.5.11/index.min.css" rel="stylesheet">
-  <!-- Tailwind CSS -->
+  <title>Marlitha Williams - Creative Educator & Curriculum Innovator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TailwindCSS v2.2.19 via jsDelivr CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Chart.js for future data visualizations -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <!-- Google Fonts: Playfair Display & Poppins -->
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@3.3.1/index.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@3.3.1/index.css" rel="stylesheet">
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
   <style>
-    :root {
-      --accent-color-1: #0e596d;
-      --accent-color-1-hover: #083547;
-      --primary-color: #0e596d;
-      --text-color: #14222d;
-      --text-color-muted: #7ca6b6;
-      --bg-color: #f9fafb;
-    }
-    html, body {
-      font-family: 'Lexend', Arial, Helvetica, sans-serif;
-      font-size: 18px;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.7;
-      margin: 0;
-      padding: 0;
+    html {
       scroll-behavior: smooth;
     }
-    .site-header {
-      position: fixed;
-      top: 0; left: 0; width: 100%;
-      background: rgba(14, 89, 109, 0.96);
-      backdrop-filter: blur(6px);
-      z-index: 100;
-      padding: 1rem 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #f6f6f6 url('https://images.unsplash.com/photo-1611374383437-faa7c120bc0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      color: #6b7280;
+      overflow-x: hidden;
+      min-width: 100vw;
     }
-    .site-header.scrolled { padding: 0.5rem 0; }
-    .logo a {
-      font-size: 2rem;
+    .font-playfair {
+      font-family: 'Playfair Display', serif !important;
+    }
+    /* Typewriter effect styles */
+    .typewriter {
+      font-family: 'Courier New', monospace;
+      font-size: 2.2rem;
       font-weight: 700;
-      text-decoration: none;
-      color: #fff;
-      letter-spacing: 1.5px;
-      transition: all 0.2s;
-    }
-    .main-nav ul {
-      display: flex;
-      list-style: none;
-      margin: 0; padding: 0;
-    }
-    .main-nav li { margin-left: 2rem; }
-    .main-nav a {
-      color: #f1f6f8;
-      text-decoration: none;
-      position: relative;
-      padding-bottom: 5px;
-      font-weight: 500;
-      transition: all 0.3s;
-      font-size: 1.1rem;
-    }
-    .main-nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 2px;
-      background-color: var(--accent-color-1);
-      transition: width 0.25s;
-    }
-    .main-nav a:hover::after,
-    .main-nav a.active::after { width: 100%; }
-    .mobile-menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 2.5rem;
-      width: 2.5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: none;
-    }
-    .mobile-menu-toggle span {
-      display: block;
-      height: 3px;
-      width: 1.5rem;
-      background: #fff;
-      margin: 4px 0;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-    /* Breadcrumbs */
-    .breadcrumbs {
-      padding: 1rem 0;
-      background-color: rgba(14, 89, 109, 0.10);
-      margin-top: 75px;
-      font-size: 1rem;
-      color: var(--text-color-muted);
-    }
-    .breadcrumbs ul {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-    }
-    .breadcrumbs li {
-      margin-right: 0.5rem;
-    }
-    .breadcrumbs li:not(:last-child)::after {
-      content: '/';
-      margin-left: 0.5rem;
-      color: var(--accent-color-1);
-    }
-    .breadcrumbs a {
-      color: var(--accent-color-1);
-      text-decoration: underline;
-      font-weight: 500;
-    }
-    .breadcrumbs a:hover { text-decoration: none; }
-    .breadcrumbs .current {
-      color: var(--primary-color);
-      font-weight: 800;
-      letter-spacing: 0.5px;
-    }
-    /* Button Styles */
-    .btn {
-      display: inline-block;
-      padding: 0.7rem 1.4rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s, border 0.2s;
-      border: 2px solid transparent;
-      background: var(--accent-color-1);
-      color: #fff;
-      font-size: 1.08rem;
-      letter-spacing: .03em;
-    }
-    .btn:focus { outline: 2px solid var(--accent-color-1);}
-    .btn:hover, .btn:active {
-      background: var(--accent-color-1-hover);
-      color: #fff;
-      border-color: var(--accent-color-1);
-    }
-    .secondary-btn {
-      background: transparent;
-      border: 2px solid var(--accent-color-1);
-      color: var(--accent-color-1);
-    }
-    .secondary-btn:hover,
-    .secondary-btn:active {
-      background: var(--accent-color-1);
-      color: #fff;
-    }
-    /* Impact/Educational Card Styles */
-    .card, .resource-card, .Impact-card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 24px -6px rgba(14,89,109,0.05);
-      padding: 2rem;
-      margin: 0 0 1.5rem 0;
-      transition: box-shadow 0.2s;
-      position: relative;
-    }
-    .card:hover, .resource-card:hover, .Impact-card:hover {
-      box-shadow: 0 8px 40px -2px rgba(14,89,109,0.15);
-    }
-    .Impact-card .Impact-image, .resource-card .resource-image {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 aspect */
-      border-radius: 8px;
+      color: #7267db;
+      border-right: 2px solid #7267db;
+      white-space: nowrap;
       overflow: hidden;
-      background: #e2eef2;
-      margin-bottom: 1rem;
-    }
-    .Impact-card .Impact-image img, .resource-card .resource-image img {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.25s;
-    }
-    .Impact-card:hover .Impact-image img,
-    .resource-card:hover .resource-image img { transform: scale(1.04);}
-    /* Responsive Improvements */
-    @media (max-width: 1024px) {
-      .main-nav li { margin-left: 1.2rem; }
-      .logo a { font-size: 1.3rem; }
-    }
-    @media (max-width: 768px) {
-      .site-header { padding: 0.5rem 0; }
-      .container { padding-left: 1rem; padding-right: 1rem; }
-      .main-nav {
-        display: none;
-        position: absolute;
-        top: 100%; left: 0; width: 100vw;
-        background: #0e596d; /* fallback for proper BG */
-        flex-direction: column;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.18);
-        padding: 1rem 0;
-      }
-      .main-nav.active {
-        display: flex;
-        z-index: 200;
-      }
-      .main-nav ul {
-        flex-direction: column;
-        width: 100%;
-      }
-      .main-nav li {
-        margin: 0;
-        padding: 0.7rem 2rem;
-        border-bottom: 1px solid #176c8323;
-      }
-      .mobile-menu-toggle { display: flex; }
-    }
-    /* Section Structure */
-    section.section {
-      margin-bottom: 3.5rem;
-      padding: 4rem 0 2.5rem 0;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 36px -8px rgba(14,89,109,0.03);
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-      min-width: 0;
-      overflow: visible;
-    }
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 1.2rem;
-      font-weight: 700;
-      color: var(--accent-color-1);
-    }
-    .section-description {
-      font-size: 1.15rem;
-      margin-bottom: 2.2rem;
-      color: #28647a;
-      font-weight: 500;
-    }
-    /* Educational Resources Filter */
-    .resource-categories {
+      height: 2.6rem;
       margin-bottom: 2rem;
     }
-    .category-nav {
-      margin-bottom: 1.2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .category-btn {
-      background: var(--accent-color-1);
-      color: #fff;
-      border-radius: 6px;
-      padding: 0.55rem 1.2rem;
-      font-weight: 600;
-      border: none;
-      transition: background 0.18s;
-      cursor: pointer;
-    }
-    .category-btn.active, .category-btn:focus {
-      background: var(--accent-color-1-hover);
-      outline: 2px solid var(--accent-color-1);
-    }
-    .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.85rem;
-    }
-    /* Animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.6s, transform 0.6s;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    /* Hide scrollbars for PDF */
+    /* Hide scrollbar for PDF export optimization */
     ::-webkit-scrollbar { display: none; }
-    /* Container Utility */
-    .container {
-      max-width: 1150px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 2rem;
-      padding-right: 2rem;
+    /* Custom background elements (blur orbs) */
+    .bg-element {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.13;
+      z-index: 0;
+      pointer-events: none;
     }
+    .bg-1 { background: #7267db; width: 270px; height: 270px; top: -40px; left: -80px; }
+    .bg-2 { background: #f55a76; width: 350px; height: 350px; top: 320px; right: -140px; }
+    /* Section Styling for PDF friendliness */
+    section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+    /* Card hover for desktop only, static for PDF/print */
+     {
+      .hover\:shadow-xl,
+      .hover\:transform { box-shadow: none !important; transform: none !important; }
+    }
+    /* Responsive profile image size */
+    @media (max-width: 768px) {
+      .profile-image { width: 170px !important; height: 170px !important; }
+      .name-title { font-size: 2.6rem !important; }
+    }
+    @media (max-width: 1024px) {
+      .profile-image { width: 220px !important; height: 220px !important; }
+      .name-title { font-size: 3.4rem !important; }
+    }
+    /* Make sure no horizontal scroll for PDF */
+    html { overflow-x: hidden !important; }
   </style>
 </head>
-<body>
-  <!-- Persistent Header -->
-  <header class="site-header" id="hdr">
-    <div class="container flex items-center justify-between relative">
-      <div class="logo">
-        <a href="index.html"><span class="name">Marlitha Williams</span></a>
+<body class="relative min-h-screen">
+  <div class="bg-element bg-1"></div>
+  <div class="bg-element bg-2"></div>
+  <div class="max-w-6xl mx-auto px-6 w-full relative z-10">
+
+    <!-- Navigation -->
+    <nav class="flex justify-between items-center py-8 relative z-20">
+      <div class="text-2xl font-extrabold tracking-wider font-playfair text-purple-700 relative select-none" style="letter-spacing:0.12em">
+        MW
+        <span class="absolute left-0 bottom-[-0.12em] w-full h-1 block bg-pink-400 opacity-70 rounded-md" style="width:60%;"></span>
       </div>
-      <nav class="main-nav" id="main-nav">
-        <ul>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#Impact">Impact</a></li>
-          <li><a href="index.html#skills">Skills</a></li>
-          <li><a href="index.html#resources">Resources</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="toggle-nav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-  
-  <!-- Main Content Container with Padding for Fixed Header -->
-  <main class="container" style="margin-top:90px;">
-  
-    <!-- Breadcrumb Navigation Example (for detail pages, dynamic in multi-page sites) -->
-    <!-- For the index/main page, breadcrumbs not shown -->
-    
-    <!-- About Section -->
-    <section id="about" class="section fade-in">
-      <h2 class="section-title">About Me</h2>
-      <button class="btn mb-6" onclick="window.location.href='april.resume.html'"><i class="fa fa-file-alt mr-2"></i>View Resume</button>
-      <p class="section-description">I lead with clarity, care, and strategy—bringing structure to ideas and purpose to systems. With roots in education, counseling, and law, I build learning ecosystems that center people and drive sustainable impact.</p>
+      <div class="hidden md:flex space-x-8 font-semibold text-lg">
+        <a href="#about" class="hover:text-purple-700 transition">About Me</a>
+        <a href="#impact" class="hover:text-purple-700 transition">Impact</a>
+        <a href="#expertise" class="hover:text-purple-700 transition">Expertise</a>
+        <a href="#resources" class="hover:text-purple-700 transition">Resources</a>
+        <a href="#contact" class="hover:text-purple-700 transition">Connect</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero grid md:grid-cols-2 gap-8 items-center min-h-[80vh] pt-2 relative z-10">
+      <div class="hero-content flex flex-col justify-center">
+        <h1 class="name-title text-5xl md:text-6xl font-black font-playfair text-gray-800 leading-tight mb-2 tracking-tight select-none">
+          <span>MARLITHA</span><br>
+          <span>WILLIAMS</span>
+        </h1>
+        <div class="typewriter" id="typewriter"></div>
+        <div class="flex space-x-4 mt-6">
+          <a href="april.resume.html" class="btn btn-primary px-7 py-3 rounded-lg bg-purple-700 text-white font-bold shadow hover:bg-purple-800 transition duration-150">
+            <i class="fas fa-file-alt mr-2"></i>Resume
+          </a>
+          <a href="#about" class="btn btn-outline px-7 py-3 rounded-lg border-2 border-purple-700 text-purple-700 font-bold bg-transparent hover:bg-purple-100 transition duration-150">
+            <i class="fas fa-user mr-2"></i>About Me
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-center relative mt-12 md:mt-0">
+        <div class="profile-image rounded-full w-72 h-72 flex items-center justify-center bg-gradient-to-br from-purple-100 to-white shadow-lg mb-4 relative border-8 border-white" style="width:300px;height:300px;">
+          <span class="text-8xl md:text-9xl font-playfair font-black text-purple-700 select-none">M</span>
+        </div>
+        <div class="stats-container w-full grid grid-cols-2 gap-4">
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Student Growth</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">+31%</div>
+            <div class="stat-label text-gray-500 opacity-85">Economically Disadvantaged</div>
+          </div>
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Learning Impact</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">+42%</div>
+            <div class="stat-label text-gray-500 opacity-85">Special Education</div>
+          </div>
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Digital Integration</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">5</div>
+            <div class="stat-label text-gray-500 opacity-85">New EdTech Frameworks</div>
+          </div>
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Literacy Systems</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">12+</div>
+            <div class="stat-label text-gray-500 opacity-85">Curriculum Modules</div>
+          </div>
+        </div>
+      </div>
     </section>
-    
+
+    <!-- About Me Section -->
+    <section id="about" class="relative z-10">
+      <div class="max-w-3xl mx-auto text-center mb-2">
+        <h2 class="section-title font-playfair text-4xl font-bold text-gray-800 mb-6">About Me</h2>
+        <p class="text-lg md:text-xl text-gray-700 mb-4">
+          I lead with clarity, care, and strategy&nbsp;&mdash;&nbsp;bringing structure to ideas and purpose to systems. With roots in education, counseling, and law, I build learning ecosystems that center people and drive sustainable impact. My work bridges instruction, leadership, and actionable outcomes through innovative design.  
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center mb-2">
+          <span class="inline-block px-4 py-2 rounded-3xl bg-purple-100 text-purple-700 font-semibold text-base border border-purple-200">Instructional Strategy</span>
+          <span class="inline-block px-4 py-2 rounded-3xl bg-pink-100 text-pink-600 font-semibold text-base border border-pink-200">Curriculum Innovation</span>
+          <span class="inline-block px-4 py-2 rounded-3xl bg-yellow-100 text-yellow-700 font-semibold text-base border border-yellow-200">Team Capacity Building</span>
+          <span class="inline-block px-4 py-2 rounded-3xl bg-green-100 text-green-700 font-semibold text-base border border-green-200">Equity-Minded Design</span>
+        </div>
+      </div>
+    </section>
+
     <!-- Impact Section -->
-    <section id="Impact" class="section fade-in">
-      <h2 class="section-title">Impact</h2>
-      <p class="section-description">Highlights of my recent work—bridging instruction, leadership, and actionable outcomes through innovative design.</p>
-      <!-- Example Impact Cards -->
-      <div class="resources-grid">
-        <div class="Impact-card">
-          <div class="Impact-image">
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Literacy Case Study">
-          </div>
-          <h3 class="font-bold text-lg mb-1">Literacy Case Study</h3>
-          <div class="mb-2 text-sm text-gray-700">Evidence-Based Approaches to Fifth Grade Reading Growth: A 3-Yearsnapshot</div>
-          <div class="flex gap-2 mb-2">
-            <span class="bg-gray-200 text-xs px-2 rounded">Instructional Alignment</span>
-            <span class="bg-gray-200 text-xs px-2 rounded">Strategic Design</span>
-            <span class="bg-gray-200 text-xs px-2 rounded">Data Analysis</span>
-          </div>
-          <div>
-            <a href="literacy-case-study.html" class="btn primary-btn">View Impact</a>
-          </div>
+    <section id="impact" class="relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title font-playfair text-3xl md:text-4xl font-bold text-gray-800 mb-2">Educational Impact</h2>
+          <p class="text-lg text-gray-600">Transforming learning experiences through strategic frameworks and data-driven approaches</p>
         </div>
-        <div class="Impact-card">
-          <div class="Impact-image">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Teacher Development Case Study">
+        <div class="impact-grid grid md:grid-cols-3 gap-8">
+          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
+            <span class="impact-icon text-3xl mb-3 text-purple-700">📚</span>
+            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Literacy Leadership</h3>
+            <p class="impact-text text-gray-700">Strategic literacy frameworks that center equity and drive measurable growth across diverse student populations.</p>
+            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">+32%</span> 
+              improvement for English Learners through targeted academic language interventions.
+            </p>
           </div>
-          <h3 class="font-bold text-lg mb-1">Teacher Development</h3>
-          <div class="mb-2 text-sm text-gray-700">Human-Centered Coaching for Teacher Capcity Building </div>
-          <div class="flex gap-2 mb-2">
-            <span class="bg-gray-200 text-xs px-2 rounded">Leadership</span>
-            <span class="bg-gray-200 text-xs px-2 rounded">Insight</span>
-            <span class="bg-gray-200 text-xs px-2 rounded">Empowerment</span>
+          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
+            <span class="impact-icon text-3xl mb-3 text-purple-700">💡</span>
+            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Innovative Curriculum</h3>
+            <p class="impact-text text-gray-700">Cross-disciplinary approaches that integrate literacy with STEM, SEL, and future-ready skills.</p>
+            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">12</span>
+              new curriculum modules implemented across grade levels with measurable outcomes.
+            </p>
           </div>
-          <div>
-            <a href="professional-development.html" class="btn primary-btn">View Impact</a>
+          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
+            <span class="impact-icon text-3xl mb-3 text-purple-700">🚀</span>
+            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">EdTech Integration</h3>
+            <p class="impact-text text-gray-700">Pioneering AI-ready literacy frameworks that bridge traditional foundations with emerging technologies.</p>
+            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">5</span>
+              technology integration models adopted district-wide for enhanced digital learning.
+            </p>
           </div>
         </div>
       </div>
     </section>
-    
-    <!-- Skills Section -->
-    <section id="skills" class="section fade-in">
-      <h2 class="section-title">Skills</h2>
-     
-      <div class="resources-grid">
-        <div class="card">
-          <h3 class="font-bold mb-2 text-lg text-primary">Instructional Strategy</h3>
-          <ul class="text-gray-700 mb-0">
-            <li>Literacy Systems (K-8)</li>
-            <li>Curriculum Development</li>
-            <li>Equity-Centered Design</li>
-          </ul>
+
+    <!-- Resources Section -->
+    <section id="resources" class="relative z-10 bg-white rounded-t-3xl pb-4 pt-12">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title font-playfair text-3xl md:text-4xl font-bold text-gray-800 mb-2">Educational Resources</h2>
+          <p class="text-lg text-gray-600">Organized toolkits and frameworks for classroom and leadership excellence</p>
         </div>
-        <div class="card">
-          <h3 class="font-bold mb-2 text-lg text-primary">Leadership & Coaching</h3>
-          <ul class="text-gray-700 mb-0">
-            <li>Team Capacity Building</li>
-            <li>Feedback & Observation</li>
-            <li>HR & Change Management</li>
-          </ul>
+
+        <!-- Literacy - AI Toolkit -->
+        <div class="mb-10">
+          <h3 class="text-2xl font-bold font-playfair mb-4 text-purple-700 flex items-center"><i class="fas fa-microchip mr-2"></i>Literacy&nbsp;&ndash;&nbsp;AI Toolkit</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div class="resource-card bg-purple-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-purple-700 mb-3"><i class="fas fa-robot"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">AI-Ready Literacy Guide</h4>
+                <p class="resource-description text-gray-600 mb-2">Strategic framework for integrating AI literacy alongside traditional reading and writing.</p>
+                <a href="ai-ready-literacy.html" class="inline-block btn btn-outline border-purple-700 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-100 transition">Read Guide</a>
+              </div>
+            </div>
+            <div class="resource-card bg-yellow-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-yellow-700 mb-3"><i class="fas fa-network-wired"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Literacy + AI Visual Framework</h4>
+                <p class="resource-description text-gray-600 mb-2">Visual mapping showing how literacy builds essential skills for AI-readiness.</p>
+                <a href="literacy-ai-connection-visual-framework.html" class="inline-block btn btn-outline border-yellow-600 text-yellow-700 px-4 py-2 rounded-lg hover:bg-yellow-100 transition">Open Framework</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <h3 class="font-bold mb-2 text-lg text-primary">Technical & Data</h3>
-          <ul class="text-gray-700 mb-0">
-            <li>Instructional Dashboards</li>
-            <li>Data Visualization</li>
-            <li>AI-Integrated Education</li>
-          </ul>
+
+        <!-- Cross-Curricular Prepositional Phrases Toolkit -->
+        <div class="mb-10">
+          <h3 class="text-2xl font-bold font-playfair mb-4 text-green-700 flex items-center"><i class="fas fa-link mr-2"></i>Sample Cross-Curricular w/ Prepositional Phrases Toolkit</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div class="resource-card bg-green-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-green-700 mb-3"><i class="fas fa-book"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Prepositional Phrase Toolkit</h4>
+                <p class="resource-description text-gray-600 mb-2">Strategies for K-5 reading and writing, vertically/horizontally aligned.</p>
+                <a href="prepositional-phrases.html" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Toolkit</a>
+              </div>
+            </div>
+            <div class="resource-card bg-green-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-green-700 mb-3"><i class="fas fa-stream"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Cross-Curricular Sample</h4>
+                <p class="resource-description text-gray-600 mb-2">Integrated lessons connecting reading, writing, STEM, SEL concepts.</p>
+                <a href="cross-curricular-instruction-sample.html" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Sample</a>
+              </div>
+            </div>
+            <div class="resource-card bg-green-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-green-700 mb-3"><i class="fas fa-file-alt"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Scripted Substitute Lesson Plan</h4>
+                <p class="resource-description text-gray-600 mb-2">Ready-to-use lesson format for instructional continuity.</p>
+                <a href="scripted-substitute-lesson-plan-example.html" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Template</a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-    
-    <!-- Educational Resources Section -->
-    <section id="resources" class="section fade-in">
-      <h2 class="section-title">Educational Resources</h2>
-      <p class="section-description">Tools and templates I've developed for educational purposes.</p>
-      <!-- Resource Category Filtering -->
-      <div class="resource-categories">
-        <div class="category-nav">
-          <button class="category-btn active" data-category="all">All</button>
-          <button class="category-btn" data-category="templates">Templates</button>
-          <button class="category-btn" data-category="guides">Guides</button>
-          <button class="category-btn" data-category="tools">Tools</button>
+
+        <!-- Data Dashboard/Other Resources -->
+        <div class="mb-10">
+          <h3 class="text-2xl font-bold font-playfair mb-4 text-pink-700 flex items-center"><i class="fas fa-chart-line mr-2"></i>Data Dashboard</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div class="resource-card bg-pink-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-pink-600 mb-3"><i class="fas fa-database"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Data Dashboard</h4>
+                <p class="resource-description text-gray-600 mb-2">Analytics tracking student outcomes, trends, and highlighting intervention opportunities.</p>
+                <a href="data-dashboard.html" class="inline-block btn btn-outline border-pink-600 text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-100 transition">Explore Dashboard</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="resources-grid" id="resources-grid">
-          <!-- Example resources -->
-          <div class="resource-card" data-category="templates">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=600&q=80" alt="Prepositional Phrase Toolkit">
+
+        <!-- Instructional Artifacts - formerly Future-Ready Literacy Template -->
+        <div>
+          <h3 class="text-2xl font-bold font-playfair mb-4 text-yellow-700 flex items-center"><i class="fas fa-lightbulb mr-2"></i>Instructional Artifacts &ndash; Assessments and Activities</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div class="resource-card bg-yellow-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-yellow-700 mb-3"><i class="fas fa-tasks"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Instructional Artifacts</h4>
+                <p class="resource-description text-gray-600 mb-2">Planning frameworks and assessment samples for future-ready literacy skill development.</p>
+                <a href="future-ready.html" class="inline-block btn btn-outline border-yellow-700 text-yellow-700 px-4 py-2 rounded-lg hover:bg-yellow-100 transition">Open Template</a>
+              </div>
             </div>
-            <h3 class="font-bold mb-2">Prepositional Phrase Toolkit</h3>
-            <div class="mb-2 text-xs text-gray-700">Vertically aligned strategies for K-5 reading and writing.</div>
-            <a href="prepositional-phrases.html" class="btn secondary-btn">View Template</a>
-          </div>
-          <div class="resource-card" data-category="tools">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Data Dashboard">
-            </div>
-            <h3 class="font-bold mb-2">Data Dashboard</h3>
-            <div class="mb-2 text-xs text-gray-700">Explore student outcomes, trends, and gaps analysis tools for leadership decisions.</div>
-            <a href="data-dashboard.html" class="btn secondary-btn">Go to Dashboard</a>
-          </div>
-          <div class="resource-card" data-category="templates">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=600&q=80" alt="Scripted Substitute Lesson Plan">
-            </div>
-            <h3 class="font-bold mb-2">Scripted Substitute Lesson Plan</h3>
-            <div class="mb-2 text-xs text-gray-700">Ready-to-use lesson plan formats for instructional continuity.</div>
-            <a href="scripted-substitute-lesson-plan-example.html" class="btn secondary-btn">View Template</a>
-          </div>
-          <div class="resource-card" data-category="guides">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="AI-Ready Literacy Implementation Guide">
-            </div>
-            <h3 class="font-bold mb-2">AI-Ready Literacy Guide</h3>
-            <div class="mb-2 text-xs text-gray-700">Connecting literacy with AI skills and tools in modern classrooms.</div>
-            <a href="ai-ready-literacy.html" class="btn secondary-btn">Read Guide</a>
-          </div>
-          <div class="resource-card" data-category="guides">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1515169273894-06ed31200b27?auto=format&fit=crop&w=600&q=80" alt="Literacy + AI Connection Visual">
-            </div>
-            <h3 class="font-bold mb-2">Literacy+AI Visual Framework</h3>
-            <div class="mb-2 text-xs text-gray-700">Visual mapping of how literacy development supports AI readiness.</div>
-            <a href="literacy-ai-connection-visual-framework.html" class="btn secondary-btn">Open Framework</a>
-          </div>
-          <div class="resource-card" data-category="tools">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1514975545974-b1c8f8e0d71c?auto=format&fit=crop&w=600&q=80" alt="Cross-Curricular Instruction Sample">
-            </div>
-            <h3 class="font-bold mb-2">Cross-Curricular Sample</h3>
-            <div class="mb-2 text-xs text-gray-700">Integrated lessons merging reading, writing, and STEM concepts.</div>
-            <a href="cross-curricular-instruction-sample.html" class="btn secondary-btn">View Resource</a>
-          </div>
-          <div class="resource-card" data-category="templates">
-            <div class="resource-image">
-              <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80" alt="Future-Ready Literacy Template">
-            </div>
-            <h3 class="font-bold mb-2">Future-Ready Literacy Template</h3>
-            <div class="mb-2 text-xs text-gray-700">Planning framework for next-generation literacy skill development.</div>
-            <a href="future-ready.html" class="btn secondary-btn">Open Template</a>
           </div>
         </div>
       </div>
     </section>
-    
+
     <!-- Contact Section -->
-    <section id="contact" class="section fade-in">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-description">Whether you want to collaborate, discuss professional development, or just say hello—I'm always open to meaningful dialogue.</p>
-      <div class="flex flex-col md:flex-row gap-8">
-        <div class="flex-1 flex flex-col gap-3">
-          <div><i class="fa fa-envelope mr-2 text-lg text-primary"></i> <a href="/cdn-cgi/l/email-protection#1875796a74716c7079367b77766c797b6c587d75797174367b7775"><span class="__cf_email__" data-cfemail="761b17041a1f021e17581519180217150236131b171f1a5815191b">[email&#160;protected]</span></a></div>
-          <div><i class="fa fa-linkedin mr-2 text-lg text-primary"></i> <a href="https://linkedin.com/in/marlitha-williams-j-d-25295049" target="_blank" rel="noopener">LinkedIn Profile</a></div>
-          <div><i class="fa fa-map-marker-alt mr-2 text-lg text-primary"></i> Indianapolis, IN</div>
+    <section id="contact" class="relative z-10 bg-purple-50 py-16">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-8">
+          <h2 class="section-title font-playfair text-3xl md:text-4xl font-bold text-purple-800 mb-2">Let's Connect</h2>
+          <p class="text-lg text-purple-700">Ready to collaborate on educational innovation?</p>
         </div>
-        <div class="flex-1">
-          <form class="flex flex-col gap-4" action="#" method="POST" autocomplete="off">
-            <input type="text" class="rounded border px-3 py-2" placeholder="Your Name" required>
-            <input type="email" class="rounded border px-3 py-2" placeholder="Your Email" required>
-            <textarea class="rounded border px-3 py-2" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn w-full md:w-auto">Send Message</button>
-          </form>
+        <div class="contact-content text-center">
+          <p class="text-gray-700 mb-8 text-lg">
+            As a proven educator with measurable impact in literacy leadership and curriculum innovation, I partner with forward-thinking schools and districts to implement strategic educational frameworks. My data-driven approaches have consistently delivered double-digit growth across diverse student populations. I'm selectively available for consulting, professional development, and strategic initiatives that align with my expertise in educational transformation.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+            <a href="/cdn-cgi/l/email-protection#61040c00080d210419000c110d044f020e0c" class="contact-link flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold text-purple-700 bg-white border border-purple-200 shadow hover:bg-purple-100 transition text-lg">
+              <i class="fas fa-envelope"></i><span><span class="__cf_email__" data-cfemail="543139353d3814312c35392438317a373b39">[email&#160;protected]</span></span>
+            </a>
+            <a href="https://www.linkedin.com/in/marlitha-williams" target="_blank" class="contact-link flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold text-purple-700 bg-white border border-purple-200 shadow hover:bg-purple-100 transition text-lg">
+              <i class="fab fa-linkedin"></i><span>LinkedIn Profile</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
-  </main>
-  <!-- Footer -->
-  <footer class="container py-6 text-center text-gray-500 text-sm" style="margin-bottom:0;">
-    &copy; 2024 Marlitha Williams. All rights reserved.
-  </footer>
 
-  <!-- JS: Mobile Nav & Anim, Scroll-aware header, Res Filter -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script>
-  // Mobile menu toggle
-  const navBtn = document.getElementById('toggle-nav');
-  const nav = document.getElementById('main-nav');
-  navBtn.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
+    <!-- Footer -->
+    <footer class="bg-white text-gray-500 py-8 border-t border-gray-100">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between px-4">
+        <div class="footer-text opacity-75 text-base select-none">© 2025 Marlitha Williams. All rights reserved.</div>
+        <div class="mt-3 md:mt-0 flex space-x-4">
+          <a href="#" class="text-xl opacity-75 hover:text-purple-700 transition"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-xl opacity-75 hover:text-pink-500 transition"><i class="fas fa-mobile-alt"></i></a>
+          <a href="#" class="text-xl opacity-75 hover:text-yellow-400 transition"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- Typewriter Effect for Titles -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    const words = [
+      "Creative Educator",
+      "Curriculum Innovator",
+      "Literacy Leader",
+      "Educational Strategist",
+      "K-8 Specialist"
+    ];
+    let wordIndex = 0;
+    let letterIndex = 0;
+    const typingSpeed = 92;
+    const pauseBetweenWords = 1750;
+    const eraseSpeed = 44;
+    const typewriter = document.getElementById('typewriter');
 
-  // Auto-close mobile menu when a link is clicked
-  document.querySelectorAll('.main-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-    });
-  });
-
-  // Scroll-aware compact header
-  window.addEventListener('scroll', () => {
-    const sh = document.getElementById('hdr');
-    if (window.scrollY > 60) {
-      sh.classList.add('scrolled');
-    } else {
-      sh.classList.remove('scrolled');
+    function typeWord() {
+      if (letterIndex < words[wordIndex].length) {
+        typewriter.textContent += words[wordIndex].charAt(letterIndex);
+        letterIndex++;
+        setTimeout(typeWord, typingSpeed);
+      } else {
+        setTimeout(eraseWord, pauseBetweenWords);
+      }
     }
-  });
 
-  // Fade-ins for sections
-  document.addEventListener('DOMContentLoaded', function () {
-    const observerOptions = {
-      threshold: 0.18,
-      rootMargin: "0px 0px -100px 0px"
-    };
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  });
+    function eraseWord() {
+      if (letterIndex > 0) {
+        typewriter.textContent = words[wordIndex].substring(0, letterIndex - 1);
+        letterIndex--;
+        setTimeout(eraseWord, eraseSpeed);
+      } else {
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeWord, typingSpeed);
+      }
+    }
 
-  // Category filter for resources
-  const catBtns = document.querySelectorAll('.category-btn');
-  const resCards = document.querySelectorAll('.resource-card');
-  catBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      catBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const cat = btn.dataset.category;
-      resCards.forEach(card => {
-        if (cat === 'all' || card.dataset.category === cat) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+    document.addEventListener('DOMContentLoaded', function() {
+      typeWord();
     });
-  });
-
-  // Ensure all resource cards are visible on load
-window.addEventListener('load', () => {
-  document.querySelectorAll('.resource-card').forEach(card => {
-    card.style.display = 'block';
-  });
-});
-</script>
+  </script>
 </body>
 </html>
 
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrn1s7xskohRyeNSWdcHXIBSsktx6k8SjY0rLpAb9SYdHdhhZo6vafC0pwBQnF7I9my9sJ4JcSJzRZc6Wjl6irkSZShyQt7YDCcBE0b7COWJK9kDiQgFK6Et2smMGQW%2F0CDfcSS0tMFSAO%2FrRORfd7EQSzWELGNbMXiRcynKNecHilW2o1oGymvnu1ImjQmXOKlLdAOIAEdrE053p8ZlqfSPg7ig%2BiUTt8wKKyqgPNes%2BE5G7k6xKzMOYFDck7H3CEw2HUSmcIliI0KLHd2QFg5eoF7CiLDSAnzKZSJB3rFPJswIdBCk4UcXtwtwsoPzeOePhhs6%2BneIRE3Hhd7WBibHGL27Of7IMTyXysaqXa7upmHN8bdkok8OK9K%2BMb%2FZgw8QigXseoaEzpXSg5I2jKMWzPYdbUZLboq5pWMABEje17J1zXvAgfWpv4N8G08Vb4XHA08x6Bi2bWtkW2ptDnurR2gkmydHRyem0g8Od46Ggfhq7uxU%2BQG34kRhsbUSop0ke8BDrYpj7D7r%2FQQR9%2BU%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrqduVVXY0Jcpa7CLMgBbBmWtnHNb5zYRWQHVgyLeqqADshIK9R%2Fur2C67hyfZ46LOnXhXvv0e%2BYuw6OGRINDcVApDSD7PrC0GJCYWC%2FL5Z3EqFbgzKYcrLE0VAxjihiNs87N5btt51cY4RW9vsv0X6mw5ssv1SMRPSv0bcPAmSqpn4WjEUluMCKv%2BdmoRIGsOJOZqCIkEjqu731IKhwFxeNWcp8bfEKGoopzsan9M9PlHlpr8rZKApU62ojLxk5TfW8Gsol%2BG7T4CyxmV2kL85zI3zEBuHIUUxuOjQhTz5QsRu%2Fqqe0bLl4tqd4BHu%2FE9wIvxskaoWIFq0Cbalok%2BI5ztbQn3zZxGKbgNfmbptgvV6jDBAXrZQCiJ%2F9pjCCFbX945vG8vLZkRroCCgXY%2FqWvZXjZP4ed4JK%2BixW2B3185To59aAbD3crXtV6znf8SZAvPwiDpeha1tH6yWU4sR%2Fpmzt72rZuhGpUdynjysMiU4G5XCuS0MRaSoJpG7waRt3faH%2BIVobbIRAd0pfLas%3D";
         window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrn1s7xskohRyeNSWdcHXIBSsktx6k8SjY0rLpAb9SYdHdhhZo6vafC0pwBQnF7I9my9sJ4JcSJzRZc6Wjl6irkSZShyQt7YDCcBE0b7COWJK9kDiQgFK6Et2smMGQW/0CDfcSS0tMFSAO/rRORfd7EQSzWELGNbMXiRcynKNecHilW2o1oGymvnu1ImjQmXOKlLdAOIAEdrE053p8ZlqfSPg7ig+iUTt8wKKyqgPNes+E5G7k6xKzMOYFDck7H3CEw2HUSmcIliI0KLHd2QFg5eoF7CiLDSAnzKZSJB3rFPJswIdBCk4UcXtwtwsoPzeOePhhs6+neIRE3Hhd7WBibHGL27Of7IMTyXysaqXa7upmHN8bdkok8OK9K+Mb/Zgw8QigXseoaEzpXSg5I2jKMWzPYdbUZLboq5pWMABEje17J1zXvAgfWpv4N8G08Vb4XHA08x6Bi2bWtkW2ptDnurR2gkmydHRyem0g8Od46Ggfhq7uxU+QG34kRhsbUSop0ke8BDrYpj7D7r/QQR9+U=";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrqduVVXY0Jcpa7CLMgBbBmWtnHNb5zYRWQHVgyLeqqADshIK9R/ur2C67hyfZ46LOnXhXvv0e+Yuw6OGRINDcVApDSD7PrC0GJCYWC/L5Z3EqFbgzKYcrLE0VAxjihiNs87N5btt51cY4RW9vsv0X6mw5ssv1SMRPSv0bcPAmSqpn4WjEUluMCKv+dmoRIGsOJOZqCIkEjqu731IKhwFxeNWcp8bfEKGoopzsan9M9PlHlpr8rZKApU62ojLxk5TfW8Gsol+G7T4CyxmV2kL85zI3zEBuHIUUxuOjQhTz5QsRu/qqe0bLl4tqd4BHu/E9wIvxskaoWIFq0Cbalok+I5ztbQn3zZxGKbgNfmbptgvV6jDBAXrZQCiJ/9pjCCFbX945vG8vLZkRroCCgXY/qWvZXjZP4ed4JK+ixW2B3185To59aAbD3crXtV6znf8SZAvPwiDpeha1tH6yWU4sR/pmzt72rZuhGpUdynjysMiU4G5XCuS0MRaSoJpG7waRt3faH+IVobbIRAd0pfLas=";
     </script>
-
-  
+    
