@@ -112,30 +112,27 @@
     </nav>
 
     <!-- Hero Section with Backdrop Image -->
-    <section class="hero grid md:grid-cols-2 gap-8 items-center min-h-[80vh] pt-2 relative z-10">
-      <!-- Added backdrop image in CSS above with ::before pseudo-element -->
-      
-      <div class="hero-content flex flex-col items-center md:items-start justify-center text-center md:text-left w-full">
-  <h1 class="name-title text-5xl md:text-6xl font-black font-playfair text-gray-800 leading-tight mb-6 tracking-tight select-none">
-    <span>MARLITHA</span><br>
-    <span>WILLIAMS</span>
-  </h1>
-  <div id="typewriter" class="text-2xl md:text-3xl font-semibold text-purple-700 h-10 md:h-12 overflow-hidden whitespace-nowrap"></div>
-</div>
-        <div class="typewriter" id="typewriter"></div>
-        <div class="flex space-x-4 mt-6">
-          <a href="april.resume.html" class="btn btn-primary px-7 py-3 rounded-lg bg-purple-700 text-white font-bold shadow hover:bg-purple-800 transition duration-150">
-            <i class="fas fa-file-alt mr-2"></i>Resume
-          </a>
-          <a href="#about" class="btn btn-outline px-7 py-3 rounded-lg border-2 border-purple-700 text-purple-700 font-bold bg-transparent hover:bg-purple-100 transition duration-150">
-            <i class="fas fa-user mr-2"></i>About Me
-          </a>
-        </div>
-      </div>
-      <div class="flex flex-col items-center justify-center relative mt-12 md:mt-0">
-      
-      </div>
-    </section>
+<script>
+const words = [
+  "Creative Educator",
+  "Curriculum Innovator",
+  "Literacy Leader",
+  "Educational Strategist",
+  "K-8 Specialist"
+];
+let wordIndex = 0;
+const typewriter = document.getElementById('typewriter');
+
+function showWord() {
+  typewriter.textContent = words[wordIndex];
+  wordIndex = (wordIndex + 1) % words.length;
+  setTimeout(showWord, 2500);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  showWord();
+});
+</script>
 
     <!-- About Me Section -->
     <section id="about" class="relative z-10">
