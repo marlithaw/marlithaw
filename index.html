@@ -7,9 +7,8 @@
 
   <!-- TailwindCSS v2.2.19 via jsDelivr CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Google Fonts: Playfair Display & Poppins -->
-  <link href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@3.3.1/index.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@3.3.1/index.css" rel="stylesheet">
+  <!-- Updated Google Fonts: EB Garamond and Quicksand -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;700&family=Quicksand:wght@400;500;600;700&family=Cormorant+Garamond:wght@700&family=Libre+Baskerville&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
   <!-- Font Awesome 6.5.2 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
   <style>
@@ -17,18 +16,18 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: 'Poppins', Arial, sans-serif;
+      font-family: 'Quicksand', Arial, sans-serif;
       background: #f6f6f6 url('https://images.unsplash.com/photo-1611374383437-faa7c120bc0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
       color: #6b7280;
       overflow-x: hidden;
       min-width: 100vw;
     }
     .font-playfair {
-      font-family: 'Playfair Display', serif !important;
+      font-family: 'EB Garamond', serif !important;
     }
     /* Typewriter effect styles */
     .typewriter {
-      font-family: 'Courier New', monospace;
+      font-family: 'Spectral', serif;
       font-size: 2.2rem;
       font-weight: 700;
       color: #7267db;
@@ -54,7 +53,7 @@
     /* Section Styling for PDF friendliness */
     section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
     /* Card hover for desktop only, static for PDF/print */
-     {
+    @media print {
       .hover\:shadow-xl,
       .hover\:transform { box-shadow: none !important; transform: none !important; }
     }
@@ -69,6 +68,25 @@
     }
     /* Make sure no horizontal scroll for PDF */
     html { overflow-x: hidden !important; }
+    
+    /* Hero section backdrop styling */
+    .hero {
+      position: relative;
+    }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://images.unsplash.com/photo-1611374383437-faa7c120bc0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1; /* Nearly transparent */
+      z-index: -1;
+    }
   </style>
 </head>
 <body class="relative min-h-screen">
@@ -91,8 +109,10 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Backdrop Image -->
     <section class="hero grid md:grid-cols-2 gap-8 items-center min-h-[80vh] pt-2 relative z-10">
+      <!-- Added backdrop image in CSS above with ::before pseudo-element -->
+      
       <div class="hero-content flex flex-col justify-center">
         <h1 class="name-title text-5xl md:text-6xl font-black font-playfair text-gray-800 leading-tight mb-2 tracking-tight select-none">
           <span>MARLITHA</span><br>
@@ -160,33 +180,43 @@
           <h2 class="section-title font-playfair text-3xl md:text-4xl font-bold text-gray-800 mb-2">Educational Impact</h2>
           <p class="text-lg text-gray-600">Transforming learning experiences through strategic frameworks and data-driven approaches</p>
         </div>
-        <div class="impact-grid grid md:grid-cols-3 gap-8">
-          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
-            <span class="impact-icon text-3xl mb-3 text-purple-700">📚</span>
-            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Literacy Leadership</h3>
-            <p class="impact-text text-gray-700">Strategic literacy frameworks that center equity and drive measurable growth across diverse student populations.</p>
-            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">+32%</span> 
-              improvement for English Learners through targeted academic language interventions.
-            </p>
-          </div>
-          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
-            <span class="impact-icon text-3xl mb-3 text-purple-700">💡</span>
-            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Innovative Curriculum</h3>
-            <p class="impact-text text-gray-700">Cross-disciplinary approaches that integrate literacy with STEM, SEL, and future-ready skills.</p>
-            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">12</span>
-              new curriculum modules implemented across grade levels with measurable outcomes.
-            </p>
-          </div>
-          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
-            <span class="impact-icon text-3xl mb-3 text-purple-700">🚀</span>
-            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">EdTech Integration</h3>
-            <p class="impact-text text-gray-700">Pioneering AI-ready literacy frameworks that bridge traditional foundations with emerging technologies.</p>
-            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">5</span>
-              technology integration models adopted district-wide for enhanced digital learning.
-            </p>
-          </div>
-        </div>
-      </div>
+<div class="impact-grid grid md:grid-cols-3 gap-8">
+  
+  <a href="literacy-leadership.pdf" target="_blank" class="block hover:no-underline">
+    <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl hover:bg-gray-100 transition duration-200 p-7 flex flex-col">
+      <span class="impact-icon text-3xl mb-3 text-purple-700">📚</span>
+      <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Literacy Leadership</h3>
+      <p class="impact-text text-gray-700">Strategic literacy frameworks that center equity and drive measurable growth across diverse student populations.</p>
+      <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">+32%</span> 
+        improvement for English Learners through targeted academic language interventions.
+      </p>
+    </div>
+  </a>
+
+  <a href="innovative-curriculum.pdf" target="_blank" class="block hover:no-underline">
+    <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl hover:bg-gray-100 transition duration-200 p-7 flex flex-col">
+      <span class="impact-icon text-3xl mb-3 text-purple-700">💡</span>
+      <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Innovative Curriculum</h3>
+      <p class="impact-text text-gray-700">Cross-disciplinary approaches that integrate literacy with STEM, SEL, and future-ready skills.</p>
+      <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">12</span>
+        new curriculum modules implemented across grade levels with measurable outcomes.
+      </p>
+    </div>
+  </a>
+
+  <a href="edtech-integration.pdf" target="_blank" class="block hover:no-underline">
+    <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl hover:bg-gray-100 transition duration-200 p-7 flex flex-col">
+      <span class="impact-icon text-3xl mb-3 text-purple-700">🚀</span>
+      <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">EdTech Integration</h3>
+      <p class="impact-text text-gray-700">Pioneering AI-ready literacy frameworks that bridge traditional foundations with emerging technologies.</p>
+      <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">5</span>
+        technology integration models adopted district-wide for enhanced digital learning.
+      </p>
+    </div>
+  </a>
+</div>
+
+
     </section>
 
     <!-- Resources Section -->
@@ -295,8 +325,8 @@
             As a proven educator with measurable impact in literacy leadership and curriculum innovation, I partner with forward-thinking schools and districts to implement strategic educational frameworks. My data-driven approaches have consistently delivered double-digit growth across diverse student populations. I'm selectively available for consulting, professional development, and strategic initiatives that align with my expertise in educational transformation.
           </p>
           <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
-            <a href="/cdn-cgi/l/email-protection#61040c00080d210419000c110d044f020e0c" class="contact-link flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold text-purple-700 bg-white border border-purple-200 shadow hover:bg-purple-100 transition text-lg">
-              <i class="fas fa-envelope"></i><span><span class="__cf_email__" data-cfemail="543139353d3814312c35392438317a373b39">[email&#160;protected]</span></span>
+            <a href="mailto:email@example.com" class="contact-link flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold text-purple-700 bg-white border border-purple-200 shadow hover:bg-purple-100 transition text-lg">
+              <i class="fas fa-envelope"></i><span>email@example.com</span>
             </a>
             <a href="https://www.linkedin.com/in/marlitha-williams" target="_blank" class="contact-link flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold text-purple-700 bg-white border border-purple-200 shadow hover:bg-purple-100 transition text-lg">
               <i class="fab fa-linkedin"></i><span>LinkedIn Profile</span>
@@ -319,7 +349,7 @@
     </footer>
   </div>
   <!-- Typewriter Effect for Titles -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const words = [
       "Creative Educator",
       "Curriculum Innovator",
@@ -361,11 +391,3 @@
   </script>
 </body>
 </html>
-
-    <script id="html_badge_script1">
-        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrqduVVXY0Jcpa7CLMgBbBmWtnHNb5zYRWQHVgyLeqqADshIK9R%2Fur2C67hyfZ46LOnXhXvv0e%2BYuw6OGRINDcVApDSD7PrC0GJCYWC%2FL5Z3EqFbgzKYcrLE0VAxjihiNs87N5btt51cY4RW9vsv0X6mw5ssv1SMRPSv0bcPAmSqpn4WjEUluMCKv%2BdmoRIGsOJOZqCIkEjqu731IKhwFxeNWcp8bfEKGoopzsan9M9PlHlpr8rZKApU62ojLxk5TfW8Gsol%2BG7T4CyxmV2kL85zI3zEBuHIUUxuOjQhTz5QsRu%2Fqqe0bLl4tqd4BHu%2FE9wIvxskaoWIFq0Cbalok%2BI5ztbQn3zZxGKbgNfmbptgvV6jDBAXrZQCiJ%2F9pjCCFbX945vG8vLZkRroCCgXY%2FqWvZXjZP4ed4JK%2BixW2B3185To59aAbD3crXtV6znf8SZAvPwiDpeha1tH6yWU4sR%2Fpmzt72rZuhGpUdynjysMiU4G5XCuS0MRaSoJpG7waRt3faH%2BIVobbIRAd0pfLas%3D";
-        window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrqduVVXY0Jcpa7CLMgBbBmWtnHNb5zYRWQHVgyLeqqADshIK9R/ur2C67hyfZ46LOnXhXvv0e+Yuw6OGRINDcVApDSD7PrC0GJCYWC/L5Z3EqFbgzKYcrLE0VAxjihiNs87N5btt51cY4RW9vsv0X6mw5ssv1SMRPSv0bcPAmSqpn4WjEUluMCKv+dmoRIGsOJOZqCIkEjqu731IKhwFxeNWcp8bfEKGoopzsan9M9PlHlpr8rZKApU62ojLxk5TfW8Gsol+G7T4CyxmV2kL85zI3zEBuHIUUxuOjQhTz5QsRu/qqe0bLl4tqd4BHu/E9wIvxskaoWIFq0Cbalok+I5ztbQn3zZxGKbgNfmbptgvV6jDBAXrZQCiJ/9pjCCFbX945vG8vLZkRroCCgXY/qWvZXjZP4ed4JK+ixW2B3185To59aAbD3crXtV6znf8SZAvPwiDpeha1tH6yWU4sR/pmzt72rZuhGpUdynjysMiU4G5XCuS0MRaSoJpG7waRt3faH+IVobbIRAd0pfLas=";
-    </script>
-    
