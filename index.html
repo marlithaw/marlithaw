@@ -7,8 +7,9 @@
 
   <!-- TailwindCSS v2.2.19 via jsDelivr CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Updated Google Fonts: EB Garamond and Quicksand -->
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;700&family=Quicksand:wght@400;500;600;700&family=Cormorant+Garamond:wght@700&family=Libre+Baskerville&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Playfair Display & Poppins -->
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@3.3.1/index.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@3.3.1/index.css" rel="stylesheet">
   <!-- Font Awesome 6.5.2 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
   <style>
@@ -16,18 +17,18 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: 'Quicksand', Arial, sans-serif;
-      background: #f6f6f6 url('hero-image-optimized.jpg(2)') no-repeat center center/cover;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #f6f6f6 url('hero-image-optimized (2).jpg') no-repeat center center/cover;
       color: #6b7280;
       overflow-x: hidden;
       min-width: 100vw;
     }
     .font-playfair {
-      font-family: 'EB Garamond', serif !important;
+      font-family: 'Playfair Display', serif !important;
     }
     /* Typewriter effect styles */
     .typewriter {
-      font-family: 'Spectral', serif;
+      font-family: 'Courier New', monospace;
       font-size: 2.2rem;
       font-weight: 700;
       color: #7267db;
@@ -68,25 +69,6 @@
     }
     /* Make sure no horizontal scroll for PDF */
     html { overflow-x: hidden !important; }
-    
-    /* Hero section backdrop styling */
-    .hero {
-      position: relative;
-    }
-    
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('hero-image-optimized (2).jpg');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.3; /* Increased transparency from 0.3 to 0.15 */
-      z-index: -1;
-    }
   </style>
 </head>
 <body class="relative min-h-screen">
@@ -97,7 +79,7 @@
     <!-- Navigation -->
     <nav class="flex justify-between items-center py-8 relative z-20">
       <div class="text-2xl font-extrabold tracking-wider font-playfair text-purple-700 relative select-none" style="letter-spacing:0.12em">
-        <!-- Removed "MW" from hero section -->
+        MW
         <span class="absolute left-0 bottom-[-0.12em] w-full h-1 block bg-pink-400 opacity-70 rounded-md" style="width:60%;"></span>
       </div>
       <div class="hidden md:flex space-x-8 font-semibold text-lg">
@@ -109,10 +91,8 @@
       </div>
     </nav>
 
-    <!-- Hero Section with Backdrop Image -->
+    <!-- Hero Section -->
     <section class="hero grid md:grid-cols-2 gap-8 items-center min-h-[80vh] pt-2 relative z-10">
-      <!-- Increased transparency in CSS above with opacity: 0.15 -->
-      
       <div class="hero-content flex flex-col justify-center">
         <h1 class="name-title text-5xl md:text-6xl font-black font-playfair text-gray-800 leading-tight mb-2 tracking-tight select-none">
           <span>MARLITHA</span><br>
@@ -120,7 +100,7 @@
         </h1>
         <div class="typewriter" id="typewriter"></div>
         <div class="flex space-x-4 mt-6">
-          <a href="april.resume.html" class="btn btn-primary px-7 py-3 rounded-lg bg-purple-700 text-white font-bold shadow hover:bg-purple-800 transition duration-150">
+          <a href="https://marlithaw.github.io/april.resume.html" class="btn btn-primary px-7 py-3 rounded-lg bg-purple-700 text-white font-bold shadow hover:bg-purple-800 transition duration-150">
             <i class="fas fa-file-alt mr-2"></i>Resume
           </a>
           <a href="#about" class="btn btn-outline px-7 py-3 rounded-lg border-2 border-purple-700 text-purple-700 font-bold bg-transparent hover:bg-purple-100 transition duration-150">
@@ -129,7 +109,31 @@
         </div>
       </div>
       <div class="flex flex-col items-center justify-center relative mt-12 md:mt-0">
-      <!-- Cards removed from hero section -->
+        <div class="profile-image rounded-full w-72 h-72 flex items-center justify-center bg-gradient-to-br from-purple-100 to-white shadow-lg mb-4 relative border-8 border-white" style="width:300px;height:300px;">
+          <span class="text-8xl md:text-9xl font-playfair font-black text-purple-700 select-none">M</span>
+        </div>
+        <div class="stats-container w-full grid grid-cols-2 gap-4">
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Student Growth</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">+31%</div>
+            <div class="stat-label text-gray-500 opacity-85">Economically Disadvantaged</div>
+          </div>
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Learning Impact</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">+42%</div>
+            <div class="stat-label text-gray-500 opacity-85">Special Education</div>
+          </div>
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Digital Integration</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">5</div>
+            <div class="stat-label text-gray-500 opacity-85">New EdTech Frameworks</div>
+          </div>
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Literacy Systems</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">12+</div>
+            <div class="stat-label text-gray-500 opacity-85">Curriculum Modules</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -156,43 +160,33 @@
           <h2 class="section-title font-playfair text-3xl md:text-4xl font-bold text-gray-800 mb-2">Educational Impact</h2>
           <p class="text-lg text-gray-600">Transforming learning experiences through strategic frameworks and data-driven approaches</p>
         </div>
-<div class="impact-grid grid md:grid-cols-3 gap-8">
-  
-  <a href="literacy-leadership.pdf" target="_blank" class="block hover:no-underline">
-    <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl hover:bg-gray-100 transition duration-200 p-7 flex flex-col">
-      <span class="impact-icon text-3xl mb-3 text-purple-700">📚</span>
-      <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Literacy Leadership</h3>
-      <p class="impact-text text-gray-700">Strategic literacy frameworks that center equity and drive measurable growth across diverse student populations.</p>
-      <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">+32%</span> 
-        improvement for English Learners through targeted academic language interventions.
-      </p>
-    </div>
-  </a>
-
-  <a href="innovative-curriculum.pdf" target="_blank" class="block hover:no-underline">
-    <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl hover:bg-gray-100 transition duration-200 p-7 flex flex-col">
-      <span class="impact-icon text-3xl mb-3 text-purple-700">💡</span>
-      <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Innovative Curriculum</h3>
-      <p class="impact-text text-gray-700">Cross-disciplinary approaches that integrate literacy with STEM, SEL, and future-ready skills.</p>
-      <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">12</span>
-        new curriculum modules implemented across grade levels with measurable outcomes.
-      </p>
-    </div>
-  </a>
-
-  <a href="edtech-integration.pdf" target="_blank" class="block hover:no-underline">
-    <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl hover:bg-gray-100 transition duration-200 p-7 flex flex-col">
-      <span class="impact-icon text-3xl mb-3 text-purple-700">🚀</span>
-      <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">EdTech Integration</h3>
-      <p class="impact-text text-gray-700">Pioneering AI-ready literacy frameworks that bridge traditional foundations with emerging technologies.</p>
-      <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">5</span>
-        technology integration models adopted district-wide for enhanced digital learning.
-      </p>
-    </div>
-  </a>
-</div>
-
-
+        <div class="impact-grid grid md:grid-cols-3 gap-8">
+          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
+            <span class="impact-icon text-3xl mb-3 text-purple-700">📚</span>
+            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Literacy Leadership</h3>
+            <p class="impact-text text-gray-700">Strategic literacy frameworks that center equity and drive measurable growth across diverse student populations.</p>
+            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">+32%</span> 
+              improvement for English Learners through targeted academic language interventions.
+            </p>
+          </div>
+          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
+            <span class="impact-icon text-3xl mb-3 text-purple-700">💡</span>
+            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Innovative Curriculum</h3>
+            <p class="impact-text text-gray-700">Cross-disciplinary approaches that integrate literacy with STEM, SEL, and future-ready skills.</p>
+            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">12</span>
+              new curriculum modules implemented across grade levels with measurable outcomes.
+            </p>
+          </div>
+          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
+            <span class="impact-icon text-3xl mb-3 text-purple-700">🚀</span>
+            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">EdTech Integration</h3>
+            <p class="impact-text text-gray-700">Pioneering AI-ready literacy frameworks that bridge traditional foundations with emerging technologies.</p>
+            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">5</span>
+              technology integration models adopted district-wide for enhanced digital learning.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Resources Section -->
@@ -212,7 +206,7 @@
               <div class="resource-content">
                 <h4 class="resource-title text-lg font-bold text-gray-800">AI-Ready Literacy Guide</h4>
                 <p class="resource-description text-gray-600 mb-2">Strategic framework for integrating AI literacy alongside traditional reading and writing.</p>
-                <a href="https://www.instructionaldesign.org/" class="inline-block btn btn-outline border-purple-700 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-100 transition">Read Guide</a>
+                <a href="https://marlithaw.github.io/ai-ready-literacy.html" class="inline-block btn btn-outline border-purple-700 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-100 transition">Read Guide</a>
               </div>
             </div>
             <div class="resource-card bg-yellow-50 rounded-xl p-6 shadow hover:shadow-xl transition">
@@ -220,7 +214,7 @@
               <div class="resource-content">
                 <h4 class="resource-title text-lg font-bold text-gray-800">Literacy + AI Visual Framework</h4>
                 <p class="resource-description text-gray-600 mb-2">Visual mapping showing how literacy builds essential skills for AI-readiness.</p>
-                <a href="https://elearningindustry.com/" class="inline-block btn btn-outline border-yellow-600 text-yellow-700 px-4 py-2 rounded-lg hover:bg-yellow-100 transition">Open Framework</a>
+                <a href="https://marlithaw.github.io/literacy-ai-connection-visual-framework.html" class="inline-block btn btn-outline border-yellow-600 text-yellow-700 px-4 py-2 rounded-lg hover:bg-yellow-100 transition">Open Framework</a>
               </div>
             </div>
           </div>
@@ -235,7 +229,7 @@
               <div class="resource-content">
                 <h4 class="resource-title text-lg font-bold text-gray-800">Prepositional Phrase Toolkit</h4>
                 <p class="resource-description text-gray-600 mb-2">Strategies for K-5 reading and writing, vertically/horizontally aligned.</p>
-                <a href="https://www.learningsolutionsmag.com/" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Toolkit</a>
+                <a href="https://marlithaw.github.io/prepositional-phrases.html" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Toolkit</a>
               </div>
             </div>
             <div class="resource-card bg-green-50 rounded-xl p-6 shadow hover:shadow-xl transition">
@@ -243,7 +237,7 @@
               <div class="resource-content">
                 <h4 class="resource-title text-lg font-bold text-gray-800">Cross-Curricular Sample</h4>
                 <p class="resource-description text-gray-600 mb-2">Integrated lessons connecting reading, writing, STEM, SEL concepts.</p>
-                <a href="https://www.edutopia.org/" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Sample</a>
+                <a href="https://marlithaw.github.io/cross-curricular-instruction-sample.html" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Sample</a>
               </div>
             </div>
             <div class="resource-card bg-green-50 rounded-xl p-6 shadow hover:shadow-xl transition">
@@ -251,7 +245,7 @@
               <div class="resource-content">
                 <h4 class="resource-title text-lg font-bold text-gray-800">Scripted Substitute Lesson Plan</h4>
                 <p class="resource-description text-gray-600 mb-2">Ready-to-use lesson format for instructional continuity.</p>
-                <a href="https://www.teacherspayteachers.com/" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Template</a>
+                <a href="https://marlithaw.github.io/scripted-substitute-lesson-plan-example.html" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Template</a>
               </div>
             </div>
           </div>
@@ -266,7 +260,7 @@
               <div class="resource-content">
                 <h4 class="resource-title text-lg font-bold text-gray-800">Data Dashboard</h4>
                 <p class="resource-description text-gray-600 mb-2">Analytics tracking student outcomes, trends, and highlighting intervention opportunities.</p>
-                <a href="https://www.tableau.com/learn/articles/education-data-dashboards" class="inline-block btn btn-outline border-pink-600 text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-100 transition">Explore Dashboard</a>
+                <a href="https://marlithaw.github.io/data-dashboard.html" class="inline-block btn btn-outline border-pink-600 text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-100 transition">Explore Dashboard</a>
               </div>
             </div>
           </div>
@@ -281,7 +275,7 @@
               <div class="resource-content">
                 <h4 class="resource-title text-lg font-bold text-gray-800">Instructional Artifacts</h4>
                 <p class="resource-description text-gray-600 mb-2">Planning frameworks and assessment samples for future-ready literacy skill development.</p>
-                <a href="https://www.readwritethink.org/" class="inline-block btn btn-outline border-yellow-700 text-yellow-700 px-4 py-2 rounded-lg hover:bg-yellow-100 transition">Open Template</a>
+                <a href="https://marlithaw.github.io/future-ready.html" class="inline-block btn btn-outline border-yellow-700 text-yellow-700 px-4 py-2 rounded-lg hover:bg-yellow-100 transition">Open Template</a>
               </div>
             </div>
           </div>
