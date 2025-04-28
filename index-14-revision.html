@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marlitha Williams - Creative Educator & Curriculum Innovator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TailwindCSS v2.2.19 via jsDelivr CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Google Fonts: Playfair Display & Poppins -->
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@3.3.1/index.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@3.3.1/index.css" rel="stylesheet">
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #f6f6f6 url('https://images.unsplash.com/photo-1611374383437-faa7c120bc0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      color: #6b7280;
+      overflow-x: hidden;
+      min-width: 100vw;
+    }
+    .font-playfair {
+      font-family: 'Playfair Display', serif !important;
+    }
+    /* Typewriter effect styles */
+    .typewriter {
+      font-family: 'Courier New', monospace;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #7267db;
+      border-right: 2px solid #7267db;
+      white-space: nowrap;
+      overflow: hidden;
+      height: 2.6rem;
+      margin-bottom: 2rem;
+    }
+    /* Hide scrollbar for PDF export optimization */
+    ::-webkit-scrollbar { display: none; }
+    /* Custom background elements (blur orbs) */
+    .bg-element {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.13;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .bg-1 { background: #7267db; width: 270px; height: 270px; top: -40px; left: -80px; }
+    .bg-2 { background: #f55a76; width: 350px; height: 350px; top: 320px; right: -140px; }
+    /* Section Styling for PDF friendliness */
+    section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+    /* Card hover for desktop only, static for PDF/print */
+     {
+      .hover\:shadow-xl,
+      .hover\:transform { box-shadow: none !important; transform: none !important; }
+    }
+    /* Responsive profile image size */
+    @media (max-width: 768px) {
+      .profile-image { width: 170px !important; height: 170px !important; }
+      .name-title { font-size: 2.6rem !important; }
+    }
+    @media (max-width: 1024px) {
+      .profile-image { width: 220px !important; height: 220px !important; }
+      .name-title { font-size: 3.4rem !important; }
+    }
+    /* Make sure no horizontal scroll for PDF */
+    html { overflow-x: hidden !important; }
+  </style>
+</head>
+<body class="relative min-h-screen">
+  <div class="bg-element bg-1"></div>
+  <div class="bg-element bg-2"></div>
+  <div class="max-w-6xl mx-auto px-6 w-full relative z-10">
+
+    <!-- Navigation -->
+    <nav class="flex justify-between items-center py-8 relative z-20">
+      <div class="text-2xl font-extrabold tracking-wider font-playfair text-purple-700 relative select-none" style="letter-spacing:0.12em">
+        MW
+        <span class="absolute left-0 bottom-[-0.12em] w-full h-1 block bg-pink-400 opacity-70 rounded-md" style="width:60%;"></span>
+      </div>
+      <div class="hidden md:flex space-x-8 font-semibold text-lg">
+        <a href="#about" class="hover:text-purple-700 transition">About Me</a>
+        <a href="#impact" class="hover:text-purple-700 transition">Impact</a>
+        <a href="#expertise" class="hover:text-purple-700 transition">Expertise</a>
+        <a href="#resources" class="hover:text-purple-700 transition">Resources</a>
+        <a href="#contact" class="hover:text-purple-700 transition">Connect</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero grid md:grid-cols-2 gap-8 items-center min-h-[80vh] pt-2 relative z-10">
+      <div class="hero-content flex flex-col justify-center">
+        <h1 class="name-title text-5xl md:text-6xl font-black font-playfair text-gray-800 leading-tight mb-2 tracking-tight select-none">
+          <span>MARLITHA</span><br>
+          <span>WILLIAMS</span>
+        </h1>
+        <div class="typewriter" id="typewriter"></div>
+        <div class="flex space-x-4 mt-6">
+          <a href="april.resume.html" class="btn btn-primary px-7 py-3 rounded-lg bg-purple-700 text-white font-bold shadow hover:bg-purple-800 transition duration-150">
+            <i class="fas fa-file-alt mr-2"></i>Resume
+          </a>
+          <a href="#about" class="btn btn-outline px-7 py-3 rounded-lg border-2 border-purple-700 text-purple-700 font-bold bg-transparent hover:bg-purple-100 transition duration-150">
+            <i class="fas fa-user mr-2"></i>About Me
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-center relative mt-12 md:mt-0">
+        <div class="profile-image rounded-full w-72 h-72 flex items-center justify-center bg-gradient-to-br from-purple-100 to-white shadow-lg mb-4 relative border-8 border-white" style="width:300px;height:300px;">
+          <span class="text-8xl md:text-9xl font-playfair font-black text-purple-700 select-none">M</span>
+        </div>
+        <div class="stats-container w-full grid grid-cols-2 gap-4">
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Student Growth</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">+31%</div>
+            <div class="stat-label text-gray-500 opacity-85">Economically Disadvantaged</div>
+          </div>
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Learning Impact</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">+42%</div>
+            <div class="stat-label text-gray-500 opacity-85">Special Education</div>
+          </div>
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Digital Integration</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">5</div>
+            <div class="stat-label text-gray-500 opacity-85">New EdTech Frameworks</div>
+          </div>
+          <div class="stat-card bg-white rounded-xl px-6 py-5 shadow hover:shadow-xl transition duration-200">
+            <div class="stat-title font-bold text-gray-700 mb-1">Literacy Systems</div>
+            <div class="stat-value text-3xl font-extrabold text-purple-700 font-playfair">12+</div>
+            <div class="stat-label text-gray-500 opacity-85">Curriculum Modules</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="relative z-10">
+      <div class="max-w-3xl mx-auto text-center mb-2">
+        <h2 class="section-title font-playfair text-4xl font-bold text-gray-800 mb-6">About Me</h2>
+        <p class="text-lg md:text-xl text-gray-700 mb-4">
+          I lead with clarity, care, and strategy&nbsp;&mdash;&nbsp;bringing structure to ideas and purpose to systems. With roots in education, counseling, and law, I build learning ecosystems that center people and drive sustainable impact. My work bridges instruction, leadership, and actionable outcomes through innovative design.  
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center mb-2">
+          <span class="inline-block px-4 py-2 rounded-3xl bg-purple-100 text-purple-700 font-semibold text-base border border-purple-200">Instructional Strategy</span>
+          <span class="inline-block px-4 py-2 rounded-3xl bg-pink-100 text-pink-600 font-semibold text-base border border-pink-200">Curriculum Innovation</span>
+          <span class="inline-block px-4 py-2 rounded-3xl bg-yellow-100 text-yellow-700 font-semibold text-base border border-yellow-200">Team Capacity Building</span>
+          <span class="inline-block px-4 py-2 rounded-3xl bg-green-100 text-green-700 font-semibold text-base border border-green-200">Equity-Minded Design</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title font-playfair text-3xl md:text-4xl font-bold text-gray-800 mb-2">Educational Impact</h2>
+          <p class="text-lg text-gray-600">Transforming learning experiences through strategic frameworks and data-driven approaches</p>
+        </div>
+        <div class="impact-grid grid md:grid-cols-3 gap-8">
+          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
+            <span class="impact-icon text-3xl mb-3 text-purple-700">📚</span>
+            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Literacy Leadership</h3>
+            <p class="impact-text text-gray-700">Strategic literacy frameworks that center equity and drive measurable growth across diverse student populations.</p>
+            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">+32%</span> 
+              improvement for English Learners through targeted academic language interventions.
+            </p>
+          </div>
+          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
+            <span class="impact-icon text-3xl mb-3 text-purple-700">💡</span>
+            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Innovative Curriculum</h3>
+            <p class="impact-text text-gray-700">Cross-disciplinary approaches that integrate literacy with STEM, SEL, and future-ready skills.</p>
+            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">12</span>
+              new curriculum modules implemented across grade levels with measurable outcomes.
+            </p>
+          </div>
+          <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl transition duration-200 p-7 flex flex-col">
+            <span class="impact-icon text-3xl mb-3 text-purple-700">🚀</span>
+            <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">EdTech Integration</h3>
+            <p class="impact-text text-gray-700">Pioneering AI-ready literacy frameworks that bridge traditional foundations with emerging technologies.</p>
+            <p><span class="stat-highlight font-playfair text-2xl text-purple-700 font-bold">5</span>
+              technology integration models adopted district-wide for enhanced digital learning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="relative z-10 bg-white rounded-t-3xl pb-4 pt-12">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title font-playfair text-3xl md:text-4xl font-bold text-gray-800 mb-2">Educational Resources</h2>
+          <p class="text-lg text-gray-600">Organized toolkits and frameworks for classroom and leadership excellence</p>
+        </div>
+
+        <!-- Literacy - AI Toolkit -->
+        <div class="mb-10">
+          <h3 class="text-2xl font-bold font-playfair mb-4 text-purple-700 flex items-center"><i class="fas fa-microchip mr-2"></i>Literacy&nbsp;&ndash;&nbsp;AI Toolkit</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div class="resource-card bg-purple-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-purple-700 mb-3"><i class="fas fa-robot"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">AI-Ready Literacy Guide</h4>
+                <p class="resource-description text-gray-600 mb-2">Strategic framework for integrating AI literacy alongside traditional reading and writing.</p>
+                <a href="ai-ready-literacy.html" class="inline-block btn btn-outline border-purple-700 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-100 transition">Read Guide</a>
+              </div>
+            </div>
+            <div class="resource-card bg-yellow-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-yellow-700 mb-3"><i class="fas fa-network-wired"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Literacy + AI Visual Framework</h4>
+                <p class="resource-description text-gray-600 mb-2">Visual mapping showing how literacy builds essential skills for AI-readiness.</p>
+                <a href="literacy-ai-connection-visual-framework.html" class="inline-block btn btn-outline border-yellow-600 text-yellow-700 px-4 py-2 rounded-lg hover:bg-yellow-100 transition">Open Framework</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cross-Curricular Prepositional Phrases Toolkit -->
+        <div class="mb-10">
+          <h3 class="text-2xl font-bold font-playfair mb-4 text-green-700 flex items-center"><i class="fas fa-link mr-2"></i>Sample Cross-Curricular w/ Prepositional Phrases Toolkit</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div class="resource-card bg-green-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-green-700 mb-3"><i class="fas fa-book"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Prepositional Phrase Toolkit</h4>
+                <p class="resource-description text-gray-600 mb-2">Strategies for K-5 reading and writing, vertically/horizontally aligned.</p>
+                <a href="prepositional-phrases.html" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Toolkit</a>
+              </div>
+            </div>
+            <div class="resource-card bg-green-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-green-700 mb-3"><i class="fas fa-stream"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Cross-Curricular Sample</h4>
+                <p class="resource-description text-gray-600 mb-2">Integrated lessons connecting reading, writing, STEM, SEL concepts.</p>
+                <a href="cross-curricular-instruction-sample.html" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Sample</a>
+              </div>
+            </div>
+            <div class="resource-card bg-green-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-green-700 mb-3"><i class="fas fa-file-alt"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Scripted Substitute Lesson Plan</h4>
+                <p class="resource-description text-gray-600 mb-2">Ready-to-use lesson format for instructional continuity.</p>
+                <a href="scripted-substitute-lesson-plan-example.html" class="inline-block btn btn-outline border-green-600 text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 transition">View Template</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Dashboard/Other Resources -->
+        <div class="mb-10">
+          <h3 class="text-2xl font-bold font-playfair mb-4 text-pink-700 flex items-center"><i class="fas fa-chart-line mr-2"></i>Data Dashboard</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div class="resource-card bg-pink-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-pink-600 mb-3"><i class="fas fa-database"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Data Dashboard</h4>
+                <p class="resource-description text-gray-600 mb-2">Analytics tracking student outcomes, trends, and highlighting intervention opportunities.</p>
+                <a href="data-dashboard.html" class="inline-block btn btn-outline border-pink-600 text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-100 transition">Explore Dashboard</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instructional Artifacts - formerly Future-Ready Literacy Template -->
+        <div>
+          <h3 class="text-2xl font-bold font-playfair mb-4 text-yellow-700 flex items-center"><i class="fas fa-lightbulb mr-2"></i>Instructional Artifacts &ndash; Assessments and Activities</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div class="resource-card bg-yellow-50 rounded-xl p-6 shadow hover:shadow-xl transition">
+              <div class="resource-image flex items-center justify-center text-4xl text-yellow-700 mb-3"><i class="fas fa-tasks"></i></div>
+              <div class="resource-content">
+                <h4 class="resource-title text-lg font-bold text-gray-800">Instructional Artifacts</h4>
+                <p class="resource-description text-gray-600 mb-2">Planning frameworks and assessment samples for future-ready literacy skill development.</p>
+                <a href="future-ready.html" class="inline-block btn btn-outline border-yellow-700 text-yellow-700 px-4 py-2 rounded-lg hover:bg-yellow-100 transition">Open Template</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative z-10 bg-purple-50 py-16">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-8">
+          <h2 class="section-title font-playfair text-3xl md:text-4xl font-bold text-purple-800 mb-2">Let's Connect</h2>
+          <p class="text-lg text-purple-700">Ready to collaborate on educational innovation?</p>
+        </div>
+        <div class="contact-content text-center">
+          <p class="text-gray-700 mb-8 text-lg">
+            As a proven educator with measurable impact in literacy leadership and curriculum innovation, I partner with forward-thinking schools and districts to implement strategic educational frameworks. My data-driven approaches have consistently delivered double-digit growth across diverse student populations. I'm selectively available for consulting, professional development, and strategic initiatives that align with my expertise in educational transformation.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+            <a href="/cdn-cgi/l/email-protection#61040c00080d210419000c110d044f020e0c" class="contact-link flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold text-purple-700 bg-white border border-purple-200 shadow hover:bg-purple-100 transition text-lg">
+              <i class="fas fa-envelope"></i><span><span class="__cf_email__" data-cfemail="543139353d3814312c35392438317a373b39">[email&#160;protected]</span></span>
+            </a>
+            <a href="https://www.linkedin.com/in/marlitha-williams" target="_blank" class="contact-link flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold text-purple-700 bg-white border border-purple-200 shadow hover:bg-purple-100 transition text-lg">
+              <i class="fab fa-linkedin"></i><span>LinkedIn Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-500 py-8 border-t border-gray-100">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between px-4">
+        <div class="footer-text opacity-75 text-base select-none">© 2025 Marlitha Williams. All rights reserved.</div>
+        <div class="mt-3 md:mt-0 flex space-x-4">
+          <a href="#" class="text-xl opacity-75 hover:text-purple-700 transition"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-xl opacity-75 hover:text-pink-500 transition"><i class="fas fa-mobile-alt"></i></a>
+          <a href="#" class="text-xl opacity-75 hover:text-yellow-400 transition"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- Typewriter Effect for Titles -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    const words = [
+      "Creative Educator",
+      "Curriculum Innovator",
+      "Literacy Leader",
+      "Educational Strategist",
+      "K-8 Specialist"
+    ];
+    let wordIndex = 0;
+    let letterIndex = 0;
+    const typingSpeed = 92;
+    const pauseBetweenWords = 1750;
+    const eraseSpeed = 44;
+    const typewriter = document.getElementById('typewriter');
+
+    function typeWord() {
+      if (letterIndex < words[wordIndex].length) {
+        typewriter.textContent += words[wordIndex].charAt(letterIndex);
+        letterIndex++;
+        setTimeout(typeWord, typingSpeed);
+      } else {
+        setTimeout(eraseWord, pauseBetweenWords);
+      }
+    }
+
+    function eraseWord() {
+      if (letterIndex > 0) {
+        typewriter.textContent = words[wordIndex].substring(0, letterIndex - 1);
+        letterIndex--;
+        setTimeout(eraseWord, eraseSpeed);
+      } else {
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeWord, typingSpeed);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      typeWord();
+    });
+  </script>
+</body>
+</html>
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrqduVVXY0Jcpa7CLMgBbBmWtnHNb5zYRWQHVgyLeqqADshIK9R%2Fur2C67hyfZ46LOnXhXvv0e%2BYuw6OGRINDcVApDSD7PrC0GJCYWC%2FL5Z3EqFbgzKYcrLE0VAxjihiNs87N5btt51cY4RW9vsv0X6mw5ssv1SMRPSv0bcPAmSqpn4WjEUluMCKv%2BdmoRIGsOJOZqCIkEjqu731IKhwFxeNWcp8bfEKGoopzsan9M9PlHlpr8rZKApU62ojLxk5TfW8Gsol%2BG7T4CyxmV2kL85zI3zEBuHIUUxuOjQhTz5QsRu%2Fqqe0bLl4tqd4BHu%2FE9wIvxskaoWIFq0Cbalok%2BI5ztbQn3zZxGKbgNfmbptgvV6jDBAXrZQCiJ%2F9pjCCFbX945vG8vLZkRroCCgXY%2FqWvZXjZP4ed4JK%2BixW2B3185To59aAbD3crXtV6znf8SZAvPwiDpeha1tH6yWU4sR%2Fpmzt72rZuhGpUdynjysMiU4G5XCuS0MRaSoJpG7waRt3faH%2BIVobbIRAd0pfLas%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrqduVVXY0Jcpa7CLMgBbBmWtnHNb5zYRWQHVgyLeqqADshIK9R/ur2C67hyfZ46LOnXhXvv0e+Yuw6OGRINDcVApDSD7PrC0GJCYWC/L5Z3EqFbgzKYcrLE0VAxjihiNs87N5btt51cY4RW9vsv0X6mw5ssv1SMRPSv0bcPAmSqpn4WjEUluMCKv+dmoRIGsOJOZqCIkEjqu731IKhwFxeNWcp8bfEKGoopzsan9M9PlHlpr8rZKApU62ojLxk5TfW8Gsol+G7T4CyxmV2kL85zI3zEBuHIUUxuOjQhTz5QsRu/qqe0bLl4tqd4BHu/E9wIvxskaoWIFq0Cbalok+I5ztbQn3zZxGKbgNfmbptgvV6jDBAXrZQCiJ/9pjCCFbX945vG8vLZkRroCCgXY/qWvZXjZP4ed4JK+ixW2B3185To59aAbD3crXtV6znf8SZAvPwiDpeha1tH6yWU4sR/pmzt72rZuhGpUdynjysMiU4G5XCuS0MRaSoJpG7waRt3faH+IVobbIRAd0pfLas=";
+    </script>
+    
