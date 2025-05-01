@@ -1,15 +1,16 @@
-<!DOCTYPE html>
+ng
+Copy<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Marlitha Williams - Creative Educator & Curriculum Innovator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- TailwindCSS v2.2.19 via jsDelivr CDN -->
+  <!-- TailwindCSS via jsDelivr CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Updated Google Fonts: EB Garamond and Quicksand -->
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;700&family=Quicksand:wght@400;500;600;700&family=Cormorant+Garamond:wght@700&family=Libre+Baskerville&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome via jsDelivr -->
+  <!-- Font Awesome via jsDelivr CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
   <style>
     html {
@@ -30,8 +31,8 @@
       font-family: 'Spectral', serif;
       font-size: 2.2rem;
       font-weight: 700;
-      color: #3b82f6; /* Warmer blue */
-      border-right: 2px solid #3b82f6; /* Warmer blue */
+      color: #3b82f6; /* Warmer blue color */
+      border-right: 2px solid #3b82f6;
       white-space: nowrap;
       overflow: hidden;
       height: 2.6rem;
@@ -48,7 +49,7 @@
       z-index: 0;
       pointer-events: none;
     }
-    .bg-1 { background: #3b82f6; width: 270px; height: 270px; top: -40px; left: -80px; } /* Warmer blue */
+    .bg-1 { background: #3b82f6; width: 270px; height: 270px; top: -40px; left: -80px; }
     .bg-2 { background: #f55a76; width: 350px; height: 350px; top: 320px; right: -140px; }
     /* Section Styling for PDF friendliness */
     section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
@@ -87,80 +88,94 @@
       opacity: 0.2; /* Nearly transparent */
       z-index: -1;
     }
-
-    /* Resource Library Styling */
-    .resource-card {
-      transition: all 0.3s ease;
-      height: 100%;
-    }
-    .resource-preview {
-      height: 180px;
-      overflow: hidden;
-      position: relative;
-      background-color: #f5f7ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      border-radius: 0.5rem;
-    }
-    .resource-preview-icon {
-      font-size: 4rem;
-      opacity: 0.7;
-    }
-    .resource-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-    .document-iframe {
+    
+    /* Document viewer styles */
+    .document-viewer {
       width: 100%;
-      height: 500px;
+      height: 450px;
       border: 1px solid #e5e7eb;
       border-radius: 8px;
-      margin-bottom: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
+    
+    .resource-category {
+      border-left: 4px solid;
+      padding-left: 1rem;
+    }
+    
+    .category-yellow { border-color: #fbbf24; }
+    .category-blue { border-color: #3b82f6; }
+    .category-purple { border-color: #8b5cf6; }
+    
+    /* Resource tabs */
+    .resource-tabs {
+      display: flex;
+      border-bottom: 2px solid #e5e7eb;
+      margin-bottom: 1.5rem;
+    }
+    
+    .resource-tab {
+      padding: 0.75rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s ease;
+    }
+    
+    .resource-tab.active {
+      border-bottom-color: #3b82f6;
+      color: #3b82f6;
+    }
+    
     .tab-content {
       display: none;
     }
+    
     .tab-content.active {
       display: block;
     }
-    .resource-tab {
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
+    
+    /* Document card styling */
+    .document-card {
+      background: white;
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
       transition: all 0.2s ease;
     }
-    .resource-tab.active {
-      border-color: #3b82f6; /* Warmer blue */
-      color: #3b82f6; /* Warmer blue */
+    
+    .document-card:hover {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
     }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
+    
+    /* File type icons */
+    .file-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.25rem;
+      margin-right: 1rem;
+      font-size: 1.25rem;
+      color: white;
+    }
+    
+    .file-word { background-color: #2b579a; }
+    .file-excel { background-color: #217346; }
+    .file-powerpoint { background-color: #d24726; }
+    .file-pdf { background-color: #f40f02; }
+    .file-image { background-color: #5f6368; }
+    
+    /* OneDrive embedded viewer */
+    .onedrive-viewer {
       width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.7);
-      z-index: 1000;
-      overflow: auto;
-    }
-    .modal-content {
-      background-color: #fff;
-      margin: 5% auto;
-      padding: 20px;
-      border-radius: 10px;
-      width: 80%;
-      max-width: 900px;
-      position: relative;
-    }
-    .close-modal {
-      position: absolute;
-      right: 20px;
-      top: 15px;
-      font-size: 28px;
-      cursor: pointer;
+      height: 600px;
+      border: none;
+      border-radius: 0.5rem;
     }
   </style>
 </head>
@@ -171,16 +186,16 @@
 
     <!-- Navigation -->
     <nav class="flex justify-between items-center py-8 relative z-20">
-      <div class="text-2xl font-extrabold tracking-wider font-playfair text-blue-500 relative select-none" style="letter-spacing:0.12em">
+      <div class="text-2xl font-extrabold tracking-wider font-playfair text-blue-600 relative select-none" style="letter-spacing:0.12em">
         MW
         <span class="absolute left-0 bottom-[-0.12em] w-full h-1 block bg-pink-400 opacity-70 rounded-md" style="width:60%;"></span>
       </div>
       <div class="hidden md:flex space-x-8 font-semibold text-lg">
-        <a href="#about" class="hover:text-blue-500 transition">About Me</a>
-        <a href="#impact" class="hover:text-blue-500 transition">Impact</a>
-        <a href="#expertise" class="hover:text-blue-500 transition">Expertise</a>
-        <a href="#resources" class="hover:text-blue-500 transition">Resources</a>
-        <a href="#contact" class="hover:text-blue-500 transition">Connect</a>
+        <a href="#about" class="hover:text-blue-600 transition">About Me</a>
+        <a href="#impact" class="hover:text-blue-600 transition">Impact</a>
+        <a href="#expertise" class="hover:text-blue-600 transition">Expertise</a>
+        <a href="#resources" class="hover:text-blue-600 transition">Resources</a>
+        <a href="#contact" class="hover:text-blue-600 transition">Connect</a>
       </div>
     </nav>
 
@@ -195,10 +210,10 @@
         </h1>
         <div class="typewriter" id="typewriter"></div>
         <div class="flex space-x-4 mt-6">
-          <a href="april.resume.html" class="btn btn-primary px-7 py-3 rounded-lg bg-blue-500 text-white font-bold shadow hover:bg-blue-600 transition duration-150">
+          <a href="april.resume.html" class="btn btn-primary px-7 py-3 rounded-lg bg-blue-600 text-white font-bold shadow hover:bg-blue-700 transition duration-150">
             <i class="fas fa-file-alt mr-2"></i>Resume
           </a>
-          <a href="#about" class="btn btn-outline px-7 py-3 rounded-lg border-2 border-blue-500 text-blue-500 font-bold bg-transparent hover:bg-blue-100 transition duration-150">
+          <a href="#about" class="btn btn-outline px-7 py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-bold bg-transparent hover:bg-blue-100 transition duration-150">
             <i class="fas fa-user mr-2"></i>About Me
           </a>
         </div>
@@ -216,7 +231,7 @@
           I lead with clarity, care, and strategy&nbsp;&mdash;&nbsp;bringing structure to ideas and purpose to systems. With roots in education, counseling, and law, I build learning ecosystems that center people and drive sustainable impact. My work bridges instruction, leadership, and actionable outcomes through innovative design.  
         </p>
         <div class="flex flex-wrap gap-3 justify-center mb-2">
-          <span class="inline-block px-4 py-2 rounded-3xl bg-blue-100 text-blue-700 font-semibold text-base border border-blue-200">Instructional Strategy</span>
+          <span class="inline-block px-4 py-2 rounded-3xl bg-purple-100 text-purple-700 font-semibold text-base border border-purple-200">Instructional Strategy</span>
           <span class="inline-block px-4 py-2 rounded-3xl bg-pink-100 text-pink-600 font-semibold text-base border border-pink-200">Curriculum Innovation</span>
           <span class="inline-block px-4 py-2 rounded-3xl bg-yellow-100 text-yellow-700 font-semibold text-base border border-yellow-200">Team Capacity Building</span>
           <span class="inline-block px-4 py-2 rounded-3xl bg-green-100 text-green-700 font-semibold text-base border border-green-200">Equity-Minded Design</span>
@@ -233,33 +248,26 @@
         </div>
         <div class="impact-grid grid md:grid-cols-3 gap-8">
           <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl hover:bg-gray-100 transition duration-200 p-7 flex flex-col">
-            <span class="impact-icon text-3xl mb-3 text-blue-500">📚</span>
+            <span class="impact-icon text-3xl mb-3 text-blue-600">📚</span>
             <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Literacy Leadership Toolkit</h3>
             <p class="impact-text text-gray-700">Strategic literacy frameworks and data-driven planning tools to accelerate growth and empower educators through evidence-based practices.</p>
-            <div class="mt-4">
-              <a href="#resources" class="text-blue-500 hover:text-blue-700 font-medium flex items-center">
-                <span>Explore toolkit</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
+            <a href="#resources" class="mt-4 text-blue-600 hover:text-blue-800 font-semibold">Explore resources <i class="fas fa-arrow-right ml-1"></i></a>
           </div>
-
+          
           <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl hover:bg-gray-100 transition duration-200 p-7 flex flex-col">
-            <span class="impact-icon text-3xl mb-3 text-blue-500">💡</span>
+            <span class="impact-icon text-3xl mb-3 text-blue-600">💡</span>
             <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">Innovative Curriculum</h3>
             <p class="impact-text text-gray-700">Cross-disciplinary approaches that integrate literacy with STEM, SEL, and future-ready skills.</p>
-            <p><span class="stat-highlight font-playfair text-2xl text-blue-500 font-bold">12</span>
+            <p><span class="stat-highlight font-playfair text-2xl text-blue-600 font-bold">12</span>
               new curriculum modules implemented across grade levels with measurable outcomes.
             </p>
           </div>
 
           <div class="impact-card bg-white rounded-xl shadow hover:shadow-xl hover:bg-gray-100 transition duration-200 p-7 flex flex-col">
-            <span class="impact-icon text-3xl mb-3 text-blue-500">🚀</span>
+            <span class="impact-icon text-3xl mb-3 text-blue-600">🚀</span>
             <h3 class="impact-title font-semibold text-lg text-gray-800 mb-2">EdTech Integration</h3>
             <p class="impact-text text-gray-700">Pioneering AI-ready literacy frameworks that bridge traditional foundations with emerging technologies.</p>
-            <p><span class="stat-highlight font-playfair text-2xl text-blue-500 font-bold">5</span>
+            <p><span class="stat-highlight font-playfair text-2xl text-blue-600 font-bold">5</span>
               technology integration models adopted district-wide for enhanced digital learning.
             </p>
           </div>
@@ -267,217 +275,369 @@
       </div>
     </section>
 
-    <!-- Resources Section - Improved Organization -->
-    <section id="resources" class="relative z-10 bg-white rounded-t-3xl pb-16 pt-12">
+    <!-- Resources Section - Completely Redesigned -->
+    <section id="resources" class="relative z-10 bg-white rounded-t-3xl pt-12 pb-16">
       <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-8">
-          <h2 class="section-title font-playfair text-3xl md:text-4xl font-bold text-gray-800 mb-2">Resource Library</h2>
-          <p class="text-lg text-gray-600 mb-8">Browse our collection of educational frameworks, tools, and curriculum materials</p>
+        <div class="text-center mb-12">
+          <h2 class="section-title font-playfair text-3xl md:text-4xl font-bold text-gray-800 mb-2">Educational Resources</h2>
+          <p class="text-lg text-gray-600">Explore our comprehensive collection of educational materials and frameworks</p>
         </div>
-
-        <!-- Resource Navigation Tabs -->
-        <div class="flex flex-wrap justify-center mb-8 border-b">
-          <div class="resource-tab px-6 py-3 text-lg font-medium text-gray-600 hover:text-blue-500 active" data-tab="literacy-toolkit">
-            <i class="fas fa-book-reader mr-2"></i>Literacy Leadership
-          </div>
-          <div class="resource-tab px-6 py-3 text-lg font-medium text-gray-600 hover:text-blue-500" data-tab="ai-toolkit">
-            <i class="fas fa-microchip mr-2"></i>AI Integration
-          </div>
-          <div class="resource-tab px-6 py-3 text-lg font-medium text-gray-600 hover:text-blue-500" data-tab="cross-curricular">
-            <i class="fas fa-link mr-2"></i>Cross-Curricular
-          </div>
-          <div class="resource-tab px-6 py-3 text-lg font-medium text-gray-600 hover:text-blue-500" data-tab="data-dashboard">
-            <i class="fas fa-chart-line mr-2"></i>Data Insights
-          </div>
+        
+        <!-- Resource Categories Navigation -->
+        <div class="resource-tabs mb-8">
+          <div class="resource-tab active" data-tab="literacy">Literacy Leadership</div>
+          <div class="resource-tab" data-tab="cross-curricular">Cross-Curricular</div>
+          <div class="resource-tab" data-tab="data-insights">Data Insights</div>
         </div>
-
-        <!-- Literacy Leadership Toolkit Content -->
-        <div id="literacy-toolkit" class="tab-content active">
-          <div class="mb-8">
-            <h3 class="text-2xl font-bold font-playfair mb-6 text-blue-600">Literacy Leadership Toolkit</h3>
-            <p class="text-gray-700 mb-6">Strategic frameworks and planning tools to accelerate literacy growth through evidence-based practices. Browse all materials below or use the featured document viewer.</p>
+        
+        <!-- Literacy Leadership Resources -->
+        <div class="tab-content active" id="literacy-tab">
+          <div class="mb-6">
+            <h3 class="resource-category category-yellow text-2xl font-bold font-playfair mb-6 text-gray-800">Literacy Leadership Tools</h3>
+            <p class="text-gray-700 mb-6">Strategic frameworks and planning resources to guide literacy instruction and leadership across educational settings.</p>
             
-            <!-- Featured Document Viewer -->
-            <div class="bg-gray-50 rounded-xl p-6 mb-8 shadow-md">
-              <h4 class="text-xl font-semibold mb-4 text-gray-800">Featured Resource: Data Reflection & Planning</h4>
-              <div class="document-iframe-container mb-4">
-                <!-- Embedded document viewer - replace with actual viewer implementation -->
-                <div class="document-iframe bg-white flex items-center justify-center">
-                  <div class="text-center p-8">
-                    <i class="fas fa-file-powerpoint text-5xl text-blue-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Cohort Data Reflection & Planning</h3>
-                    <p class="text-gray-600 mb-4">This presentation framework helps educators analyze literacy data trends and create targeted intervention plans.</p>
-                    <div class="flex flex-wrap justify-center gap-4">
-                      <button onclick="openResourceModal('data-reflection')" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition flex items-center">
-                        <i class="fas fa-eye mr-2"></i> Preview Document
-                      </button>
-                      <a href="files/2024_cohort-data-reflection-&-planning.pptx" target="_blank" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition flex items-center">
-                        <i class="fas fa-download mr-2"></i> Download PPTX
-                      </a>
-                    </div>
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- 4.30-literacy-executive-draft -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-word flex-shrink-0">
+                    <i class="fas fa-file-word"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Literacy Executive Summary</h4>
+                    <p class="text-sm text-gray-600">Strategic overview of literacy initiatives and outcomes</p>
                   </div>
                 </div>
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">This document provides an executive summary of literacy initiatives, strategic direction, and key performance indicators.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/4.30-literacy-executive-draft.docx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
+                  </button>
+                </div>
+              </div>
+              
+              <!-- 2024_cohort-data-reflection-&-planning -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-powerpoint flex-shrink-0">
+                    <i class="fas fa-file-powerpoint"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Cohort Data Reflection & Planning</h4>
+                    <p class="text-sm text-gray-600">2024 planning framework for cohort-based instruction</p>
+                  </div>
+                </div>
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">Interactive presentation for analyzing cohort data and developing targeted instructional plans based on student needs.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/2024_cohort-data-reflection-&-planning.pptx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
+                  </button>
+                </div>
+              </div>
+              
+              <!-- holistic_literacy_map -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-word flex-shrink-0">
+                    <i class="fas fa-file-word"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Holistic Literacy Map</h4>
+                    <p class="text-sm text-gray-600">Comprehensive literacy instruction mapping</p>
+                  </div>
+                </div>
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">A detailed mapping of literacy skills, instructional approaches, and assessment strategies across educational contexts.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/holistic_literacy_map.docx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Instructional Literacy Framework_Implementation -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-powerpoint flex-shrink-0">
+                    <i class="fas fa-file-powerpoint"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Instructional Literacy Framework</h4>
+                    <p class="text-sm text-gray-600">Implementation guide for literacy framework</p>
+                  </div>
+                </div>
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">Step-by-step implementation guidance for educators adopting the comprehensive literacy framework.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/Instructional Literacy Framework_Implementation.pptx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
+                  </button>
+                </div>
+              </div>
+              
+              <!-- literacy-ai-connection-visual-framework -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-powerpoint flex-shrink-0">
+                    <i class="fas fa-file-powerpoint"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Literacy-AI Connection Visual Framework</h4>
+                    <p class="text-sm text-gray-600">Visual mapping of literacy and AI integration</p>
+                  </div>
+                </div>
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">A visual framework illustrating how traditional literacy instruction connects with AI literacy competencies.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/literacy-ai-connection-visual-framework.pptx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
+                  </button>
+                </div>
+              </div>
+              
+              <!-- literacy-case-study-cohort-c -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-word flex-shrink-0">
+                    <i class="fas fa-file-word"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Literacy Case Study: Cohort C</h4>
+                    <p class="text-sm text-gray-600">Analysis of intervention outcomes for Cohort C</p>
+                  </div>
+                </div>
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">Detailed case study analyzing the implementation and outcomes of literacy interventions for a specific student cohort.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/literacy-case-study-cohort-c.docx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
+                  </button>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+        
+        <!-- Cross-Curricular Resources -->
+        <div class="tab-content" id="cross-curricular-tab">
+          <div class="mb-6">
+            <h3 class="resource-category category-blue text-2xl font-bold font-playfair mb-6 text-gray-800">Cross-Curricular Resources</h3>
+            <p class="text-gray-700 mb-6">Integrated approaches connecting literacy with other subjects for comprehensive learning experiences.</p>
             
-            <!-- All Literacy Resources Grid -->
-            <div class="grid md:grid-cols-3 gap-6">
-              <!-- Resource Card 1 -->
-              <div class="resource-card bg-white rounded-xl shadow hover:shadow-xl transition p-5">
-                <div class="resource-preview">
-                  <i class="fas fa-file-word resource-preview-icon text-blue-400"></i>
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- prepositional-phrases-instructional framework -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-powerpoint flex-shrink-0">
+                    <i class="fas fa-file-powerpoint"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Prepositional Phrases Instructional Framework</h4>
+                    <p class="text-sm text-gray-600">Grammar integration across subjects</p>
+                  </div>
                 </div>
-                <h4 class="resource-title text-gray-800">Literacy Case Study: Cohort C</h4>
-                <p class="text-gray-600 text-sm mb-4">Analysis of intervention strategies and outcomes for targeted student groups.</p>
-                <div class="flex items-center justify-between mt-auto">
-                  <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">DOCX Format</span>
-                  <button onclick="openResourceModal('case-study')" class="text-blue-500 hover:text-blue-700">
-                    <i class="fas fa-external-link-alt mr-1"></i> View
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">A framework for teaching prepositional phrases through cross-curricular applications in science, social studies, and mathematics.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/prepositional-phrases-instructional-framework.pptx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
                   </button>
                 </div>
               </div>
               
-              <!-- Resource Card 2 -->
-              <div class="resource-card bg-white rounded-xl shadow hover:shadow-xl transition p-5">
-                <div class="resource-preview">
-                  <i class="fas fa-file-excel resource-preview-icon text-green-500"></i>
+              <!-- preposition-practice-planning-framework -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-powerpoint flex-shrink-0">
+                    <i class="fas fa-file-powerpoint"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Preposition Practice Planning Framework</h4>
+                    <p class="text-sm text-gray-600">Lesson planning for grammar integration</p>
+                  </div>
                 </div>
-                <h4 class="resource-title text-gray-800">Assessment Outcome Breakdown</h4>
-                <p class="text-gray-600 text-sm mb-4">Detailed analysis spreadsheet of state assessment results by standard and student group.</p>
-                <div class="flex items-center justify-between mt-auto">
-                  <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Excel Format</span>
-                  <button onclick="openResourceModal('assessment')" class="text-blue-500 hover:text-blue-700">
-                    <i class="fas fa-external-link-alt mr-1"></i> View
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">Detailed planning framework for integrating preposition practice across subject areas with differentiated approaches.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/preposition-practice-planning-framework.pptx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
                   </button>
                 </div>
               </div>
               
-              <!-- Resource Card 3 -->
-              <div class="resource-card bg-white rounded-xl shadow hover:shadow-xl transition p-5">
-                <div class="resource-preview">
-                  <i class="fas fa-file-excel resource-preview-icon text-green-500"></i>
+              <!-- professional-development -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-powerpoint flex-shrink-0">
+                    <i class="fas fa-file-powerpoint"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Professional Development</h4>
+                    <p class="text-sm text-gray-600">Teacher training materials for cross-curricular instruction</p>
+                  </div>
                 </div>
-                <h4 class="resource-title text-gray-800">Year-Over-Year Growth Tracker</h4>
-                <p class="text-gray-600 text-sm mb-4">Multi-year tracking tool to monitor literacy growth patterns across cohorts.</p>
-                <div class="flex items-center justify-between mt-auto">
-                  <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Excel Format</span>
-                  <button onclick="openResourceModal('growth-tracker')" class="text-blue-500 hover:text-blue-700">
-                    <i class="fas fa-external-link-alt mr-1"></i> View
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">Comprehensive professional development materials for educators implementing cross-curricular literacy instruction.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/professional-development.pptx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
+                  </button>
+                </div>
+              </div>
+              
+              <!-- scripted-substitute-lesson-plan-example -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-powerpoint flex-shrink-0">
+                    <i class="fas fa-file-powerpoint"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Scripted Substitute Lesson Plan Example</h4>
+                    <p class="text-sm text-gray-600">Ready-to-use lesson template for substitutes</p>
+                  </div>
+                </div>
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">A detailed, scripted lesson plan template designed for substitute teachers to ensure instructional continuity.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/scripted-substitute-lesson-plan-example.pptx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- AI Integration Toolkit Content -->
-        <div id="ai-toolkit" class="tab-content">
-          <div class="mb-8">
-            <h3 class="text-2xl font-bold font-playfair mb-6 text-blue-600">Literacy–AI Integration Toolkit</h3>
-            <p class="text-gray-700 mb-6">Strategic frameworks for integrating AI literacy alongside traditional reading and writing approaches.</p>
+        
+        <!-- Data Insights Resources -->
+        <div class="tab-content" id="data-insights-tab">
+          <div class="mb-6">
+            <h3 class="resource-category category-purple text-2xl font-bold font-playfair mb-6 text-gray-800">Data Insights & Analysis Tools</h3>
+            <p class="text-gray-700 mb-6">Analytics frameworks and data tracking tools to monitor student progress and inform instructional decisions.</p>
             
-            <!-- AI Resources Grid -->
-            <div class="grid md:grid-cols-2 gap-8">
-              <!-- AI-Ready Literacy Guide -->
-              <div class="resource-card bg-blue-50 rounded-xl p-6 shadow hover:shadow-xl transition">
-                <div class="resource-preview mb-4 flex items-center justify-center">
-                  <i class="fas fa-robot resource-preview-icon text-blue-400"></i>
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- Sample-State_Assessment_Outcome_Breakdown -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-excel flex-shrink-0">
+                    <i class="fas fa-file-excel"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">State Assessment Outcome Breakdown</h4>
+                    <p class="text-sm text-gray-600">Detailed analysis of state assessment results</p>
+                  </div>
                 </div>
-                <div class="resource-content">
-                  <h4 class="resource-title text-xl font-bold text-gray-800 mb-3">AI-Ready Literacy Guide</h4>
-                  <p class="text-gray-700 mb-4">A comprehensive framework for integrating AI literacy alongside traditional reading and writing skills. This guide helps educators prepare students for a technology-rich future while maintaining core literacy foundations.</p>
-                  <button onclick="openResourceModal('ai-ready-guide')" class="inline-block px-4 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition">
-                    <i class="fas fa-eye mr-2"></i>View Guide
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">Comprehensive breakdown of state assessment outcomes with demographic analysis and performance indicators.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/Sample-State_Assessment_Outcome_Breakdown.xlsx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
                   </button>
                 </div>
               </div>
               
-              <!-- Literacy + AI Visual Framework -->
-              <div class="resource-card bg-yellow-50 rounded-xl p-6 shadow hover:shadow-xl transition">
-                <div class="resource-preview mb-4 flex items-center justify-center">
-                  <i class="fas fa-network-wired resource-preview-icon text-yellow-600"></i>
+              <!-- Sample-Year-Over-Year-Tracker -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-excel flex-shrink-0">
+                    <i class="fas fa-file-excel"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Year-Over-Year Growth Tracker</h4>
+                    <p class="text-sm text-gray-600">Longitudinal student growth analysis tool</p>
+                  </div>
                 </div>
-                <div class="resource-content">
-                  <h4 class="resource-title text-xl font-bold text-gray-800 mb-3">Literacy + AI Visual Framework</h4>
-                  <p class="text-gray-700 mb-4">Visual mapping that illustrates how foundational literacy skills connect to AI literacy and computational thinking. This framework helps educators see the connections between traditional literacy instruction and future-ready skills.</p>
-                  <button onclick="openResourceModal('ai-visual-framework')" class="inline-block px-4 py-2 rounded-lg bg-yellow-500 text-white hover:bg-yellow-600 transition">
-                    <i class="fas fa-eye mr-2"></i>View Framework
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">A data tracking tool for monitoring student growth over multiple academic years with trend analysis capabilities.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/Sample-Year-Over-Year-Tracker.xlsx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
+                  </button>
+                </div>
+              </div>
+              
+              <!-- project-management-artifact -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-powerpoint flex-shrink-0">
+                    <i class="fas fa-file-powerpoint"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Project Management Artifact</h4>
+                    <p class="text-sm text-gray-600">Educational project management framework</p>
+                  </div>
+                </div>
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">A comprehensive project management framework designed specifically for educational initiatives and interventions.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/project-management-artifact.pptx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
+                  </button>
+                </div>
+              </div>
+              
+              <!-- simplicity of literacy -->
+              <div class="document-card">
+                <div class="flex items-start mb-4">
+                  <div class="file-icon file-word flex-shrink-0">
+                    <i class="fas fa-file-word"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Simplicity of Literacy</h4>
+                    <p class="text-sm text-gray-600">Essential literacy concepts and metrics</p>
+                  </div>
+                </div>
+                <div class="document-preview bg-gray-100 rounded-md p-2 mb-4">
+                  <p class="text-sm text-gray-700">A framework that distills complex literacy concepts into clear, actionable metrics and instructional approaches.</p>
+                </div>
+                <div class="flex justify-between items-center">
+                  <button class="view-document px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" 
+                          onclick="showDocument('https://view.officeapps.live.com/op/embed.aspx?src=YOUR_ONEDRIVE_URL/simplicity of literacy.docx')">
+                    <i class="fas fa-eye mr-2"></i> View Document
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Cross-Curricular Content -->
-        <div id="cross-curricular" class="tab-content">
-          <div class="mb-8">
-            <h3 class="text-2xl font-bold font-playfair mb-6 text-blue-600">Cross-Curricular Resources</h3>
-            <p class="text-gray-700 mb-6">Integrated approaches that connect literacy instruction with other subject areas.</p>
-            
-            <!-- Cross-Curricular Resources Grid -->
-            <div class="grid md:grid-cols-3 gap-6">
-              <!-- Prepositional Phrase Toolkit -->
-              <div class="resource-card bg-green-50 rounded-xl p-6 shadow hover:shadow-xl transition">
-                <div class="resource-preview mb-4 flex items-center justify-center">
-                  <i class="fas fa-book resource-preview-icon text-green-600"></i>
-                </div>
-                <div class="resource-content">
-                  <h4 class="resource-title text-lg font-bold text-gray-800 mb-2">Prepositional Phrase Toolkit</h4>
-                  <p class="text-gray-600 mb-4">K-5 strategies for reading and writing, vertically and horizontally aligned across grade levels.</p>
-                  <button onclick="openResourceModal('prepositional-toolkit')" class="inline-block px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition">View Toolkit</button>
-                </div>
-              </div>
-              
-              <!-- Cross-Curricular Sample -->
-              <div class="resource-card bg-green-50 rounded-xl p-6 shadow hover:shadow-xl transition">
-                <div class="resource-preview mb-4 flex items-center justify-center">
-                  <i class="fas fa-stream resource-preview-icon text-green-600"></i>
-                </div>
-                <div class="resource-content">
-                  <h4 class="resource-title text-lg font-bold text-gray-800 mb-2">Cross-Curricular Sample</h4>
-                  <p class="text-gray-600 mb-4">Integrated lessons connecting reading, writing, STEM, and SEL concepts for comprehensive learning.</p>
-                  <button onclick="openResourceModal('cross-curricular-sample')" class="inline-block px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition">View Sample</button>
-                </div>
-              </div>
-              
-              <!-- Scripted Substitute Lesson Plan -->
-              <div class="resource-card bg-green-50 rounded-xl p-6 shadow hover:shadow-xl transition">
-                <div class="resource-preview mb-4 flex items-center justify-center">
-                  <i class="fas fa-file-alt resource-preview-icon text-green-600"></i>
-                </div>
-                <div class="resource-content">
-                  <h4 class="resource-title text-lg font-bold text-gray-800 mb-2">Scripted Substitute Lesson Plan</h4>
-                  <p class="text-gray-600 mb-4">Ready-to-use lesson format that ensures instructional continuity with minimal preparation.</p>
-                  <button onclick="openResourceModal('scripted-lesson-plan')" class="inline-block px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition">View Template</button>
-                </div>
-              </div>
+        
+        <!-- Document Viewer Modal -->
+        <div id="document-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center hidden">
+          <div class="relative w-full max-w-5xl h-5/6 bg-white rounded-lg shadow-xl">
+            <div class="absolute top-4 right-4">
+              <button id="close-modal" class="bg-gray-200 rounded-full p-2 hover:bg-gray-300 transition">
+                <i class="fas fa-times text-gray-700"></i>
+              </button>
             </div>
-          </div>
-        </div>
-
-        <!-- Data Dashboard Content -->
-        <div id="data-dashboard" class="tab-content">
-          <div class="mb-8">
-            <h3 class="text-2xl font-bold font-playfair mb-6 text-blue-600">Data Dashboard & Analytics</h3>
-            <p class="text-gray-700 mb-6">Interactive tools for tracking student outcomes, identifying trends, and highlighting intervention opportunities.</p>
-            
-            <!-- Data Dashboard Preview -->
-            <div class="bg-pink-50 rounded-xl p-6 shadow mb-8">
-              <div class="mb-6">
-                <h4 class="text-xl font-bold text-gray-800 mb-3">Interactive Data Dashboard</h4>
-                <p class="text-gray-700 mb-4">Analytics tracking student outcomes, growth trends, and highlighting intervention opportunities across multiple metrics and student cohorts.</p>
-              </div>
-              <div class="resource-preview bg-white rounded-xl p-4 flex items-center justify-center" style="height: 320px;">
-                <div class="text-center">
-                  <i class="fas fa-chart-line text-6xl text-pink-500 mb-4"></i>
-                  <h4 class="font-bold text-xl mb-3">Student Growth Analytics</h4>
-                  <p class="text-gray-600 mb-6">Interactive visualizations showing literacy growth patterns across grade levels and demographic groups.</p>
-                  <button onclick="openResourceModal('data-dashboard')" class="px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition">
-                    <i class="fas fa-external-link-alt mr-2"></i>Launch Interactive Dashboard
-                  </button>
-                </div>
-              </div>
+            <div class="h-full pt-10 px-4 pb-4">
+              <iframe id="document-frame" class="w-full h-full rounded-lg" src="" frameborder="0"></iframe>
             </div>
           </div>
         </div>
@@ -512,7 +672,7 @@
       <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between px-4">
         <div class="footer-text opacity-75 text-base select-none">© 2025 Marlitha Williams. All rights reserved.</div>
         <div class="mt-3 md:mt-0 flex space-x-4">
-          <a href="#" class="text-xl opacity-75 hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-xl opacity-75 hover:text-blue-600 transition"><i class="fab fa-linkedin"></i></a>
           <a href="#" class="text-xl opacity-75 hover:text-pink-500 transition"><i class="fas fa-mobile-alt"></i></a>
           <a href="#" class="text-xl opacity-75 hover:text-yellow-400 transition"><i class="fas fa-envelope"></i></a>
         </div>
@@ -520,23 +680,72 @@
     </footer>
   </div>
 
-  <!-- Resource Modals -->
-  <div id="resource-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <h2 id="modal-title" class="text-2xl font-bold mb-4">Resource Title</h2>
-      <div id="modal-content" class="mb-4">
-        <!-- Dynamic content goes here -->
-      </div>
-      <div class="flex justify-between mt-4">
-        <a id="modal-download" href="#" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition">Download File</a>
-        <button class="close-modal-btn px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Close</button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Typewriter Effect for Titles -->
+  <!-- Document Viewer Script -->
   <script>
+    // Tab switching functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.resource-tab');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Remove active class from all tabs
+          tabs.forEach(t => t.classList.remove('active'));
+          
+          // Add active class to clicked tab
+          this.classList.add('active');
+          
+          // Hide all tab content
+          document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+          });
+          
+          // Show selected tab content
+          const tabId = this.getAttribute('data-tab');
+          document.getElementById(`${tabId}-tab`).classList.add('active');
+        });
+      });
+      
+      // Document viewer modal functionality
+      const modal = document.getElementById('document-modal');
+      const closeModal = document.getElementById('close-modal');
+      const documentFrame = document.getElementById('document-frame');
+      
+      // Close modal when clicking the close button
+      closeModal.addEventListener('click', function() {
+        modal.classList.add('hidden');
+        documentFrame.src = '';
+      });
+      
+      // Close modal when clicking outside the document viewer
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          documentFrame.src = '';
+        }
+      });
+      
+      // Close modal when pressing Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          modal.classList.add('hidden');
+          documentFrame.src = '';
+        }
+      });
+
+      // Initialize typewriter effect
+      typeWord();
+    });
+    
+    // Function to show document in modal
+    function showDocument(url) {
+      const modal = document.getElementById('document-modal');
+      const documentFrame = document.getElementById('document-frame');
+      
+      documentFrame.src = url;
+      modal.classList.remove('hidden');
+    }
+    
+    // Typewriter Effect for Titles
     const words = [
       "Creative Educator",
       "Curriculum Innovator",
@@ -570,134 +779,6 @@
         wordIndex = (wordIndex + 1) % words.length;
         setTimeout(typeWord, typingSpeed);
       }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      typeWord();
-      
-      // Tab navigation
-      const tabs = document.querySelectorAll('.resource-tab');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-          // Remove active class from all tabs
-          tabs.forEach(t => t.classList.remove('active'));
-          // Add active class to clicked tab
-          this.classList.add('active');
-          
-          // Hide all tab content
-          document.querySelectorAll('.tab-content').forEach(content => {
-            content.classList.remove('active');
-          });
-          
-          // Show the corresponding tab content
-          const tabId = this.getAttribute('data-tab');
-          document.getElementById(tabId).classList.add('active');
-        });
-      });
-      
-      // Modal functionality
-      const modal = document.getElementById('resource-modal');
-      const closeButtons = document.querySelectorAll('.close-modal, .close-modal-btn');
-      
-      closeButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-          modal.style.display = 'none';
-        });
-      });
-      
-      // Close modal when clicking outside
-      window.addEventListener('click', function(event) {
-        if (event.target == modal) {
-          modal.style.display = 'none';
-        }
-      });
-    });
-    
-    // Function to open resource modal with appropriate content
-    function openResourceModal(resourceId) {
-      const modal = document.getElementById('resource-modal');
-      const modalTitle = document.getElementById('modal-title');
-      const modalContent = document.getElementById('modal-content');
-      const modalDownload = document.getElementById('modal-download');
-      
-      // Configure modal based on resource ID
-      switch(resourceId) {
-        case 'data-reflection':
-          modalTitle.textContent = 'Cohort Data Reflection & Planning';
-          modalContent.innerHTML = `
-            <div class="bg-gray-50 p-4 rounded-lg mb-4">
-              <p class="mb-4">This interactive presentation provides a framework for analyzing literacy data by cohort and creating targeted intervention plans.</p>
-              <div class="embed-responsive rounded-lg overflow-hidden" style="height:400px;">
-                <!-- In a real implementation, this would be an actual embedded document viewer -->
-                <div class="h-full flex items-center justify-center bg-white border border-gray-300">
-                  <div class="text-center p-8">
-                    <i class="fas fa-file-powerpoint text-5xl text-blue-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Document Preview</h3>
-                    <p class="text-gray-600">Interactive document preview would appear here in the live implementation</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          modalDownload.href = "files/2024_cohort-data-reflection-&-planning.pptx";
-          modalDownload.textContent = "Download PowerPoint";
-          break;
-          
-        case 'case-study':
-          modalTitle.textContent = 'Literacy Case Study: Cohort C';
-          modalContent.innerHTML = `
-            <div class="bg-gray-50 p-4 rounded-lg mb-4">
-              <p class="mb-4">This case study examines the impact of targeted literacy interventions on struggling readers in Cohort C over an 18-month period.</p>
-              <div class="embed-responsive rounded-lg overflow-hidden" style="height:400px;">
-                <!-- Document viewer placeholder -->
-                <div class="h-full flex items-center justify-center bg-white border border-gray-300">
-                  <div class="text-center p-8">
-                    <i class="fas fa-file-word text-5xl text-blue-500 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Document Preview</h3>
-                    <p class="text-gray-600">Case study content would appear here in the live implementation</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          modalDownload.href = "files/literacy-case-study-cohort-c.docx";
-          modalDownload.textContent = "Download Word Document";
-          break;
-          
-        case 'assessment':
-          modalTitle.textContent = 'Assessment Outcome Breakdown';
-          modalContent.innerHTML = `
-            <div class="bg-gray-50 p-4 rounded-lg mb-4">
-              <p class="mb-4">Detailed breakdown of state assessment results by standard, skill area, and student demographic group.</p>
-              <div class="embed-responsive rounded-lg overflow-hidden" style="height:400px;">
-                <!-- Document viewer placeholder -->
-                <div class="h-full flex items-center justify-center bg-white border border-gray-300">
-                  <div class="text-center p-8">
-                    <i class="fas fa-file-excel text-5xl text-green-500 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Spreadsheet Preview</h3>
-                    <p class="text-gray-600">Excel spreadsheet would be embedded here in the live implementation</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          modalDownload.href = "files/Sample-State_Assessment_Outcome_Breakdown.xlsx";
-          modalDownload.textContent = "Download Excel File";
-          break;
-          
-        // Additional case handlers for other resources
-        default:
-          modalTitle.textContent = 'Resource Preview';
-          modalContent.innerHTML = `
-            <div class="bg-gray-50 p-4 rounded-lg">
-              <p>This is a preview of the selected resource. In the live implementation, an embedded document viewer would display the content here.</p>
-            </div>
-          `;
-          modalDownload.href = "#";
-          modalDownload.textContent = "Download Resource";
-      }
-      
-      modal.style.display = 'block';
     }
   </script>
 </body>
