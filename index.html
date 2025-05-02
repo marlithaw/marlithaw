@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+eview
+Code
+Thinking
+Copy<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,8 +16,8 @@
         :root {
             --primary: #2D3748;
             --secondary: #4A5568;
-            --accent: #6366F1;
-            --accent-light: #818CF8;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
             --light: #F7FAFC;
             --dark: #1A202C;
         }
@@ -39,7 +42,7 @@
             right: 0;
             bottom: 0;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 20%),
                 radial-gradient(circle at 80% 60%, rgba(66, 153, 225, 0.1) 0%, transparent 20%);
             pointer-events: none;
         }
@@ -56,7 +59,7 @@
         .tech-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
         
         .tech-btn {
@@ -70,6 +73,9 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
         }
         
         .tech-btn::before {
@@ -89,7 +95,7 @@
         }
         
         .tech-btn:hover {
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
             transform: translateY(-2px);
         }
         
@@ -163,7 +169,7 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: rgba(99, 102, 241, 0.3);
+            background: rgba(59, 130, 246, 0.3);
             margin: 0 0.5rem;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -218,18 +224,18 @@
         }
         
         .highlight-card {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(66, 153, 225, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(66, 153, 225, 0.1) 100%);
             border-radius: 1rem;
             padding: 1.5rem;
             margin: 1rem 0;
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             transition: all 0.3s ease;
         }
         
         .highlight-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.4);
+            border: 1px solid rgba(59, 130, 246, 0.4);
         }
         
         .progress-container {
@@ -290,72 +296,78 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(66, 153, 225, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(66, 153, 225, 0.1) 100%);
             z-index: -1;
         }
-        
-        /* Modal Styling */
+
+        /* Modal styles */
         .modal {
-            display: none;
             position: fixed;
-            z-index: 100;
-            left: 0;
             top: 0;
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-            background-color: rgba(0,0,0,0.6);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
         }
         
         .modal-content {
-            position: relative;
-            background-color: #fff;
-            margin: 5vh auto;
+            background: white;
             width: 90%;
-            max-width: 800px;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
             border-radius: 1rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            animation: modalFadeIn 0.3s;
-        }
-        
-        @keyframes modalFadeIn {
-            from {opacity: 0; transform: translateY(-20px);}
-            to {opacity: 1; transform: translateY(0);}
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         
         .close-modal {
-            color: #aaa;
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            transition: all 0.2s ease;
-        }
-        
-        .close-modal:hover,
-        .close-modal:focus {
-            color: var(--accent);
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-        .modal-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .modal-body {
-            padding: 1.5rem;
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-        
-        .modal-footer {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid #eee;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.1);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
             display: flex;
-            justify-content: flex-end;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Document viewer iframe */
+        .document-viewer {
+            width: 100%;
+            height: 70vh;
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Resource content */
+        .resource-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
         }
     </style>
 </head>
@@ -372,7 +384,7 @@
         <div class="container mx-auto px-4">
             <div class="carousel-container">
                 <div class="carousel" id="main-carousel">
-                    <div class="carousel-item active" data-section="about">
+                    <div class="carousel-item" data-section="about">
                         <h3>About Me</h3>
                         <h4>The Work Behind the Work</h4>
                         <p>A personal look at the values, experiences, and intentionality behind everything I do.</p>
@@ -396,7 +408,7 @@
             </div>
             
             <div class="carousel-nav mt-6">
-                <div class="carousel-dot active" data-index="0"></div>
+                <div class="carousel-dot" data-index="0"></div>
                 <div class="carousel-dot" data-index="1"></div>
                 <div class="carousel-dot" data-index="2"></div>
                 <div class="carousel-dot" data-index="3"></div>
@@ -405,7 +417,7 @@
     </section>
     
     <!-- About Me Section -->
-    <section id="about" class="section-content active py-12 decorated-section">
+    <section id="about" class="section-content py-12 decorated-section">
         <div class="decoration-dot" style="top: -100px; right: -100px;"></div>
         <div class="decoration-dot" style="bottom: -50px; left: -150px;"></div>
         
@@ -416,7 +428,7 @@
                 <div class="tech-card p-6">
                     <div class="aspect-video bg-gradient-to-r from-indigo-100 to-blue-100 rounded-lg flex items-center justify-center mb-6">
                         <div class="text-center p-6">
-                            <div class="text-5xl text-indigo-500 mb-4 pulse">
+                            <div class="text-5xl text-blue-500 mb-4 pulse">
                                 <i class="fas fa-play-circle"></i>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-800">Introduction Video</h3>
@@ -466,12 +478,12 @@
                             My background spans education and law, bringing a unique perspective to educational leadership. This interdisciplinary experience informs my approach to systems design, equity, and sustainable impact.
                         </p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-indigo-50 p-3 rounded-lg">
+                            <div class="bg-blue-50 p-3 rounded-lg">
                                 <div class="font-semibold mb-1">Education</div>
                                 <p class="text-sm text-gray-600">Juris Doctor (JD), University of Arkansas School of Law (2013)</p>
                                 <p class="text-sm text-gray-600">Bachelor's Degree, Purdue University</p>
                             </div>
-                            <div class="bg-indigo-50 p-3 rounded-lg">
+                            <div class="bg-blue-50 p-3 rounded-lg">
                                 <div class="font-semibold mb-1">Certifications</div>
                                 <p class="text-sm text-gray-600">Texas Bar | 2016</p>
                                 <p class="text-sm text-gray-600">Texas Reading Academies Certification – Leadership Pathway | 2024</p>
@@ -513,7 +525,7 @@
                     <div class="mb-6">
                         <div class="flex justify-between mb-1">
                             <span class="font-semibold">Writing Process Skills</span>
-                            <span class="text-indigo-600 font-semibold">+16% vs State Average</span>
+                            <span class="text-blue-600 font-semibold">+16% vs State Average</span>
                         </div>
                         <div class="progress-container">
                             <div class="progress-bar" style="width: 116%"></div>
@@ -523,7 +535,7 @@
                     <div class="mb-6">
                         <div class="flex justify-between mb-1">
                             <span class="font-semibold">Editing & Punctuation</span>
-                            <span class="text-indigo-600 font-semibold">+11% vs State Average</span>
+                            <span class="text-blue-600 font-semibold">+11% vs State Average</span>
                         </div>
                         <div class="progress-container">
                             <div class="progress-bar" style="width: 111%"></div>
@@ -533,7 +545,7 @@
                     <div class="mb-6">
                         <div class="flex justify-between mb-1">
                             <span class="font-semibold">Reading Comprehension</span>
-                            <span class="text-indigo-600 font-semibold">+4% vs State Average</span>
+                            <span class="text-blue-600 font-semibold">+4% vs State Average</span>
                         </div>
                         <div class="progress-container">
                             <div class="progress-bar" style="width: 104%"></div>
@@ -575,7 +587,7 @@
             </div>
             
             <div class="text-center mt-8">
-                <button onclick="openModal('literacy-case-study-modal')" class="tech-btn inline-block">
+                <button class="tech-btn" onclick="openModal('literacy-case-study')">
                     <i class="fas fa-arrow-right mr-2"></i> View Full Case Study
                 </button>
             </div>
@@ -595,7 +607,7 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                     <div class="stat-card text-center">
-                        <div class="text-4xl text-indigo-600 mb-4 float">
+                        <div class="text-4xl text-blue-600 mb-4 float">
                             <i class="fas fa-user-cog"></i>
                         </div>
                         <h4 class="font-semibold text-lg mb-2">Individual Strengths</h4>
@@ -605,7 +617,7 @@
                     </div>
                     
                     <div class="stat-card text-center">
-                        <div class="text-4xl text-indigo-600 mb-4 float">
+                        <div class="text-4xl text-blue-600 mb-4 float">
                             <i class="fas fa-cogs"></i>
                         </div>
                         <h4 class="font-semibold text-lg mb-2">System Coherence</h4>
@@ -615,7 +627,7 @@
                     </div>
                     
                     <div class="stat-card text-center">
-                        <div class="text-4xl text-indigo-600 mb-4 float">
+                        <div class="text-4xl text-blue-600 mb-4 float">
                             <i class="fas fa-brain"></i>
                         </div>
                         <h4 class="font-semibold text-lg mb-2">Collective Intelligence</h4>
@@ -633,7 +645,7 @@
                     <div class="mb-6">
                         <div class="flex justify-between mb-1">
                             <span class="font-semibold">Coaching Effectiveness</span>
-                            <span class="text-indigo-600 font-semibold">4.5/5</span>
+                            <span class="text-blue-600 font-semibold">4.5/5</span>
                         </div>
                         <div class="progress-container">
                             <div class="progress-bar" style="width: 90%"></div>
@@ -647,7 +659,7 @@
                     <div class="mb-6">
                         <div class="flex justify-between mb-1">
                             <span class="font-semibold">Professional Growth Support</span>
-                            <span class="text-indigo-600 font-semibold">4.4/5</span>
+                            <span class="text-blue-600 font-semibold">4.4/5</span>
                         </div>
                         <div class="progress-container">
                             <div class="progress-bar" style="width: 88%"></div>
@@ -661,7 +673,7 @@
                     <div>
                         <div class="flex justify-between mb-1">
                             <span class="font-semibold">Quality of Feedback</span>
-                            <span class="text-indigo-600 font-semibold">4.7/5</span>
+                            <span class="text-blue-600 font-semibold">4.7/5</span>
                         </div>
                         <div class="progress-container">
                             <div class="progress-bar" style="width: 94%"></div>
@@ -701,7 +713,7 @@
             </div>
             
             <div class="text-center mt-8">
-                <button onclick="openModal('professional-development-modal')" class="tech-btn inline-block">
+                <button class="tech-btn" onclick="openModal('professional-development')">
                     <i class="fas fa-arrow-right mr-2"></i> Explore Leadership
                 </button>
             </div>
@@ -717,23 +729,25 @@
             <h2 class="text-3xl font-bold mb-8 text-center tech-heading">Instructional & Coaching Resources</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Prepositional Phrase Resources -->
                 <div class="tech-card p-6">
-                    <div class="text-3xl text-indigo-600 mb-4 text-center">
+                    <div class="text-3xl text-blue-600 mb-4 text-center">
                         <i class="fas fa-book"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-center">Prepositional Phrase Instruction Resources</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Prepositional Phrase Resources</h3>
                     <p class="text-gray-600 mb-6">
                         A comprehensive set of vertically aligned resources for teaching prepositional phrases across grades 3-5, integrating the science of reading and writing.
                     </p>
                     <div class="space-y-3">
-                        <button onclick="openModal('prepositional-phrases-instructional-framework-modal')" class="block tech-btn text-center w-full">View Instructional Framework</button>
-                        <button onclick="openModal('substitute-lesson-plan-modal')" class="block tech-btn text-center w-full">View Substitute Lesson Plans</button>
-                        <button onclick="openModal('preposition-practice-planning-framework-modal')" class="block tech-btn text-center w-full">View Practice Planning Framework</button>
+                        <button onclick="openModal('prepositional-phrases-framework')" class="block w-full tech-btn text-center">View Instructional Framework</button>
+                        <button onclick="openModal('substitute-lesson-plan')" class="block w-full tech-btn text-center">View Substitute Lesson Plans</button>
+                        <button onclick="openModal('practice-planning-framework')" class="block w-full tech-btn text-center">View Practice Planning Framework</button>
                     </div>
                 </div>
                 
+                <!-- AI-Ready Literacy Resources -->
                 <div class="tech-card p-6">
-                    <div class="text-3xl text-indigo-600 mb-4 text-center">
+                    <div class="text-3xl text-blue-600 mb-4 text-center">
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-4 text-center">AI-Ready Literacy Resources</h3>
@@ -741,14 +755,15 @@
                         Forward-thinking resources that bridge traditional literacy skills with technological fluency, preparing students for an AI-integrated world.
                     </p>
                     <div class="space-y-3">
-                        <button onclick="openModal('ai-ready-literacy-modal')" class="block tech-btn text-center w-full">View Implementation Plan</button>
-                        <button onclick="openModal('literacy-ai-connection-visual-framework-modal')" class="block tech-btn text-center w-full">View Literacy-AI Connection Framework</button>
-                        <button onclick="openModal('future-ready-literacy-modal')" class="block tech-btn text-center w-full">View Future-Ready Literacy</button>
+                        <button onclick="openModal('ai-ready-implementation')" class="block w-full tech-btn text-center">View Implementation Plan</button>
+                        <button onclick="openModal('literacy-ai-connection')" class="block w-full tech-btn text-center">View Literacy-AI Connection Framework</button>
+                        <button onclick="openModal('future-ready-literacy')" class="block w-full tech-btn text-center">View Future-Ready Literacy</button>
                     </div>
                 </div>
                 
+                <!-- Comprehensive Literacy Frameworks -->
                 <div class="tech-card p-6">
-                    <div class="text-3xl text-indigo-600 mb-4 text-center">
+                    <div class="text-3xl text-blue-600 mb-4 text-center">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-4 text-center">Comprehensive Literacy Frameworks</h3>
@@ -756,9 +771,9 @@
                         Research-based literacy frameworks that integrate foundational skills with higher-order thinking to create sustainable growth over time.
                     </p>
                     <div class="space-y-3">
-                        <button onclick="openModal('developmental-literacy-framework-modal')" class="block tech-btn text-center w-full">View Developmental Literacy Framework</button>
-                        <button onclick="openModal('holistic-literacy-map-modal')" class="block tech-btn text-center w-full">View Holistic Literacy Map</button>
-                        <button onclick="openModal('literacy-case-study-modal')" class="block tech-btn text-center w-full">View Literacy Case Study</button>
+                        <button onclick="openModal('developmental-literacy-framework')" class="block w-full tech-btn text-center">View Developmental Literacy Framework</button>
+                        <button onclick="openModal('holistic-literacy-map')" class="block w-full tech-btn text-center">View Holistic Literacy Map</button>
+                        <button onclick="openModal('literacy-case-study-cohort')" class="block w-full tech-btn text-center">View Literacy Case Study</button>
                     </div>
                 </div>
             </div>
@@ -770,7 +785,7 @@
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <h4 class="font-semibold text-indigo-600 mb-2">Traditional Literacy Component</h4>
+                        <h4 class="font-semibold text-blue-600 mb-2">Traditional Literacy Component</h4>
                         <ul class="text-gray-600 space-y-2">
                             <li><i class="fas fa-angle-right mr-2"></i> <strong>Syntactic Knowledge:</strong> Understanding relationship structures</li>
                             <li><i class="fas fa-angle-right mr-2"></i> <strong>Audience Awareness:</strong> Considering information needs</li>
@@ -779,7 +794,7 @@
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-indigo-600 mb-2">AI-Era Application</h4>
+                        <h4 class="font-semibold text-blue-600 mb-2">AI-Era Application</h4>
                         <ul class="text-gray-600 space-y-2">
                             <li><i class="fas fa-angle-right mr-2"></i> <strong>Prompt Engineering:</strong> Effective query formulation</li>
                             <li><i class="fas fa-angle-right mr-2"></i> <strong>System Awareness:</strong> Understanding AI capabilities</li>
@@ -789,9 +804,51 @@
                     </div>
                 </div>
                 <div class="text-center mt-6">
-                    <button onclick="openModal('ai-ready-literacy-modal')" class="tech-btn inline-block">
+                    <button onclick="openModal('ai-ready-implementation')" class="tech-btn inline-block">
                         <i class="fas fa-arrow-right mr-2"></i> View Implementation Sample
                     </button>
+                </div>
+            </div>
+            
+            <!-- Data Assessment Resources -->
+            <div class="tech-card p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-center">Data Assessment Resources</h3>
+                <p class="text-gray-600 mb-6">
+                    Comprehensive data analysis tools that help track student progress, identify intervention opportunities, and inform instructional decisions.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="stat-card text-center">
+                        <div class="text-4xl text-blue-600 mb-4">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Assessment Outcome Breakdown</h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Detailed analysis of state assessment results with demographic breakdowns and performance indicators.
+                        </p>
+                        <button onclick="openModal('assessment-outcome')" class="tech-btn text-sm">View Resource</button>
+                    </div>
+                    
+                    <div class="stat-card text-center">
+                        <div class="text-4xl text-blue-600 mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Year-Over-Year Growth Tracker</h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Longitudinal tracking tool for monitoring student growth across multiple academic years.
+                        </p>
+                        <button onclick="openModal('year-over-year')" class="tech-btn text-sm">View Resource</button>
+                    </div>
+                    
+                    <div class="stat-card text-center">
+                        <div class="text-4xl text-blue-600 mb-4">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Cohort Data Reflection & Planning</h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Interactive tools for analyzing cohort data and developing targeted instructional plans.
+                        </p>
+                        <button onclick="openModal('cohort-data')" class="tech-btn text-sm">View Resource</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -807,20 +864,20 @@
                     <div>
                         <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
                         <p class="flex items-center mb-3">
-                            <i class="fas fa-envelope text-indigo-600 mr-3"></i>
-                            <a href="mailto:email@example.com" class="text-gray-700 hover:text-indigo-600">email@example.com</a>
+                            <i class="fas fa-envelope text-blue-600 mr-3"></i>
+                            <a href="/cdn-cgi/l/email-protection#8eebe3efe7e2ceebf6efe3fee2eba0ede1e3" class="text-gray-700 hover:text-blue-600"><span class="__cf_email__" data-cfemail="b8ddd5d9d1d4f8ddc0d9d5c8d4dd96dbd7d5">[email&#160;protected]</span></a>
                         </p>
                         <p class="flex items-center mb-3">
-                            <i class="fas fa-phone text-indigo-600 mr-3"></i>
+                            <i class="fas fa-phone text-blue-600 mr-3"></i>
                             <span class="text-gray-700">(210) 803-7131</span>
                         </p>
                         <p class="flex items-center mb-3">
-                            <i class="fas fa-map-marker-alt text-indigo-600 mr-3"></i>
+                            <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i>
                             <span class="text-gray-700">Indianapolis, IN</span>
                         </p>
                         <p class="flex items-center">
-                            <i class="fab fa-linkedin text-indigo-600 mr-3"></i>
-                            <a href="https://www.linkedin.com/in/marlitha-williams-j-d-25295049" target="_blank" class="text-gray-700 hover:text-indigo-600">LinkedIn Profile</a>
+                            <i class="fab fa-linkedin text-blue-600 mr-3"></i>
+                            <a href="https://www.linkedin.com/in/marlitha-williams-j-d-25295049" target="_blank" class="text-gray-700 hover:text-blue-600">LinkedIn Profile</a>
                         </p>
                     </div>
                     <div>
@@ -855,1241 +912,778 @@
             <p>© 2024 Marlitha Williams. All rights reserved.</p>
         </div>
     </footer>
-    
-    <!-- MODALS -->
-    
+
+    <!-- Resource Modals -->
     <!-- Prepositional Phrases Instructional Framework Modal -->
-    <div id="prepositional-phrases-instructional-framework-modal" class="modal">
+    <div id="prepositional-phrases-framework" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('prepositional-phrases-instructional-framework-modal')">&times;</span>
-            <div class="modal-header">
-                <h2 class="text-2xl font-bold text-gray-800">Prepositional Phrases Instructional Framework</h2>
+            <div class="close-modal" onclick="closeModal('prepositional-phrases-framework')">
+                <i class="fas fa-times"></i>
             </div>
-            <div class="modal-body">
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Prepositional Phrases Instructional Framework</h3>
+            <div class="resource-content">
                 <p class="mb-4">This comprehensive framework provides a structured approach to teaching prepositional phrases across grade levels through cross-curricular applications.</p>
                 
-                <h3 class="text-xl font-bold mb-3">Framework Overview</h3>
-                <ul class="list-disc pl-6 mb-5 space-y-2">
-                    <li>Vertically aligned progression from basic to advanced usage</li>
-                    <li>Cross-curricular integration strategies (math, science, social studies)</li>
-                    <li>Assessment protocols and rubrics</li>
-                    <li>Differentiation strategies for various learning needs</li>
-                </ul>
-                
-                <h3 class="text-xl font-bold mb-3">Key Components</h3>
-                
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-2">Introduction to Prepositional Phrases</h4>
-                    <p class="text-gray-700">
-                        Foundational concepts that help students identify and understand prepositions and their objects, distinguishing them from other grammatical structures.
-                    </p>
-                </div>
-                
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-2">Functions in Sentences</h4>
-                    <p class="text-gray-700">
-                        Explores how prepositional phrases function as adjectival and adverbial modifiers, enhancing sentence clarity and complexity.
-                    </p>
-                </div>
-                
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-2">Integration with Writing Process</h4>
-                    <p class="text-gray-700">
-                        Strategies for incorporating prepositional phrases into the drafting and revision stages of writing for more descriptive and precise text.
-                    </p>
-                </div>
-                
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-2">Cross-Curricular Applications</h4>
-                    <p class="text-gray-700">
-                        Examples of how prepositional phrases enhance mathematical explanations, scientific procedures, and historical narratives.
-                    </p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="px-4 py-2 bg-gray-200 rounded-lg mr-4 hover:bg-gray-300 transition" onclick="closeModal('prepositional-phrases-instructional-framework-modal')">Close</button>
-                <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" download="prepositional-phrases-instructional-framework.pdf">Download Framework</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Substitute Lesson Plan Modal -->
-    <div id="substitute-lesson-plan-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('substitute-lesson-plan-modal')">&times;</span>
-            <div class="modal-header">
-                <h2 class="text-2xl font-bold text-gray-800">Scripted Substitute Lesson Plan Example</h2>
-            </div>
-            <div class="modal-body">
-                <p class="mb-4">A detailed, scripted lesson plan template designed for substitute teachers to ensure instructional continuity when the regular teacher is absent.</p>
-                
-                <h3 class="text-xl font-bold mb-3">Lesson Overview</h3>
-                <div class="bg-gray-100 p-4 rounded-lg mb-5">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <p class="font-semibold">Grade Level:</p>
-                            <p>4th Grade</p>
-                        </div>
-                        <div>
-                            <p class="font-semibold">Subject:</p>
-                            <p>English Language Arts</p>
-                        </div>
-                        <div>
-                            <p class="font-semibold">Time Required:</p>
-                            <p>45 minutes</p>
-                        </div>
-                        <div>
-                            <p class="font-semibold">Standards Addressed:</p>
-                            <p>ELA.4.11B, ELA.4.11C</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Lesson Structure</h3>
-                
-                <div class="mb-5">
-                    <h4 class="text-lg font-semibold mb-2">1. Introduction (5 minutes)</h4>
-                    <div class="border-l-4 border-indigo-500 pl-4">
-                        <p class="text-gray-700 mb-2"><strong>Say:</strong> "Today we're going to explore how prepositional phrases help us describe where things are in relation to other things. Prepositional phrases begin with words like 'in,' 'on,' 'under,' and 'beside.'"</p>
-                        <p class="text-gray-700"><strong>Do:</strong> Write the word "PREPOSITION" on the board and underline "POSITION" to highlight how these words indicate position or relationship.</p>
-                    </div>
-                </div>
-                
-                <div class="mb-5">
-                    <h4 class="text-lg font-semibold mb-2">2. Guided Practice (15 minutes)</h4>
-                    <div class="border-l-4 border-indigo-500 pl-4">
-                        <p class="text-gray-700 mb-2"><strong>Say:</strong> "Let's look at some examples of prepositional phrases in sentences."</p>
-                        <p class="text-gray-700 mb-2"><strong>Do:</strong> Display the example sentences on the projector and have students identify the prepositional phrases.</p>
-                        <p class="text-gray-700"><strong>Examples:</strong> "The book is <u>on the shelf</u>." "The cat hid <u>under the bed</u>." "The bird flew <u>over the house</u>."</p>
-                    </div>
-                </div>
-                
-                <div class="mb-5">
-                    <h4 class="text-lg font-semibold mb-2">3. Independent Practice (15 minutes)</h4>
-                    <div class="border-l-4 border-indigo-500 pl-4">
-                        <p class="text-gray-700 mb-2"><strong>Say:</strong> "Now you'll work on your own to find and create prepositional phrases."</p>
-                        <p class="text-gray-700 mb-2"><strong>Do:</strong> Distribute the worksheet from the folder labeled "Preposition Practice" and have students complete exercises 1-3.</p>
-                        <p class="text-gray-700"><strong>Note:</strong> Students who finish early can work on the extension activity on page 2.</p>
-                    </div>
-                </div>
-                
-                <div class="mb-5">
-                    <h4 class="text-lg font-semibold mb-2">4. Closing (10 minutes)</h4>
-                    <div class="border-l-4 border-indigo-500 pl-4">
-                        <p class="text-gray-700 mb-2"><strong>Say:</strong> "Let's share some of the prepositional phrases you created."</p>
-                        <p class="text-gray-700 mb-2"><strong>Do:</strong> Call on 3-4 students to share their examples. Write them on the board.</p>
-                        <p class="text-gray-700"><strong>Say:</strong> "Tomorrow we'll continue exploring how these phrases can make our writing more interesting and precise."</p>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Materials Needed</h3>
-                <ul class="list-disc pl-6 mb-5">
-                    <li>Preposition Practice worksheets (in blue folder)</li>
-                    <li>Document camera or projector</li>
-                    <li>Whiteboard and markers</li>
-                    <li>Example sentences displayed on slides</li>
-                </ul>
-                
-                <h3 class="text-xl font-bold mb-3">Notes for the Substitute</h3>
-                <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                    <p class="text-gray-700 mb-2">If students have difficulty identifying prepositional phrases, remind them that they answer the questions "where," "when," or "in what manner."</p>
-                    <p class="text-gray-700 mb-2">Students with IEPs may receive assistance from Mrs. Johnson, the resource teacher, who will come during independent practice time.</p>
-                    <p class="text-gray-700">Please leave completed work in the tray labeled "4th Grade ELA" in the main office.</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="px-4 py-2 bg-gray-200 rounded-lg mr-4 hover:bg-gray-300 transition" onclick="closeModal('substitute-lesson-plan-modal')">Close</button>
-                <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" download="scripted-substitute-lesson-plan-example.pdf">Download Lesson Plan</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Preposition Practice Planning Framework Modal -->
-    <div id="preposition-practice-planning-framework-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('preposition-practice-planning-framework-modal')">&times;</span>
-            <div class="modal-header">
-                <h2 class="text-2xl font-bold text-gray-800">Preposition Practice Planning Framework</h2>
-            </div>
-            <div class="modal-body">
-                <p class="mb-4">Detailed planning framework for integrating preposition practice across subject areas with differentiated approaches for various learning needs.</p>
-                
-                <h3 class="text-xl font-bold mb-3">Planning Framework Structure</h3>
-                <p class="mb-5">This framework provides a systematic approach to planning preposition instruction across the curriculum, with scaffolded approaches for different proficiency levels.</p>
-                
-                <h3 class="text-xl font-bold mb-3">Cross-Curricular Applications</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2">Mathematics Integration</h4>
-                        <p class="text-gray-700 mb-2">Using prepositional phrases to precisely describe:</p>
-                        <ul class="list-disc pl-5 text-gray-700">
-                            <li>Spatial relationships in geometry</li>
-                            <li>Process steps in multi-step problems</li>
-                            <li>Location on coordinate planes</li>
-                        </ul>
-                        <p class="text-gray-700 mt-2"><strong>Example:</strong> "The point is located <u>at the intersection of</u> the x-axis and the y-axis."</p>
-                    </div>
-                    
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2">Science Integration</h4>
-                        <p class="text-gray-700 mb-2">Using prepositional phrases to enhance:</p>
-                        <ul class="list-disc pl-5 text-gray-700">
-                            <li>Procedural writing in lab reports</li>
-                            <li>Descriptions of natural phenomena</li>
-                            <li>Explanations of cycles and processes</li>
-                        </ul>
-                        <p class="text-gray-700 mt-2"><strong>Example:</strong> "Water vapor rises <u>through the atmosphere</u> and condenses <u>into clouds</u>."</p>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div class="bg-yellow-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2">Social Studies Integration</h4>
-                        <p class="text-gray-700 mb-2">Using prepositional phrases to enhance:</p>
-                        <ul class="list-disc pl-5 text-gray-700">
-                            <li>Geographic descriptions</li>
-                            <li>Historical event narration</li>
-                            <li>Cultural comparisons</li>
-                        </ul>
-                        <p class="text-gray-700 mt-2"><strong>Example:</strong> "The pioneers traveled <u>across the plains</u> <u>toward the western territories</u>."</p>
-                    </div>
-                    
-                    <div class="bg-purple-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2">Physical Education Integration</h4>
-                        <p class="text-gray-700 mb-2">Using prepositional phrases to describe:</p>
-                        <ul class="list-disc pl-5 text-gray-700">
-                            <li>Movement directions</li>
-                            <li>Body positioning</li>
-                            <li>Game rules and procedures</li>
-                        </ul>
-                        <p class="text-gray-700 mt-2"><strong>Example:</strong> "Move the ball <u>around the defender</u> and shoot <u>into the goal</u>."</p>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Differentiation Strategies</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-                    <div class="border rounded-lg p-3">
-                        <h4 class="font-semibold mb-1 text-center">Emerging Level</h4>
-                        <ul class="text-sm text-gray-700 list-disc pl-4 space-y-1">
-                            <li>Visual supports with labeled prepositions</li>
-                            <li>Sentence frames with prepositions highlighted</li>
-                            <li>Physical demonstrations of spatial relationships</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border rounded-lg p-3">
-                        <h4 class="font-semibold mb-1 text-center">Developing Level</h4>
-                        <ul class="text-sm text-gray-700 list-disc pl-4 space-y-1">
-                            <li>Guided practice with prepositional phrase creation</li>
-                            <li>Sorting activities for function classification</li>
-                            <li>Cloze passages with prepositional options</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border rounded-lg p-3">
-                        <h4 class="font-semibold mb-1 text-center">Advanced Level</h4>
-                        <ul class="text-sm text-gray-700 list-disc pl-4 space-y-1">
-                            <li>Multiple prepositional phrases in complex sentences</li>
-                            <li>Analysis of function and impact on meaning</li>
-                            <li>Style variations with prepositional placement</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Assessment Approaches</h3>
-                <div class="bg-gray-100 p-4 rounded-lg">
-                    <p class="text-gray-700 mb-2"><strong>Formative Assessment:</strong> Daily exit tickets where students identify, create, or explain the function of prepositional phrases.</p>
-                    <p class="text-gray-700 mb-2"><strong>Project-Based Assessment:</strong> Cross-curricular projects where students create instructional materials using precise prepositional phrases.</p>
-                    <p class="text-gray-700"><strong>Summative Assessment:</strong> Writing samples evaluated for effective and varied use of prepositional phrases across different functions.</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="px-4 py-2 bg-gray-200 rounded-lg mr-4 hover:bg-gray-300 transition" onclick="closeModal('preposition-practice-planning-framework-modal')">Close</button>
-                <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" download="preposition-practice-planning-framework.pdf">Download Framework</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- AI-Ready Literacy Modal -->
-    <div id="ai-ready-literacy-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('ai-ready-literacy-modal')">&times;</span>
-            <div class="modal-header">
-                <h2 class="text-2xl font-bold text-gray-800">AI-Ready Literacy Implementation Plan</h2>
-            </div>
-            <div class="modal-body">
-                <p class="mb-4">Strategic framework for integrating AI literacy alongside traditional reading and writing instruction, preparing students for an AI-integrated world.</p>
-                
-                <h3 class="text-xl font-bold mb-3">Implementation Overview</h3>
-                <p class="mb-4">This implementation plan outlines a strategic approach to developing AI literacy skills among students by building on traditional literacy foundations.</p>
-                
-                <div class="bg-indigo-50 p-4 rounded-lg mb-6">
-                    <h4 class="text-lg font-semibold mb-2">Core Principle</h4>
-                    <p class="text-gray-700">
-                        The same cognitive processes that make students effective readers and writers also enable them to effectively interact with AI tools. By making these connections explicit, we prepare students for both traditional and emerging literacy contexts.
-                    </p>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Literacy-AI Connections</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6 mb-6">
-                    <div>
-                        <h4 class="text-md font-semibold mb-1 text-indigo-700">Syntactic Knowledge</h4>
-                        <p class="text-sm text-gray-700 mb-1"><strong>Traditional:</strong> Understanding relationship structures in language</p>
-                        <p class="text-sm text-gray-700"><strong>AI Application:</strong> Crafting effective prompts with proper structure</p>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-md font-semibold mb-1 text-indigo-700">Audience Awareness</h4>
-                        <p class="text-sm text-gray-700 mb-1"><strong>Traditional:</strong> Considering information needs of readers</p>
-                        <p class="text-sm text-gray-700"><strong>AI Application:</strong> Understanding system capabilities and limitations</p>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-md font-semibold mb-1 text-indigo-700">Revision Process</h4>
-                        <p class="text-sm text-gray-700 mb-1"><strong>Traditional:</strong> Iterative refinement of writing</p>
-                        <p class="text-sm text-gray-700"><strong>AI Application:</strong> Prompt refinement based on outputs</p>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-md font-semibold mb-1 text-indigo-700">Precision in Language</h4>
-                        <p class="text-sm text-gray-700 mb-1"><strong>Traditional:</strong> Exact meaning conveyance</p>
-                        <p class="text-sm text-gray-700"><strong>AI Application:</strong> Parameter specification and constraint definition</p>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Implementation Phases</h3>
-                
-                <div class="mb-4">
-                    <h4 class="text-lg font-semibold mb-2">Phase 1: Foundation Building (Grades K-2)</h4>
-                    <div class="border-l-4 border-indigo-300 pl-4">
-                        <p class="text-gray-700 mb-2"><strong>Focus:</strong> Developing core literacy skills with awareness of digital tools</p>
-                        <ul class="list-disc pl-6 text-gray-700 space-y-1">
-                            <li>Introduce basic concept that computers respond to instructions</li>
-                            <li>Practice giving clear, specific directions (procedural writing)</li>
-                            <li>Develop vocabulary for spatial and sequential relationships</li>
-                            <li>Build foundational reading and writing skills with digital connections</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="mb-4">
-                    <h4 class="text-lg font-semibold mb-2">Phase 2: Skill Development (Grades 3-5)</h4>
-                    <div class="border-l-4 border-indigo-500 pl-4">
-                        <p class="text-gray-700 mb-2"><strong>Focus:</strong> Expanding literacy with explicit connections to digital interaction</p>
-                        <ul class="list-disc pl-6 text-gray-700 space-y-1">
-                            <li>Compare human vs. computer understanding of instructions</li>
-                            <li>Analyze how word choice affects outcomes in digital contexts</li>
-                            <li>Practice refining instructions based on outcomes</li>
-                            <li>Develop critical evaluation of computer-generated content</li>
-                            <li>Create multimodal texts that incorporate digital elements</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-2">Phase 3: Integration (Grades 6-8)</h4>
-                    <div class="border-l-4 border-indigo-700 pl-4">
-                        <p class="text-gray-700 mb-2"><strong>Focus:</strong> Sophisticated application of literacy skills in AI contexts</p>
-                        <ul class="list-disc pl-6 text-gray-700 space-y-1">
-                            <li>Introduce explicit prompt engineering techniques</li>
-                            <li>Analyze how AI interprets and responds to different inputs</li>
-                            <li>Develop ethical understanding of AI capabilities and limitations</li>
-                            <li>Practice collaborative writing with AI assistance</li>
-                            <li>Create projects that integrate AI tools as appropriate</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Sample Lesson Framework</h3>
-                <div class="bg-gray-100 p-4 rounded-lg mb-5">
-                    <h4 class="font-semibold mb-2">Grade 4: "Precision in Instructions"</h4>
-                    <p class="text-gray-700 mb-2"><strong>Objective:</strong> Students will understand how specificity in language affects outcomes in both human and digital contexts.</p>
-                    <p class="text-gray-700 mb-2"><strong>Activity 1:</strong> "Human Computer" - One student gives instructions while another acts as a "computer" following only exactly what is said.</p>
-                    <p class="text-gray-700 mb-2"><strong>Activity 2:</strong> Students compare vague vs. specific instructions and predict outcomes.</p>
-                    <p class="text-gray-700 mb-2"><strong>Activity 3:</strong> Students revise a set of instructions to make them more precise and effective.</p>
-                    <p class="text-gray-700"><strong>Connection:</strong> Explicit discussion of how this skill applies to both writing for human audiences and creating instructions for digital tools.</p>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Assessment Strategies</h3>
-                <ul class="list-disc pl-6 mb-5 text-gray-700 space-y-2">
-                    <li>Performance tasks requiring clear instructional writing</li>
-                    <li>Comparative analysis of vague vs. specific language outcomes</li>
-                    <li>Projects demonstrating appropriate digital tool integration</li>
-                    <li>Reflective writing on the connection between traditional and digital literacy</li>
-                    <li>Portfolio development showing progression of skills</li>
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button class="px-4 py-2 bg-gray-200 rounded-lg mr-4 hover:bg-gray-300 transition" onclick="closeModal('ai-ready-literacy-modal')">Close</button>
-                <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" download="ai-ready-literacy-implementation.pdf">Download Implementation Plan</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Literacy-AI Connection Visual Framework Modal -->
-    <div id="literacy-ai-connection-visual-framework-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('literacy-ai-connection-visual-framework-modal')">&times;</span>
-            <div class="modal-header">
-                <h2 class="text-2xl font-bold text-gray-800">Literacy-AI Connection Visual Framework</h2>
-            </div>
-            <div class="modal-body">
-                <p class="mb-4">A visual framework illustrating how traditional literacy skills connect with and transfer to AI literacy competencies needed in today's digital world.</p>
-                
-                <h3 class="text-xl font-bold mb-3">Framework Overview</h3>
-                <p class="mb-5">This framework maps the direct connections between traditional literacy skills and their applications in AI literacy contexts, demonstrating how foundational skills transfer to new technological environments.</p>
-                
-                <div class="p-5 bg-indigo-50 rounded-lg mb-6">
-                    <h4 class="text-lg font-semibold mb-3 text-center">Core Skills Transfer Map</h4>
-                    
-                    <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-                        <div class="text-center mb-4 md:mb-0">
-                            <div class="w-40 h-40 rounded-full bg-blue-100 flex items-center justify-center mx-auto">
-                                <div class="text-blue-800 font-bold">Traditional Literacy</div>
-                            </div>
-                        </div>
-                        
-                        <div class="hidden md:block">
-                            <div class="w-32 h-1 bg-indigo-300 relative">
-                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-indigo-200 flex items-center justify-center">
-                                    <i class="fas fa-exchange-alt text-indigo-600"></i>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="text-center">
-                            <div class="w-40 h-40 rounded-full bg-purple-100 flex items-center justify-center mx-auto">
-                                <div class="text-purple-800 font-bold">AI Literacy</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Parallel Skill Development</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2 text-blue-700">Traditional Literacy Skills</h4>
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li class="text-gray-700"><strong>Audience Awareness</strong>: Understanding reader needs and adapting writing accordingly</li>
-                            <li class="text-gray-700"><strong>Revision Process</strong>: Iterative improvement based on feedback</li>
-                            <li class="text-gray-700"><strong>Precision in Language</strong>: Selecting exact words to convey specific meaning</li>
-                            <li class="text-gray-700"><strong>Research Skills</strong>: Finding, evaluating, and using information</li>
-                            <li class="text-gray-700"><strong>Structure & Organization</strong>: Logical sequencing of ideas</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-purple-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2 text-purple-700">AI Literacy Applications</h4>
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li class="text-gray-700"><strong>System Awareness</strong>: Understanding AI capabilities and limitations</li>
-                            <li class="text-gray-700"><strong>Prompt Refinement</strong>: Improving queries based on initial outputs</li>
-                            <li class="text-gray-700"><strong>Parameter Specification</strong>: Defining exact constraints for desired results</li>
-                            <li class="text-gray-700"><strong>Output Evaluation</strong>: Analyzing and verifying AI-generated content</li>
-                            <li class="text-gray-700"><strong>Sequential Thinking</strong>: Breaking complex tasks into logical steps</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Skill Progression Map</h3>
-                
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-2">Foundation Level (Grades K-2)</h4>
-                    <div class="grid grid-cols-2 gap-3 mb-3">
-                        <div class="bg-gray-100 p-3 rounded">
-                            <p class="text-sm text-gray-700"><strong>Traditional:</strong> Following and creating simple instructions</p>
-                        </div>
-                        <div class="bg-gray-100 p-3 rounded">
-                            <p class="text-sm text-gray-700"><strong>AI Application:</strong> Understanding that computers follow specific commands</p>
-                        </div>
-                    </div>
-                    
-                    <h4 class="text-lg font-semibold mb-2">Intermediate Level (Grades 3-5)</h4>
-                    <div class="grid grid-cols-2 gap-3 mb-3">
-                        <div class="bg-gray-100 p-3 rounded">
-                            <p class="text-sm text-gray-700"><strong>Traditional:</strong> Crafting clear, detailed descriptions and instructions</p>
-                        </div>
-                        <div class="bg-gray-100 p-3 rounded">
-                            <p class="text-sm text-gray-700"><strong>AI Application:</strong> Creating basic queries with specific parameters</p>
-                        </div>
-                    </div>
-                    
-                    <h4 class="text-lg font-semibold mb-2">Advanced Level (Grades 6-8)</h4>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="bg-gray-100 p-3 rounded">
-                            <p class="text-sm text-gray-700"><strong>Traditional:</strong> Analyzing text purpose, structure, and effectiveness</p>
-                        </div>
-                        <div class="bg-gray-100 p-3 rounded">
-                            <p class="text-sm text-gray-700"><strong>AI Application:</strong> Crafting sophisticated prompts and critically evaluating outputs</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Instructional Integration Points</h3>
-                
-                <div class="mb-5 bg-yellow-50 p-4 rounded-lg">
-                    <p class="text-gray-700 mb-3">Each traditional literacy skill can be taught with explicit connections to its AI literacy application:</p>
-                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                        <li>When teaching audience awareness, include discussion of how AI systems "understand" differently than humans</li>
-                        <li>When practicing revision, demonstrate parallels to prompt refinement with digital tools</li>
-                        <li>When working on descriptive language, show how precision affects both human comprehension and digital tool outputs</li>
-                        <li>When teaching research skills, integrate critical evaluation of AI-generated information</li>
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-lg mb-2">Framework Overview</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Vertically aligned progression from basic to advanced usage</li>
+                        <li>Cross-curricular integration strategies (math, science, social studies)</li>
+                        <li>Assessment protocols and rubrics</li>
+                        <li>Differentiation strategies for various learning needs</li>
                     </ul>
                 </div>
+                
+                <h4 class="font-bold text-lg mb-3">Key Components</h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded shadow">
+                        <h5 class="font-semibold text-blue-700 mb-2">Introduction to Prepositional Phrases</h5>
+                        <p>Foundational concepts that help students identify and understand prepositions and their objects, distinguishing them from other grammatical structures.</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded shadow">
+                        <h5 class="font-semibold text-blue-700 mb-2">Functions in Sentences</h5>
+                        <p>Explores how prepositional phrases function as adjectival and adverbial modifiers, enhancing sentence clarity and complexity.</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded shadow">
+                        <h5 class="font-semibold text-blue-700 mb-2">Integration with Writing Process</h5>
+                        <p>Strategies for incorporating prepositional phrases into the drafting and revision stages of writing for more descriptive and precise text.</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded shadow">
+                        <h5 class="font-semibold text-blue-700 mb-2">Cross-Curricular Applications</h5>
+                        <p>Examples of how prepositional phrases enhance mathematical explanations, scientific procedures, and historical narratives.</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('prepositional-phrases-framework.pdf')">
+                        <i class="fas fa-download mr-2"></i> Download Framework
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('prepositional-phrases-instructional-framework')">
+                        <i class="fas fa-eye mr-2"></i> View Full Document
+                    </button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button class="px-4 py-2 bg-gray-200 rounded-lg mr-4 hover:bg-gray-300 transition" onclick="closeModal('literacy-ai-connection-visual-framework-modal')">Close</button>
-                <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" download="literacy-ai-connection-visual-framework.pdf">Download Framework</a>
+        </div>
+    </div>
+
+    <!-- Substitute Lesson Plan Modal -->
+    <div id="substitute-lesson-plan" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('substitute-lesson-plan')">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Scripted Substitute Lesson Plan Example</h3>
+            <div class="resource-content">
+                <p class="mb-4">A detailed, ready-to-use lesson plan template designed for substitute teachers to ensure instructional continuity when the regular classroom teacher is absent.</p>
+                
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-lg mb-2">Plan Features</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Minute-by-minute timing guidelines</li>
+                        <li>Scripted instructions and questions</li>
+                        <li>Built-in differentiation options</li>
+                        <li>Formative assessment checkpoints</li>
+                        <li>Extension activities for early finishers</li>
+                    </ul>
+                </div>
+                
+                <h4 class="font-bold text-lg mb-3">Lesson Structure</h4>
+                
+                <div class="mb-6 border-l-4 border-blue-500 pl-4">
+                    <h5 class="font-semibold mb-2">1. Introduction & Hook (5 minutes)</h5>
+                    <p class="text-gray-600 mb-3">Engaging scenario that introduces the concept of prepositional phrases through a real-world context that students can visualize.</p>
+                    
+                    <h5 class="font-semibold mb-2">2. Direct Instruction (10 minutes)</h5>
+                    <p class="text-gray-600 mb-3">Clear explanation of what prepositional phrases are, with examples and non-examples to build conceptual understanding.</p>
+                    
+                    <h5 class="font-semibold mb-2">3. Guided Practice (15 minutes)</h5>
+                    <p class="text-gray-600 mb-3">Structured activities where students work with teacher guidance to identify and create basic prepositional phrases.</p>
+                    
+                    <h5 class="font-semibold mb-2">4. Independent Practice (15 minutes)</h5>
+                    <p class="text-gray-600 mb-3">Application activities where students demonstrate their understanding through writing and revision tasks.</p>
+                    
+                    <h5 class="font-semibold mb-2">5. Assessment & Closure (5 minutes)</h5>
+                    <p class="text-gray-600">Quick formative assessment to gauge understanding, followed by summary of key learning points.</p>
+                </div>
+                
+                <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-lg mb-2">Special Notes for Substitutes</h4>
+                    <p>This lesson is designed to be accessible to teachers without specific grammar expertise. All necessary background information is provided, along with potential student misconceptions and how to address them.</p>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('scripted-substitute-lesson-plan-example.pdf')">
+                        <i class="fas fa-download mr-2"></i> Download Lesson Plan
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('scripted-substitute-lesson-plan-example')">
+                        <i class="fas fa-eye mr-2"></i> View Full Document
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI-Ready Implementation Modal -->
+    <div id="ai-ready-implementation" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('ai-ready-implementation')">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">AI-Ready Literacy Implementation Plan</h3>
+            <div class="resource-content">
+                <p class="mb-4">This forward-thinking framework connects traditional literacy instruction with the skills needed for effective AI interaction, creating a comprehensive approach to prepare students for an AI-integrated future.</p>
+                
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-lg mb-2">Implementation Overview</h4>
+                    <p>The AI-Ready Literacy model recognizes that many of the same skills that make students effective readers and writers will enable them to effectively leverage AI tools in their academic and professional lives.</p>
+                </div>
+                
+                <h4 class="font-bold text-lg mb-3">Key Literacy-AI Connections</h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded shadow">
+                        <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-3">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h5 class="font-semibold">Syntactic Knowledge</h5>
+                        </div>
+                        <p class="text-gray-600">Traditional: Understanding relationship structures in text</p>
+                        <p class="text-blue-600 font-medium">AI Application: Effective prompt engineering and query formulation</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded shadow">
+                        <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-3">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h5 class="font-semibold">Audience Awareness</h5>
+                        </div>
+                        <p class="text-gray-600">Traditional: Considering reader needs when writing</p>
+                        <p class="text-blue-600 font-medium">AI Application: Understanding AI system capabilities and limitations</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded shadow">
+                        <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-3">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <h5 class="font-semibold">Revision Process</h5>
+                        </div>
+                        <p class="text-gray-600">Traditional: Iterative refinement of written work</p>
+                        <p class="text-blue-600 font-medium">AI Application: Output assessment and prompt refinement</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded shadow">
+                        <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-3">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h5 class="font-semibold">Precision in Language</h5>
+                        </div>
+                        <p class="text-gray-600">Traditional: Conveying exact meaning through word choice</p>
+                        <p class="text-blue-600 font-medium">AI Application: Parameter specification and constraint definition</p>
+                    </div>
+                </div>
+                
+                <h4 class="font-bold text-lg mb-3">Implementation Timeline</h4>
+                
+                <div class="relative pb-12">
+                    <!-- Timeline -->
+                    <div class="absolute h-full w-1 bg-blue-200 left-1/2 transform -translate-x-1/2"></div>
+                    
+                    <!-- Phase 1 -->
+                    <div class="relative mb-8">
+                        <div class="absolute w-4 h-4 bg-blue-600 rounded-full left-1/2 transform -translate-x-1/2"></div>
+                        <div class="ml-8 md:ml-0 md:flex md:justify-between md:items-center">
+                            <div class="md:w-5/12 md:text-right md:pr-8">
+                                <h5 class="font-semibold text-blue-700">Phase 1: Foundation Building</h5>
+                                <p class="text-gray-600">Weeks 1-4</p>
+                            </div>
+                            <div class="md:w-5/12 md:pl-8 mt-2 md:mt-0">
+                                <p>Introduce core literacy concepts with explicit connections to future AI applications. Build awareness of how clear communication applies to both human and machine interactions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 2 -->
+                    <div class="relative mb-8">
+                        <div class="absolute w-4 h-4 bg-blue-600 rounded-full left-1/2 transform -translate-x-1/2"></div>
+                        <div class="ml-8 md:ml-0 md:flex md:justify-between md:items-center">
+                            <div class="md:w-5/12 md:text-right md:pr-8">
+                                <h5 class="font-semibold text-blue-700">Phase 2: Skill Development</h5>
+                                <p class="text-gray-600">Weeks 5-12</p>
+                            </div>
+                            <div class="md:w-5/12 md:pl-8 mt-2 md:mt-0">
+                                <p>Develop specific literacy skills with parallel AI-interaction skills. Students practice both traditional writing and basic prompt engineering through structured exercises.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 3 -->
+                    <div class="relative">
+                        <div class="absolute w-4 h-4 bg-blue-600 rounded-full left-1/2 transform -translate-x-1/2"></div>
+                        <div class="ml-8 md:ml-0 md:flex md:justify-between md:items-center">
+                            <div class="md:w-5/12 md:text-right md:pr-8">
+                                <h5 class="font-semibold text-blue-700">Phase 3: Integration & Application</h5>
+                                <p class="text-gray-600">Weeks 13-18</p>
+                            </div>
+                            <div class="md:w-5/12 md:pl-8 mt-2 md:mt-0">
+                                <p>Apply integrated literacy skills to authentic projects. Students demonstrate mastery through creating content that shows both traditional literacy proficiency and AI-interaction capability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('ai-ready-literacy.pdf')">
+                        <i class="fas fa-download mr-2"></i> Download Implementation Plan
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('ai-ready-literacy')">
+                        <i class="fas fa-eye mr-2"></i> View Full Document
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Practice Planning Framework Modal -->
+    <div id="practice-planning-framework" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('practice-planning-framework')">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Practice Planning Framework</h3>
+            <div class="resource-content">
+                <p class="mb-4">A structured approach to planning deliberate practice activities that build mastery of prepositional phrases through incremental challenges and frequent feedback.</p>
+                
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-lg mb-2">Framework Components</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Skill progression map from basic identification to creative application</li>
+                        <li>Daily practice routines for consistent skill building</li>
+                        <li>Feedback protocols for immediate correction and growth</li>
+                        <li>Differentiation pathways for varied learner needs</li>
+                    </ul>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('practice-planning-framework.pdf')">
+                        <i class="fas fa-download mr-2"></i> Download Framework
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('practice-planning-framework')">
+                        <i class="fas fa-eye mr-2"></i> View Full Document
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Literacy-AI Connection Modal -->
+    <div id="literacy-ai-connection" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('literacy-ai-connection')">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Literacy-AI Connection Framework</h3>
+            <div class="resource-content">
+                <p class="mb-4">A detailed mapping of traditional literacy skills to their AI-era applications, providing educators with a clear pathway for teaching transferable communication skills.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded shadow">
+                        <h4 class="font-semibold text-blue-700 mb-2">Critical Reading</h4>
+                        <p class="mb-2 text-gray-700">Traditional: Source evaluation and bias detection</p>
+                        <p class="text-blue-600">AI Application: Output verification and prompt refinement for accuracy</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded shadow">
+                        <h4 class="font-semibold text-blue-700 mb-2">Genre Knowledge</h4>
+                        <p class="mb-2 text-gray-700">Traditional: Understanding text structure conventions</p>
+                        <p class="text-blue-600">AI Application: Format specification in prompts</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded shadow">
+                        <h4 class="font-semibold text-blue-700 mb-2">Vocabulary Precision</h4>
+                        <p class="mb-2 text-gray-700">Traditional: Word choice for clarity and effect</p>
+                        <p class="text-blue-600">AI Application: Keyword optimization in queries</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('literacy-ai-connection-framework.pdf')">
+                        <i class="fas fa-download mr-2"></i> Download Framework
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('literacy-ai-connection-framework')">
+                        <i class="fas fa-eye mr-2"></i> View Full Document
+                    </button>
+                </div>
             </div>
         </div>
     </div>
     
     <!-- Future-Ready Literacy Modal -->
-    <div id="future-ready-literacy-modal" class="modal">
+    <div id="future-ready-literacy" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('future-ready-literacy-modal')">&times;</span>
-            <div class="modal-header">
-                <h2 class="text-2xl font-bold text-gray-800">Future-Ready Literacy Framework</h2>
+            <div class="close-modal" onclick="closeModal('future-ready-literacy')">
+                <i class="fas fa-times"></i>
             </div>
-            <div class="modal-body">
-                <p class="mb-4">A comprehensive framework for developing literacy skills that prepare students for future educational and career success in an increasingly digital world.</p>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Future-Ready Literacy</h3>
+            <div class="resource-content">
+                <p class="mb-4">A comprehensive guide for educators to prepare students for literacy demands in an increasingly AI-integrated world while maintaining core communication competencies.</p>
                 
-                <h3 class="text-xl font-bold mb-3">Framework Vision</h3>
-                <div class="bg-indigo-50 p-4 rounded-lg mb-5">
-                    <p class="text-gray-700">
-                        Future-Ready Literacy integrates traditional literacy foundations with digital fluency, critical thinking, and adaptable communication skills that will remain relevant as technology evolves. This framework prepares students not just for current technological tools but for continuous learning in a rapidly changing landscape.
-                    </p>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Core Literacy Domains</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div class="border border-blue-200 rounded-lg p-4 bg-blue-50">
-                        <h4 class="text-lg font-semibold mb-2 text-blue-700">Foundation Literacy</h4>
-                        <p class="text-gray-700 mb-2">Traditional reading and writing skills enhanced with digital applications:</p>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Phonological awareness with digital audio support</li>
-                            <li>Print concepts across physical and digital texts</li>
-                            <li>Vocabulary development with multimedia reinforcement</li>
-                            <li>Comprehension strategies for multimodal texts</li>
-                            <li>Writing processes integrated with digital tools</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border border-green-200 rounded-lg p-4 bg-green-50">
-                        <h4 class="text-lg font-semibold mb-2 text-green-700">Information Literacy</h4>
-                        <p class="text-gray-700 mb-2">Skills for finding, evaluating, and using information:</p>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Source evaluation across traditional and digital media</li>
-                            <li>Research strategies for multiple information formats</li>
-                            <li>Critical analysis of AI-generated content</li>
-                            <li>Data interpretation and visualization</li>
-                            <li>Ethical use and attribution of information</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div class="border border-purple-200 rounded-lg p-4 bg-purple-50">
-                        <h4 class="text-lg font-semibold mb-2 text-purple-700">Digital Literacy</h4>
-                        <p class="text-gray-700 mb-2">Technical skills needed for digital communication:</p>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Digital tool navigation and selection</li>
-                            <li>Multimedia content creation and editing</li>
-                            <li>Effective digital communication for various purposes</li>
-                            <li>Computational thinking principles</li>
-                            <li>Digital citizenship and online safety</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border border-yellow-200 rounded-lg p-4 bg-yellow-50">
-                        <h4 class="text-lg font-semibold mb-2 text-yellow-700">Adaptive Literacy</h4>
-                        <p class="text-gray-700 mb-2">Meta-skills for continuous learning:</p>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Transfer of literacy skills to new contexts</li>
-                            <li>Technological adaptability</li>
-                            <li>Critical analysis of emerging communication tools</li>
-                            <li>Self-directed learning strategies</li>
-                            <li>Metacognition and literacy self-assessment</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Implementation Approach</h3>
-                
-                <div class="mb-5">
-                    <h4 class="text-lg font-semibold mb-2">Instructional Strategies</h4>
-                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                        <li><strong>Integrated Skill Development:</strong> Literacy practices embedded across all subject areas with explicit connections</li>
-                        <li><strong>Authentic Applications:</strong> Real-world literacy tasks that mirror current professional and civic communication</li>
-                        <li><strong>Scaffolded Technology Integration:</strong> Progressive introduction of digital tools alongside traditional literacy practices</li>
-                        <li><strong>Multimodal Expression:</strong> Opportunities for students to demonstrate understanding through various media</li>
-                        <li><strong>Reflective Practice:</strong> Regular student reflection on their literacy development and technological adaptations</li>
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-lg mb-2">Key Focus Areas</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Human-AI collaborative writing processes</li>
+                        <li>Information literacy in a generative AI era</li>
+                        <li>Ethical considerations for AI-assisted communication</li>
+                        <li>Teaching students to be effective AI editors and collaborators</li>
                     </ul>
                 </div>
                 
-                <h3 class="text-xl font-bold mb-3">Assessment Framework</h3>
-                
-                <div class="mb-6 bg-gray-100 p-4 rounded-lg">
-                    <h4 class="font-semibold mb-2">Balanced Assessment Model</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div>
-                            <h5 class="font-medium text-center mb-2">Foundation Measures</h5>
-                            <ul class="text-sm text-gray-700 list-disc pl-5 space-y-1">
-                                <li>Reading fluency assessments</li>
-                                <li>Writing proficiency rubrics</li>
-                                <li>Vocabulary assessments</li>
-                                <li>Comprehension checks</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5 class="font-medium text-center mb-2">Performance Tasks</h5>
-                            <ul class="text-sm text-gray-700 list-disc pl-5 space-y-1">
-                                <li>Research projects</li>
-                                <li>Multimedia presentations</li>
-                                <li>Digital content creation</li>
-                                <li>Cross-platform communication</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5 class="font-medium text-center mb-2">Self-Assessment</h5>
-                            <ul class="text-sm text-gray-700 list-disc pl-5 space-y-1">
-                                <li>Literacy portfolios</li>
-                                <li>Tool selection reflections</li>
-                                <li>Growth documentation</li>
-                                <li>Peer feedback processes</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('future-ready-literacy.pdf')">
+                        <i class="fas fa-download mr-2"></i> Download Guide
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('future-ready-literacy')">
+                        <i class="fas fa-eye mr-2"></i> View Full Document
+                    </button>
                 </div>
-                
-                <h3 class="text-xl font-bold mb-3">Professional Development Model</h3>
-                
-                <div class="mb-5">
-                    <p class="text-gray-700 mb-3">To effectively implement this framework, educators need ongoing support in their own literacy evolution:</p>
-                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                        <li><strong>Tiered Training:</strong> Differentiated professional development based on teacher technology comfort and literacy expertise</li>
-                        <li><strong>Learning Communities:</strong> Collaborative exploration of new literacy tools and approaches</li>
-                        <li><strong>Just-In-Time Resources:</strong> On-demand support for technology integration in literacy instruction</li>
-                        <li><strong>Model Classroom Visits:</strong> Observation opportunities to see future-ready literacy in practice</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="px-4 py-2 bg-gray-200 rounded-lg mr-4 hover:bg-gray-300 transition" onclick="closeModal('future-ready-literacy-modal')">Close</button>
-                <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" download="future-ready-literacy-framework.pdf">Download Framework</a>
             </div>
         </div>
     </div>
     
-    <!-- Developmental Literacy Framework Modal -->
-    <div id="developmental-literacy-framework-modal" class="modal">
+    <!-- Assessment Outcome Modal -->
+    <div id="assessment-outcome" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('developmental-literacy-framework-modal')">&times;</span>
-            <div class="modal-header">
-                <h2 class="text-2xl font-bold text-gray-800">Developmental Literacy Framework</h2>
+            <div class="close-modal" onclick="closeModal('assessment-outcome')">
+                <i class="fas fa-times"></i>
             </div>
-            <div class="modal-body">
-                <p class="mb-4">A comprehensive, research-based framework for literacy development that aligns instruction across grade levels to create consistent skill progression.</p>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Assessment Outcome Breakdown</h3>
+            <div class="resource-content">
+                <p class="mb-4">A comprehensive data analysis tool for examining state assessment results with demographic breakdowns and granular performance indicators.</p>
                 
-                <h3 class="text-xl font-bold mb-3">Framework Principles</h3>
-                <div class="bg-blue-50 p-4 rounded-lg mb-5">
-                    <p class="text-gray-700">
-                        This framework integrates the Science of Reading with proven instructional practices to create a coherent literacy progression from early foundations to advanced application. It emphasizes explicit skill instruction while building toward higher-order thinking and meaningful comprehension.
-                    </p>
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('assessment-outcome-breakdown.xlsx')">
+                        <i class="fas fa-download mr-2"></i> Download Tool
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('assessment-outcome-breakdown')">
+                        <i class="fas fa-eye mr-2"></i> View Sample Report
+                    </button>
                 </div>
-                
-                <h3 class="text-xl font-bold mb-3">Developmental Progression Map</h3>
-                
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-2">Emergent Literacy (PreK-K)</h4>
-                    <div class="bg-gray-100 rounded-lg p-4 mb-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <h5 class="font-medium mb-1">Key Components</h5>
-                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-                                    <li>Phonological awareness</li>
-                                    <li>Print concepts</li>
-                                    <li>Alphabetic principle</li>
-                                    <li>Oral language development</li>
-                                    <li>Emergent writing</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h5 class="font-medium mb-1">Instructional Focus</h5>
-                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-                                    <li>Multisensory phonemic activities</li>
-                                    <li>Read-alouds with print referencing</li>
-                                    <li>Environmental print exploration</li>
-                                    <li>Playful vocabulary building</li>
-                                    <li>Drawing and early mark-making</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h4 class="text-lg font-semibold mb-2">Early Literacy (Grades 1-2)</h4>
-                    <div class="bg-gray-100 rounded-lg p-4 mb-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <h5 class="font-medium mb-1">Key Components</h5>
-                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-                                    <li>Phonics and word recognition</li>
-                                    <li>Fluency development</li>
-                                    <li>Vocabulary acquisition</li>
-                                    <li>Basic comprehension strategies</li>
-                                    <li>Early writing composition</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h5 class="font-medium mb-1">Instructional Focus</h5>
-                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-                                    <li>Systematic phonics instruction</li>
-                                    <li>Decodable text practice</li>
-                                    <li>Repeated reading protocols</li>
-                                    <li>Explicit vocabulary instruction</li>
-                                    <li>Simple paragraph construction</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h4 class="text-lg font-semibold mb-2">Transitional Literacy (Grades 3-5)</h4>
-                    <div class="bg-gray-100 rounded-lg p-4 mb-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <h5 class="font-medium mb-1">Key Components</h5>
-                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-                                    <li>Advanced phonics and morphology</li>
-                                    <li>Reading stamina and prosody</li>
-                                    <li>Academic vocabulary</li>
-                                    <li>Comprehension monitoring</li>
-                                    <li>Genre-specific writing</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h5 class="font-medium mb-1">Instructional Focus</h5>
-                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-                                    <li>Word study with morphological analysis</li>
-                                    <li>Close reading protocols</li>
-                                    <li>Text structure instruction</li>
-                                    <li>Literary element analysis</li>
-                                    <li>Writing across text types</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h4 class="text-lg font-semibold mb-2">Disciplinary Literacy (Grades 6-8)</h4>
-                    <div class="bg-gray-100 rounded-lg p-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <h5 class="font-medium mb-1">Key Components</h5>
-                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-                                    <li>Subject-specific vocabulary</li>
-                                    <li>Complex text comprehension</li>
-                                    <li>Critical reading across sources</li>
-                                    <li>Research processes</li>
-                                    <li>Argument development</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h5 class="font-medium mb-1">Instructional Focus</h5>
-                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-                                    <li>Domain-specific reading strategies</li>
-                                    <li>Text-dependent questioning</li>
-                                    <li>Multiple source synthesis</li>
-                                    <li>Evidence-based writing</li>
-                                    <li>Digital literacy integration</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Vertical Alignment System</h3>
-                
-                <div class="mb-5">
-                    <p class="text-gray-700 mb-3">The framework ensures consistent progression through:</p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="border rounded-lg p-3 bg-blue-50">
-                            <h5 class="font-medium mb-1 text-center">Common Language</h5>
-                            <p class="text-sm text-gray-700">Consistent terminology for literacy concepts across grade levels</p>
-                        </div>
-                        <div class="border rounded-lg p-3 bg-green-50">
-                            <h5 class="font-medium mb-1 text-center">Skill Spiraling</h5>
-                            <p class="text-sm text-gray-700">Strategic revisiting of key skills with increasing complexity</p>
-                        </div>
-                        <div class="border rounded-lg p-3 bg-purple-50">
-                            <h5 class="font-medium mb-1 text-center">Transfer Planning</h5>
-                            <p class="text-sm text-gray-700">Explicit transition points between developmental stages</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Assessment Continuum</h3>
-                <div class="bg-gray-100 p-4 rounded-lg mb-5">
-                    <p class="mb-3 text-gray-700">The framework includes a comprehensive assessment system with:</p>
-                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                        <li><strong>Diagnostic Tools:</strong> To identify current developmental level and specific skill needs</li>
-                        <li><strong>Progress Monitoring:</strong> Regular check-ins on key literacy indicators</li>
-                        <li><strong>Formative Practices:</strong> Daily/weekly quick assessments to guide instruction</li>
-                        <li><strong>Summative Measures:</strong> Comprehensive evaluation of literacy milestone achievement</li>
-                        <li><strong>Growth Tracking:</strong> Longitudinal monitoring across developmental stages</li>
-                    </ul>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Differentiation Framework</h3>
-                <p class="mb-5 text-gray-700">
-                    Within each developmental stage, the framework provides structured guidance for differentiating instruction based on students' specific needs while maintaining appropriate developmental expectations. This includes intervention protocols, enrichment pathways, and cultural relevance considerations.
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button class="px-4 py-2 bg-gray-200 rounded-lg mr-4 hover:bg-gray-300 transition" onclick="closeModal('developmental-literacy-framework-modal')">Close</button>
-                <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" download="developmental-literacy-framework.pdf">Download Framework</a>
             </div>
         </div>
     </div>
     
-    <!-- Holistic Literacy Map Modal -->
-    <div id="holistic-literacy-map-modal" class="modal">
+    <!-- Year-Over-Year Growth Modal -->
+    <div id="year-over-year" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('holistic-literacy-map-modal')">&times;</span>
-            <div class="modal-header">
-                <h2 class="text-2xl font-bold text-gray-800">Holistic Literacy Map</h2>
+            <div class="close-modal" onclick="closeModal('year-over-year')">
+                <i class="fas fa-times"></i>
             </div>
-            <div class="modal-body">
-                <p class="mb-4">A detailed mapping of literacy skills, instructional approaches, and assessment strategies across educational contexts that integrates cognitive, social-emotional, and cultural dimensions of literacy development.</p>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Year-Over-Year Growth Tracker</h3>
+            <div class="resource-content">
+                <p class="mb-4">A longitudinal tracking tool for monitoring student growth across multiple academic years, identifying trends and growth patterns.</p>
                 
-                <h3 class="text-xl font-bold mb-3">Map Overview</h3>
-                <div class="bg-purple-50 p-4 rounded-lg mb-5">
-                    <p class="text-gray-700">
-                        This comprehensive mapping tool visualizes the intersections between literacy skill development, instructional practices, and assessment approaches. It creates a cohesive framework that addresses not just technical reading and writing skills but also motivation, engagement, cultural relevance, and social-emotional aspects of literacy.
-                    </p>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Core Literacy Dimensions</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2 text-blue-700 text-center">Cognitive</h4>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Phonological processing</li>
-                            <li>Orthographic mapping</li>
-                            <li>Syntactic awareness</li>
-                            <li>Comprehension processes</li>
-                            <li>Executive functioning</li>
-                            <li>Working memory</li>
-                            <li>Metacognition</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2 text-green-700 text-center">Social-Emotional</h4>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Reading motivation</li>
-                            <li>Growth mindset</li>
-                            <li>Self-regulation</li>
-                            <li>Perseverance</li>
-                            <li>Collaborative literacy</li>
-                            <li>Identity as reader/writer</li>
-                            <li>Emotional engagement</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-yellow-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2 text-yellow-700 text-center">Cultural-Contextual</h4>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Cultural knowledge activation</li>
-                            <li>Home literacy connection</li>
-                            <li>Funds of knowledge</li>
-                            <li>Linguistic resources</li>
-                            <li>Culturally representative texts</li>
-                            <li>Community literacy practices</li>
-                            <li>Purpose and relevance</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Skill Development Matrix</h3>
-                <div class="mb-5 overflow-x-auto">
-                    <table class="w-full border-collapse table-auto">
-                        <thead>
-                            <tr class="bg-gray-100">
-                                <th class="border p-2 text-left">Literacy Domain</th>
-                                <th class="border p-2 text-left">Foundational Skills</th>
-                                <th class="border p-2 text-left">Instructional Strategies</th>
-                                <th class="border p-2 text-left">Assessment Approaches</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="border p-2 font-medium">Decoding</td>
-                                <td class="border p-2">
-                                    <ul class="list-disc pl-4 text-sm">
-                                        <li>Phonemic awareness</li>
-                                        <li>Letter-sound correspondences</li>
-                                        <li>Blending</li>
-                                        <li>Sight word recognition</li>
-                                    </ul>
-                                </td>
-                                <td class="border p-2">
-                                    <ul class="list-disc pl-4 text-sm">
-                                        <li>Elkonin boxes</li>
-                                        <li>Word building</li>
-                                        <li>Decodable text reading</li>
-                                        <li>Multi-sensory approaches</li>
-                                    </ul>
-                                </td>
-                                <td class="border p-2">
-                                    <ul class="list-disc pl-4 text-sm">
-                                        <li>Phoneme segmentation fluency</li>
-                                        <li>Nonsense word fluency</li>
-                                        <li>Word reading efficiency</li>
-                                        <li>Running records</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr class="bg-gray-50">
-                                <td class="border p-2 font-medium">Language Comprehension</td>
-                                <td class="border p-2">
-                                    <ul class="list-disc pl-4 text-sm">
-                                        <li>Vocabulary</li>
-                                        <li>Syntax</li>
-                                        <li>Background knowledge</li>
-                                        <li>Inferencing</li>
-                                    </ul>
-                                </td>
-                                <td class="border p-2">
-                                    <ul class="list-disc pl-4 text-sm">
-                                        <li>Text-dependent questioning</li>
-                                        <li>Semantic mapping</li>
-                                        <li>Think-alouds</li>
-                                        <li>Knowledge-building read-alouds</li>
-                                    </ul>
-                                </td>
-                                <td class="border p-2">
-                                    <ul class="list-disc pl-4 text-sm">
-                                        <li>Vocabulary assessments</li>
-                                        <li>Listening comprehension tasks</li>
-                                        <li>Retelling rubrics</li>
-                                        <li>Inference assessments</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="border p-2 font-medium">Writing Expression</td>
-                                <td class="border p-2">
-                                    <ul class="list-disc pl-4 text-sm">
-                                        <li>Transcription</li>
-                                        <li>Sentence construction</li>
-                                        <li>Organizational strategies</li>
-                                        <li>Revision processes</li>
-                                    </ul>
-                                </td>
-                                <td class="border p-2">
-                                    <ul class="list-disc pl-4 text-sm">
-                                        <li>Interactive writing</li>
-                                        <li>Sentence combining</li>
-                                        <li>Genre-specific instruction</li>
-                                        <li>Writers workshop model</li>
-                                    </ul>
-                                </td>
-                                <td class="border p-2">
-                                    <ul class="list-disc pl-4 text-sm">
-                                        <li>Writing samples analysis</li>
-                                        <li>Trait-based rubrics</li>
-                                        <li>Progress monitoring</li>
-                                        <li>Self-evaluation protocols</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Integration Points</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
-                    <div class="bg-gray-100 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2">Cross-Content Literacy</h4>
-                        <p class="text-gray-700 mb-2">Mapping how literacy skills transfer across subject areas:</p>
-                        <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-                            <li>Scientific literacy practices</li>
-                            <li>Mathematical communication</li>
-                            <li>Historical analysis through text</li>
-                            <li>Arts-integrated literacy approaches</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-gray-100 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2">Digital Literacy Integration</h4>
-                        <p class="text-gray-700 mb-2">Mapping traditional literacy to digital contexts:</p>
-                        <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-                            <li>Multimodal text comprehension</li>
-                            <li>Digital composition processes</li>
-                            <li>Online research strategies</li>
-                            <li>Media literacy and analysis</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Application Guide</h3>
-                <div class="bg-indigo-50 p-4 rounded-lg">
-                    <p class="text-gray-700 mb-3">This literacy map serves multiple purposes for educators:</p>
-                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                        <li><strong>Instructional Planning:</strong> Identify connections between literacy domains for integrated teaching</li>
-                        <li><strong>Data Analysis:</strong> Map assessment data to identify patterns across dimensions</li>
-                        <li><strong>Professional Learning:</strong> Focus teacher development on high-impact areas</li>
-                        <li><strong>Intervention Design:</strong> Create holistic support that addresses all dimensions</li>
-                        <li><strong>Curriculum Development:</strong> Ensure comprehensive coverage of literacy domains</li>
-                    </ul>
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('year-over-year-growth-tracker.xlsx')">
+                        <i class="fas fa-download mr-2"></i> Download Tool
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('year-over-year-growth-tracker')">
+                        <i class="fas fa-eye mr-2"></i> View Sample Report
+                    </button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button class="px-4 py-2 bg-gray-200 rounded-lg mr-4 hover:bg-gray-300 transition" onclick="closeModal('holistic-literacy-map-modal')">Close</button>
-                <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" download="holistic-literacy-map.pdf">Download Map</a>
+        </div>
+    </div>
+    
+    <!-- Cohort Data Modal -->
+    <div id="cohort-data" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('cohort-data')">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Cohort Data Reflection & Planning</h3>
+            <div class="resource-content">
+                <p class="mb-4">Interactive tools for analyzing cohort data and developing targeted instructional plans based on specific learning needs identified across groups.</p>
+                
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('cohort-data-reflection-tools.xlsx')">
+                        <i class="fas fa-download mr-2"></i> Download Tool Set
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('cohort-data-reflection-tools')">
+                        <i class="fas fa-eye mr-2"></i> View Sample Planning Guide
+                    </button>
+                </div>
             </div>
         </div>
     </div>
     
     <!-- Literacy Case Study Modal -->
-    <div id="literacy-case-study-modal" class="modal">
+    <div id="literacy-case-study" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('literacy-case-study-modal')">&times;</span>
-            <div class="modal-header">
-                <h2 class="text-2xl font-bold text-gray-800">Literacy Case Study: Cohort C</h2>
+            <div class="close-modal" onclick="closeModal('literacy-case-study')">
+                <i class="fas fa-times"></i>
             </div>
-            <div class="modal-body">
-                <p class="mb-4">Detailed case study analyzing the implementation and outcomes of literacy interventions for a specific student cohort that faced significant challenges.</p>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Literacy Excellence Case Study</h3>
+            <div class="resource-content">
+                <p class="mb-4">A detailed examination of literacy improvement strategies implemented with my 5th grade cohort from 2022-2024, highlighting key interventions and outcomes.</p>
                 
-                <h3 class="text-xl font-bold mb-3">Case Study Overview</h3>
-                <div class="bg-blue-50 p-4 rounded-lg mb-5">
-                    <p class="text-gray-700">
-                        This case study documents the literacy journey of "Cohort C" - a group of 47 fifth-grade students who began the academic year significantly behind grade-level expectations, with 72% reading at least two years below grade level. The study details the systematic interventions implemented, challenges encountered, and remarkable growth achieved over an 18-month period.
-                    </p>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Initial Assessment Data</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
-                    <div class="bg-red-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2">Reading Proficiency (Beginning of Year)</h4>
-                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
-                            <li>8% Meeting grade level standards</li>
-                            <li>20% One year below grade level</li>
-                            <li>45% Two years below grade level</li>
-                            <li>27% Three+ years below grade level</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-orange-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-semibold mb-2">Specific Skill Gaps</h4>
-                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
-                            <li>83% Deficient in multisyllabic decoding</li>
-                            <li>76% Below benchmark in reading fluency</li>
-                            <li>91% Limited academic vocabulary</li>
-                            <li>87% Struggling with inferential comprehension</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="bg-yellow-50 p-4 rounded-lg mb-5">
-                    <h4 class="text-lg font-semibold mb-2">Contextual Challenges</h4>
-                    <ul class="list-disc pl-6 text-gray-700 space-y-1">
-                        <li>High mobility rate (31% of students new to the school)</li>
-                        <li>Inconsistent literacy instruction in previous grades</li>
-                        <li>42% of students identified for special education services</li>
-                        <li>Limited access to literacy materials at home (68% reporting)</li>
-                        <li>High rates of chronic absenteeism (23% of cohort)</li>
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-lg mb-2">Case Study Highlights</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Systematic approach to writing process skills development</li>
+                        <li>Integration of editing practices with reading comprehension</li>
+                        <li>Cross-curricular literacy reinforcement strategies</li>
+                        <li>Maintaining growth despite staffing challenges</li>
                     </ul>
                 </div>
                 
-                <h3 class="text-xl font-bold mb-3">Intervention Approach</h3>
-                
-                <div class="mb-5">
-                    <h4 class="text-lg font-semibold mb-2">Three-Tier Intervention System</h4>
-                    
-                    <div class="border-l-4 border-green-500 pl-4 mb-4">
-                        <h5 class="font-medium mb-1">Tier 1: Enhanced Core Instruction (All Students)</h5>
-                        <ul class="list-disc pl-6 text-sm text-gray-700 space-y-1">
-                            <li>Structured literacy approach with systematic skill progression</li>
-                            <li>Increased time allocation (120 minutes daily literacy block)</li>
-                            <li>Text complexity gradient with scaffolded supports</li>
-                            <li>Accountable talk protocols for academic discourse</li>
-                            <li>Integrated content-area literacy strategies</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border-l-4 border-blue-500 pl-4 mb-4">
-                        <h5 class="font-medium mb-1">Tier 2: Targeted Skill Interventions (42% of Students)</h5>
-                        <ul class="list-disc pl-6 text-sm text-gray-700 space-y-1">
-                            <li>Daily 30-minute small group interventions (3-5 students)</li>
-                            <li>Skill-specific focus based on diagnostic assessment</li>
-                            <li>Explicit instruction in identified deficit areas</li>
-                            <li>Bi-weekly progress monitoring with adjustment</li>
-                            <li>Technology-supported practice with immediate feedback</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border-l-4 border-purple-500 pl-4">
-                        <h5 class="font-medium mb-1">Tier 3: Intensive Intervention (27% of Students)</h5>
-                        <ul class="list-disc pl-6 text-sm text-gray-700 space-y-1">
-                            <li>One-on-one daily intervention (20 minutes)</li>
-                            <li>Multisensory structured literacy approach</li>
-                            <li>Personalized learning plans with specific, measurable goals</li>
-                            <li>Weekly progress monitoring with immediate instructional adjustment</li>
-                            <li>Parent/caregiver training component</li>
-                        </ul>
-                    </div>
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('literacy-case-study-2022-2024.pdf')">
+                        <i class="fas fa-download mr-2"></i> Download Case Study
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('literacy-case-study-2022-2024')">
+                        <i class="fas fa-eye mr-2"></i> View Full Document
+                    </button>
                 </div>
-                
-                <h3 class="text-xl font-bold mb-3">Key Implementation Components</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-                    <div class="bg-gray-100 p-3 rounded-lg">
-                        <h4 class="font-semibold mb-1 text-center">Assessment System</h4>
-                        <ul class="list-disc pl-4 text-sm text-gray-700 space-y-1">
-                            <li>Comprehensive diagnostic assessment</li>
-                            <li>Weekly skill-based progress monitoring</li>
-                            <li>Monthly benchmark assessments</li>
-                            <li>Running records with miscue analysis</li>
-                            <li>Digital tracking dashboard</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-gray-100 p-3 rounded-lg">
-                        <h4 class="font-semibold mb-1 text-center">Teacher Support</h4>
-                        <ul class="list-disc pl-4 text-sm text-gray-700 space-y-1">
-                            <li>Intensive professional development (42 hours)</li>
-                            <li>Weekly collaborative planning</li>
-                            <li>Bi-weekly coaching cycles</li>
-                            <li>Video analysis of instruction</li>
-                            <li>Data analysis protocols</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-gray-100 p-3 rounded-lg">
-                        <h4 class="font-semibold mb-1 text-center">Student Engagement</h4>
-                        <ul class="list-disc pl-4 text-sm text-gray-700 space-y-1">
-                            <li>Goal-setting conferences</li>
-                            <li>Progress visualization tools</li>
-                            <li>Interest-based text selection</li>
-                            <li>Self-monitoring strategies</li>
-                            <li>Celebration of growth milestones</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Outcomes Analysis</h3>
-                
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-2">End-of-Year Results</h4>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-green-50 p-4 rounded-lg">
-                            <h5 class="font-medium mb-2">Reading Proficiency Gains</h5>
-                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
-                                <li>53% Meeting grade level standards (+45 percentage points)</li>
-                                <li>29% One year below grade level</li>
-                                <li>14% Two years below grade level</li>
-                                <li>4% Three+ years below grade level</li>
-                            </ul>
-                            <p class="text-sm text-green-700 font-medium mt-2">92% of students showed at least 1.5 years growth</p>
-                        </div>
-                        
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <h5 class="font-medium mb-2">Skill-Specific Improvements</h5>
-                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
-                                <li>Multisyllabic decoding: 91% at/above benchmark</li>
-                                <li>Reading fluency: 83% at/above benchmark</li>
-                                <li>Academic vocabulary: 76% at/above benchmark</li>
-                                <li>Inferential comprehension: 72% at/above benchmark</li>
-                            </ul>
-                            <p class="text-sm text-blue-700 font-medium mt-2">Average gain of 22 words per minute in oral reading fluency</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">State Assessment Performance</h3>
-                <div class="bg-indigo-50 p-4 rounded-lg mb-5">
-                    <p class="mb-2 text-gray-700">On end-of-year state assessments, Cohort C achieved:</p>
-                    <ul class="list-disc pl-6 text-gray-700 space-y-1">
-                        <li>77% Approaches Grade Level (vs. 79% state average)</li>
-                        <li>59% Meets Grade Level (vs. 55% state average)</li>
-                        <li>30% Masters Grade Level (vs. 29% state average)</li>
-                    </ul>
-                    <p class="text-indigo-700 font-medium mt-3">This represents the first time in five years that the school matched or exceeded state averages, despite starting significantly behind.</p>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Key Success Factors</h3>
-                <div class="mb-5">
-                    <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-                        <li><strong>Systematic and explicit instruction</strong> focused on identified skill deficits</li>
-                        <li><strong>Tiered intervention model</strong> with appropriate intensity based on need</li>
-                        <li><strong>Responsive data systems</strong> that triggered immediate instructional adjustments</li>
-                        <li><strong>Consistent implementation</strong> with high fidelity to instructional protocols</li>
-                        <li><strong>Collaborative teacher support</strong> that built capacity and sustained momentum</li>
-                        <li><strong>Student engagement strategies</strong> that fostered ownership of learning</li>
-                    </ol>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3">Sustainability Measures</h3>
-                <div class="bg-gray-100 p-4 rounded-lg">
-                    <p class="text-gray-700 mb-2">To ensure continued progress, the following systems were established:</p>
-                    <ul class="list-disc pl-6 text-gray-700 space-y-1">
-                        <li>Documented intervention protocols incorporated into school literacy plan</li>
-                        <li>Train-the-trainer model to maintain instructional expertise</li>
-                        <li>Data tracking systems embedded in school-wide practices</li>
-                        <li>Vertical team structure to support transition to middle school</li>
-                        <li>Resource allocation priorities adjusted to maintain intervention intensity</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="px-4 py-2 bg-gray-200 rounded-lg mr-4 hover:bg-gray-300 transition" onclick="closeModal('literacy-case-study-modal')">Close</button>
-                <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" download="literacy-case-study-cohort-c.pdf">Download Case Study</a>
             </div>
         </div>
     </div>
     
-    <!-- Professional Development Modal -->
-    <div id="professional-development-modal" class="modal">
+    <!-- Leadership Professional Development Modal -->
+    <div id="professional-development" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('professional-development-modal')">&times;</span>
-            <div class="modal-header">
-                <h2 class="text-2xl font-bold text-gray-800">Professional Development Resources</h2>
+            <div class="close-modal" onclick="closeModal('professional-development')">
+                <i class="fas fa-times"></i>
             </div>
-            <div class="modal-body">
-                <p class="mb-4">Comprehensive professional development materials for educators implementing leadership strategies and instructional frameworks.</p>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Triangle Leadership System</h3>
+            <div class="resource-content">
+                <p class="mb-4">A comprehensive leadership framework that combines individual strengths development, systems coherence, and collective intelligence building to create sustainable educational excellence.</p>
                 
-                <h3 class="text-xl font-bold mb-3">The Triangle Leadership System</h3>
-                <div class="bg-indigo-50 p-4 rounded-lg mb-5">
-                    <p class="text-gray-700">
-                        This leadership development framework focuses on building educational leaders who can balance individual teacher strengths with systemic coherence while fostering collective intelligence. The approach creates sustainable growth even in challenging environments with high staff turnover or limited experience.
-                    </p>
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-lg mb-2">Leadership Framework Components</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Personalized coaching protocols based on teacher learning styles</li>
+                        <li>Systems design templates for instructional coherence</li>
+                        <li>Collaborative intelligence building strategies</li>
+                        <li>Developmental evaluation tools and rubrics</li>
+                    </ul>
                 </div>
                 
-                <h3 class="text-xl font-bold mb-3">Core Leadership Components</h3>
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('triangle-leadership-system.pdf')">
+                        <i class="fas fa-download mr-2"></i> Download Framework
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('triangle-leadership-system')">
+                        <i class="fas fa-eye mr-2"></i> View Full Document
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Literacy Case Study Cohort Modal -->
+    <div id="literacy-case-study-cohort" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('literacy-case-study-cohort')">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Literacy Cohort Development Model</h3>
+            <div class="resource-content">
+                <p class="mb-4">A case study-based framework for developing literacy skills across an entire grade-level cohort, incorporating multi-year planning and sustainable growth strategies.</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <div class="text-4xl text-blue-600 text-center mb-3">
-                            <i class="fas fa-user-cog"></i>
-                        </div>
-                        <h4 class="text-lg font-semibold mb-2 text-center">Individual Strengths</h4>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Personalized coaching approaches</li>
-                            <li>Learning style assessment</li>
-                            <li>Differentiated feedback protocols</li>
-                            <li>Tailored growth planning</li>
-                            <li>Leveraging unique talents</li>
-                        </ul>
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-lg mb-2">Model Features</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Three-year skill progression mapping</li>
+                        <li>Teacher capacity building integrated with student growth</li>
+                        <li>Assessment alignment with instructional focus</li>
+                        <li>Mitigating strategies for staffing challenges</li>
+                    </ul>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('literacy-cohort-development-model.pdf')">
+                        <i class="fas fa-download mr-2"></i> Download Case Study
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('literacy-cohort-development-model')">
+                        <i class="fas fa-eye mr-2"></i> View Full Document
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Developmental Literacy Framework Modal -->
+    <div id="developmental-literacy-framework" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('developmental-literacy-framework')">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Developmental Literacy Framework</h3>
+            <div class="resource-content">
+                <p class="mb-4">A comprehensive framework that aligns literacy instruction with cognitive and developmental stages, ensuring appropriate scaffolding and challenge at each level.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded shadow">
+                        <h4 class="font-semibold text-blue-700 mb-2">Early Foundations (K-1)</h4>
+                        <p>Phonological awareness, letter-sound relationships, and early comprehension strategies aligned with cognitive development.</p>
                     </div>
                     
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="text-4xl text-green-600 text-center mb-3">
-                            <i class="fas fa-cogs"></i>
-                        </div>
+                    <div class="bg-white p-4 rounded shadow">
+                        <h4 class="font-semibold text-blue-700 mb-2">Building Blocks (2-3)</h4>
+                        <p>Fluency development, vocabulary expansion, and text structure understanding aligned with developing metacognitive awareness.</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded shadow">
+                        <h4 class="font-semibold text-blue-700 mb-2">Intermediate Applications (4-5)</h4>
+                        <p>Analytical reading strategies, author's craft analysis, and multi-source integration aligned with abstract thinking development.</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded shadow">
+                        <h4 class="font-semibold text-blue-700 mb-2">Advanced Integration (Middle School)</h4>
+                        <p>Critical literacy skills, discipline-specific literacy approaches, and sophisticated writing techniques aligned with emerging formal operational thinking.</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('developmental-literacy-framework.pdf')">
+                        <i class="fas fa-download mr-2"></i> Download Framework
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('developmental-literacy-framework')">
+                        <i class="fas fa-eye mr-2"></i> View Full Document
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Holistic Literacy Map Modal -->
+    <div id="holistic-literacy-map" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('holistic-literacy-map')">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-6 text-blue-700">Holistic Literacy Map</h3>
+            <div class="resource-content">
+                <p class="mb-4">A comprehensive mapping of literacy skills across cognitive, social-emotional, and cultural dimensions, creating a truly integrated approach to literacy development.</p>
+                
+                <div class="flex justify-center">
+                    <button class="tech-btn mr-4" onclick="downloadResource('holistic-literacy-map.pdf')">
+                        <i class="fas fa-download mr-2"></i> Download Framework
+                    </button>
+                    <button class="tech-btn bg-green-600 hover:bg-green-700" onclick="viewDocument('holistic-literacy-map')">
+                        <i class="fas fa-eye mr-2"></i> View Full Document
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Carousel functionality
+        let currentIndex = 0;
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        const carousel = document.getElementById('main-carousel');
+        const sections = document.querySelectorAll('.section-content');
+        
+        // Initialize the carousel and sections
+        function updateCarousel() {
+            // Update carousel position
+            carousel.style.transform = `translateX(-${currentIndex * 25}%)`;
+            
+            // Update active dot
+            carouselDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+            
+            // Update active section
+            sections.forEach((section, index) => {
+                section.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        // When the page loads, set the first section as active
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCarousel();
+            animateProgressBars();
+            initLiteracyChart();
+            
+            // Set first carousel item and section as active
+            carouselDots[0].classList.add('active');
+            sections[0].classList.add('active');
+        });
+        
+        // Click events for dots
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+        
+        // Click events for carousel items
+        carouselItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+        
+        // Progress bar animation
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+        }
+        
+        // STAAR data visualization
+        function initLiteracyChart() {
+            const ctx = document.getElementById('literacyChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['2022 - Approaches', '2022 - Meets', '2022 - Masters', '2023 - Approaches', '2023 - Meets', '2023 - Masters', '2024 - Approaches', '2024 - Meets', '2024 - Masters'],
+                    datasets: [
+                        {
+                            label: 'Campus',
+                            data: [82, 59, 34, 81, 63, 31, 77, 59, 30],
+                            backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                            borderColor: 'rgba(59, 130, 246, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'District',
+                            data: [85, 63, 40, 84, 60, 32, 78, 54, 28],
+                            backgroundColor: 'rgba(99, 102, 241, 0.8)',
+                            borderColor: 'rgba(99, 102, 241, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'State',
+                            data: [81, 58, 36, 80, 57, 28, 79, 55, 29],
+                            backgroundColor: 'rgba(209, 213, 219, 0.8)',
+                            borderColor: 'rgba(209, 213, 219, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Grade 5 STAAR Reading Performance by Cohort (2022-2024)',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Percentage'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Touch events for mobile swiping on carousel
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX) {
+                // Swipe left
+                currentIndex = Math.min(currentIndex + 1, carouselItems.length - 1);
+            } else if (touchEndX > touchStartX) {
+                // Swipe right
+                currentIndex = Math.max(currentIndex - 1, 0);
+            }
+            updateCarousel();
+        }
+        
+        // Modal functionality
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside content
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Document viewer function
+        function viewDocument(documentId) {
+            // This would normally open the document in a viewer
+            // For this example, we'll show an alert
+            alert(`Opening document: ${documentId}\n\nThis would typically display the document in a viewer like Microsoft Office Online or Google Docs Viewer.`);
+        }
+        
+        // Download resource function
+        function downloadResource(fileName) {
+            // This would normally trigger a file download
+            // For this example, we'll show an alert
+            alert(`Downloading: ${fileName}\n\nThis would typically trigger a download of the actual file.`);
+        }
+        
+        // Close modals with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
